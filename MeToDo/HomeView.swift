@@ -10,8 +10,13 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .navigationTitle("Home")
+            ScrollView {
+            ForEach(1..<100) {
+                Text("Row \($0)")
+                
+            }
+        }
+            .navigationTitle("Home")
         }
     }
 }
