@@ -2,11 +2,13 @@
     <img src="https://img.shields.io/badge/iOS-15.0+-blue.svg" />
     <img src="https://img.shields.io/badge/Swift-5.5-brightgreen.svg" />
     <a href="https://twitter.com/naolin_dev">
-        <img src="https://img.shields.io/badge/Contact-@naolin_dev-lightgrey.svg?style=flat" alt="Twitter: @naolin_dev" />
+        <img src="https://img.shields.io/badge/Twitter-@naolin_dev-lightgrey.svg?style=flat" alt="Twitter: @naolin_dev" />
     </a>
     
-    [![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=https://naolin.medium.com/)](https://naolin.medium.com/)
+    
 </p>
+![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)
+![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=https://naolin.medium.com/)(https://naolin.medium.com/)
 
 ToDo with SwiftUI.
 
