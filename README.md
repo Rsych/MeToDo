@@ -4,14 +4,11 @@
     <a href="https://twitter.com/naolin_dev">
         <img src="https://img.shields.io/badge/Twitter-@naolin_dev-lightgrey.svg?style=flat" alt="Twitter: @naolin_dev" />
     </a>
-    
-    
 </p>
-![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)
 
-[![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=https://naolin.medium.com/)(https://naolin.medium.com/)]
+![Example](https://img.shields.io/badge/iOS-15.0+-blue.svg)
 
-[![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=naolin.medium.com)](naolin.medium.com)
+[![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=naolin.medium.com)](https://naolin.medium.com)
 
 ToDo with SwiftUI.
 
