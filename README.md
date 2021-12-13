@@ -1,14 +1,14 @@
-<p align="center">
+<!-- <p align="center">
     <img src="https://img.shields.io/badge/iOS-15.0+-blue.svg" />
     <img src="https://img.shields.io/badge/Swift-5.5-brightgreen.svg" />
     <a href="https://twitter.com/naolin_dev">
         <img src="https://img.shields.io/badge/Twitter-@naolin_dev-lightgrey.svg?style=flat" alt="Twitter: @naolin_dev" />
     </a>
-</p>
-
-![Example](https://img.shields.io/badge/iOS-15.0+-blue.svg)
-
+</p> -->
+![iOS15](https://img.shields.io/badge/iOS-15.0+-blue.svg)
+![Swift55](https://img.shields.io/badge/Swift-5.5-brightgreen.svg)
 [![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=naolin.medium.com)](https://naolin.medium.com)
+![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fnaolin_dev)
 
 ToDo with SwiftUI.
 
