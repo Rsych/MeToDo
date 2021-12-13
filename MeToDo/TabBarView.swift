@@ -42,10 +42,9 @@ struct TabBarView: View {
                             .fixedSize()
                     }  //: VStack
                     .fixedSize(horizontal: false, vertical: true)
-                    .frame(width: geo.size.width / 2, height: 66, alignment: .top)
+                    .frame(width: geo.size.width / 2, height: 44, alignment: .bottom)
                     .padding(.horizontal)
-                    .padding(.top, 14)
-                    .ignoresSafeArea()
+                    .padding(.top, 10)
                     .onTapGesture {
                         withAnimation {
                             selectedTab = index
@@ -71,7 +70,7 @@ let tabs = [
     Tab(image: "list.bullet", label: "Open"),
     Tab(image: "plus.square.fill", label: "Add"),
     Tab(image: "checkmark", label: "Finished"),
-    Tab(image: "person.2.fill", label: "Network"),
+    Tab(image: "person.2.fill", label: "Network")
 ]
 
 struct RoundedCorner: Shape {
@@ -93,6 +92,9 @@ extension View {
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView(selectedTab: Binding.constant(0))
-//            .previewLayout(.sizeThatFits)
+            .padding()
+            .preferredColorScheme(.dark)
+            .previewLayout(.sizeThatFits)
+//            .padding()
     }
 }

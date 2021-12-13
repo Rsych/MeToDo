@@ -11,11 +11,11 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-            ForEach(1..<100) {
-                Text("Row \($0)")
-                
+                ForEach(1..<100) {
+                    Text("Row \($0)")
+                    
+                }
             }
-        }
             .navigationTitle("Home")
         }
     }

@@ -25,16 +25,18 @@ struct ContentView: View {
                 Text("Network")
                     .tag(4)
             }  //: TabView
-//            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .onAppear(perform: {
+                // with tab bar shown, it leaves tiny marks on background
+                UITabBar.appearance().isHidden = true
+            })
             .overlay(TabBarView(selectedTab: $selectedTab), alignment: .bottom)
-//            .padding(.bottom, 10)
             .ignoresSafeArea()
-
     }  //: body
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
