@@ -8,7 +8,8 @@
     
 </p>
 ![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)
-![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=https://naolin.medium.com/)(https://naolin.medium.com/)
+
+[![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=https://naolin.medium.com/)(https://naolin.medium.com/)]
 
 ToDo with SwiftUI.
 
