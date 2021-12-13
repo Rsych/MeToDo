@@ -11,6 +11,8 @@
 
 [![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=https://naolin.medium.com/)(https://naolin.medium.com/)]
 
+[![Medium Badge](http://img.shields.io/badge/-Medium-12100E?style=flat&logo=medium&link=naolin.medium.com)](naolin.medium.com)
+
 ToDo with SwiftUI.
 
 ## To Do
