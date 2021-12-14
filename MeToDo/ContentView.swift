@@ -16,11 +16,11 @@ struct ContentView: View {
             TabView(selection: $selectedTab) {
                 HomeView()
                     .tag(0)
-                Text("Open")
+                ProjectView(showClosedProjects: false)
                     .tag(1)
                 Text("Add")
                     .tag(2)
-                Text("Finished")
+                ProjectView(showClosedProjects: true)
                     .tag(3)
                 Text("Network")
                     .tag(4)
