@@ -25,11 +25,11 @@ struct ProjectView: View {
                 ForEach(projects.wrappedValue) { project in
                     Section {
                         
-                        ForEach(project.items?.allObjects as? [Item] ?? []) { item in
-                            Text(item.title ?? "")
+                        ForEach(project.projectItems) { item in
+                            Text(item.itemTitle)
                         }
                     } header: {
-                        Text(project.title ?? "")
+                        Text(project.projectTitle)
                             .foregroundColor(.primary)
                             .font(.title2)
                             .fontWeight(.bold)
