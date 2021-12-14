@@ -47,7 +47,7 @@ class DataController: ObservableObject {
             project.creationDate = Date()
             project.closed = Bool.random()
             
-            for j in 1...10 {
+            for j in 1...5 {
                 let item = Item(context: viewContext)
                 item.title = "Item \(j)"
                 item.creationDate = Date()

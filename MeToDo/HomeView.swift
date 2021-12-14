@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
+    // MARK: - Properties
+    @EnvironmentObject var dataController: DataController
+    
+    // MARK: - Body
     var body: some View {
         NavigationView {
-            ScrollView {
-                ForEach(1..<100) {
-                    Text("Row \($0)")
-                    
+            VStack {
+                Button("Add Data") {
+                    dataController.deleteAll()
+                    try? dataController.createSampleData()
                 }
             }
             .navigationTitle("Home")
