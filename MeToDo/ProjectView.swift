@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ProjectView: View {
     // MARK: - Properties
+    static let openTag: Int = 1
+    static let closedTag: Int = 3
+    
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
     
@@ -37,7 +40,7 @@ struct ProjectView: View {
                     .padding(.bottom, 3)
                 }
             }  //: List
-            .listStyle(InsetGroupedListStyle())
+            .listStyle(SidebarListStyle())
             .navigationTitle(showClosedProjects ? "Finished" : "Open")
             .navigationBarTitleDisplayMode(.inline)
         }  //: NavView

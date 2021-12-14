@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     // MARK: - Properties
+    static let homeTag: Int = 0
     @EnvironmentObject var dataController: DataController
     
     // MARK: - Body

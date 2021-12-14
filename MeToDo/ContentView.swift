@@ -9,19 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: - Properties
-    @State private var selectedTab = 0
+    @SceneStorage("selectedTab") var currentTab: Int = 0
     
     // MARK: - Body
     var body: some View {
-            TabView(selection: $selectedTab) {
+            TabView(selection: $currentTab) {
                 HomeView()
-                    .tag(0)
+                    .tag(HomeView.homeTag)
                 ProjectView(showClosedProjects: false)
-                    .tag(1)
+                    .tag(ProjectView.openTag)
                 Text("Add")
                     .tag(2)
                 ProjectView(showClosedProjects: true)
-                    .tag(3)
+                    .tag(ProjectView.closedTag)
                 Text("Network")
                     .tag(4)
             }  //: TabView
@@ -29,7 +29,7 @@ struct ContentView: View {
                 // with tab bar shown, it leaves tiny marks on background
                 UITabBar.appearance().isHidden = true
             })
-            .overlay(TabBarView(selectedTab: $selectedTab), alignment: .bottom)
+            .overlay(TabBarView(selectedTab: $currentTab), alignment: .bottom)
             .ignoresSafeArea()
     }  //: body
 }
