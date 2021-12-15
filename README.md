@@ -14,6 +14,7 @@ ToDo with SwiftUI.
 
 ## To Do
 * ~~Basic design (Tabs, Nav)~~
+* ~~Modal Views~~
 * Create Views
 * DataControl
 * CoreData
