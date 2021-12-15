@@ -5,6 +5,7 @@
 //  Created by Ryan J. W. Kim on 2021/12/14.
 //
 
+import UIKit
 import SwiftUI
 
 struct ProjectView: View {
@@ -29,7 +30,9 @@ struct ProjectView: View {
                     Section {
                         
                         ForEach(project.projectItems) { item in
+                            NavigationLink(destination: EditItemView(item: item)) {
                             Text(item.itemTitle)
+                            }
                         }
                     } header: {
                         Text(project.projectTitle)

@@ -18,6 +18,7 @@
 		71A63E09276766EF00EAB2EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A63E08276766EF00EAB2EC /* Preview Assets.xcassets */; };
 		71A63E102767680400EAB2EC /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E0F2767680400EAB2EC /* TabBarView.swift */; };
 		71A63E122767728700EAB2EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E112767728700EAB2EC /* HomeView.swift */; };
+		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		71A63E08276766EF00EAB2EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71A63E0F2767680400EAB2EC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		71A63E112767728700EAB2EC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
 				71A63E03276766EE00EAB2EC /* ContentView.swift */,
 				715AEFDD27688821009C63DB /* ProjectView.swift */,
+				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
 				715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */,
 				710C89842768784D004FADCD /* Main.xcdatamodeld */,
 				710C898727687AC3004FADCD /* DataController.swift */,
@@ -179,6 +182,7 @@
 				715AEFDE27688821009C63DB /* ProjectView.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,
 				710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */,
+				71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
