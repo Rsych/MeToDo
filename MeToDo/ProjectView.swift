@@ -5,12 +5,15 @@
 //  Created by Ryan J. W. Kim on 2021/12/14.
 //
 
+import UIKit
 import SwiftUI
 
 struct ProjectView: View {
     // MARK: - Properties
     static let openTag: Int = 1
     static let closedTag: Int = 3
+    
+    @State private var showModal = false
     
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
@@ -27,10 +30,15 @@ struct ProjectView: View {
             List {
                 ForEach(projects.wrappedValue) { project in
                     Section {
-                        
                         ForEach(project.projectItems) { item in
-                            Text(item.itemTitle)
-                        }
+                            ItemRowListView(item: item)
+                                .sheet(isPresented: $showModal) {
+                                     EditItemView(item: item)
+                                }
+                                .onTapGesture {
+                                    showModal = true
+                                }
+                        } //: Project item list loop
                     } header: {
                         Text(project.projectTitle)
                             .foregroundColor(.primary)
