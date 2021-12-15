@@ -14,7 +14,7 @@
 		715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
 		718B0CB4276A1038005D496C /* ItemRowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CB3276A1038005D496C /* ItemRowListView.swift */; };
 		718B0CB6276A117D005D496C /* BindingOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CB5276A117D005D496C /* BindingOnChange.swift */; };
-		718B0CB8276A1305005D496C /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CB7276A1305005D496C /* Test.swift */; };
+		718B0CBA276A18E3005D496C /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CB9276A18E3005D496C /* ProjectHeaderView.swift */; };
 		71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E01276766EE00EAB2EC /* MeToDoApp.swift */; };
 		71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E03276766EE00EAB2EC /* ContentView.swift */; };
 		71A63E06276766EF00EAB2EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A63E05276766EF00EAB2EC /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 		715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		718B0CB3276A1038005D496C /* ItemRowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowListView.swift; sourceTree = "<group>"; };
 		718B0CB5276A117D005D496C /* BindingOnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingOnChange.swift; sourceTree = "<group>"; };
-		718B0CB7276A1305005D496C /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		718B0CB9276A18E3005D496C /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		71A63DFE276766EE00EAB2EC /* MeToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A63E01276766EE00EAB2EC /* MeToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeToDoApp.swift; sourceTree = "<group>"; };
 		71A63E03276766EE00EAB2EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,8 +88,8 @@
 				710C898A27687E74004FADCD /* Info.plist */,
 				710C898927687E6D004FADCD /* MeToDo.entitlements */,
 				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
+				718B0CB9276A18E3005D496C /* ProjectHeaderView.swift */,
 				71A63E03276766EE00EAB2EC /* ContentView.swift */,
-				718B0CB7276A1305005D496C /* Test.swift */,
 				715AEFDD27688821009C63DB /* ProjectView.swift */,
 				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
 				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
@@ -184,11 +184,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */,
+				718B0CBA276A18E3005D496C /* ProjectHeaderView.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,
 				715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */,
 				71A63E122767728700EAB2EC /* HomeView.swift in Sources */,
 				718B0CB4276A1038005D496C /* ItemRowListView.swift in Sources */,
-				718B0CB8276A1305005D496C /* Test.swift in Sources */,
 				71A63E102767680400EAB2EC /* TabBarView.swift in Sources */,
 				715AEFDE27688821009C63DB /* ProjectView.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,

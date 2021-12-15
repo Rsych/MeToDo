@@ -40,10 +40,10 @@ struct ProjectView: View {
                                 }
                         } //: Project item list loop
                     } header: {
-                        Text(project.projectTitle)
+                        ProjectHeaderView(project: project)
                             .foregroundColor(.primary)
                             .font(.title2)
-                            .fontWeight(.bold)
+                        
                     }
                     .padding(.bottom, 3)
                 }
