@@ -43,7 +43,6 @@ struct ProjectView: View {
                         ProjectHeaderView(project: project)
                             .foregroundColor(.primary)
                             .font(.title2)
-                        
                     }
                     .padding(.bottom, 3)
                 }
