@@ -28,12 +28,9 @@ struct ProjectView: View {
             List {
                 ForEach(projects.wrappedValue) { project in
                     Section {
-                        
                         ForEach(project.projectItems) { item in
-                            NavigationLink(destination: EditItemView(item: item)) {
-                            Text(item.itemTitle)
-                            }
-                        }
+                            ItemRowListView(item: item)
+                        } //: Project item list loop
                     } header: {
                         Text(project.projectTitle)
                             .foregroundColor(.primary)
