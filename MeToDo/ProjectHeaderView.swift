@@ -20,6 +20,8 @@ struct ProjectHeaderView: View {
                     .fontWeight(.bold)
                 
                 ProgressView(value: project.completionAmount)
+                    .tint(Color(project.projectColor))
+//                    .tint(Color("Orange"))
             }
             Spacer()
             

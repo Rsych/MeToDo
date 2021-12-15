@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Item {
     var itemTitle: String {
@@ -39,7 +40,7 @@ extension Project {
         detail ?? ""
     }
     var projectColor: String {
-        color ?? "Light Blue"
+        color ?? "Orange"
     }
     
     var projectItems: [Item] {
