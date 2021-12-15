@@ -13,6 +13,8 @@ struct ProjectView: View {
     static let openTag: Int = 1
     static let closedTag: Int = 3
     
+    @State private var showModal = false
+    
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
     
@@ -30,6 +32,12 @@ struct ProjectView: View {
                     Section {
                         ForEach(project.projectItems) { item in
                             ItemRowListView(item: item)
+                                .sheet(isPresented: $showModal) {
+                                     EditItemView(item: item)
+                                }
+                                .onTapGesture {
+                                    showModal = true
+                                }
                         } //: Project item list loop
                     } header: {
                         Text(project.projectTitle)

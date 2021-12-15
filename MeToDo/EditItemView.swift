@@ -13,6 +13,8 @@ struct EditItemView: View {
     
     @EnvironmentObject var dataController: DataController
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var title: String
     @State private var detail: String
     @State private var priority: Int
@@ -24,20 +26,22 @@ struct EditItemView: View {
         _detail = State(wrappedValue: item.itemDetail)
         _priority = State(wrappedValue: Int(item.priority))
         _completed = State(wrappedValue: item.completed)
+
     }
     
     // MARK: - Body
     var body: some View {
+        NavigationView {
         Form {
             Section {
-                TextField("Item name", text: $title)
-                TextField("Description", text: $detail)
+                TextField("Item name", text: $title.onChange(update))
+                TextField("Description", text: $detail.onChange(update))
             } header: {
                 Text("Basic settings")
             }  //: section 1
             
             Section {
-                Picker("priority", selection: $priority) {
+                Picker("priority", selection: $priority.onChange(update)) {
                     Text("Low").tag(1)
                     Text("Medium").tag(2)
                     Text("High").tag(3)
@@ -48,13 +52,26 @@ struct EditItemView: View {
             }  //: Priority picker section
             
             Section {
-                Toggle("Mark Completed", isOn: $completed)
+                Toggle("Mark Completed", isOn: $completed.onChange(update))
             }
         }  //: form
-        .navigationTitle("Edit Item")
-        .onDisappear {
-            update()
+        .navigationTitle("Edit item")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Dismiss") {
+                                presentationMode.wrappedValue.dismiss()
+                            } //: Button
+                        } //: ToolbarItem
+                    } //: Toolbar
         }
+        
+        .onDisappear(perform: dataController.save)
+//        ToolbarItem(placement: .navigationBarTrailing, content: {
+//            Button("Dismiss") {
+//                self.showModal.toggle()
+//            }
+//        })
+            
     }  //: body
     
     func update() {
@@ -63,6 +80,10 @@ struct EditItemView: View {
         item.detail = detail
         item.priority = Int16(priority)
         item.completed = completed
+    }
+    
+    func save(_ note: Notification) {
+        dataController.save()
     }
 }
 
