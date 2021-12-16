@@ -46,6 +46,7 @@ class DataController: ObservableObject {
             project.items = []
             project.creationDate = Date()
             project.closed = Bool.random()
+            project.color = Project.colors.randomElement()
             
             for j in 1...5 {
                 let item = Item(context: viewContext)

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Item {
     var itemTitle: String {
@@ -32,6 +33,8 @@ extension Item {
 }
 
 extension Project {
+    static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
+
     var projectTitle: String {
         title ?? ""
     }
@@ -39,7 +42,7 @@ extension Project {
         detail ?? ""
     }
     var projectColor: String {
-        color ?? "Light Blue"
+        color ?? "Orange"
     }
     
     var projectItems: [Item] {
@@ -80,6 +83,7 @@ extension Project {
         project.detail = "Example"
         project.closed = true
         project.creationDate = Date()
+        project.color = colors.randomElement()
         
         return project
     }
