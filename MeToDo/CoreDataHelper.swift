@@ -33,6 +33,8 @@ extension Item {
 }
 
 extension Project {
+    static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
+
     var projectTitle: String {
         title ?? ""
     }
@@ -81,6 +83,7 @@ extension Project {
         project.detail = "Example"
         project.closed = true
         project.creationDate = Date()
+        project.color = colors.randomElement()
         
         return project
     }

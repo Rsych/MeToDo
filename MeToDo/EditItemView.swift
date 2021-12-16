@@ -63,15 +63,9 @@ struct EditItemView: View {
                             } //: Button
                         } //: ToolbarItem
                     } //: Toolbar
-        }
+        }  //: NavView
         
-        .onDisappear(perform: dataController.save)
-//        ToolbarItem(placement: .navigationBarTrailing, content: {
-//            Button("Dismiss") {
-//                self.showModal.toggle()
-//            }
-//        })
-            
+        .onDisappear(perform: dataController.save)        
     }  //: body
     
     func update() {

@@ -28,10 +28,10 @@ struct ProjectHeaderView: View {
 //            NavigationLink(destination: EmptyView()) {
                 Image(systemName: "pencil")
                 .sheet(isPresented: $showModal) {
-                     EmptyView()
+                    EditProjectView(project: project, showModal: $showModal)
                 }
                 .onTapGesture {
-                    showModal = true
+                    showModal.toggle()
                 }
 //            }
         }  //: HStack
