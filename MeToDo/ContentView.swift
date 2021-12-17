@@ -13,6 +13,7 @@ struct ContentView: View {
     
     @State var shouldShowModel = false
     
+    
     // MARK: - Body
     var body: some View {
             TabView(selection: $currentTab) {
@@ -32,9 +33,9 @@ struct ContentView: View {
                     shouldShowModel = true
                     currentTab = 0
                 }
-            })
+            })  //: AddProjectSheet
             .sheet(isPresented: $shouldShowModel, content: {
-                EmptyView()
+                AddProjectView()
             })
             .onAppear(perform: {
                 // with tab bar shown, it leaves tiny marks on background

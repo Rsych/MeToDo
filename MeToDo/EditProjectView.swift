@@ -50,7 +50,6 @@ struct EditProjectView: View {
                             Color(item)
                                 .aspectRatio(1, contentMode: .fit)
                                 .cornerRadius(6)
-                            
                             if item == color {
                                 Image(systemName: "checkmark.circle")
                                     .foregroundColor(.white)
@@ -80,8 +79,9 @@ struct EditProjectView: View {
                 .foregroundColor(.red)
             } footer: {
                 Text("Closing")
-            }
-            // section 3
+            } // section 3
+            
+            
         }  //: Form
         .navigationTitle("Edit Project")
         .toolbar {
@@ -110,8 +110,8 @@ struct EditProjectView: View {
     }
 }
 
-struct EditProjectView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProjectView(project: Project.example, showModal: .constant(true))
-    }
-}
+//struct EditProjectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditProjectView(project: Project.example, showModal: .constant(true))
+//    }
+//}

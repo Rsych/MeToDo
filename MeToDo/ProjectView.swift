@@ -15,6 +15,7 @@ struct ProjectView: View {
     
     @State private var showModal = false
     
+    
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
     
