@@ -10,16 +10,16 @@ import SwiftUI
 struct EditItemView: View {
     // MARK: - Properties
     let item: Item
-    
+
     @EnvironmentObject var dataController: DataController
-    
+
     @Environment(\.presentationMode) var presentationMode
-    
+
     @State private var title: String
     @State private var detail: String
     @State private var priority: Int
     @State private var completed: Bool
-    
+
     init(item: Item) {
         self.item = item
         _title = State(wrappedValue: item.itemTitle)
@@ -28,7 +28,7 @@ struct EditItemView: View {
         _completed = State(wrappedValue: item.completed)
 
     }
-    
+
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -39,7 +39,7 @@ struct EditItemView: View {
             } header: {
                 Text("Basic settings")
             }  //: section 1
-            
+
             Section {
                 Picker("priority", selection: $priority.onChange(update)) {
                     Text("Low").tag(1)
@@ -50,7 +50,7 @@ struct EditItemView: View {
             } header: {
                 Text("Priority")
             }  //: Priority picker section
-            
+
             Section {
                 Toggle("Mark Completed", isOn: $completed.onChange(update))
             }
@@ -64,10 +64,10 @@ struct EditItemView: View {
                         } //: ToolbarItem
                     } //: Toolbar
         }  //: NavView
-        
-        .onDisappear(perform: dataController.save)        
+
+        .onDisappear(perform: dataController.save)
     }  //: body
-    
+
     func update() {
         item.project?.objectWillChange.send()
         item.title = title
@@ -75,7 +75,7 @@ struct EditItemView: View {
         item.priority = Int16(priority)
         item.completed = completed
     }
-    
+
     func save(_ note: Notification) {
         dataController.save()
     }

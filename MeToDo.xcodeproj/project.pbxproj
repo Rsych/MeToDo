@@ -17,6 +17,7 @@
 		718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */; };
 		718B0CBE276A258C005D496C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718B0CBD276A258C005D496C /* Colors.xcassets */; };
 		718B0CC0276A274B005D496C /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CBF276A274B005D496C /* EditProjectView.swift */; };
+		718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CC1276C7E05005D496C /* AddProjectView.swift */; };
 		71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E01276766EE00EAB2EC /* MeToDoApp.swift */; };
 		71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E03276766EE00EAB2EC /* ContentView.swift */; };
 		71A63E06276766EF00EAB2EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A63E05276766EF00EAB2EC /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		718B0CBD276A258C005D496C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		718B0CBF276A274B005D496C /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		718B0CC1276C7E05005D496C /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 		71A63DFE276766EE00EAB2EC /* MeToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A63E01276766EE00EAB2EC /* MeToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeToDoApp.swift; sourceTree = "<group>"; };
 		71A63E03276766EE00EAB2EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
 				71A63E03276766EE00EAB2EC /* ContentView.swift */,
 				715AEFDD27688821009C63DB /* ProjectView.swift */,
+				718B0CC1276C7E05005D496C /* AddProjectView.swift */,
 				718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */,
 				718B0CBF276A274B005D496C /* EditProjectView.swift */,
 				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
@@ -129,6 +132,7 @@
 				71A63DFA276766EE00EAB2EC /* Sources */,
 				71A63DFB276766EE00EAB2EC /* Frameworks */,
 				71A63DFC276766EE00EAB2EC /* Resources */,
+				718B0CC3276CCEBD005D496C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -185,6 +189,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		718B0CC3276CCEBD005D496C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		71A63DFA276766EE00EAB2EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -200,6 +224,7 @@
 				71A63E102767680400EAB2EC /* TabBarView.swift in Sources */,
 				715AEFDE27688821009C63DB /* ProjectView.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,
+				718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */,
 				710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */,
 				718B0CB6276A117D005D496C /* BindingOnChange.swift in Sources */,
 				71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */,
