@@ -10,7 +10,7 @@ import SwiftUI
 struct ProjectHeaderView: View {
     // MARK: - Properties
     @ObservedObject var project: Project
-    
+
     @State private var showModal = false
     // MARK: - Body
     var body: some View {
@@ -18,13 +18,13 @@ struct ProjectHeaderView: View {
             VStack(alignment: .leading) {
                 Text(project.projectTitle)
                     .fontWeight(.bold)
-                
+
                 ProgressView(value: project.completionAmount)
                     .tint(Color(project.projectColor))
 //                    .tint(Color("Orange"))
             }
             Spacer()
-            
+
 //            NavigationLink(destination: EmptyView()) {
                 Image(systemName: "pencil")
                 .sheet(isPresented: $showModal) {

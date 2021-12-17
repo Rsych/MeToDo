@@ -10,13 +10,12 @@ import SwiftUI
 struct ItemRowListView: View {
      // MARK: - Properties
     @ObservedObject var item: Item
-    
-    
+
     // MARK: - Body
     var body: some View {
 //        NavigationLink(destination: EditItemView(item: item)) {
             Text(item.itemTitle)
-                
+
 //        }  //: item NavLink
     }
 }

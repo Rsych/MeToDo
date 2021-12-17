@@ -10,10 +10,9 @@ import SwiftUI
 struct ContentView: View {
     // MARK: - Properties
     @SceneStorage("selectedTab") var currentTab: Int = 0
-    
+
     @State var shouldShowModel = false
-    
-    
+
     // MARK: - Body
     var body: some View {
             TabView(selection: $currentTab) {
@@ -28,7 +27,7 @@ struct ContentView: View {
                 Text("Network")
                     .tag(4)
             }  //: TabView
-            .onChange(of: currentTab, perform: { newValue in
+            .onChange(of: currentTab, perform: { _ in
                 if currentTab == 2 {
                     shouldShowModel = true
                     currentTab = 0

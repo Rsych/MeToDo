@@ -10,18 +10,18 @@ import SwiftUI
 struct AddProjectView: View {
     // MARK: - Properties
     //    let project: Project
-    
+
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
-    
+
     @State private var title: String = ""
     @State private var detail: String = ""
     @State private var color: String = Project.colors.randomElement() ?? "Light Blue"
-    
+
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))]
-    
+
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -32,7 +32,7 @@ struct AddProjectView: View {
                 }, header: {
                     Text("Basic settings")
                 })  //: Section 1
-                
+
                 Section {
                     LazyVGrid(columns: colorColumns) {
                         ForEach(Project.colors, id: \.self) { item in
@@ -55,7 +55,7 @@ struct AddProjectView: View {
                 } header: {
                     Text("Choose project color")
                 } // section 2
-            
+
             Section(content: {
                 Button("Save") {
                     save()
@@ -65,7 +65,7 @@ struct AddProjectView: View {
                 Text("Closing")
             })
             }  //: Form
-            
+
             .navigationTitle("Add Project")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -83,7 +83,7 @@ struct AddProjectView: View {
         //                            dataController.save()
         //        }
     }  //: body
-    
+
     func save() {
         let project = Project(context: managedObjectContext)
         project.title = title

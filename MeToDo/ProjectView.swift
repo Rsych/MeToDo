@@ -12,21 +12,26 @@ struct ProjectView: View {
     // MARK: - Properties
     static let openTag: Int = 1
     static let closedTag: Int = 3
-    
+
     @State private var showModal = false
-    
+
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
-    
+
     init(showClosedProjects: Bool) {
         self.showClosedProjects = showClosedProjects
-        
-        projects = FetchRequest<Project>(entity: Project.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)], predicate: NSPredicate(format: "closed = %d", showClosedProjects), animation: .default)
+
+        projects = FetchRequest<Project>(
+            entity: Project.entity(),
+            sortDescriptors: [NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)],
+            predicate: NSPredicate(format: "closed = %d", showClosedProjects),
+            animation: .default
+        )
     }
-    
+
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -45,14 +50,14 @@ struct ProjectView: View {
                         } //: Project item list loop
                         .onDelete { offsets in
                             let allItems = project.projectItems
-                            
+
                             for offset in offsets {
                                 let item = allItems[offset]
                                 dataController.delete(item)
                             }
                             dataController.save()
                         }  //: Delete Item
-                        
+
                         if showClosedProjects ==  false {
                             Button {
                                 withAnimation {
@@ -83,7 +88,7 @@ struct ProjectView: View {
 
 struct ProjectView_Previews: PreviewProvider {
     static var dataController = DataController.preview
-    
+
     static var previews: some View {
         ProjectView(showClosedProjects: false)
             .environment(\.managedObjectContext, dataController.container.viewContext)
