@@ -25,7 +25,7 @@ struct MeToDoApp: App {
                 .onReceive(
                     NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
                     perform: save
-                )
+                )  //: onReceive
         }
     }
     func save(_ note: Notification) {

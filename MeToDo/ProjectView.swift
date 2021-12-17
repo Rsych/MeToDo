@@ -14,6 +14,7 @@ struct ProjectView: View {
     static let closedTag: Int = 3
 
     @State private var showModal = false
+    @State private var showingSheet = false
 
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -38,10 +39,10 @@ struct ProjectView: View {
             List {
                 ForEach(projects.wrappedValue) { project in
                     Section {
-                        ForEach(project.projectItems) { item in
+                        ForEach(items(for: project)) { item in
                             ItemRowListView(item: item)
                                 .sheet(isPresented: $showModal) {
-                                     EditItemView(item: item)
+                                    EditItemView(item: item)
                                 }
                                 .onTapGesture {
                                     showModal = true
@@ -81,9 +82,35 @@ struct ProjectView: View {
             }  //: List
             .listStyle(SidebarListStyle())
             .navigationTitle(showClosedProjects ? "Finished" : "Open")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showingSheet.toggle()
+                    } label: {
+                        Label("Sort", systemImage: "arrow.up.arrow.down")
+                    }
+
+                } //: ToolbarItem
+            } //: Toolbar
             .navigationBarTitleDisplayMode(.inline)
+            .confirmationDialog("Sort items", isPresented: $showingSheet, titleVisibility: .visible) {
+                Button("Optimized") {
+
+                }
+                Button("Creation date") {
+
+                }
+                Button("Title") {
+
+                }
+            }
+
         }  //: NavView
     }  //: Body
+
+    func items(for project: Project) -> [Item] {
+        []
+    }
 }
 
 struct ProjectView_Previews: PreviewProvider {
