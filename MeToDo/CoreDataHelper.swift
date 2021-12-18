@@ -19,6 +19,10 @@ extension Item {
         creationDate ?? Date()
     }
 
+    enum SortOrder {
+        case title, creationDate, automatic
+    }
+
     static var example: Item {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext
@@ -70,6 +74,17 @@ extension Project {
                 return false
             }
             return first.itemCreationDate < second.itemCreationDate
+        }
+    }
+
+    func projectItems(using sortOrder: Item.SortOrder) -> [Item] {
+        switch sortOrder {
+        case .title:
+            return projectItems.sorted { $0.itemTitle < $1.itemTitle }
+        case .creationDate:
+            return projectItems.sorted { $0.itemCreationDate < $1.itemCreationDate }
+        case .automatic:
+            return projectItemsDefaultSorted
         }
     }
 
