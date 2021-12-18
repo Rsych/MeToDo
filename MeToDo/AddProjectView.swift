@@ -10,7 +10,7 @@ import SwiftUI
 struct AddProjectView: View {
     // MARK: - Properties
     //    let project: Project
-
+    static let addTag: Int = 1
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode

@@ -20,8 +20,7 @@ struct ContentView: View {
                     .tag(HomeView.homeTag)
                 ProjectView(showClosedProjects: false)
                     .tag(ProjectView.openTag)
-                HomeView()
-                    .tag(2)
+                EmptyView()
                 ProjectView(showClosedProjects: true)
                     .tag(ProjectView.closedTag)
                 Text("Network")
@@ -33,7 +32,9 @@ struct ContentView: View {
                     currentTab = 0
                 }
             })  //: AddProjectSheet
-            .sheet(isPresented: $shouldShowModel, content: {
+            .sheet(isPresented: $shouldShowModel, onDismiss: {
+                currentTab = 1
+            }, content: {
                 AddProjectView()
             })
             .onAppear(perform: {

@@ -14,6 +14,8 @@ struct ProjectView: View {
     static let closedTag: Int = 3
 
     @State private var showModal = false
+    @State private var showingSheet = false
+    @State private var sortOrder = Item.SortOrder.automatic
 
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -38,10 +40,10 @@ struct ProjectView: View {
             List {
                 ForEach(projects.wrappedValue) { project in
                     Section {
-                        ForEach(project.projectItems) { item in
+                        ForEach(project.projectItems(using: sortOrder)) { item in
                             ItemRowListView(item: item)
                                 .sheet(isPresented: $showModal) {
-                                     EditItemView(item: item)
+                                    EditItemView(item: item)
                                 }
                                 .onTapGesture {
                                     showModal = true
@@ -81,7 +83,27 @@ struct ProjectView: View {
             }  //: List
             .listStyle(SidebarListStyle())
             .navigationTitle(showClosedProjects ? "Finished" : "Open")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showingSheet.toggle()
+                    } label: {
+                        Label("Sort", systemImage: "arrow.up.arrow.down")
+                    }
+                } //: ToolbarItem
+            } //: Toolbar
             .navigationBarTitleDisplayMode(.inline)
+            .confirmationDialog("Sort items", isPresented: $showingSheet, titleVisibility: .visible) {
+                Button("Automatic") {
+                    sortOrder = .automatic
+                }
+                Button("Creation date") {
+                    sortOrder = .creationDate
+                }
+                Button("Title") {
+                    sortOrder = .title
+                }
+            }
         }  //: NavView
     }  //: Body
 }
