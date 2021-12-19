@@ -10,11 +10,17 @@ import SwiftUI
 struct ItemRowListView: View {
      // MARK: - Properties
     @ObservedObject var item: Item
-
+    @State private var showModal = false
     // MARK: - Body
     var body: some View {
 //        NavigationLink(destination: EditItemView(item: item)) {
             Text(item.itemTitle)
+            .sheet(isPresented: $showModal) {
+                EditItemView(item: item)
+            }
+            .onTapGesture {
+                showModal.toggle()
+            }
 
 //        }  //: item NavLink
     }

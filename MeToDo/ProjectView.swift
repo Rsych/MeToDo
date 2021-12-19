@@ -16,6 +16,7 @@ struct ProjectView: View {
     @State private var showModal = false
     @State private var showingSheet = false
     @State private var sortOrder = Item.SortOrder.automatic
+    @State private var sortColorID = 1
 
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -42,12 +43,12 @@ struct ProjectView: View {
                     Section {
                         ForEach(project.projectItems(using: sortOrder)) { item in
                             ItemRowListView(item: item)
-                                .sheet(isPresented: $showModal) {
-                                    EditItemView(item: item)
-                                }
-                                .onTapGesture {
-                                    showModal = true
-                                }
+                            //                                .sheet(isPresented: $showModal) {
+                            //                                    EditItemView(item: item)
+                            //                                }
+                            //                                .onTapGesture {
+                            //                                    showModal = true
+                            //                                }
 
                         } //: Project item list loop
                         .onDelete { offsets in
@@ -104,6 +105,7 @@ struct ProjectView: View {
                     sortOrder = .title
                 }
             }
+
         }  //: NavView
     }  //: Body
 }
