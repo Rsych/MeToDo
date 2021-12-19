@@ -50,7 +50,7 @@ struct TabBarView: View {
                             selectedTab = index
                         }
                     }
-                    .foregroundColor(selectedTab == index ? .primary : .secondary)
+                    .foregroundColor(selectedTab == index ? .orange : .secondary)
                 }  //: GeoReader
                 .frame(height: 88, alignment: .bottom)
             }  //: Tabs Loop
@@ -70,7 +70,7 @@ let tabs = [
     Tab(image: "list.bullet", label: "Open"),
     Tab(image: "plus.square.fill", label: "Add"),
     Tab(image: "checkmark", label: "Finished"),
-    Tab(image: "person.2.fill", label: "Network")
+    Tab(image: "rosette", label: "Awards")
 ]
 
 struct RoundedCorner: Shape {
