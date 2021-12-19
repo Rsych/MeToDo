@@ -18,7 +18,7 @@ struct AwardsView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(Awards.allAwards) { award in
+                    ForEach(Award.allAwards) { award in
                         Button {
                             // actions
                         } label: {
