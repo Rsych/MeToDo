@@ -42,7 +42,7 @@ struct ProjectView: View {
                 ForEach(projects.wrappedValue) { project in
                     Section {
                         ForEach(project.projectItems(using: sortOrder)) { item in
-                            ItemRowListView(item: item)
+                            ItemRowListView(project: project, item: item)
                             //                                .sheet(isPresented: $showModal) {
                             //                                    EditItemView(item: item)
                             //                                }
@@ -52,7 +52,7 @@ struct ProjectView: View {
 
                         } //: Project item list loop
                         .onDelete { offsets in
-                            let allItems = project.projectItems
+                            let allItems = project.projectItems(using: sortOrder)
 
                             for offset in offsets {
                                 let item = allItems[offset]

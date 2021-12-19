@@ -23,9 +23,10 @@ struct ContentView: View {
                 EmptyView()
                 ProjectView(showClosedProjects: true)
                     .tag(ProjectView.closedTag)
-                Text("Network")
-                    .tag(4)
+                AwardsView()
+                    .tag(AwardsView.awardsTag)
             }  //: TabView
+            .padding(.bottom, 50)
             .onChange(of: currentTab, perform: { _ in
                 if currentTab == 2 {
                     shouldShowModel = true
