@@ -52,7 +52,7 @@ struct ProjectView: View {
 
                         } //: Project item list loop
                         .onDelete { offsets in
-                            let allItems = project.projectItems
+                            let allItems = project.projectItems(using: sortOrder)
 
                             for offset in offsets {
                                 let item = allItems[offset]
