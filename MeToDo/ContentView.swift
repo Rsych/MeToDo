@@ -26,6 +26,7 @@ struct ContentView: View {
                 Text("Network")
                     .tag(4)
             }  //: TabView
+            .padding(.bottom, 50)
             .onChange(of: currentTab, perform: { _ in
                 if currentTab == 2 {
                     shouldShowModel = true

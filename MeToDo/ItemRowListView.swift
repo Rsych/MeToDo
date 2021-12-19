@@ -9,12 +9,17 @@ import SwiftUI
 
 struct ItemRowListView: View {
      // MARK: - Properties
+    @ObservedObject var project: Project
     @ObservedObject var item: Item
     @State private var showModal = false
     // MARK: - Body
     var body: some View {
 //        NavigationLink(destination: EditItemView(item: item)) {
+        Label {
             Text(item.itemTitle)
+        } icon: {
+            priorityIcon()
+        }
             .sheet(isPresented: $showModal) {
                 EditItemView(item: item)
             }
@@ -24,10 +29,24 @@ struct ItemRowListView: View {
 
 //        }  //: item NavLink
     }
+
+    func priorityIcon() -> some View {
+        if item.completed {
+            return Image(systemName: "checkmark.circle")
+                .foregroundColor(Color(project.projectColor))
+        } else if item.priority == 3 {
+            return Image(systemName: "exclamationmark.triangle")
+                .foregroundColor(Color(project.projectColor))
+
+        } else {
+            return Image(systemName: "checkmark.circle")
+                .foregroundColor(.clear)
+        }
+    }
 }
 
 struct ItemRowListView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemRowListView(item: Item.example)
+        ItemRowListView(project: Project.example, item: Item.example)
     }
 }

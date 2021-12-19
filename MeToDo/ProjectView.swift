@@ -42,7 +42,7 @@ struct ProjectView: View {
                 ForEach(projects.wrappedValue) { project in
                     Section {
                         ForEach(project.projectItems(using: sortOrder)) { item in
-                            ItemRowListView(item: item)
+                            ItemRowListView(project: project, item: item)
                             //                                .sheet(isPresented: $showModal) {
                             //                                    EditItemView(item: item)
                             //                                }
