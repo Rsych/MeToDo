@@ -17,30 +17,50 @@ struct HomeView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)],
         predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
 
-    
+    var projectRows: [GridItem] {
+        [GridItem(.fixed(100))]
+    }
+
     let items: FetchRequest<Item>
-    
+
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         request.predicate = NSPredicate(format: "completed = false")
-        
+
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
         ]
         request.fetchLimit = 10
-        
+
         items = FetchRequest(fetchRequest: request)
     }
     // MARK: - Body
     var body: some View {
         NavigationView {
             ScrollView {
-                Button("Add Data") {
-                    dataController.deleteAll()
-                    try? dataController.createSampleData()
-                }
+                VStack(alignment: .leading) {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: projectRows) {
+                            ForEach(projects) { project in
+                                VStack(alignment: .leading) {
+                                    Text("\(project.projectItems.count) items")
+                                        .font(.caption)
+                                        .foregroundColor(.primary)
+                                }  //: VStack
+                            }  //: project Loop
+                        }  //: LazyHGrid
+                    }  //: ScrollView
+                }  //: VStack
             }  //: ScrollView
             .navigationTitle("Home")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add Data") {
+                        dataController.deleteAll()
+                        try? dataController.createSampleData()
+                    }
+                }
+            }  //: toolbar
         }  //: NavView
     }
 }
