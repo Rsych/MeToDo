@@ -16,6 +16,7 @@ ToDo with SwiftUI.
 * ~~Basic design (Tabs, Nav)~~
 * ~~Modal Views~~
 * ~~Create Views~~
+* ~~HomeView controll~~
 * DataControl
 * CoreData
 * CloudKit
