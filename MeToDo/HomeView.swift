@@ -12,6 +12,8 @@ struct HomeView: View {
     // MARK: - Properties
     static let homeTag: Int = 0
 
+    @State private var selectedItem: FetchedResults<Item>.Element?
+    @State private var selectedProject: FetchedResults<Project>.Element?
     @State private var showModal = false
 
     @EnvironmentObject var dataController: DataController
@@ -28,7 +30,13 @@ struct HomeView: View {
 
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
-        request.predicate = NSPredicate(format: "completed = false")
+
+        let completedPredicate = NSPredicate(format: "completed = false")
+        let openPredicate = NSPredicate(format: "project.closed = false")
+        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
+
+        request.predicate = compoundPredicate
+        request.predicate = NSPredicate(format: "completed = false AND project.closed = false")
 
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
@@ -37,6 +45,7 @@ struct HomeView: View {
 
         items = FetchRequest(fetchRequest: request)
     }
+
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -45,6 +54,9 @@ struct HomeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
                             ForEach(projects) { project in
+                                Button {
+                                    self.selectedProject = project
+                                } label: {
                                 VStack(alignment: .leading) {
                                     Text("\(project.projectItems.count) items")
                                         .font(.caption)
@@ -52,6 +64,7 @@ struct HomeView: View {
                                     // Add ProjectInfoView later
                                     Text(project.projectTitle)
                                         .font(.title2)
+                                        .foregroundColor(.primary)
 
                                     ProgressView(value: project.completionAmount)
                                         .tint(Color(project.projectColor))
@@ -60,11 +73,15 @@ struct HomeView: View {
                                 .background(.thickMaterial)
                                 .cornerRadius(10)
                                 .shadow(color: .primary.opacity(0.2), radius: 3)
+                                }
                             }  //: project Loop
                         }  //: LazyHGrid
                         .padding([.top, .horizontal])
                         .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
+                    .sheet(item: $selectedProject) {
+                        EditProjectView(project: $0)
+                    }
 
                     VStack(alignment: .leading) {
                         list("Up next", for: items.wrappedValue.prefix(3))
@@ -74,6 +91,7 @@ struct HomeView: View {
                 }  //: VStack
             }  //: ScrollView
             .navigationTitle("Home")
+//            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add Data Debug") {
@@ -98,7 +116,7 @@ struct HomeView: View {
                     HStack(spacing: 20) {
                         Button {
                             //
-                            showModal.toggle()
+                            self.selectedItem = item
                         } label: {
                             Circle()
                                 .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
@@ -107,6 +125,9 @@ struct HomeView: View {
                                 Text(item.itemTitle)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .font(.title2)
+                                    .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
+                                Text(item.project!.projectTitle)
+                                    .font(.caption)
                                     .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
                                 if item.itemDetail.isEmpty == false {
                                     Text(item.itemDetail)
@@ -119,8 +140,8 @@ struct HomeView: View {
                     .background(.thickMaterial)
                     .cornerRadius(10)
                     .shadow(color: .primary.opacity(0.2), radius: 2)
-                    .sheet(isPresented: $showModal) {
-                        EditItemView(item: item)
+                    .sheet(item: $selectedItem) {
+                        EditItemView(item: $0)
                     }
 //                    .onTapGesture {
 //                        showModal.toggle()
@@ -129,6 +150,10 @@ struct HomeView: View {
             }
         }
     }
+}
+
+extension Int: Identifiable {
+    public var id: Int { self }
 }
 
 struct HomeView_Previews: PreviewProvider {

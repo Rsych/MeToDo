@@ -10,6 +10,7 @@ import SwiftUI
 struct EditItemView: View {
     // MARK: - Properties
     let item: Item
+//    let project: Project
 
     @EnvironmentObject var dataController: DataController
 
@@ -19,14 +20,16 @@ struct EditItemView: View {
     @State private var detail: String
     @State private var priority: Int
     @State private var completed: Bool
+    @State private var projectTitle: String
 
     init(item: Item) {
         self.item = item
+//        self.project = project
         _title = State(wrappedValue: item.itemTitle)
         _detail = State(wrappedValue: item.itemDetail)
         _priority = State(wrappedValue: Int(item.priority))
         _completed = State(wrappedValue: item.completed)
-
+        _projectTitle = State(wrappedValue: item.project!.projectTitle)
     }
 
     // MARK: - Body
@@ -55,7 +58,7 @@ struct EditItemView: View {
                 Toggle("Mark Completed", isOn: $completed.onChange(update))
             }
         }  //: form
-        .navigationTitle("Edit item")
+        .navigationTitle("Edit \(title) in \(projectTitle)")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button("Dismiss") {
