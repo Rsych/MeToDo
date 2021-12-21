@@ -59,11 +59,10 @@ struct HomeView: View {
                                 .padding()
                                 .background(.thickMaterial)
                                 .cornerRadius(10)
-                                .shadow(color: .primary.opacity(0.2), radius: 5)
-                                .padding(.horizontal, 3)
-                                .padding(.top)
+                                .shadow(color: .primary.opacity(0.2), radius: 3)
                             }  //: project Loop
                         }  //: LazyHGrid
+                        .padding([.top, .horizontal])
                         .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
                     
@@ -119,7 +118,7 @@ struct HomeView: View {
                     .padding()
                     .background(.thickMaterial)
                     .cornerRadius(10)
-                    .shadow(color: .primary.opacity(0.2), radius: 5)
+                    .shadow(color: .primary.opacity(0.2), radius: 2)
                     .sheet(isPresented: $showModal) {
                         EditItemView(item: item)
                     }
