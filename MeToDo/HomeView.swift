@@ -11,27 +11,30 @@ import CoreData
 struct HomeView: View {
     // MARK: - Properties
     static let homeTag: Int = 0
+    
+    @State private var showModal = false
+    
     @EnvironmentObject var dataController: DataController
     @FetchRequest(
         entity: Project.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)],
         predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
-
+    
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
     }
-
+    
     let items: FetchRequest<Item>
-
+    
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         request.predicate = NSPredicate(format: "completed = false")
-
+        
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
         ]
         request.fetchLimit = 10
-
+        
         items = FetchRequest(fetchRequest: request)
     }
     // MARK: - Body
@@ -49,7 +52,7 @@ struct HomeView: View {
                                     // Add ProjectInfoView later
                                     Text(project.projectTitle)
                                         .font(.title2)
-
+                                    
                                     ProgressView(value: project.completionAmount)
                                         .tint(Color(project.projectColor))
                                 }  //: VStack
@@ -63,7 +66,7 @@ struct HomeView: View {
                         }  //: LazyHGrid
                         .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
-                     
+                    
                     VStack(alignment: .leading) {
                         list("Up next", for: items.wrappedValue.prefix(3))
                         list("More to explore", for: items.wrappedValue.dropFirst(3))
@@ -92,7 +95,7 @@ struct HomeView: View {
                 .foregroundColor(.secondary)
             
             ForEach(items) { item in
-                NavigationLink(destination: EditItemView(item: item)) {
+//                NavigationLink(destination: EditItemView(item: item)) {
                     HStack(spacing: 20) {
                         Circle()
                             .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
@@ -112,7 +115,13 @@ struct HomeView: View {
                     .background(.thickMaterial)
                     .cornerRadius(10)
                     .shadow(color: .primary.opacity(0.2), radius: 5)
-                }
+                    .sheet(isPresented: $showModal) {
+                        EditItemView(item: item)
+                    }
+                    .onTapGesture {
+                        showModal.toggle()
+                    }
+//                }  //: NavLink
             }
         }
     }

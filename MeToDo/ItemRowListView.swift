@@ -8,28 +8,29 @@
 import SwiftUI
 
 struct ItemRowListView: View {
-     // MARK: - Properties
+    // MARK: - Properties
     @ObservedObject var project: Project
     @ObservedObject var item: Item
     @State private var showModal = false
     // MARK: - Body
     var body: some View {
-//        NavigationLink(destination: EditItemView(item: item)) {
+        //        NavigationLink(destination: EmptyView()) {
         Label {
             Text(item.itemTitle)
         } icon: {
             priorityIcon()
         }
-            .sheet(isPresented: $showModal) {
-                EditItemView(item: item)
-            }
-            .onTapGesture {
-                showModal.toggle()
-            }
-
-//        }  //: item NavLink
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .sheet(isPresented: $showModal) {
+            EditItemView(item: item)
+        }
+        .onTapGesture {
+            showModal.toggle()
+        }
+        
+        //        }  //: item NavLink
     }
-
+    
     func priorityIcon() -> some View {
         if item.completed {
             return Image(systemName: "checkmark.circle")
@@ -37,7 +38,7 @@ struct ItemRowListView: View {
         } else if item.priority == 3 {
             return Image(systemName: "exclamationmark.triangle")
                 .foregroundColor(Color(project.projectColor))
-
+            
         } else {
             return Image(systemName: "checkmark.circle")
                 .foregroundColor(.clear)
