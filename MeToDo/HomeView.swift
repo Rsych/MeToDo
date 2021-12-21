@@ -11,30 +11,30 @@ import CoreData
 struct HomeView: View {
     // MARK: - Properties
     static let homeTag: Int = 0
-    
+
     @State private var showModal = false
-    
+
     @EnvironmentObject var dataController: DataController
     @FetchRequest(
         entity: Project.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)],
         predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
-    
+
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
     }
-    
+
     let items: FetchRequest<Item>
-    
+
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         request.predicate = NSPredicate(format: "completed = false")
-        
+
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
         ]
         request.fetchLimit = 10
-        
+
         items = FetchRequest(fetchRequest: request)
     }
     // MARK: - Body
@@ -52,21 +52,20 @@ struct HomeView: View {
                                     // Add ProjectInfoView later
                                     Text(project.projectTitle)
                                         .font(.title2)
-                                    
+
                                     ProgressView(value: project.completionAmount)
                                         .tint(Color(project.projectColor))
                                 }  //: VStack
                                 .padding()
                                 .background(.thickMaterial)
                                 .cornerRadius(10)
-                                .shadow(color: .primary.opacity(0.2), radius: 5)
-                                .padding(.horizontal, 3)
-                                .padding(.top)
+                                .shadow(color: .primary.opacity(0.2), radius: 3)
                             }  //: project Loop
                         }  //: LazyHGrid
+                        .padding([.top, .horizontal])
                         .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
-                    
+
                     VStack(alignment: .leading) {
                         list("Up next", for: items.wrappedValue.prefix(3))
                         list("More to explore", for: items.wrappedValue.dropFirst(3))
@@ -85,7 +84,7 @@ struct HomeView: View {
             }  //: toolbar
         }  //: NavView
     }
-    
+
     @ViewBuilder func list(_ title: String, for items: FetchedResults<Item>.SubSequence) -> some View {
         if items.isEmpty {
             EmptyView()
@@ -93,7 +92,7 @@ struct HomeView: View {
             Text(title)
                 .font(.headline)
                 .foregroundColor(.secondary)
-            
+
             ForEach(items) { item in
 //                NavigationLink(destination: EditItemView(item: item)) {
                     HStack(spacing: 20) {
@@ -119,7 +118,7 @@ struct HomeView: View {
                     .padding()
                     .background(.thickMaterial)
                     .cornerRadius(10)
-                    .shadow(color: .primary.opacity(0.2), radius: 5)
+                    .shadow(color: .primary.opacity(0.2), radius: 2)
                     .sheet(isPresented: $showModal) {
                         EditItemView(item: item)
                     }
