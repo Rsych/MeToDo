@@ -25,7 +25,7 @@ struct ItemRowListView: View {
             }
         }
         .sheet(isPresented: $showModal) {
-            EditItemView(item: item)
+            EditItemView(item: item, project: project)
         }
         .onTapGesture {
             showModal.toggle()

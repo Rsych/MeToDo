@@ -120,7 +120,7 @@ struct HomeView: View {
                     .cornerRadius(10)
                     .shadow(color: .primary.opacity(0.2), radius: 2)
                     .sheet(isPresented: $showModal) {
-                        EditItemView(item: item)
+                        EditItemView(item: item, project: projects.first!)
                     }
 //                    .onTapGesture {
 //                        showModal.toggle()
