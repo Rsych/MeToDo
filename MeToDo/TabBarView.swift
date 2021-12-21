@@ -49,6 +49,12 @@ struct TabBarView: View {
                         withAnimation {
                             selectedTab = index
                         }
+                        if selectedTab == 2 {
+                            UINotificationFeedbackGenerator().notificationOccurred(.error)
+
+                        } else {
+                        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                        }
                     }
                     .foregroundColor(selectedTab == index ? .orange : .secondary)
                 }  //: GeoReader
