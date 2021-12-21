@@ -13,6 +13,7 @@ struct HomeView: View {
     static let homeTag: Int = 0
 
     @State private var showModal = false
+    @State private var selectedItem: FetchedResults<Item>.Element?
 
     @EnvironmentObject var dataController: DataController
     @FetchRequest(
@@ -28,7 +29,7 @@ struct HomeView: View {
 
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
-        
+
         let completedPredicate = NSPredicate(format: "completed = false")
         let openPredicate = NSPredicate(format: "project.closed = false")
         let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
@@ -43,6 +44,7 @@ struct HomeView: View {
 
         items = FetchRequest(fetchRequest: request)
     }
+
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -105,7 +107,7 @@ struct HomeView: View {
                     HStack(spacing: 20) {
                         Button {
                             //
-                            showModal.toggle()
+                            self.selectedItem = item
                         } label: {
                             Circle()
                                 .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
@@ -114,6 +116,9 @@ struct HomeView: View {
                                 Text(item.itemTitle)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .font(.title2)
+                                    .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
+                                Text(item.project!.projectTitle)
+                                    .font(.caption)
                                     .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
                                 if item.itemDetail.isEmpty == false {
                                     Text(item.itemDetail)
@@ -126,8 +131,8 @@ struct HomeView: View {
                     .background(.thickMaterial)
                     .cornerRadius(10)
                     .shadow(color: .primary.opacity(0.2), radius: 2)
-                    .sheet(isPresented: $showModal) {
-                        EditItemView(item: item)
+                    .sheet(item: $selectedItem) {
+                        EditItemView(item: $0)
                     }
 //                    .onTapGesture {
 //                        showModal.toggle()
@@ -136,6 +141,10 @@ struct HomeView: View {
             }
         }
     }
+}
+
+extension Int: Identifiable {
+    public var id: Int { self }
 }
 
 struct HomeView_Previews: PreviewProvider {

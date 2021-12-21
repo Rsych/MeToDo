@@ -7,7 +7,7 @@
 
 import SwiftUI
 //
-//struct HomeRowView: View {
+// struct HomeRowView: View {
 //    // MARK: - Properties
 //    @ObservedObject var project: Project
 //    @ObservedObject var item: Item
@@ -32,10 +32,10 @@ import SwiftUI
 //        }
 //        //        }  //: item NavLink
 //    }
-//}
+// }
 //
-//struct HomeRowView_Previews: PreviewProvider {
+// struct HomeRowView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        HomeRowView()
 //    }
-//}
+// }
