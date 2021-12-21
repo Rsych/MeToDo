@@ -56,9 +56,19 @@ struct HomeView: View {
                                 .padding()
                                 .background(.thickMaterial)
                                 .cornerRadius(10)
+                                .shadow(color: .primary.opacity(0.2), radius: 5)
+                                .padding(.horizontal, 3)
+                                .padding(.top)
                             }  //: project Loop
                         }  //: LazyHGrid
+                        .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
+                     
+                    VStack(alignment: .leading) {
+                        list("Up next", for: items.wrappedValue.prefix(3))
+                        list("More to explore", for: items.wrappedValue.dropFirst(3))
+                    }
+                    .padding(.horizontal)
                 }  //: VStack
             }  //: ScrollView
             .navigationTitle("Home")
@@ -71,6 +81,40 @@ struct HomeView: View {
                 }
             }  //: toolbar
         }  //: NavView
+    }
+    
+    @ViewBuilder func list(_ title: String, for items: FetchedResults<Item>.SubSequence) -> some View {
+        if items.isEmpty {
+            EmptyView()
+        } else {
+            Text(title)
+                .font(.headline)
+                .foregroundColor(.secondary)
+            
+            ForEach(items) { item in
+                NavigationLink(destination: EditItemView(item: item)) {
+                    HStack(spacing: 20) {
+                        Circle()
+                            .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
+                            .frame(width: 44, height: 44)
+                        VStack(alignment: .leading) {
+                            Text(item.itemTitle)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.title2)
+                                .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
+                            if item.itemDetail.isEmpty == false {
+                                Text(item.itemDetail)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                    }  //: HStack
+                    .padding()
+                    .background(.thickMaterial)
+                    .cornerRadius(10)
+                    .shadow(color: .primary.opacity(0.2), radius: 5)
+                }
+            }
+        }
     }
 }
 
