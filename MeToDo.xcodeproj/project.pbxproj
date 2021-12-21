@@ -10,6 +10,7 @@
 		710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 710C89842768784D004FADCD /* Main.xcdatamodeld */; };
 		710C898827687AC3004FADCD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C898727687AC3004FADCD /* DataController.swift */; };
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
+		7134BFBA2772701D00C51B33 /* HomeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134BFB92772701D00C51B33 /* HomeRowView.swift */; };
 		715AEFDE27688821009C63DB /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDD27688821009C63DB /* ProjectView.swift */; };
 		715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
 		718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */; };
@@ -37,6 +38,7 @@
 		710C898927687E6D004FADCD /* MeToDo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeToDo.entitlements; sourceTree = "<group>"; };
 		710C898A27687E74004FADCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		710C898C27687E84004FADCD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7134BFB92772701D00C51B33 /* HomeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRowView.swift; sourceTree = "<group>"; };
 		715AEFDD27688821009C63DB /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */,
 				718B0CBF276A274B005D496C /* EditProjectView.swift */,
 				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
+				7134BFB92772701D00C51B33 /* HomeRowView.swift */,
 				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
 				710C89842768784D004FADCD /* Main.xcdatamodeld */,
 				718B0CB5276A117D005D496C /* BindingOnChange.swift */,
@@ -241,6 +244,7 @@
 				715AEFDE27688821009C63DB /* ProjectView.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,
 				718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */,
+				7134BFBA2772701D00C51B33 /* HomeRowView.swift in Sources */,
 				710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */,
 				718B0CB6276A117D005D496C /* BindingOnChange.swift in Sources */,
 				71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */,

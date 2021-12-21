@@ -10,7 +10,7 @@ import SwiftUI
 struct EditItemView: View {
     // MARK: - Properties
     let item: Item
-    let project: Project
+//    let project: Project
 
     @EnvironmentObject var dataController: DataController
 
@@ -22,14 +22,14 @@ struct EditItemView: View {
     @State private var completed: Bool
     @State private var projectTitle: String
 
-    init(item: Item, project: Project) {
+    init(item: Item) {
         self.item = item
-        self.project = project
+//        self.project = project
         _title = State(wrappedValue: item.itemTitle)
         _detail = State(wrappedValue: item.itemDetail)
         _priority = State(wrappedValue: Int(item.priority))
         _completed = State(wrappedValue: item.completed)
-        _projectTitle = State(wrappedValue: project.projectTitle)
+        _projectTitle = State(wrappedValue: item.project!.projectTitle)
     }
 
     // MARK: - Body
@@ -86,6 +86,6 @@ struct EditItemView: View {
 
 struct EditItemView_Previews: PreviewProvider {
     static var previews: some View {
-        EditItemView(item: Item.example, project: Project.example)
+        EditItemView(item: Item.example)
     }
 }

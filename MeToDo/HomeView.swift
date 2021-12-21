@@ -28,7 +28,13 @@ struct HomeView: View {
 
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
-        request.predicate = NSPredicate(format: "completed = false")
+        
+        let completedPredicate = NSPredicate(format: "completed = false")
+        let openPredicate = NSPredicate(format: "project.closed = false")
+        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
+
+        request.predicate = compoundPredicate
+        request.predicate = NSPredicate(format: "completed = false AND project.closed = false")
 
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
@@ -121,7 +127,7 @@ struct HomeView: View {
                     .cornerRadius(10)
                     .shadow(color: .primary.opacity(0.2), radius: 2)
                     .sheet(isPresented: $showModal) {
-                        EditItemView(item: item, project: projects.first!)
+                        EditItemView(item: item)
                     }
 //                    .onTapGesture {
 //                        showModal.toggle()
