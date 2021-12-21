@@ -15,22 +15,24 @@ struct ItemRowListView: View {
     // MARK: - Body
     var body: some View {
         //        NavigationLink(destination: EmptyView()) {
-        Label {
-            Text(item.itemTitle)
-        } icon: {
-            priorityIcon()
+        Button {
+            showModal.toggle()
+        } label: {
+            Label {
+                Text(item.itemTitle)
+            } icon: {
+                priorityIcon()
+            }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
         .sheet(isPresented: $showModal) {
             EditItemView(item: item)
         }
         .onTapGesture {
             showModal.toggle()
         }
-        
         //        }  //: item NavLink
     }
-    
+
     func priorityIcon() -> some View {
         if item.completed {
             return Image(systemName: "checkmark.circle")
@@ -38,7 +40,6 @@ struct ItemRowListView: View {
         } else if item.priority == 3 {
             return Image(systemName: "exclamationmark.triangle")
                 .foregroundColor(Color(project.projectColor))
-            
         } else {
             return Image(systemName: "checkmark.circle")
                 .foregroundColor(.clear)

@@ -77,7 +77,7 @@ struct HomeView: View {
             .navigationTitle("Home")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add Data") {
+                    Button("Add Data Debug") {
                         dataController.deleteAll()
                         try? dataController.createSampleData()
                     }
@@ -97,19 +97,24 @@ struct HomeView: View {
             ForEach(items) { item in
 //                NavigationLink(destination: EditItemView(item: item)) {
                     HStack(spacing: 20) {
-                        Circle()
-                            .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
-                            .frame(width: 44, height: 44)
-                        VStack(alignment: .leading) {
-                            Text(item.itemTitle)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.title2)
-                                .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
-                            if item.itemDetail.isEmpty == false {
-                                Text(item.itemDetail)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
+                        Button {
+                            //
+                            showModal.toggle()
+                        } label: {
+                            Circle()
+                                .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
+                                .frame(width: 44, height: 44)
+                            VStack(alignment: .leading) {
+                                Text(item.itemTitle)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.title2)
+                                    .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
+                                if item.itemDetail.isEmpty == false {
+                                    Text(item.itemDetail)
+                                        .foregroundColor(.secondary)
+                                }
+                            }  //: VStack
+                        }  //: ButtonView
                     }  //: HStack
                     .padding()
                     .background(.thickMaterial)
@@ -118,9 +123,9 @@ struct HomeView: View {
                     .sheet(isPresented: $showModal) {
                         EditItemView(item: item)
                     }
-                    .onTapGesture {
-                        showModal.toggle()
-                    }
+//                    .onTapGesture {
+//                        showModal.toggle()
+//                    }
 //                }  //: NavLink
             }
         }
