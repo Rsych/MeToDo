@@ -74,6 +74,7 @@ struct HomeView: View {
                 }  //: VStack
             }  //: ScrollView
             .navigationTitle("Home")
+//            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add Data Debug") {

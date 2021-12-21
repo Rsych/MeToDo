@@ -43,13 +43,6 @@ struct ProjectView: View {
                     Section {
                         ForEach(project.projectItems(using: sortOrder)) { item in
                             ItemRowListView(project: project, item: item)
-                            //                                .sheet(isPresented: $showModal) {
-                            //                                    EditItemView(item: item)
-                            //                                }
-                            //                                .onTapGesture {
-                            //                                    showModal = true
-                            //                                }
-
                         } //: Project item list loop
                         .onDelete { offsets in
                             let allItems = project.projectItems(using: sortOrder)
@@ -80,7 +73,7 @@ struct ProjectView: View {
                             .font(.title2)
                     }
                     .padding(.bottom, 3)
-                }
+                }  //: Project loop
             }  //: List
             .listStyle(SidebarListStyle())
             .navigationTitle(showClosedProjects ? "Finished" : "Open")
