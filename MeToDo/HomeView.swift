@@ -45,8 +45,17 @@ struct HomeView: View {
                                 VStack(alignment: .leading) {
                                     Text("\(project.projectItems.count) items")
                                         .font(.caption)
-                                        .foregroundColor(.primary)
+                                        .foregroundColor(.secondary)
+                                    // Add ProjectInfoView later
+                                    Text(project.projectTitle)
+                                        .font(.title2)
+
+                                    ProgressView(value: project.completionAmount)
+                                        .tint(Color(project.projectColor))
                                 }  //: VStack
+                                .padding()
+                                .background(.thickMaterial)
+                                .cornerRadius(10)
                             }  //: project Loop
                         }  //: LazyHGrid
                     }  //: ScrollView
