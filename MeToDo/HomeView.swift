@@ -12,8 +12,9 @@ struct HomeView: View {
     // MARK: - Properties
     static let homeTag: Int = 0
 
-    @State private var showModal = false
     @State private var selectedItem: FetchedResults<Item>.Element?
+    @State private var selectedProject: FetchedResults<Project>.Element?
+    @State private var showModal = false
 
     @EnvironmentObject var dataController: DataController
     @FetchRequest(
@@ -53,6 +54,9 @@ struct HomeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
                             ForEach(projects) { project in
+                                Button {
+                                    self.selectedProject = project
+                                } label: {
                                 VStack(alignment: .leading) {
                                     Text("\(project.projectItems.count) items")
                                         .font(.caption)
@@ -60,6 +64,7 @@ struct HomeView: View {
                                     // Add ProjectInfoView later
                                     Text(project.projectTitle)
                                         .font(.title2)
+                                        .foregroundColor(.primary)
 
                                     ProgressView(value: project.completionAmount)
                                         .tint(Color(project.projectColor))
@@ -68,11 +73,15 @@ struct HomeView: View {
                                 .background(.thickMaterial)
                                 .cornerRadius(10)
                                 .shadow(color: .primary.opacity(0.2), radius: 3)
+                                }
                             }  //: project Loop
                         }  //: LazyHGrid
                         .padding([.top, .horizontal])
                         .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
+                    .sheet(item: $selectedProject) {
+                        EditProjectView(project: $0)
+                    }
 
                     VStack(alignment: .leading) {
                         list("Up next", for: items.wrappedValue.prefix(3))

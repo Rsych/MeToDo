@@ -28,7 +28,7 @@ struct ProjectHeaderView: View {
 //            NavigationLink(destination: EmptyView()) {
                 Image(systemName: "pencil")
                 .sheet(isPresented: $showModal) {
-                    EditProjectView(project: project, showModal: $showModal)
+                    EditProjectView(project: project)
                 }
                 .onTapGesture {
                     showModal.toggle()

@@ -13,7 +13,7 @@ struct EditProjectView: View {
 
     @EnvironmentObject var dataController: DataController
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @Binding var showModal: Bool
+//    @Binding var showModal: Bool
 
     @State private var showingDeleteConfirm = false
 
@@ -24,9 +24,10 @@ struct EditProjectView: View {
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))]
 
-    init(project: Project, showModal: Binding<Bool>) {
+//    init(project: Project, showModal: Binding<Bool>) {
+    init(project: Project) {
         self.project = project
-        _showModal = showModal
+//        _showModal = showModal
 
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
@@ -71,7 +72,8 @@ struct EditProjectView: View {
                 Button(project.closed ? "Reopen project" : "Finish this project") {
                     project.closed.toggle()
                     update()
-                    showModal.toggle()
+//                    showModal.toggle()
+                    presentationMode.wrappedValue.dismiss()
                 }
                 Button("Delete this project") {
                     showingDeleteConfirm.toggle()
@@ -86,7 +88,8 @@ struct EditProjectView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Dismiss") {
-                    self.showModal.toggle()
+//                    self.showModal.toggle()
+                    presentationMode.wrappedValue.dismiss()
                 } //: Button
             } //: ToolbarItem
         } //: Toolbar
