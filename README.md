@@ -17,12 +17,14 @@ ToDo with SwiftUI.
 * ~~Modal Views~~
 * ~~Create Views~~
 * ~~HomeView controll~~
+* Accessibility
 * DataControl
 * CoreData
 * CloudKit
 * Localization
 * Widgets
 * Networking features
+* Test
 
 
 
