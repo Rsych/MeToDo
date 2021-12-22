@@ -10,7 +10,7 @@ import UIKit
 
 extension Item {
     var itemTitle: String {
-        title ?? "New Item"
+        title ?? NSLocalizedString("New Item", comment: "Create a new item")
     }
     var itemDetail: String {
         detail ?? ""
@@ -45,7 +45,7 @@ extension Project {
     ]
 
     var projectTitle: String {
-        title ?? ""
+        title ?? NSLocalizedString("New Project", comment: "Create a new project")
     }
     var projectDetail: String {
         detail ?? ""
