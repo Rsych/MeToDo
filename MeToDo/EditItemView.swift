@@ -58,7 +58,7 @@ struct EditItemView: View {
                 Toggle("Mark Completed", isOn: $completed.onChange(update))
             }
         }  //: form
-        .navigationTitle("Edit \(title) in \(projectTitle)")
+        .navigationTitle("\(title) in \(projectTitle)")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button("Dismiss") {
