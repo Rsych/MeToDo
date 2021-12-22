@@ -21,7 +21,7 @@ ToDo with SwiftUI.
 * DataControl
 * CoreData
 * CloudKit
-* Localization
+* ~~Localization~~ partially done, translations needed
 * Widgets
 * Networking features
 * Test
