@@ -22,6 +22,8 @@
 		718B0CBE276A258C005D496C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718B0CBD276A258C005D496C /* Colors.xcassets */; };
 		718B0CC0276A274B005D496C /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CBF276A274B005D496C /* EditProjectView.swift */; };
 		718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CC1276C7E05005D496C /* AddProjectView.swift */; };
+		71A5703027738F25009E7ACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71A5702F27738F25009E7ACA /* Localizable.strings */; };
+		71A5703227739370009E7ACA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703127739370009E7ACA /* Localizable.stringsdict */; };
 		71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E01276766EE00EAB2EC /* MeToDoApp.swift */; };
 		71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E03276766EE00EAB2EC /* ContentView.swift */; };
 		71A63E06276766EF00EAB2EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A63E05276766EF00EAB2EC /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		718B0CBD276A258C005D496C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		718B0CBF276A274B005D496C /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		718B0CC1276C7E05005D496C /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
+		71A5702F27738F25009E7ACA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		71A5703127739370009E7ACA /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		71A63DFE276766EE00EAB2EC /* MeToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A63E01276766EE00EAB2EC /* MeToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeToDoApp.swift; sourceTree = "<group>"; };
 		71A63E03276766EE00EAB2EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				718B0CC1276C7E05005D496C /* AddProjectView.swift */,
 				718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */,
 				718B0CBF276A274B005D496C /* EditProjectView.swift */,
+				71A5702F27738F25009E7ACA /* Localizable.strings */,
+				71A5703127739370009E7ACA /* Localizable.stringsdict */,
 				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
 				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
 				710C89842768784D004FADCD /* Main.xcdatamodeld */,
@@ -193,10 +199,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A5703027738F25009E7ACA /* Localizable.strings in Resources */,
 				718B0CBE276A258C005D496C /* Colors.xcassets in Resources */,
 				718952E3276F0CCB00EA32DE /* Awards.json in Resources */,
 				71A63E09276766EF00EAB2EC /* Preview Assets.xcassets in Resources */,
 				71A63E06276766EF00EAB2EC /* Assets.xcassets in Resources */,
+				71A5703227739370009E7ACA /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

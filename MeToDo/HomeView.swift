@@ -103,7 +103,7 @@ struct HomeView: View {
         }  //: NavView
     }
 
-    @ViewBuilder func list(_ title: String, for items: FetchedResults<Item>.SubSequence) -> some View {
+    @ViewBuilder func list(_ title: LocalizedStringKey, for items: FetchedResults<Item>.SubSequence) -> some View {
         if items.isEmpty {
             EmptyView()
         } else {
@@ -150,10 +150,6 @@ struct HomeView: View {
             }
         }
     }
-}
-
-extension Int: Identifiable {
-    public var id: Int { self }
 }
 
 struct HomeView_Previews: PreviewProvider {
