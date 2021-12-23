@@ -24,6 +24,7 @@ ToDo with SwiftUI.
 * ~~Localization~~ partially done, translations needed
 * Widgets
 * Networking features
+* Clean up
 * Test
 
 
