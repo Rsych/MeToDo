@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectSummaryView: View {
-    let project: Project
+    @ObservedObject var project: Project
     @State private var selectedProject: FetchedResults<Project>.Element?
 
     var body: some View {

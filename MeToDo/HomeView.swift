@@ -61,12 +61,13 @@ struct HomeView: View {
                     VStack(alignment: .leading) {
                         HomeItemListView(title: "Up next", items: items.wrappedValue.prefix(3))
                         HomeItemListView(title: "More to explore", items: items.wrappedValue.dropFirst(3))
-                    }
+                    }  //: VStack
                     .padding(.horizontal)
                 }  //: VStack
             }  //: ScrollView
             .navigationTitle("Home")
 //            .navigationBarTitleDisplayMode(.inline)
+            #if targetEnvironment(simulator)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add Data Debug") {
@@ -75,6 +76,7 @@ struct HomeView: View {
                     }
                 }
             }  //: toolbar
+            #endif
         }  //: NavView
     }  //: body
 }  //: view
