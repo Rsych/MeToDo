@@ -8,12 +8,20 @@
 import CoreData
 import SwiftUI
 
+/// An environment singleton responsible for managing our Core Data stack, including handling saving,
+/// counting fetch requests, tracking awards, and dealing with sample data.
 class DataController: ObservableObject {
+    /// The lone CloudKit container used to store all our data.
     let container: NSPersistentCloudKitContainer
-
+    /// Initializes a data controller, either in memory (for temporary use such as testing and previewing),
+    /// or on permanent storage (for use in regular app runs.)
+    ///
+    /// Defaults to permanent storage.
+    /// - Parameter inMemory: Whether to store this data in temporary memory or not.
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Main")
 
+        // For testing purposes, creates /dev/null which is destroyed when app is finished.
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -37,6 +45,8 @@ class DataController: ObservableObject {
         return dataController
     }()
 
+    /// Creates example projects and items to make manual testing easier.
+    /// - Throws: An NSError sent from calling save() on the NSManagedObjectContext.
     func createSampleData() throws {
         let viewContext = container.viewContext
 
@@ -60,6 +70,8 @@ class DataController: ObservableObject {
         try viewContext.save()
     }
 
+    /// Saves our Core Data context iff there are changes. This silently ignores
+    /// any errors caused by saving, but this should be fine because all our attributes are optional.
     func save() {
         if container .viewContext.hasChanges {
             try? container.viewContext.save()
@@ -88,18 +100,20 @@ class DataController: ObservableObject {
     func hasEarned(award: Award) -> Bool {
         switch award.criterion {
         case "items":
+            // returns true if certain numbers of items been added
             let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
             let awardCount = count(for: fetchRequest)
             return awardCount >= award.value
 
         case "completed":
+            // returns if certain numbers of completed items
             let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
             fetchRequest.predicate = NSPredicate(format: "completed = true")
             let awardCount = count(for: fetchRequest)
             return awardCount >= award.value
 
         default:
-            // fatalError("Unknown award criterion \(award.criterion).")
+//             fatalError("Unknown award criterion \(award.criterion).")
             return false
         }
     }
