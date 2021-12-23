@@ -22,25 +22,13 @@ struct HomeItemListView: View {
             ForEach(items) { item in
                     HStack(spacing: 20) {
                         Button {
-                            //
                             self.selectedItem = item
                         } label: {
                             Circle()
                                 .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
                                 .frame(width: 44, height: 44)
-                            VStack(alignment: .leading) {
-                                Text(item.itemTitle)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .font(.title2)
-                                    .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
-                                Text(item.project!.projectTitle)
-                                    .font(.caption)
-                                    .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
-                                if item.itemDetail.isEmpty == false {
-                                    Text(item.itemDetail)
-                                        .foregroundColor(.secondary)
-                                }
-                            }  //: VStack
+
+                            homeList(item)
                         }  //: ButtonView
                     }  //: HStack
                     .padding()
@@ -52,7 +40,22 @@ struct HomeItemListView: View {
                     }
             }
         }
-    }
+    }  //: body
+    func homeList(_ item: Item) -> some View {
+        VStack(alignment: .leading) {
+            Text(item.itemTitle)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.title2)
+                .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
+            Text(item.project!.projectTitle)
+                .font(.caption)
+                .foregroundColor(Color(item.project?.projectColor ?? "Orange"))
+            if item.itemDetail.isEmpty == false {
+                Text(item.itemDetail)
+                    .foregroundColor(.secondary)
+            }
+        }  //: VStack
+    }  //: homeListView
 }
 
 // struct HomeItemListView_Previews: PreviewProvider {

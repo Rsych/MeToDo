@@ -117,7 +117,6 @@
 			children = (
 				715AEFDD27688821009C63DB /* ProjectView.swift */,
 				718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */,
-				718B0CBF276A274B005D496C /* EditProjectView.swift */,
 				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
 				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
 				71A570422774B697009E7ACA /* ProjectSummaryView.swift */,
@@ -129,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				718B0CC1276C7E05005D496C /* AddProjectView.swift */,
+				718B0CBF276A274B005D496C /* EditProjectView.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";

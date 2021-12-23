@@ -46,22 +46,7 @@ struct EditProjectView: View {
 
             Section {
                 LazyVGrid(columns: colorColumns) {
-                    ForEach(Project.colors, id: \.self) { item in
-                        ZStack {
-                            Color(item)
-                                .aspectRatio(1, contentMode: .fit)
-                                .cornerRadius(6)
-                            if item == color {
-                                Image(systemName: "checkmark.circle")
-                                    .foregroundColor(.white)
-                                    .font(.largeTitle)
-                            }
-                        }  //: ZStack
-                        .onTapGesture {
-                            color = item
-                            update()
-                        }
-                    }  //: Color loop
+                    ForEach(Project.colors, id: \.self, content: colorButton)
                 }  //: LazyVGrid
                 .padding(.vertical)
             } header: {
@@ -114,6 +99,23 @@ struct EditProjectView: View {
     func delete() {
         dataController.delete(project)
         self.presentationMode.wrappedValue.dismiss()
+    }
+
+    func colorButton(for item: String) -> some View {
+        ZStack {
+            Color(item)
+                .aspectRatio(1, contentMode: .fit)
+                .cornerRadius(6)
+            if item == color {
+                Image(systemName: "checkmark.circle")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+            }
+        }  //: ZStack
+        .onTapGesture {
+            color = item
+            update()
+        }
     }
 }
 
