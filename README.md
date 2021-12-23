@@ -18,13 +18,13 @@ ToDo with SwiftUI.
 * ~~Create Views~~
 * ~~HomeView controll~~
 * Accessibility
-* DataControl
+* ~~DataControl~~
 * CoreData
 * CloudKit
 * ~~Localization~~ partially done, translations needed
 * Widgets
 * Networking features
-* Clean up
+* ~~Clean up~~
 * Test
 
 
