@@ -45,46 +45,28 @@ struct ProjectView: View {
                             ItemRowListView(project: project, item: item)
                         } //: Project item list loop
                         .onDelete { offsets in
-                            let allItems = project.projectItems(using: sortOrder)
-
-                            for offset in offsets {
-                                let item = allItems[offset]
-                                dataController.delete(item)
-                            }
-                            dataController.save()
+                            delete(offsets, project: project)
                         }  //: Delete Item
 
                         if showClosedProjects ==  false {
                             Button {
-                                withAnimation {
-                                    let item = Item(context: managedObjectContext)
-                                    item.project = project
-                                    item.creationDate = Date()
-                                    dataController.save()
-                                }
+                                addItem(to: project)
                             } label: {
                                 Label("Add New item", systemImage: "plus")
                             }
-
-                        }
+                        }  //: OpenTab
                     } header: {
                         ProjectHeaderView(project: project)
                             .foregroundColor(.primary)
                             .font(.title2)
-                    }
+                    }  //: Section
                     .padding(.bottom, 3)
                 }  //: Project loop
             }  //: List
             .listStyle(SidebarListStyle())
             .navigationTitle(showClosedProjects ? "Finished" : "Open")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        showingSheet.toggle()
-                    } label: {
-                        Label("Sort", systemImage: "arrow.up.arrow.down")
-                    }
-                } //: ToolbarItem
+                sortOrderToolbar
             } //: Toolbar
             .navigationBarTitleDisplayMode(.inline)
             .confirmationDialog("Sort items", isPresented: $showingSheet, titleVisibility: .visible) {
@@ -98,10 +80,35 @@ struct ProjectView: View {
                     sortOrder = .title
                 }
             }
-
         }  //: NavView
     }  //: Body
-}
+    func addItem(to project: Project) {
+        withAnimation {
+            let item = Item(context: managedObjectContext)
+            item.project = project
+            item.creationDate = Date()
+            dataController.save()
+        }
+    }  //: addItem
+    func delete(_ offsets: IndexSet, project: Project) {
+        let allItems = project.projectItems(using: sortOrder)
+
+        for offset in offsets {
+            let item = allItems[offset]
+            dataController.delete(item)
+        }
+        dataController.save()
+    }  //: delete
+    var sortOrderToolbar: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+                showingSheet.toggle()
+            } label: {
+                Label("Sort", systemImage: "arrow.up.arrow.down")
+            }
+        } //: ToolbarItem
+    }  //: sortToolbar
+} //: contentView
 
 struct ProjectView_Previews: PreviewProvider {
     static var dataController = DataController.preview
