@@ -90,6 +90,93 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		71A570442774BB91009E7ACA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71A63E03276766EE00EAB2EC /* ContentView.swift */,
+				71A63E0F2767680400EAB2EC /* TabBarView.swift */,
+				71A570452774BBA0009E7ACA /* Home */,
+				71A570462774BBE5009E7ACA /* Project */,
+				71A570472774BBF2009E7ACA /* Add */,
+				71A570482774BBF7009E7ACA /* Awards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71A570452774BBA0009E7ACA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				71A63E112767728700EAB2EC /* HomeView.swift */,
+				71A570402774B57D009E7ACA /* HomeItemListView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		71A570462774BBE5009E7ACA /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				715AEFDD27688821009C63DB /* ProjectView.swift */,
+				718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */,
+				718B0CBF276A274B005D496C /* EditProjectView.swift */,
+				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
+				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
+				71A570422774B697009E7ACA /* ProjectSummaryView.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		71A570472774BBF2009E7ACA /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				718B0CC1276C7E05005D496C /* AddProjectView.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		71A570482774BBF7009E7ACA /* Awards */ = {
+			isa = PBXGroup;
+			children = (
+				718952E8276F0FA700EA32DE /* AwardsView.swift */,
+			);
+			path = Awards;
+			sourceTree = "<group>";
+		};
+		71A570492774BC41009E7ACA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */,
+				718B0CB5276A117D005D496C /* BindingOnChange.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		71A5704A2774BC5B009E7ACA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */,
+				718952E6276F0D6000EA32DE /* Award.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71A5704B2774BC5F009E7ACA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				710C898727687AC3004FADCD /* DataController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		71A5704C2774BC6E009E7ACA /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				71A5703527739EB6009E7ACA /* Localizable.strings */,
+				71A5703927739EC3009E7ACA /* Localizable.stringsdict */,
+				71A5703D27739F52009E7ACA /* Awards.json */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		71A63DF5276766EE00EAB2EC = {
 			isa = PBXGroup;
 			children = (
@@ -113,29 +200,14 @@
 				710C898A27687E74004FADCD /* Info.plist */,
 				710C898927687E6D004FADCD /* MeToDo.entitlements */,
 				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
-				71A63E03276766EE00EAB2EC /* ContentView.swift */,
-				715AEFDD27688821009C63DB /* ProjectView.swift */,
-				718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */,
-				718B0CC1276C7E05005D496C /* AddProjectView.swift */,
-				718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */,
-				718B0CBF276A274B005D496C /* EditProjectView.swift */,
-				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
-				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
+				71A570442774BB91009E7ACA /* View */,
+				71A570492774BC41009E7ACA /* Extension */,
 				710C89842768784D004FADCD /* Main.xcdatamodeld */,
-				718B0CB5276A117D005D496C /* BindingOnChange.swift */,
-				715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */,
-				718952E8276F0FA700EA32DE /* AwardsView.swift */,
-				710C898727687AC3004FADCD /* DataController.swift */,
-				71A63E112767728700EAB2EC /* HomeView.swift */,
-				71A570422774B697009E7ACA /* ProjectSummaryView.swift */,
-				71A570402774B57D009E7ACA /* HomeItemListView.swift */,
-				71A63E0F2767680400EAB2EC /* TabBarView.swift */,
-				718952E6276F0D6000EA32DE /* Award.swift */,
+				71A5704A2774BC5B009E7ACA /* Model */,
+				71A5704B2774BC5F009E7ACA /* Controller */,
+				71A5704C2774BC6E009E7ACA /* Localization */,
 				71A63E05276766EF00EAB2EC /* Assets.xcassets */,
 				718B0CBD276A258C005D496C /* Colors.xcassets */,
-				71A5703527739EB6009E7ACA /* Localizable.strings */,
-				71A5703927739EC3009E7ACA /* Localizable.stringsdict */,
-				71A5703D27739F52009E7ACA /* Awards.json */,
 				71A63E07276766EF00EAB2EC /* Preview Content */,
 			);
 			path = MeToDo;
