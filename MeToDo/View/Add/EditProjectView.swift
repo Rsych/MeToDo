@@ -13,7 +13,6 @@ struct EditProjectView: View {
 
     @EnvironmentObject var dataController: DataController
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-//    @Binding var showModal: Bool
 
     @State private var showingDeleteConfirm = false
 
@@ -24,10 +23,8 @@ struct EditProjectView: View {
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))]
 
-//    init(project: Project, showModal: Binding<Bool>) {
     init(project: Project) {
         self.project = project
-//        _showModal = showModal
 
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)

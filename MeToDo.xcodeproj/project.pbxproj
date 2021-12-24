@@ -32,8 +32,20 @@
 		71A63E09276766EF00EAB2EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A63E08276766EF00EAB2EC /* Preview Assets.xcassets */; };
 		71A63E102767680400EAB2EC /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E0F2767680400EAB2EC /* TabBarView.swift */; };
 		71A63E122767728700EAB2EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E112767728700EAB2EC /* HomeView.swift */; };
+		71B31BA32775B9A900DD04DB /* MeToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BA22775B9A900DD04DB /* MeToDoTests.swift */; };
+		71B31BAA2775BA9700DD04DB /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BA92775BA9700DD04DB /* AssetTests.swift */; };
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71B31BA42775B9A900DD04DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71A63DF6276766EE00EAB2EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71A63DFD276766EE00EAB2EC;
+			remoteInfo = MeToDo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		710C89852768784D004FADCD /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
@@ -67,6 +79,9 @@
 		71A63E08276766EF00EAB2EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71A63E0F2767680400EAB2EC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		71A63E112767728700EAB2EC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		71B31BA02775B9A900DD04DB /* MeToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71B31BA22775B9A900DD04DB /* MeToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeToDoTests.swift; sourceTree = "<group>"; };
+		71B31BA92775BA9700DD04DB /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
 		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +91,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71B31B9D2775B9A900DD04DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				71A63E00276766EE00EAB2EC /* MeToDo */,
+				71B31BA12775B9A900DD04DB /* MeToDoTests */,
 				71A63DFF276766EE00EAB2EC /* Products */,
 				710C898B27687E84004FADCD /* Frameworks */,
 			);
@@ -199,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				71A63DFE276766EE00EAB2EC /* MeToDo.app */,
+				71B31BA02775B9A900DD04DB /* MeToDoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,10 +232,10 @@
 			children = (
 				71A5704D2774C456009E7ACA /* Configuration */,
 				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
-				71A570442774BB91009E7ACA /* View */,
-				71A570492774BC41009E7ACA /* Extension */,
 				71A5704A2774BC5B009E7ACA /* Model */,
+				71A570442774BB91009E7ACA /* View */,
 				71A5704B2774BC5F009E7ACA /* Controller */,
+				71A570492774BC41009E7ACA /* Extension */,
 				71A5704C2774BC6E009E7ACA /* Localization */,
 				710C89842768784D004FADCD /* Main.xcdatamodeld */,
 				71A63E05276766EF00EAB2EC /* Assets.xcassets */,
@@ -227,6 +251,15 @@
 				71A63E08276766EF00EAB2EC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		71B31BA12775B9A900DD04DB /* MeToDoTests */ = {
+			isa = PBXGroup;
+			children = (
+				71B31BA22775B9A900DD04DB /* MeToDoTests.swift */,
+				71B31BA92775BA9700DD04DB /* AssetTests.swift */,
+			);
+			path = MeToDoTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +283,24 @@
 			productReference = 71A63DFE276766EE00EAB2EC /* MeToDo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		71B31B9F2775B9A900DD04DB /* MeToDoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71B31BA82775B9A900DD04DB /* Build configuration list for PBXNativeTarget "MeToDoTests" */;
+			buildPhases = (
+				71B31B9C2775B9A900DD04DB /* Sources */,
+				71B31B9D2775B9A900DD04DB /* Frameworks */,
+				71B31B9E2775B9A900DD04DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71B31BA52775B9A900DD04DB /* PBXTargetDependency */,
+			);
+			name = MeToDoTests;
+			productName = MeToDoTests;
+			productReference = 71B31BA02775B9A900DD04DB /* MeToDoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -257,11 +308,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					71A63DFD276766EE00EAB2EC = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					71B31B9F2775B9A900DD04DB = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 71A63DFD276766EE00EAB2EC;
 					};
 				};
 			};
@@ -280,6 +335,7 @@
 			projectRoot = "";
 			targets = (
 				71A63DFD276766EE00EAB2EC /* MeToDo */,
+				71B31B9F2775B9A900DD04DB /* MeToDoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -295,6 +351,13 @@
 				71A63E09276766EF00EAB2EC /* Preview Assets.xcassets in Resources */,
 				71A63E06276766EF00EAB2EC /* Assets.xcassets in Resources */,
 				71A5703727739EC3009E7ACA /* Localizable.stringsdict in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71B31B9E2775B9A900DD04DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +410,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71B31B9C2775B9A900DD04DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71B31BAA2775BA9700DD04DB /* AssetTests.swift in Sources */,
+				71B31BA32775B9A900DD04DB /* MeToDoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71B31BA52775B9A900DD04DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71A63DFD276766EE00EAB2EC /* MeToDo */;
+			targetProxy = 71B31BA42775B9A900DD04DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		71A5703527739EB6009E7ACA /* Localizable.strings */ = {
@@ -560,6 +640,44 @@
 			};
 			name = Release;
 		};
+		71B31BA62775B9A900DD04DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6V85GALCN;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeToDo.app/MeToDo";
+			};
+			name = Debug;
+		};
+		71B31BA72775B9A900DD04DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6V85GALCN;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeToDo.app/MeToDo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -577,6 +695,15 @@
 			buildConfigurations = (
 				71A63E0D276766EF00EAB2EC /* Debug */,
 				71A63E0E276766EF00EAB2EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71B31BA82775B9A900DD04DB /* Build configuration list for PBXNativeTarget "MeToDoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71B31BA62775B9A900DD04DB /* Debug */,
+				71B31BA72775B9A900DD04DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
