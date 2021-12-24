@@ -66,7 +66,7 @@ class AwardsTests: BaseTestCase {
         let project = Project.example
         XCTAssertTrue(project.closed, "The example project should be closed")
     }
-    
+
     func testExampleItemPriorityHigh() throws {
         let item = Item.example
         XCTAssertEqual(item.priority, 2, "The created test item priority should be medium (2)")

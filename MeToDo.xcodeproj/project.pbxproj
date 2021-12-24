@@ -37,6 +37,8 @@
 		71B31BAC2775BC7E00DD04DB /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */; };
 		71B31BAE2775C13500DD04DB /* AwardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAD2775C13500DD04DB /* AwardsTests.swift */; };
 		71B31BB0277673C800DD04DB /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAF277673C800DD04DB /* DevelopmentTests.swift */; };
+		71B31BB227767B1900DD04DB /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BB127767B1900DD04DB /* ExtensionsTests.swift */; };
+		71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */; };
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
 		71B31BAD2775C13500DD04DB /* AwardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsTests.swift; sourceTree = "<group>"; };
 		71B31BAF277673C800DD04DB /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
+		71B31BB127767B1900DD04DB /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
+		71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Sorting.swift"; sourceTree = "<group>"; };
 		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +178,7 @@
 			children = (
 				718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */,
 				718B0CB5276A117D005D496C /* BindingOnChange.swift */,
+				71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */,
 				71B31BAD2775C13500DD04DB /* AwardsTests.swift */,
 				71B31BAF277673C800DD04DB /* DevelopmentTests.swift */,
+				71B31BB127767B1900DD04DB /* ExtensionsTests.swift */,
 			);
 			path = MeToDoTests;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */,
+				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
@@ -424,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B31BAA2775BA9700DD04DB /* AssetTests.swift in Sources */,
+				71B31BB227767B1900DD04DB /* ExtensionsTests.swift in Sources */,
 				71B31BAE2775C13500DD04DB /* AwardsTests.swift in Sources */,
 				71B31BA32775B9A900DD04DB /* MeToDoTests.swift in Sources */,
 				71B31BAC2775BC7E00DD04DB /* ProjectTests.swift in Sources */,
