@@ -24,15 +24,13 @@ class AwardsTests: BaseTestCase {
         }
     }
 
-    func testItemAwards() throws {
+    func testAddItems() throws {
         let values = [1, 10, 20, 50, 100, 250, 500, 1000]
 
         for (count, value) in values.enumerated() {
-            var items = [Item]()
 
             for _ in 0..<value {
-                let item = Item(context: managedObjectContext)
-                items.append(item)
+                _ = Item(context: managedObjectContext)
             }
 
             let matches = awards.filter { award in
@@ -40,9 +38,7 @@ class AwardsTests: BaseTestCase {
             }
             XCTAssertEqual(matches.count, count + 1, "Adding \(value) items should unlock \(count + 1) awards.")
 
-            for item in items {
-                dataController.delete(item)
-            }
+            dataController.deleteAll()
         }
     }
 
@@ -50,12 +46,10 @@ class AwardsTests: BaseTestCase {
         let values = [1, 10, 20, 50, 100, 250, 500, 1000]
 
         for (count, value) in values.enumerated() {
-            var items = [Item]()
 
             for _ in 0..<value {
                 let item = Item(context: managedObjectContext)
                 item.completed = true
-                items.append(item)
             }
 
             let matches = awards.filter { award in
@@ -64,9 +58,17 @@ class AwardsTests: BaseTestCase {
 
             XCTAssertEqual(matches.count, count + 1, "Completing \(value) items should unlock \(count + 1) awards.")
 
-            for item in items {
-                dataController.delete(item)
-            }
+            dataController.deleteAll()
         }
+    }
+
+    func testExampleProjectIsClosed() throws {
+        let project = Project.example
+        XCTAssertTrue(project.closed, "The example project should be closed")
+    }
+    
+    func testExampleItemPriorityHigh() throws {
+        let item = Item.example
+        XCTAssertEqual(item.priority, 2, "The created test item priority should be medium (2)")
     }
 }

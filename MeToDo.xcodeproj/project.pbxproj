@@ -36,6 +36,7 @@
 		71B31BAA2775BA9700DD04DB /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BA92775BA9700DD04DB /* AssetTests.swift */; };
 		71B31BAC2775BC7E00DD04DB /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */; };
 		71B31BAE2775C13500DD04DB /* AwardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAD2775C13500DD04DB /* AwardsTests.swift */; };
+		71B31BB0277673C800DD04DB /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAF277673C800DD04DB /* DevelopmentTests.swift */; };
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		71B31BA92775BA9700DD04DB /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
 		71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
 		71B31BAD2775C13500DD04DB /* AwardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsTests.swift; sourceTree = "<group>"; };
+		71B31BAF277673C800DD04DB /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
 		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +266,7 @@
 				71B31BA92775BA9700DD04DB /* AssetTests.swift */,
 				71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */,
 				71B31BAD2775C13500DD04DB /* AwardsTests.swift */,
+				71B31BAF277673C800DD04DB /* DevelopmentTests.swift */,
 			);
 			path = MeToDoTests;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				71B31BAE2775C13500DD04DB /* AwardsTests.swift in Sources */,
 				71B31BA32775B9A900DD04DB /* MeToDoTests.swift in Sources */,
 				71B31BAC2775BC7E00DD04DB /* ProjectTests.swift in Sources */,
+				71B31BB0277673C800DD04DB /* DevelopmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
