@@ -34,6 +34,8 @@
 		71A63E122767728700EAB2EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E112767728700EAB2EC /* HomeView.swift */; };
 		71B31BA32775B9A900DD04DB /* MeToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BA22775B9A900DD04DB /* MeToDoTests.swift */; };
 		71B31BAA2775BA9700DD04DB /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BA92775BA9700DD04DB /* AssetTests.swift */; };
+		71B31BAC2775BC7E00DD04DB /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */; };
+		71B31BAE2775C13500DD04DB /* AwardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAD2775C13500DD04DB /* AwardsTests.swift */; };
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		71B31BA02775B9A900DD04DB /* MeToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B31BA22775B9A900DD04DB /* MeToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeToDoTests.swift; sourceTree = "<group>"; };
 		71B31BA92775BA9700DD04DB /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
+		71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
+		71B31BAD2775C13500DD04DB /* AwardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsTests.swift; sourceTree = "<group>"; };
 		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,6 +262,8 @@
 			children = (
 				71B31BA22775B9A900DD04DB /* MeToDoTests.swift */,
 				71B31BA92775BA9700DD04DB /* AssetTests.swift */,
+				71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */,
+				71B31BAD2775C13500DD04DB /* AwardsTests.swift */,
 			);
 			path = MeToDoTests;
 			sourceTree = "<group>";
@@ -415,7 +421,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B31BAA2775BA9700DD04DB /* AssetTests.swift in Sources */,
+				71B31BAE2775C13500DD04DB /* AwardsTests.swift in Sources */,
 				71B31BA32775B9A900DD04DB /* MeToDoTests.swift in Sources */,
+				71B31BAC2775BC7E00DD04DB /* ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
