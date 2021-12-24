@@ -43,4 +43,16 @@ class ExtensionsTests: BaseTestCase {
         let awards = Bundle.main.decode([Award].self, from: "Awards.json")
         XCTAssertFalse(awards.isEmpty, "Awards.json should not be empty")
     }
+
+    func testDecodingString() throws {
+        let bundle = Bundle(for: ExtensionsTests.self)
+        let data = bundle.decode(String.self, from: "StringSample.json")
+        XCTAssertEqual(data, "It's snowing here now.")
+    }
+    func testDecodingDict() throws {
+        let bundle = Bundle(for: ExtensionsTests.self)
+        let data = bundle.decode([String: Int].self, from: "DictionarySample.json")
+        XCTAssertEqual(data.count, 3, "There is 3 items in DictionarySample.json")
+        XCTAssertEqual(data["One"], 1, "One key has value of 1")
+    }
 }
