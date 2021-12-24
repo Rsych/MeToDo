@@ -105,7 +105,7 @@ class DataController: ObservableObject {
             let awardCount = count(for: fetchRequest)
             return awardCount >= award.value
 
-        case "completed":
+        case "complete":
             // returns if certain numbers of completed items
             let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
             fetchRequest.predicate = NSPredicate(format: "completed = true")
