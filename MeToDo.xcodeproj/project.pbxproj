@@ -41,6 +41,7 @@
 		71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */; };
 		71B31BBB2776816C00DD04DB /* DictionarySample.json in Resources */ = {isa = PBXBuildFile; fileRef = 71B31BBA2776816C00DD04DB /* DictionarySample.json */; };
 		71B31BBD2776817E00DD04DB /* StringSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 71B31BBC2776817E00DD04DB /* StringSample.json */; };
+		71B31BBF27772CEE00DD04DB /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */; };
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Sorting.swift"; sourceTree = "<group>"; };
 		71B31BBA2776816C00DD04DB /* DictionarySample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DictionarySample.json; sourceTree = "<group>"; };
 		71B31BBC2776817E00DD04DB /* StringSample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StringSample.json; sourceTree = "<group>"; };
+		71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,6 +280,7 @@
 				71B31BAD2775C13500DD04DB /* AwardsTests.swift */,
 				71B31BAF277673C800DD04DB /* DevelopmentTests.swift */,
 				71B31BB127767B1900DD04DB /* ExtensionsTests.swift */,
+				71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */,
 			);
 			path = MeToDoTests;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B31BBF27772CEE00DD04DB /* PerformanceTests.swift in Sources */,
 				71B31BAA2775BA9700DD04DB /* AssetTests.swift in Sources */,
 				71B31BB227767B1900DD04DB /* ExtensionsTests.swift in Sources */,
 				71B31BAE2775C13500DD04DB /* AwardsTests.swift in Sources */,
