@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import MeToDo
+import SwiftUI
 
 class DevelopmentTests: BaseTestCase {
     func testCreateSampleData() throws {
