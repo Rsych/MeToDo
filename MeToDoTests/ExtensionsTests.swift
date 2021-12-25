@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import MeToDo
+import SwiftUI
 
 class ExtensionsTests: BaseTestCase {
     func testSort() throws {
@@ -54,5 +55,29 @@ class ExtensionsTests: BaseTestCase {
         let data = bundle.decode([String: Int].self, from: "DictionarySample.json")
         XCTAssertEqual(data.count, 3, "There is 3 items in DictionarySample.json")
         XCTAssertEqual(data["One"], 1, "One key has value of 1")
+    }
+
+    func testBindingOnChange() {
+        // Given
+        var onChangeFunctionRun = false
+
+        func exampleFunctionToCall() {
+            onChangeFunctionRun = true
+        }
+
+        var storedValue = ""
+
+        let binding = Binding(
+            get: { storedValue },
+            set: { storedValue = $0 }
+        )
+
+        let changedBinding = binding.onChange(exampleFunctionToCall)
+
+        // When
+        changedBinding.wrappedValue = "Test"
+
+        // Then
+        XCTAssertTrue(onChangeFunctionRun, "The onChange() function was not run.")
     }
 }
