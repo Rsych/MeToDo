@@ -26,10 +26,9 @@ class PerformanceTests: BaseTestCase {
         // Simulate lots of awards to check
         let awards = Array(repeating: Award.allAwards, count: 25).joined()
 
+        XCTAssertEqual(awards.count, 500, "Current constants of awards is 500, Change later if changed")
         self.measure {
             _ = awards.filter(dataController.hasEarned)
         }
-
     }
-
 }
