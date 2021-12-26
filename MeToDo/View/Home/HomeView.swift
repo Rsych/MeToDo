@@ -12,36 +12,17 @@ struct HomeView: View {
     // MARK: - Properties
     static let homeTag: Int = 0
 
+    @StateObject var viewModel: ViewModel
+
     @State private var showModal = false
-
-    @EnvironmentObject var dataController: DataController
-    @FetchRequest(
-        entity: Project.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)],
-        predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
-
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
     }
 
-    let items: FetchRequest<Item>
+    init(dataController: DataController) {
+        let viewModel = ViewModel(dataController: dataController)
+        _viewModel = StateObject(wrappedValue: viewModel)
 
-    init() {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
-
-        let completedPredicate = NSPredicate(format: "completed = false")
-        let openPredicate = NSPredicate(format: "project.closed = false")
-        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
-
-        request.predicate = compoundPredicate
-        request.predicate = NSPredicate(format: "completed = false AND project.closed = false")
-
-        request.sortDescriptors = [
-            NSSortDescriptor(keyPath: \Item.priority, ascending: false)
-        ]
-        request.fetchLimit = 10
-
-        items = FetchRequest(fetchRequest: request)
     }
 
     // MARK: - Body
@@ -51,7 +32,7 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
-                            ForEach(projects) { project in
+                            ForEach(viewModel.projects) { project in
                                 ProjectSummaryView(project: project)
                             }  //: project Loop
                         }  //: LazyHGrid
@@ -59,8 +40,8 @@ struct HomeView: View {
                         .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
                     VStack(alignment: .leading) {
-                        HomeItemListView(title: "Up next", items: items.wrappedValue.prefix(3))
-                        HomeItemListView(title: "More to explore", items: items.wrappedValue.dropFirst(3))
+                        HomeItemListView(title: "Up next", items: viewModel.upNext)
+                        HomeItemListView(title: "More to explore", items: viewModel.moreToExplore)
                     }  //: VStack
                     .padding(.horizontal)
                 }  //: VStack
@@ -71,8 +52,7 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add Data Debug") {
-                        dataController.deleteAll()
-                        try? dataController.createSampleData()
+                        viewModel.addSampleData()
                     }
                 }
             }  //: toolbar
@@ -83,6 +63,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(dataController: .preview)
     }
 }
