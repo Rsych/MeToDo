@@ -26,6 +26,7 @@ ToDo with SwiftUI.
 * Networking features
 * ~~Clean up~~
 * ~~Test~~
+* Soptlight search
 
 
 
