@@ -21,11 +21,9 @@ struct ProjectHeaderView: View {
 
                 ProgressView(value: project.completionAmount)
                     .tint(Color(project.projectColor))
-//                    .tint(Color("Orange"))
             }
             Spacer()
 
-//            NavigationLink(destination: EmptyView()) {
                 Image(systemName: "pencil")
                 .sheet(isPresented: $showModal) {
                     EditProjectView(project: project)
@@ -33,7 +31,6 @@ struct ProjectHeaderView: View {
                 .onTapGesture {
                     showModal.toggle()
                 }
-//            }
         }  //: HStack
         .padding(.bottom, 10)
     }  //: body

@@ -224,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				710C898A27687E74004FADCD /* Info.plist */,
-				710C898927687E6D004FADCD /* MeToDo.entitlements */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -251,6 +250,7 @@
 		71A63E00276766EE00EAB2EC /* MeToDo */ = {
 			isa = PBXGroup;
 			children = (
+				710C898927687E6D004FADCD /* MeToDo.entitlements */,
 				71A5704D2774C456009E7ACA /* Configuration */,
 				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
 				71A5704A2774BC5B009E7ACA /* Model */,

@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import CoreSpotlight
 import SwiftUI
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
@@ -133,5 +134,24 @@ class DataController: ObservableObject {
 //             fatalError("Unknown award criterion \(award.criterion).")
             return false
         }
+    }
+
+    func update(_ item: Item) {
+        let itemID = item.objectID.uriRepresentation().absoluteString
+        let projectID = item.project?.objectID.uriRepresentation().absoluteString
+        
+        let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
+        attributeSet.title = item.itemTitle
+        attributeSet.contentDescription = item.itemDetail
+        
+        let searchableItem = CSSearchableItem(
+            uniqueIdentifier: itemID,
+            domainIdentifier: projectID,
+            attributeSet: attributeSet
+        )
+        
+        CSSearchableIndex.default().indexSearchableItems([searchableItem])
+        
+        save()
     }
 }

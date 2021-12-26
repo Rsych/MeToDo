@@ -68,7 +68,7 @@ struct EditItemView: View {
                     } //: Toolbar
         }  //: NavView
 
-        .onDisappear(perform: dataController.save)
+        .onDisappear(perform: save)
     }  //: body
 
     func update() {
@@ -79,8 +79,8 @@ struct EditItemView: View {
         item.completed = completed
     }
 
-    func save(_ note: Notification) {
-        dataController.save()
+    func save() {
+        dataController.update(item)
     }
 }
 
