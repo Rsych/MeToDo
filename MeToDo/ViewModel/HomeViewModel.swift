@@ -15,6 +15,7 @@ extension HomeView {
 
         @Published var projects = [Project]()
         @Published var items = [Item]()
+        @Published var selectedItem: Item?
 
         var dataController: DataController
 
@@ -87,6 +88,10 @@ extension HomeView {
         func addSampleData() {
             dataController.deleteAll()
             try? dataController.createSampleData()
+        }
+
+        func selectedItem(with identifier: String) {
+            selectedItem = dataController.item(with: identifier)
         }
     }
 }
