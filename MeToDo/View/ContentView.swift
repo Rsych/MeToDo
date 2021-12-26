@@ -16,7 +16,7 @@ struct ContentView: View {
     // MARK: - Body
     var body: some View {
             TabView(selection: $currentTab) {
-                HomeView()
+                HomeView(dataController: dataController)
                     .tag(HomeView.homeTag)
                 ProjectView(dataController: dataController, showClosedProjects: false)
                     .tag(ProjectView.openTag)

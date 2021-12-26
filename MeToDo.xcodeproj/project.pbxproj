@@ -12,6 +12,7 @@
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
 		715AEFDE27688821009C63DB /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDD27688821009C63DB /* ProjectView.swift */; };
 		715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
+		71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71721FEB277886570050F0B2 /* HomeViewModel.swift */; };
 		718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */; };
 		718952E7276F0D6000EA32DE /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E6276F0D6000EA32DE /* Award.swift */; };
 		718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E8276F0FA700EA32DE /* AwardsView.swift */; };
@@ -64,6 +65,7 @@
 		710C898C27687E84004FADCD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		715AEFDD27688821009C63DB /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		71721FEB277886570050F0B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		718952E6276F0D6000EA32DE /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		718952E8276F0FA700EA32DE /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				71B31BD02777386100DD04DB /* ProjectViewModel.swift */,
+				71721FEB277886570050F0B2 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */,
+				71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */,
 				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
