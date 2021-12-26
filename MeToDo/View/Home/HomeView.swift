@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreSpotlight
 import CoreData
 
 struct HomeView: View {
@@ -14,7 +15,9 @@ struct HomeView: View {
 
     @StateObject var viewModel: ViewModel
 
-    @State private var showModal = false
+//    @State private var showModal = false
+    @State private var showSpotModal = false
+
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
     }
@@ -57,8 +60,19 @@ struct HomeView: View {
                 }
             }  //: toolbar
             #endif
+            .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
+            .sheet(isPresented: $showSpotModal) {
+                EditItemView(item: viewModel.selectedItem ?? Item.example)
+            }
         }  //: NavView
     }  //: body
+    func loadSpotlightItem(_ userActivity: NSUserActivity) {
+        if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as?
+            String {
+            viewModel.selectedItem(with: uniqueIdentifier)
+            showSpotModal.toggle()
+        }
+    }
 }  //: view
 
 struct HomeView_Previews: PreviewProvider {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditProjectView: View {
     // MARK: - Properties
-    let project: Project
+    @ObservedObject var project: Project
 
     @EnvironmentObject var dataController: DataController
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>

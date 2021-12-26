@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreSpotlight
 
 struct ContentView: View {
     // MARK: - Properties
@@ -44,7 +45,12 @@ struct ContentView: View {
             })
             .overlay(TabBarView(selectedTab: $currentTab), alignment: .bottom)
             .ignoresSafeArea()
+            .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
     }  //: body
+
+    func moveToHome(_ input: Any) {
+        currentTab = HomeView.homeTag
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

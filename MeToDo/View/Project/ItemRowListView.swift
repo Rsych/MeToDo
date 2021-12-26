@@ -14,7 +14,6 @@ struct ItemRowListView: View {
     @State private var showModal = false
     // MARK: - Body
     var body: some View {
-        //        NavigationLink(destination: EmptyView()) {
         Button {
             showModal.toggle()
         } label: {
@@ -30,7 +29,6 @@ struct ItemRowListView: View {
         .onTapGesture {
             showModal.toggle()
         }
-        //        }  //: item NavLink
     }
 
     func priorityIcon() -> some View {
