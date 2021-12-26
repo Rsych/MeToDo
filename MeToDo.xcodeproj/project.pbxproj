@@ -42,6 +42,7 @@
 		71B31BBB2776816C00DD04DB /* DictionarySample.json in Resources */ = {isa = PBXBuildFile; fileRef = 71B31BBA2776816C00DD04DB /* DictionarySample.json */; };
 		71B31BBD2776817E00DD04DB /* StringSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 71B31BBC2776817E00DD04DB /* StringSample.json */; };
 		71B31BBF27772CEE00DD04DB /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */; };
+		71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BD02777386100DD04DB /* ProjectViewModel.swift */; };
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		71B31BBA2776816C00DD04DB /* DictionarySample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DictionarySample.json; sourceTree = "<group>"; };
 		71B31BBC2776817E00DD04DB /* StringSample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StringSample.json; sourceTree = "<group>"; };
 		71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
+		71B31BD02777386100DD04DB /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +253,7 @@
 				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
 				71A5704A2774BC5B009E7ACA /* Model */,
 				71A570442774BB91009E7ACA /* View */,
+				71B31BCF2777384600DD04DB /* ViewModel */,
 				71A5704B2774BC5F009E7ACA /* Controller */,
 				71A570492774BC41009E7ACA /* Extension */,
 				71A5704C2774BC6E009E7ACA /* Localization */,
@@ -292,6 +295,14 @@
 				71B31BBC2776817E00DD04DB /* StringSample.json */,
 			);
 			path = TestSample;
+			sourceTree = "<group>";
+		};
+		71B31BCF2777384600DD04DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				71B31BD02777386100DD04DB /* ProjectViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +440,7 @@
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,
 				715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */,
+				71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */,
 				718952E7276F0D6000EA32DE /* Award.swift in Sources */,
 				718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */,
 				71A570432774B697009E7ACA /* ProjectSummaryView.swift in Sources */,

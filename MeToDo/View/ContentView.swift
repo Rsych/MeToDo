@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     // MARK: - Properties
     @SceneStorage("selectedTab") var currentTab: Int = 0
-
+    @EnvironmentObject var dataController: DataController
     @State var shouldShowModel = false
 
     // MARK: - Body
@@ -18,10 +18,10 @@ struct ContentView: View {
             TabView(selection: $currentTab) {
                 HomeView()
                     .tag(HomeView.homeTag)
-                ProjectView(showClosedProjects: false)
+                ProjectView(dataController: dataController, showClosedProjects: false)
                     .tag(ProjectView.openTag)
                 EmptyView()
-                ProjectView(showClosedProjects: true)
+                ProjectView(dataController: dataController, showClosedProjects: true)
                     .tag(ProjectView.closedTag)
                 AwardsView()
                     .tag(AwardsView.awardsTag)
