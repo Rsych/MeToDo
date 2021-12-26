@@ -25,7 +25,7 @@ ToDo with SwiftUI.
 * Widgets
 * Networking features
 * ~~Clean up~~
-* Test
+* ~~Test~~
 
 
 
