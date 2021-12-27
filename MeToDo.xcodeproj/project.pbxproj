@@ -12,7 +12,7 @@
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
 		715AEFDE27688821009C63DB /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDD27688821009C63DB /* ProjectView.swift */; };
 		715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
-		7170D0FE2779B22A00BA0D62 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170D0FD2779B22A00BA0D62 /* NotificationView.swift */; };
+		7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170D0FD2779B22A00BA0D62 /* DueDateView.swift */; };
 		71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71721FEB277886570050F0B2 /* HomeViewModel.swift */; };
 		718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */; };
 		718952E7276F0D6000EA32DE /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E6276F0D6000EA32DE /* Award.swift */; };
@@ -66,7 +66,7 @@
 		710C898C27687E84004FADCD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		715AEFDD27688821009C63DB /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		7170D0FD2779B22A00BA0D62 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		7170D0FD2779B22A00BA0D62 /* DueDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateView.swift; sourceTree = "<group>"; };
 		71721FEB277886570050F0B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		718952E6276F0D6000EA32DE /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
@@ -164,6 +164,7 @@
 				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
 				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
 				71A570422774B697009E7ACA /* ProjectSummaryView.swift */,
+				7170D0FD2779B22A00BA0D62 /* DueDateView.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -172,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				718B0CC1276C7E05005D496C /* AddProjectView.swift */,
-				7170D0FD2779B22A00BA0D62 /* NotificationView.swift */,
 				718B0CBF276A274B005D496C /* EditProjectView.swift */,
 			);
 			path = Add;
@@ -443,7 +443,7 @@
 				71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */,
 				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
-				7170D0FE2779B22A00BA0D62 /* NotificationView.swift in Sources */,
+				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,

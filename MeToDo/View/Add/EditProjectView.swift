@@ -31,7 +31,7 @@ struct EditProjectView: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
-        
+
         if let projectRemindTime = project.dueDate {
             _dueDate = State(wrappedValue: projectRemindTime)
             _dueOn = State(wrappedValue: true)
@@ -59,8 +59,8 @@ struct EditProjectView: View {
             } header: {
                 Text("Choose project color")
             } // section 2
-            
-            NotificationView(dueOn: $dueOn, dueDate: $dueDate)
+
+            DueDateView(dueOn: $dueOn, dueDate: $dueDate)
             // Notification Section
 
             Section {

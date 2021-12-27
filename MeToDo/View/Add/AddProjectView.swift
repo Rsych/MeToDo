@@ -58,7 +58,7 @@ struct AddProjectView: View {
                     Text("Choose project color")
                 } // section 2
 
-                NotificationView(dueOn: $dueOn, dueDate: $dueDate)
+                DueDateView(dueOn: $dueOn, dueDate: $dueDate)
                 // Notification section
 
             Section(content: {
