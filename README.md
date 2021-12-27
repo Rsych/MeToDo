@@ -19,14 +19,15 @@ ToDo with SwiftUI.
 * ~~HomeView controll~~
 * Accessibility
 * ~~DataControl~~
-* CoreData
+* ~~CoreData~~
 * CloudKit
 * ~~Localization~~ partially done, translations needed
 * Widgets
 * Networking features
 * ~~Clean up~~
 * ~~Test~~
-* Soptlight search
+* ~~Soptlight search~~
+* Local notification
 
 
 
