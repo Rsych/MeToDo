@@ -60,15 +60,8 @@ struct EditProjectView: View {
                 Text("Choose project color")
             } // section 2
             
-            Section {
-                Toggle("Add due date", isOn: $dueOn.animation().onChange(update))
-                if dueOn {
-                    DatePicker("Pick a date", selection: $dueDate.onChange(update), displayedComponents: .date)
-                }
-            } header: {
-                Text("Due date")
-            }
-
+            NotificationView(dueOn: $dueOn, dueDate: $dueDate)
+            // Notification Section
 
             Section {
                 Button(project.closed ? "Reopen project" : "Finish this project") {

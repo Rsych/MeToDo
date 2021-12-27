@@ -58,14 +58,9 @@ struct AddProjectView: View {
                     Text("Choose project color")
                 } // section 2
 
-                Section {
-                    Toggle("Add due date", isOn: $dueOn.animation())
-                    if dueOn {
-                        DatePicker("Pick a date", selection: $dueDate, displayedComponents: .date)
-                    }
-                } header: {
-                    Text("Due date")
-                }
+                NotificationView(dueOn: $dueOn, dueDate: $dueDate)
+                // Notification section
+
             Section(content: {
                 Button("Save") {
                     save()
