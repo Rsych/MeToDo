@@ -18,6 +18,8 @@ struct AddProjectView: View {
     @State private var title: String = ""
     @State private var detail: String = ""
     @State private var color: String = Project.colors.randomElement() ?? "Light Blue"
+    @State private var dueOn: Bool = false
+    @State private var dueDate: Date = Date()
 
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))]
@@ -56,6 +58,14 @@ struct AddProjectView: View {
                     Text("Choose project color")
                 } // section 2
 
+                Section {
+                    Toggle("Add due date", isOn: $dueOn.animation())
+                    if dueOn {
+                        DatePicker("Pick a date", selection: $dueDate, displayedComponents: .date)
+                    }
+                } header: {
+                    Text("Due date")
+                }
             Section(content: {
                 Button("Save") {
                     save()
@@ -91,6 +101,7 @@ struct AddProjectView: View {
         project.color = color
         project.closed = false
         project.creationDate = Date()
+        project.dueDate = dueDate
         dataController.save()
     }
 }
