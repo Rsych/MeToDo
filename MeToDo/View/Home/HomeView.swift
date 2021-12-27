@@ -15,7 +15,7 @@ struct HomeView: View {
 
     @StateObject var viewModel: ViewModel
 
-//    @State private var showModal = false
+    @State private var showSettings = false
     @State private var showSpotModal = false
 
     var projectRows: [GridItem] {
@@ -53,13 +53,24 @@ struct HomeView: View {
 //            .navigationBarTitleDisplayMode(.inline)
             #if targetEnvironment(simulator)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("Add Data Debug") {
                         viewModel.addSampleData()
                     }
                 }
             }  //: toolbar
             #endif
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Settings") {
+                        showSettings = true
+                    }
+                }
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+            }
+
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {
                 EditItemView(item: viewModel.selectedItem ?? Item.example)
