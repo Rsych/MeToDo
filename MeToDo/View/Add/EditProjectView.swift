@@ -19,6 +19,8 @@ struct EditProjectView: View {
     @State private var title: String
     @State private var detail: String
     @State private var color: String
+    @State private var dueOn: Bool
+    @State private var dueDate: Date
 
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))]
@@ -29,6 +31,14 @@ struct EditProjectView: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
+
+        if let projectRemindTime = project.dueDate {
+            _dueDate = State(wrappedValue: projectRemindTime)
+            _dueOn = State(wrappedValue: true)
+        } else {
+            _dueDate = State(wrappedValue: Date())
+            _dueOn = State(wrappedValue: false)
+        }
     }
     // MARK: - Body
     var body: some View {
@@ -49,6 +59,9 @@ struct EditProjectView: View {
             } header: {
                 Text("Choose project color")
             } // section 2
+
+            DueDateView(dueOn: $dueOn, dueDate: $dueDate)
+            // Notification Section
 
             Section {
                 Button(project.closed ? "Reopen project" : "Finish this project") {
@@ -91,6 +104,12 @@ struct EditProjectView: View {
         project.title = title
         project.detail = detail
         project.color = color
+
+        if dueOn {
+            project.dueDate = dueDate
+        } else {
+            project.dueDate = nil
+        }
     }
 
     func delete() {
