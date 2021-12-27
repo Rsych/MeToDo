@@ -104,9 +104,9 @@ struct EditProjectView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Dismiss") {
 //                    self.showModal.toggle()
-                    presentationMode.wrappedValue.dismiss()
-                    update()
 
+                    update()
+                    presentationMode.wrappedValue.dismiss()
                 } //: Button
             } //: ToolbarItem
         } //: Toolbar
@@ -119,7 +119,6 @@ struct EditProjectView: View {
         project.title = title
         project.detail = detail
         project.color = color
-        project.closed = false
         project.creationDate = Date()
         if dueOn {
             project.dueDate = dueDate
