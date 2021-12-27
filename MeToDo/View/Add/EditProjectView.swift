@@ -74,6 +74,9 @@ struct EditProjectView: View {
 //                    showModal.toggle()
                     presentationMode.wrappedValue.dismiss()
                 }
+
+                // There's an error that notification terminates immediately after showing Alert
+                // Fix this later
 //                .alert(isPresented: $showingNotificationsError) {
 //                    Alert(
 //                        title: Text("Oops!"),

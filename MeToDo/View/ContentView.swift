@@ -35,7 +35,7 @@ struct ContentView: View {
                 }
             })  //: AddProjectSheet
             .sheet(isPresented: $shouldShowModel, onDismiss: {
-                currentTab = 1
+                currentTab = 0
             }, content: {
                 AddProjectView()
             })
