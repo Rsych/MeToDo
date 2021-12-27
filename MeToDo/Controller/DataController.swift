@@ -107,16 +107,18 @@ class DataController: ObservableObject {
 //        }
 //        container.viewContext.delete(object)
 //    }
-    func delete(_ item: Item) {
-        let id = item.objectID.uriRepresentation().absoluteString
-        CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])
-        container.viewContext.delete(item)
-    }
-    func delete(_ project: Project) {
-        let id = project.objectID.uriRepresentation().absoluteString
-        removeDueReminder(for: project)
+    func delete(_ object: Project) {
+        let id = object.objectID.uriRepresentation().absoluteString
         CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [id])
-        container.viewContext.delete(project)
+        removeDueReminder(for: object)
+        container.viewContext.delete(object)
+    }
+
+    func delete(_ object: Item) {
+        let id = object.objectID.uriRepresentation().absoluteString
+        CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])
+
+        container.viewContext.delete(object)
     }
 
     func deleteAll() {
@@ -207,6 +209,13 @@ class DataController: ObservableObject {
             }
         }
     }
+    func showAppSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL)
+        }
+    }
     /// Removes notification
     func removeDueReminder(for project: Project) {
         let center = UNUserNotificationCenter.current()
@@ -230,7 +239,7 @@ class DataController: ObservableObject {
             content.subtitle = projectDetail
         }
 
-        let components = Calendar.current.dateComponents([.hour, .minute], from: project.dueDate ?? Date())
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: project.dueDate ?? Date())
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
 
         let id = project.objectID.uriRepresentation().absoluteString

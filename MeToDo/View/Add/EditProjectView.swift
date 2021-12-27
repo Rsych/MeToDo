@@ -4,6 +4,7 @@
 //
 //  Created by Ryan J. W. Kim on 2021/12/15.
 //
+// swiftlint:disable line_length
 
 import SwiftUI
 
@@ -15,10 +16,12 @@ struct EditProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @State private var showingDeleteConfirm = false
+//    @State private var showingNotificationsError = false
 
     @State private var title: String
     @State private var detail: String
     @State private var color: String
+
     @State private var dueOn: Bool
     @State private var dueDate: Date
 
@@ -61,6 +64,7 @@ struct EditProjectView: View {
             } // section 2
 
             DueDateView(dueOn: $dueOn, dueDate: $dueDate)
+
             // Notification Section
 
             Section {
@@ -70,14 +74,30 @@ struct EditProjectView: View {
 //                    showModal.toggle()
                     presentationMode.wrappedValue.dismiss()
                 }
+//                .alert(isPresented: $showingNotificationsError) {
+//                    Alert(
+//                        title: Text("Oops!"),
+//                        message: Text("There was a problem. Please check you have notifications enabled."),
+//                        primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+//                        secondaryButton: .cancel()
+//                    )
+//                }
                 Button("Delete this project") {
+                    print("Delete")
                     showingDeleteConfirm.toggle()
                 }
+                .alert(isPresented: $showingDeleteConfirm) {
+                    Alert(
+                        title: Text("Delete project?"),
+                        message: Text("Are you sure you want to delete this project? You will lose all the items inside."),
+                        primaryButton: .default(Text("Delete"), action: delete),
+                        secondaryButton: .cancel()
+                    )
+                }  //: Delete Alert
                 .foregroundColor(.red)
             } footer: {
                 Text("Closing")
             } // section 3
-
         }  //: Form
         .navigationTitle("Edit Project")
         .toolbar {
@@ -85,31 +105,36 @@ struct EditProjectView: View {
                 Button("Dismiss") {
 //                    self.showModal.toggle()
                     presentationMode.wrappedValue.dismiss()
+                    update()
+
                 } //: Button
             } //: ToolbarItem
         } //: Toolbar
         }
         .onDisappear(perform: dataController.save)
-        .alert(isPresented: $showingDeleteConfirm) {
-            Alert(
-                title: Text("Delete project?"),
-                message: Text("Are you sure you want to delete this project? You will lose all the items inside."),
-                primaryButton: .default(Text("Delete"), action: delete),
-                secondaryButton: .cancel()
-            )
-        }
+
     }  //: body
 
     func update() {
         project.title = title
         project.detail = detail
         project.color = color
-
+        project.closed = false
+        project.creationDate = Date()
         if dueOn {
             project.dueDate = dueDate
+            dataController.addDueDateReminder(for: project) { success in
+                if success == false {
+                    project.dueDate = nil
+                    dueOn = false
+//                    showingNotificationsError.toggle()
+                }
+            }
         } else {
             project.dueDate = nil
+            dataController.removeDueReminder(for: project)
         }
+        dataController.save()
     }
 
     func delete() {
@@ -131,6 +156,14 @@ struct EditProjectView: View {
         .onTapGesture {
             color = item
             update()
+        }
+    }
+
+    func showAppSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL)
         }
     }
 }
