@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct DueDateView: View {
-    @EnvironmentObject var dataController: DataController
     @Binding var dueOn: Bool
     @Binding var dueDate: Date
 
     var body: some View {
-
         Section {
             Toggle("Add due date", isOn: $dueOn.animation())
             if dueOn {
-                DatePicker("Pick a date", selection: $dueDate, displayedComponents: .date)
+                DatePicker("Pick a date", selection: $dueDate, displayedComponents: .hourAndMinute)
             }
         } header: {
             Text("Due date")
         }
-
     }
 }
