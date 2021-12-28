@@ -52,6 +52,8 @@ extension ProjectView {
                 let item = Item(context: dataController.container.viewContext)
                 item.project = project
                 item.creationDate = Date()
+                item.priority = 2
+                item.completed = false
                 dataController.save()
         }  //: addItem
         func delete(_ offsets: IndexSet, project: Project) {

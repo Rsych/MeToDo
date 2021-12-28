@@ -38,19 +38,21 @@ extension HomeView {
             )
 
             // Construct a fetch request to show the top 10 priority from incomplete open projects
-            let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()
-
-            let completedPredicate = NSPredicate(format: "completed = false")
-            let openPredicate = NSPredicate(format: "project.closed = false")
-            let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
-            itemRequest.predicate = compoundPredicate
-            itemRequest.predicate = NSPredicate(format: "completed = false AND project.closed = false")
-
-            itemRequest.sortDescriptors = [
-                NSSortDescriptor(keyPath: \Item.priority, ascending: false)
-            ]
-
-            itemRequest.fetchLimit = 10
+//            let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()
+//
+//            let completedPredicate = NSPredicate(format: "completed = false")
+//            let openPredicate = NSPredicate(format: "project.closed = false")
+//            let compoundPredicate = NSCompoundPredicate(type: .and,
+//        subpredicates: [completedPredicate, openPredicate])
+//            itemRequest.predicate = compoundPredicate
+//            itemRequest.predicate = NSPredicate(format: "completed = false AND project.closed = false")
+//
+//            itemRequest.sortDescriptors = [
+//                NSSortDescriptor(keyPath: \Item.priority, ascending: false)
+//            ]
+//
+//            itemRequest.fetchLimit = 10
+            let itemRequest = dataController.fetchRequestForTopItems(count: 10)
 
             itemsController = NSFetchedResultsController(
                 fetchRequest: itemRequest,
@@ -78,6 +80,8 @@ extension HomeView {
         func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
             if let newItems = controller.fetchedObjects as? [Item] {
                 items = newItems
+                upNext = items.prefix(3)
+                moreToExplore = items.dropFirst(3)
             } else if let newProjects = controller.fetchedObjects as? [Project] {
                 projects = newProjects
             }

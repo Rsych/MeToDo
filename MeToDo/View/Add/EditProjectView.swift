@@ -16,7 +16,7 @@ struct EditProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @State private var showingDeleteConfirm = false
-//    @State private var showingNotificationsError = false
+    //    @State private var showingNotificationsError = false
 
     @State private var title: String
     @State private var detail: String
@@ -43,61 +43,67 @@ struct EditProjectView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
-        Form {
-            ProjectInfoView(title: $title.onChange(update), detail: $detail.onChange(update))
+            Form {
+                ProjectInfoView(title: $title.onChange(update), detail: $detail.onChange(update))
 
-            ProjectColorButtonView(color: $color.onChange(update))
+                ProjectColorButtonView(color: $color.onChange(update))
 
-            DueDateView(dueOn: $dueOn, dueDate: $dueDate)
+                DueDateView(dueOn: $dueOn, dueDate: $dueDate)
 
-            Section {
-                Button(project.closed ? "Reopen project" : "Finish this project") {
-                    project.closed.toggle()
-                    update()
-//                    showModal.toggle()
-                    presentationMode.wrappedValue.dismiss()
-                }
+                Section {
+                    Button(project.closed ? "Reopen project" : "Finish this project") {
+                        project.closed.toggle()
+                        update()
+                        //                    showModal.toggle()
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.blue)
 
-                // There's an error that notification terminates immediately after showing Alert
-                // Fix this later
-//                .alert(isPresented: $showingNotificationsError) {
-//                    Alert(
-//                        title: Text("Oops!"),
-//                        message: Text("There was a problem. Please check you have notifications enabled."),
-//                        primaryButton: .default(Text("Check Settings"), action: showAppSettings),
-//                        secondaryButton: .cancel()
-//                    )
-//                }
-                Button("Delete this project") {
-                    print("Delete")
-                    showingDeleteConfirm.toggle()
-                }
-                .foregroundColor(.red)
-                .alert(isPresented: $showingDeleteConfirm) {
-                    Alert(
-                        title: Text("Delete project?"),
-                        message: Text("Are you sure you want to delete this project? You will lose all the items inside."),
-                        primaryButton: .destructive(Text("Delete"), action: delete),
-                        secondaryButton: .cancel()
-                    )
-                }  //: Delete Alert
-            } footer: {
-                Text("Closing")
-            } // section 3
-        }  //: Form
-        .modifier(DismissingKeyboard())
-        .navigationTitle("Edit Project")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Dismiss") {
-//                    self.showModal.toggle()
+                    // There's an error that notification terminates immediately after showing Alert
+                    // Fix this later
+                    //                .alert(isPresented: $showingNotificationsError) {
+                    //                    Alert(
+                    //                        title: Text("Oops!"),
+                    //                        message: Text("There was a problem. Please check you have notifications enabled."),
+                    //                        primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                    //                        secondaryButton: .cancel()
+                    //                    )
+                    //                }
+                    Button("Delete this project") {
+                        print("Delete")
+                        showingDeleteConfirm.toggle()
+                    }
+                    .foregroundColor(.red)
+                    .alert(isPresented: $showingDeleteConfirm) {
+                        Alert(
+                            title: Text("Delete project?"),
+                            message: Text("Are you sure you want to delete this project? You will lose all the items inside."),
+                            primaryButton: .destructive(Text("Delete"), action: delete),
+                            secondaryButton: .cancel()
+                        )
+                    }  //: Delete Alert
+                } footer: {
+                    Text("Closing")
+                } // section 3
+            }  //: Form
+            .font(.body)
+            .resignKeyboardOnDragGesture()
 
-                    update()
-                    presentationMode.wrappedValue.dismiss()
-                } //: Button
-            } //: ToolbarItem
-        } //: Toolbar
-        }
+            .navigationTitle("Edit Project")
+            .font(.title2)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Dismiss") {
+                        //                    self.showModal.toggle()
+
+                        update()
+                        presentationMode.wrappedValue.dismiss()
+                    } //: Button
+                    .foregroundColor(.blue)
+                } //: ToolbarItem
+            } //: Toolbar
+            .font(.body)
+        }  //: NavView
         .onDisappear(perform: dataController.save)
 
     }  //: body
@@ -113,7 +119,7 @@ struct EditProjectView: View {
                 if success == false {
                     project.dueDate = nil
                     dueOn = false
-//                    showingNotificationsError.toggle()
+                    //                    showingNotificationsError.toggle()
                 }
             }
         } else {
@@ -128,20 +134,20 @@ struct EditProjectView: View {
         self.presentationMode.wrappedValue.dismiss()
     }
 
-//    func colorButton(for item: String) -> some View {
-//        ZStack {
-//            Color(item)
-//                .aspectRatio(1, contentMode: .fit)
-//                .cornerRadius(6)
-//            if item == color {
-//                Image(systemName: "checkmark.circle")
-//                    .foregroundColor(.white)
-//                    .font(.largeTitle)
-//            }
-//        }  //: ZStack
-//        .onTapGesture {
-//            color = item
-//            update()
-//        }
-//    }
+    //    func colorButton(for item: String) -> some View {
+    //        ZStack {
+    //            Color(item)
+    //                .aspectRatio(1, contentMode: .fit)
+    //                .cornerRadius(6)
+    //            if item == color {
+    //                Image(systemName: "checkmark.circle")
+    //                    .foregroundColor(.white)
+    //                    .font(.largeTitle)
+    //            }
+    //        }  //: ZStack
+    //        .onTapGesture {
+    //            color = item
+    //            update()
+    //        }
+    //    }
 }

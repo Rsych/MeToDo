@@ -11,7 +11,9 @@ struct ProjectHeaderView: View {
     // MARK: - Properties
     @ObservedObject var project: Project
 
-    @State private var showModal = false
+    @State private var selectedProject: FetchedResults<Project>.Element?
+
+//    @State private var showModal = false
     // MARK: - Body
     var body: some View {
         HStack {
@@ -25,14 +27,18 @@ struct ProjectHeaderView: View {
             Spacer()
 
                 Image(systemName: "pencil")
-                .sheet(isPresented: $showModal) {
-                    EditProjectView(project: project)
-                }
                 .onTapGesture {
-                    showModal.toggle()
+//                    showModal.toggle()
+                    self.selectedProject = project
                 }
         }  //: HStack
         .padding(.bottom, 10)
+//        .sheet(isPresented: $showModal) {
+//            EditProjectView(project: project)
+//        }
+        .sheet(item: $selectedProject) {
+            EditProjectView(project: $0)
+        }
     }  //: body
 }
 

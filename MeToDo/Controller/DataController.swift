@@ -9,7 +9,6 @@ import CoreData
 import CoreSpotlight
 import SwiftUI
 import WidgetKit
-import StoreKit
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
@@ -165,7 +164,7 @@ class DataController: ObservableObject {
         }
         return try? container.viewContext.existingObject(with: id) as? Item
     }
-    
+
     func fetchRequestForTopItems(count: Int) -> NSFetchRequest<Item> {
         // Construct a fetch request to show the top 10 priority from incomplete open projects
         let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()

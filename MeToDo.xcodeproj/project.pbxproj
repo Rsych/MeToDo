@@ -39,6 +39,7 @@
 		719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA669277B755600F17102 /* DataController-Settings.swift */; };
 		719EA66C277B77E200F17102 /* ProjectInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA66B277B77E200F17102 /* ProjectInfoView.swift */; };
 		719EA66E277B7A9F00F17102 /* ProjectColorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA66D277B7A9F00F17102 /* ProjectColorButtonView.swift */; };
+		719EA673277BBAF600F17102 /* UIApplication-HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA672277BBAF600F17102 /* UIApplication-HideKeyboard.swift */; };
 		71A5703327739EB6009E7ACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703527739EB6009E7ACA /* Localizable.strings */; };
 		71A5703727739EC3009E7ACA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703927739EC3009E7ACA /* Localizable.stringsdict */; };
 		71A5703B27739F52009E7ACA /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703D27739F52009E7ACA /* Awards.json */; };
@@ -129,6 +130,7 @@
 		719EA66B277B77E200F17102 /* ProjectInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoView.swift; sourceTree = "<group>"; };
 		719EA66D277B7A9F00F17102 /* ProjectColorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColorButtonView.swift; sourceTree = "<group>"; };
 		719EA671277B82EC00F17102 /* TodoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodoWidgetExtension.entitlements; sourceTree = "<group>"; };
+		719EA672277BBAF600F17102 /* UIApplication-HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication-HideKeyboard.swift"; sourceTree = "<group>"; };
 		71A5703427739EB6009E7ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71A5703627739EB9009E7ACA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71A5703827739EC3009E7ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */,
 				718B0CB5276A117D005D496C /* BindingOnChange.swift */,
 				71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */,
+				719EA672277BBAF600F17102 /* UIApplication-HideKeyboard.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */,
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,
+				719EA673277BBAF600F17102 /* UIApplication-HideKeyboard.swift in Sources */,
 				715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */,
 				719EA666277B71CE00F17102 /* DataController-Reminders.swift in Sources */,
 				7172E47D277A1FC9001FD7EC /* SettingsView.swift in Sources */,
