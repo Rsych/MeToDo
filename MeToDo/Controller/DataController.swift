@@ -8,7 +8,7 @@
 import CoreData
 import CoreSpotlight
 import SwiftUI
-import UserNotifications
+import WidgetKit
 import StoreKit
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
@@ -27,6 +27,12 @@ class DataController: ObservableObject {
         // For testing purposes, creates /dev/null which is destroyed when app is finished.
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+        } else {
+            let groupID = "group.net.naolin.MeToDo"
+
+            if let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupID) {
+                container.persistentStoreDescriptions.first?.url = url.appendingPathComponent("Main.sqlite")
+            }
         }
 
         container.loadPersistentStores { _, error in
@@ -95,6 +101,7 @@ class DataController: ObservableObject {
     func save() {
         if container .viewContext.hasChanges {
             try? container.viewContext.save()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 
