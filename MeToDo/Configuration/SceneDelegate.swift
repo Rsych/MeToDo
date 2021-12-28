@@ -22,4 +22,18 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
 
         openURL(url, completion: completionHandler)
     }
+    
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
+        if let shortcutItem = connectionOptions.shortcutItem {
+            guard let url = URL(string: shortcutItem.type) else {
+                return
+            }
+
+            openURL(url)
+        }
+    }
 }

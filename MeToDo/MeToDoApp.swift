@@ -32,6 +32,9 @@ struct MeToDoApp: App {
                     perform: save
                 )  //: onReceive
                 .onAppear(perform: dataController.appLaunched)
+                .onOpenURL { url in
+                    print("URL is this \(url)")
+                }
         }
     }
     func save(_ note: Notification) {

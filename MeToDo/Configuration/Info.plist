@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>net.naolin.MeToDo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>metodo</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
@@ -10,7 +23,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>New To Do</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>MeToDo://newTodo</string>
+			<string>metodo://newTodo</string>
 		</dict>
 	</array>
 	<key>UIBackgroundModes</key>
