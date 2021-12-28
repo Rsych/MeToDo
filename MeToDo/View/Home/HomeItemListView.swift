@@ -57,9 +57,3 @@ struct HomeItemListView: View {
         }  //: VStack
     }  //: homeListView
 }
-
-// struct HomeItemListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeItemListView(title: "", items: <#T##FetchedResults<Item>.SubSequence#>)
-//    }
-// }

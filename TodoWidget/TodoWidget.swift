@@ -10,39 +10,45 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), item: [Item.example])
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
+        let entry = SimpleEntry(date: Date(), item: loadItems())
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+        let entry = SimpleEntry(date: Date(), item: loadItems())
+        let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)
+    }
+
+    func loadItems() -> [Item] {
+        let dataController = DataController()
+        let itemRequest = dataController.fetchRequestForTopItems(count: 1)
+        return dataController.result(for: itemRequest)
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    let item: [Item]
 }
 
 struct TodoWidgetEntryView: View {
-    var entry: Provider.Entry
+    var entry: SimpleEntry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        VStack {
+            Text("Up next...")
+                .font(.title)
+            if let item = entry.item.first {
+                Text(item.itemTitle)
+            } else {
+                Text("Empty!")
+            }
+        }
     }
 }
 
@@ -61,7 +67,7 @@ struct TodoWidget: Widget {
 
 struct TodoWidget_Previews: PreviewProvider {
     static var previews: some View {
-        TodoWidgetEntryView(entry: SimpleEntry(date: Date()))
+        TodoWidgetEntryView(entry: SimpleEntry(date: Date(), item: [Item.example]))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

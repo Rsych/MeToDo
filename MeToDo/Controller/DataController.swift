@@ -165,4 +165,26 @@ class DataController: ObservableObject {
         }
         return try? container.viewContext.existingObject(with: id) as? Item
     }
+    
+    func fetchRequestForTopItems(count: Int) -> NSFetchRequest<Item> {
+        // Construct a fetch request to show the top 10 priority from incomplete open projects
+        let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()
+
+        let completedPredicate = NSPredicate(format: "completed = false")
+        let openPredicate = NSPredicate(format: "project.closed = false")
+        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
+        itemRequest.predicate = compoundPredicate
+        itemRequest.predicate = NSPredicate(format: "completed = false AND project.closed = false")
+
+        itemRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \Item.priority, ascending: false)
+        ]
+
+        itemRequest.fetchLimit = count
+        return itemRequest
+    }
+    // Fetch for widget
+    func result<T: NSManagedObject>(for fetchRequest: NSFetchRequest<T>) -> [T] {
+        return (try? container.viewContext.fetch(fetchRequest)) ?? []
+    }
 }
