@@ -26,6 +26,11 @@
 		718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CC1276C7E05005D496C /* AddProjectView.swift */; };
 		719EA648277B005100F17102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA647277B005100F17102 /* AppDelegate.swift */; };
 		719EA64A277B006700F17102 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA649277B006700F17102 /* SceneDelegate.swift */; };
+		719EA651277B6F4200F17102 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719EA650277B6F4200F17102 /* WidgetKit.framework */; };
+		719EA653277B6F4200F17102 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719EA652277B6F4200F17102 /* SwiftUI.framework */; };
+		719EA656277B6F4200F17102 /* TodoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA655277B6F4200F17102 /* TodoWidget.swift */; };
+		719EA658277B6F4300F17102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 719EA657277B6F4300F17102 /* Assets.xcassets */; };
+		719EA65C277B6F4300F17102 /* TodoWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 719EA64F277B6F4200F17102 /* TodoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		71A5703327739EB6009E7ACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703527739EB6009E7ACA /* Localizable.strings */; };
 		71A5703727739EC3009E7ACA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703927739EC3009E7ACA /* Localizable.stringsdict */; };
 		71A5703B27739F52009E7ACA /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703D27739F52009E7ACA /* Awards.json */; };
@@ -52,6 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		719EA65A277B6F4300F17102 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71A63DF6276766EE00EAB2EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 719EA64E277B6F4200F17102;
+			remoteInfo = TodoWidgetExtension;
+		};
 		71B31BA42775B9A900DD04DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 71A63DF6276766EE00EAB2EC /* Project object */;
@@ -60,6 +72,20 @@
 			remoteInfo = MeToDo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		719EA65D277B6F4300F17102 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				719EA65C277B6F4300F17102 /* TodoWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		710C89852768784D004FADCD /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
@@ -83,6 +109,12 @@
 		718B0CC1276C7E05005D496C /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 		719EA647277B005100F17102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		719EA649277B006700F17102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		719EA64F277B6F4200F17102 /* TodoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		719EA650277B6F4200F17102 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		719EA652277B6F4200F17102 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		719EA655277B6F4200F17102 /* TodoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoWidget.swift; sourceTree = "<group>"; };
+		719EA657277B6F4300F17102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		719EA659277B6F4300F17102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71A5703427739EB6009E7ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71A5703627739EB9009E7ACA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71A5703827739EC3009E7ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -114,6 +146,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		719EA64C277B6F4200F17102 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				719EA653277B6F4200F17102 /* SwiftUI.framework in Frameworks */,
+				719EA651277B6F4200F17102 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71A63DFB276766EE00EAB2EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,8 +177,20 @@
 			isa = PBXGroup;
 			children = (
 				710C898C27687E84004FADCD /* CloudKit.framework */,
+				719EA650277B6F4200F17102 /* WidgetKit.framework */,
+				719EA652277B6F4200F17102 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		719EA654277B6F4200F17102 /* TodoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				719EA655277B6F4200F17102 /* TodoWidget.swift */,
+				719EA657277B6F4300F17102 /* Assets.xcassets */,
+				719EA659277B6F4300F17102 /* Info.plist */,
+			);
+			path = TodoWidget;
 			sourceTree = "<group>";
 		};
 		71A570442774BB91009E7ACA /* View */ = {
@@ -245,6 +298,7 @@
 			children = (
 				71A63E00276766EE00EAB2EC /* MeToDo */,
 				71B31BA12775B9A900DD04DB /* MeToDoTests */,
+				719EA654277B6F4200F17102 /* TodoWidget */,
 				71A63DFF276766EE00EAB2EC /* Products */,
 				710C898B27687E84004FADCD /* Frameworks */,
 			);
@@ -255,6 +309,7 @@
 			children = (
 				71A63DFE276766EE00EAB2EC /* MeToDo.app */,
 				71B31BA02775B9A900DD04DB /* MeToDoTests.xctest */,
+				719EA64F277B6F4200F17102 /* TodoWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,6 +378,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		719EA64E277B6F4200F17102 /* TodoWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 719EA660277B6F4300F17102 /* Build configuration list for PBXNativeTarget "TodoWidgetExtension" */;
+			buildPhases = (
+				719EA64B277B6F4200F17102 /* Sources */,
+				719EA64C277B6F4200F17102 /* Frameworks */,
+				719EA64D277B6F4200F17102 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodoWidgetExtension;
+			productName = TodoWidgetExtension;
+			productReference = 719EA64F277B6F4200F17102 /* TodoWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		71A63DFD276766EE00EAB2EC /* MeToDo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71A63E0C276766EF00EAB2EC /* Build configuration list for PBXNativeTarget "MeToDo" */;
@@ -331,10 +403,12 @@
 				71A63DFB276766EE00EAB2EC /* Frameworks */,
 				71A63DFC276766EE00EAB2EC /* Resources */,
 				718B0CC3276CCEBD005D496C /* ShellScript */,
+				719EA65D277B6F4300F17102 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				719EA65B277B6F4300F17102 /* PBXTargetDependency */,
 			);
 			name = MeToDo;
 			productName = MeToDo;
@@ -369,6 +443,9 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					719EA64E277B6F4200F17102 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					71A63DFD276766EE00EAB2EC = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -394,11 +471,20 @@
 			targets = (
 				71A63DFD276766EE00EAB2EC /* MeToDo */,
 				71B31B9F2775B9A900DD04DB /* MeToDoTests */,
+				719EA64E277B6F4200F17102 /* TodoWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		719EA64D277B6F4200F17102 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				719EA658277B6F4300F17102 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71A63DFC276766EE00EAB2EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,6 +530,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		719EA64B277B6F4200F17102 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				719EA656277B6F4200F17102 /* TodoWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71A63DFA276766EE00EAB2EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +588,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		719EA65B277B6F4300F17102 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 719EA64E277B6F4200F17102 /* TodoWidgetExtension */;
+			targetProxy = 719EA65A277B6F4300F17102 /* PBXContainerItemProxy */;
+		};
 		71B31BA52775B9A900DD04DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 71A63DFD276766EE00EAB2EC /* MeToDo */;
@@ -532,6 +631,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		719EA65E277B6F4300F17102 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6V85GALCN;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TodoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		719EA65F277B6F4300F17102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6V85GALCN;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TodoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		71A63E0A276766EF00EAB2EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -651,6 +806,7 @@
 		71A63E0D276766EF00EAB2EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
@@ -683,6 +839,7 @@
 		71A63E0E276766EF00EAB2EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
@@ -753,6 +910,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		719EA660277B6F4300F17102 /* Build configuration list for PBXNativeTarget "TodoWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				719EA65E277B6F4300F17102 /* Debug */,
+				719EA65F277B6F4300F17102 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		71A63DF9276766EE00EAB2EC /* Build configuration list for PBXProject "MeToDo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

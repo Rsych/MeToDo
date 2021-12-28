@@ -22,7 +22,7 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
 
         openURL(url, completion: completionHandler)
     }
-    
+
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
