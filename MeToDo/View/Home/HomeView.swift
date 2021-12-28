@@ -62,8 +62,10 @@ struct HomeView: View {
             #endif
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Settings") {
+                    Button {
                         showSettings = true
+                    } label: {
+                        Image(systemName: "gear")
                     }
                 }
             }
