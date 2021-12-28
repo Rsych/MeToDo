@@ -31,6 +31,14 @@
 		719EA656277B6F4200F17102 /* TodoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA655277B6F4200F17102 /* TodoWidget.swift */; };
 		719EA658277B6F4300F17102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 719EA657277B6F4300F17102 /* Assets.xcassets */; };
 		719EA65C277B6F4300F17102 /* TodoWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 719EA64F277B6F4200F17102 /* TodoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		719EA661277B710700F17102 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 710C89842768784D004FADCD /* Main.xcdatamodeld */; };
+		719EA662277B712200F17102 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
+		719EA663277B712A00F17102 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C898727687AC3004FADCD /* DataController.swift */; };
+		719EA666277B71CE00F17102 /* DataController-Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA665277B71CE00F17102 /* DataController-Reminders.swift */; };
+		719EA668277B737000F17102 /* DataController-Awards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA667277B737000F17102 /* DataController-Awards.swift */; };
+		719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA669277B755600F17102 /* DataController-Settings.swift */; };
+		719EA66C277B77E200F17102 /* ProjectInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA66B277B77E200F17102 /* ProjectInfoView.swift */; };
+		719EA66E277B7A9F00F17102 /* ProjectColorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA66D277B7A9F00F17102 /* ProjectColorButtonView.swift */; };
 		71A5703327739EB6009E7ACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703527739EB6009E7ACA /* Localizable.strings */; };
 		71A5703727739EC3009E7ACA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703927739EC3009E7ACA /* Localizable.stringsdict */; };
 		71A5703B27739F52009E7ACA /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703D27739F52009E7ACA /* Awards.json */; };
@@ -115,6 +123,11 @@
 		719EA655277B6F4200F17102 /* TodoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoWidget.swift; sourceTree = "<group>"; };
 		719EA657277B6F4300F17102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		719EA659277B6F4300F17102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		719EA665277B71CE00F17102 /* DataController-Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Reminders.swift"; sourceTree = "<group>"; };
+		719EA667277B737000F17102 /* DataController-Awards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Awards.swift"; sourceTree = "<group>"; };
+		719EA669277B755600F17102 /* DataController-Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Settings.swift"; sourceTree = "<group>"; };
+		719EA66B277B77E200F17102 /* ProjectInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoView.swift; sourceTree = "<group>"; };
+		719EA66D277B7A9F00F17102 /* ProjectColorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColorButtonView.swift; sourceTree = "<group>"; };
 		71A5703427739EB6009E7ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71A5703627739EB9009E7ACA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71A5703827739EC3009E7ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -224,7 +237,6 @@
 				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
 				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
 				71A570422774B697009E7ACA /* ProjectSummaryView.swift */,
-				7170D0FD2779B22A00BA0D62 /* DueDateView.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -234,6 +246,9 @@
 			children = (
 				718B0CC1276C7E05005D496C /* AddProjectView.swift */,
 				718B0CBF276A274B005D496C /* EditProjectView.swift */,
+				719EA66B277B77E200F17102 /* ProjectInfoView.swift */,
+				719EA66D277B7A9F00F17102 /* ProjectColorButtonView.swift */,
+				7170D0FD2779B22A00BA0D62 /* DueDateView.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -269,6 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				710C898727687AC3004FADCD /* DataController.swift */,
+				719EA665277B71CE00F17102 /* DataController-Reminders.swift */,
+				719EA667277B737000F17102 /* DataController-Awards.swift */,
+				719EA669277B755600F17102 /* DataController-Settings.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -534,6 +552,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				719EA662277B712200F17102 /* CoreDataHelper.swift in Sources */,
+				719EA663277B712A00F17102 /* DataController.swift in Sources */,
+				719EA661277B710700F17102 /* Main.xcdatamodeld in Sources */,
 				719EA656277B6F4200F17102 /* TodoWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,16 +563,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				719EA66C277B77E200F17102 /* ProjectInfoView.swift in Sources */,
 				71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */,
 				71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */,
 				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
+				719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */,
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,
 				715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */,
+				719EA666277B71CE00F17102 /* DataController-Reminders.swift in Sources */,
 				7172E47D277A1FC9001FD7EC /* SettingsView.swift in Sources */,
+				719EA668277B737000F17102 /* DataController-Awards.swift in Sources */,
 				71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */,
 				718952E7276F0D6000EA32DE /* Award.swift in Sources */,
 				718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */,
@@ -567,6 +592,7 @@
 				718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */,
 				710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */,
 				718B0CB6276A117D005D496C /* BindingOnChange.swift in Sources */,
+				719EA66E277B7A9F00F17102 /* ProjectColorButtonView.swift in Sources */,
 				71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

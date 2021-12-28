@@ -17,7 +17,7 @@ struct DueDateView: View {
         Section {
             Toggle("Add due date", isOn: $dueOn.animation())
             if dueOn {
-                DatePicker("Pick a date", selection: $dueDate, displayedComponents: .date)
+                DatePicker("Pick a date", selection: $dueDate, in: Date()..., displayedComponents: .date)
             }
         } header: {
             Text("Due date")
