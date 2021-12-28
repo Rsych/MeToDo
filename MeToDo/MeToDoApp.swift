@@ -11,6 +11,7 @@ import SwiftUI
 struct MeToDoApp: App {
 
     @StateObject var dataController: DataController
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
         let dataController = DataController()
@@ -30,6 +31,7 @@ struct MeToDoApp: App {
                     NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
                     perform: save
                 )  //: onReceive
+                .onAppear(perform: dataController.appLaunched)
         }
     }
     func save(_ note: Notification) {
