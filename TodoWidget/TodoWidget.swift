@@ -38,7 +38,7 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
 }
 
-struct TodoWidgetEntryView : View {
+struct TodoWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {

@@ -35,6 +35,7 @@ struct AddProjectView: View {
 
                 DueDateView(dueOn: $dueOn, dueDate: $dueDate)
             }  //: Form
+            .modifier(DismissingKeyboard())
 
             // There's an error that notification terminates immediately after showing Alert
             // Fix this later

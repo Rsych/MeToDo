@@ -108,7 +108,6 @@ class DataController: ObservableObject {
 //        }
 //        container.viewContext.delete(object)
 //    }
-    
 
     func delete(_ object: Item) {
         let id = object.objectID.uriRepresentation().absoluteString

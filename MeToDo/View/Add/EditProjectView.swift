@@ -85,6 +85,7 @@ struct EditProjectView: View {
                 Text("Closing")
             } // section 3
         }  //: Form
+        .modifier(DismissingKeyboard())
         .navigationTitle("Edit Project")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
