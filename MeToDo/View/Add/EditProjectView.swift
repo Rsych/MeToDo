@@ -160,18 +160,4 @@ struct EditProjectView: View {
             update()
         }
     }
-
-    func showAppSettings() {
-        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
-
-        if UIApplication.shared.canOpenURL(settingsURL) {
-            UIApplication.shared.open(settingsURL)
-        }
-    }
 }
-
-// struct EditProjectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditProjectView(project: Project.example, showModal: .constant(true))
-//    }
-// }
