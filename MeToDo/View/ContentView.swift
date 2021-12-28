@@ -27,6 +27,7 @@ struct ContentView: View {
                 AwardsView()
                     .tag(AwardsView.awardsTag)
             }  //: TabView
+            .onOpenURL(perform: openURL)
             .padding(.bottom, 50)
             .onChange(of: currentTab, perform: { _ in
                 if currentTab == 2 {
@@ -50,6 +51,10 @@ struct ContentView: View {
 
     func moveToHome(_ input: Any) {
         currentTab = HomeView.homeTag
+    }
+
+    func openURL(_ url: URL) {
+        shouldShowModel = true
     }
 }
 

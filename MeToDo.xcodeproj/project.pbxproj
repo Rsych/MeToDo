@@ -24,6 +24,8 @@
 		718B0CBE276A258C005D496C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718B0CBD276A258C005D496C /* Colors.xcassets */; };
 		718B0CC0276A274B005D496C /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CBF276A274B005D496C /* EditProjectView.swift */; };
 		718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B0CC1276C7E05005D496C /* AddProjectView.swift */; };
+		719EA648277B005100F17102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA647277B005100F17102 /* AppDelegate.swift */; };
+		719EA64A277B006700F17102 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA649277B006700F17102 /* SceneDelegate.swift */; };
 		71A5703327739EB6009E7ACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703527739EB6009E7ACA /* Localizable.strings */; };
 		71A5703727739EC3009E7ACA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703927739EC3009E7ACA /* Localizable.stringsdict */; };
 		71A5703B27739F52009E7ACA /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 71A5703D27739F52009E7ACA /* Awards.json */; };
@@ -79,6 +81,8 @@
 		718B0CBD276A258C005D496C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		718B0CBF276A274B005D496C /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		718B0CC1276C7E05005D496C /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
+		719EA647277B005100F17102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		719EA649277B006700F17102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		71A5703427739EB6009E7ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71A5703627739EB9009E7ACA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71A5703827739EC3009E7ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				710C898A27687E74004FADCD /* Info.plist */,
+				719EA647277B005100F17102 /* AppDelegate.swift */,
+				719EA649277B006700F17102 /* SceneDelegate.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */,
 				718952E7276F0D6000EA32DE /* Award.swift in Sources */,
 				718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */,
+				719EA648277B005100F17102 /* AppDelegate.swift in Sources */,
 				71A570432774B697009E7ACA /* ProjectSummaryView.swift in Sources */,
 				718B0CC0276A274B005D496C /* EditProjectView.swift in Sources */,
 				71A63E122767728700EAB2EC /* HomeView.swift in Sources */,
@@ -462,6 +469,7 @@
 				71A63E102767680400EAB2EC /* TabBarView.swift in Sources */,
 				715AEFDE27688821009C63DB /* ProjectView.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,
+				719EA64A277B006700F17102 /* SceneDelegate.swift in Sources */,
 				718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */,
 				710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */,
 				718B0CB6276A117D005D496C /* BindingOnChange.swift in Sources */,
