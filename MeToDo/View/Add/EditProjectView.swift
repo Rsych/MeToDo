@@ -25,9 +25,6 @@ struct EditProjectView: View {
     @State private var dueOn: Bool
     @State private var dueDate: Date
 
-    let colorColumns = [
-        GridItem(.adaptive(minimum: 44))]
-
     init(project: Project) {
         self.project = project
 
@@ -47,25 +44,11 @@ struct EditProjectView: View {
     var body: some View {
         NavigationView {
         Form {
-            Section {
-                TextField("Project Name", text: $title.onChange(update))
-                TextField("Description", text: $detail.onChange(update))
-            } header: {
-                Text("Basic settings")
-            } // section 1
+            ProjectInfoView(title: $title.onChange(update), detail: $detail.onChange(update))
 
-            Section {
-                LazyVGrid(columns: colorColumns) {
-                    ForEach(Project.colors, id: \.self, content: colorButton)
-                }  //: LazyVGrid
-                .padding(.vertical)
-            } header: {
-                Text("Choose project color")
-            } // section 2
+            ProjectColorButtonView(color: $color.onChange(update))
 
             DueDateView(dueOn: $dueOn, dueDate: $dueDate)
-
-            // Notification Section
 
             Section {
                 Button(project.closed ? "Reopen project" : "Finish this project") {
@@ -144,20 +127,20 @@ struct EditProjectView: View {
         self.presentationMode.wrappedValue.dismiss()
     }
 
-    func colorButton(for item: String) -> some View {
-        ZStack {
-            Color(item)
-                .aspectRatio(1, contentMode: .fit)
-                .cornerRadius(6)
-            if item == color {
-                Image(systemName: "checkmark.circle")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-            }
-        }  //: ZStack
-        .onTapGesture {
-            color = item
-            update()
-        }
-    }
+//    func colorButton(for item: String) -> some View {
+//        ZStack {
+//            Color(item)
+//                .aspectRatio(1, contentMode: .fit)
+//                .cornerRadius(6)
+//            if item == color {
+//                Image(systemName: "checkmark.circle")
+//                    .foregroundColor(.white)
+//                    .font(.largeTitle)
+//            }
+//        }  //: ZStack
+//        .onTapGesture {
+//            color = item
+//            update()
+//        }
+//    }
 }

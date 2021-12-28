@@ -29,38 +29,11 @@ struct AddProjectView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(content: {
-                    TextField("Project Name", text: $title)
-                    TextField("Description", text: $detail)
-                }, header: {
-                    Text("Basic settings")
-                })  //: Section 1
+                ProjectInfoView(title: $title, detail: $detail)
 
-                Section {
-                    LazyVGrid(columns: colorColumns) {
-                        ForEach(Project.colors, id: \.self) { item in
-                            ZStack {
-                                Color(item)
-                                    .aspectRatio(1, contentMode: .fit)
-                                    .cornerRadius(6)
-                                if item == color {
-                                    Image(systemName: "checkmark.circle")
-                                        .foregroundColor(.white)
-                                        .font(.largeTitle)
-                                }
-                            }  //: ZStack
-                            .onTapGesture {
-                                color = item
-                            }
-                        }  //: Color loop
-                    }  //: LazyVGrid
-                    .padding(.vertical)
-                } header: {
-                    Text("Choose project color")
-                } // section 2
+                ProjectColorButtonView(color: $color)
 
                 DueDateView(dueOn: $dueOn, dueDate: $dueDate)
-                // Notification section
             }  //: Form
 
             // There's an error that notification terminates immediately after showing Alert
@@ -89,13 +62,6 @@ struct AddProjectView: View {
                 }
             }  //: Dismiss Toolbar
         }  //: NavVIew
-        //        .onAppear {
-        //            let project = Project(context: managedObjectContext)
-        //                            project.closed = false
-        //            project.title = "Test"
-        //                            project.creationDate = Date()
-        //                            dataController.save()
-        //        }
     }  //: body
     func save() {
         let project = Project(context: managedObjectContext)
