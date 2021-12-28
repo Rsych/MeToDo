@@ -89,15 +89,15 @@ struct EditProjectView: View {
                     print("Delete")
                     showingDeleteConfirm.toggle()
                 }
+                .foregroundColor(.red)
                 .alert(isPresented: $showingDeleteConfirm) {
                     Alert(
                         title: Text("Delete project?"),
                         message: Text("Are you sure you want to delete this project? You will lose all the items inside."),
-                        primaryButton: .default(Text("Delete"), action: delete),
+                        primaryButton: .destructive(Text("Delete"), action: delete),
                         secondaryButton: .cancel()
                     )
                 }  //: Delete Alert
-                .foregroundColor(.red)
             } footer: {
                 Text("Closing")
             } // section 3
