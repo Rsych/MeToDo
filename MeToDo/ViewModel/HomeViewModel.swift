@@ -19,12 +19,8 @@ extension HomeView {
 
         var dataController: DataController
 
-        var upNext: ArraySlice<Item> {
-            items.prefix(3)
-        }
-        var moreToExplore: ArraySlice<Item> {
-            items.dropFirst(3)
-        }
+        @Published var upNext = ArraySlice<Item>()
+        @Published var moreToExplore = ArraySlice<Item>()
 
         init(dataController: DataController) {
             self.dataController = dataController
@@ -72,6 +68,8 @@ extension HomeView {
                 try itemsController.performFetch()
                 projects = projectsController.fetchedObjects ?? []
                 items = itemsController.fetchedObjects ?? []
+                upNext = items.prefix(3)
+                moreToExplore = items.dropFirst(3)
             } catch {
                 print("Failed to fetch")
             }
