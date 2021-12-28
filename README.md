@@ -27,7 +27,8 @@ ToDo with SwiftUI.
 * ~~Clean up~~
 * ~~Test~~
 * ~~Soptlight search~~
-* Local notification
+* ~~Local notification~~
+* ~~Quick Action~~
 
 
 
