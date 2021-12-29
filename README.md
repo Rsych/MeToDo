@@ -17,17 +17,17 @@ ToDo with SwiftUI.
 * ~~Modal Views~~
 * ~~Create Views~~
 * ~~HomeView controll~~
-* Accessibility
+* Accessibility partially for size
 * ~~DataControl~~
 * ~~CoreData~~
 * CloudKit
 * ~~Localization~~ partially done, translations needed
 * ~~Widgets~~
-* Networking features
 * ~~Clean up~~
 * ~~Test~~
 * ~~Soptlight search~~
 * ~~Local notification~~
+* ~~Check notification is on~~
 * ~~Quick Action~~
 
 
