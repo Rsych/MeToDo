@@ -29,6 +29,7 @@ ToDo with SwiftUI.
 * ~~Local notification~~
 * ~~Check notification is on~~
 * ~~Quick Action~~
+* App Settings View
 
 
 
