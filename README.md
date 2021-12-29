@@ -17,7 +17,7 @@ ToDo with SwiftUI.
 * ~~Modal Views~~
 * ~~Create Views~~
 * ~~HomeView controll~~
-* Accessibility partially for size
+* ~~Accessibility~~ partially for size
 * ~~DataControl~~
 * ~~CoreData~~
 * CloudKit
