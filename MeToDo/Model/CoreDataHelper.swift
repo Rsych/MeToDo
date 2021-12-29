@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 extension Item {
     var itemTitle: String {
@@ -108,5 +109,36 @@ extension Project {
         project.color = colors.randomElement()
 
         return project
+    }
+
+    func prepareCloudRecords() -> [CKRecord] {
+        // to prepare to go to iCloud
+        // CKRecord is same as NSManagedObject for CloudKit, send and receive data using it
+
+        // Created unique identifier
+        let parentName = objectID.uriRepresentation().absoluteString
+        let parentID = CKRecord.ID(recordName: parentName)
+        // Matches to CoreData entities "Project"
+        let parent = CKRecord(recordType: "Project", recordID: parentID)
+        parent["title"] = projectTitle
+        parent["detail"] = projectDetail
+        parent["owner"] = "Ryan"
+        parent["closed"] = closed
+
+        // converting current array of CoreData items into CKRecord
+        var records = projectItemsDefaultSorted.map { item -> CKRecord in
+            let childName = item.objectID.uriRepresentation().absoluteString
+            let childID = CKRecord.ID(recordName: childName)
+            let child = CKRecord(recordType: "Item", recordID: childID)
+            child["title"] = item.itemTitle
+            child["detail"] = item.itemDetail
+            child["completed"] = item.completed
+            // Referring to different record (parent), every item knows who owns them
+            // if parent (project) is deleted so is child (item)
+            child["project"] = CKRecord.Reference(recordID: parentID, action: .deleteSelf)
+            return child
+        }
+        records.append(parent)
+        return records
     }
 }

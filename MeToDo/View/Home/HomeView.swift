@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreSpotlight
 import CoreData
+import CloudKit
 
 struct HomeView: View {
     // MARK: - Properties
@@ -70,7 +71,8 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showSettings) {
-                SettingsView()
+//                SettingsView()
+                SharedProjectsView()
             }
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)

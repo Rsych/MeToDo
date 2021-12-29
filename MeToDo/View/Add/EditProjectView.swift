@@ -7,6 +7,7 @@
 // swiftlint:disable line_length
 
 import SwiftUI
+import CloudKit
 
 struct EditProjectView: View {
     // MARK: - Properties
@@ -91,11 +92,22 @@ struct EditProjectView: View {
 
             .navigationTitle("Edit Project")
             .font(.title2)
+
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                Button {
+//                    dataController.uploadToiCloud(project)
+//                } label: {
+//                    Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+//                }
+//                }
+//            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Dismiss") {
                         //                    self.showModal.toggle()
                         update()
+                        dataController.uploadToiCloud(project)
                         presentationMode.wrappedValue.dismiss()
                     } //: Button
                     .disabled(title.isEmpty)
@@ -130,6 +142,7 @@ struct EditProjectView: View {
     }
 
     func delete() {
+        dataController.removeFromCloud(project)
         dataController.delete(project)
         self.presentationMode.wrappedValue.dismiss()
     }

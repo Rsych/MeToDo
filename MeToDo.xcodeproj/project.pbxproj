@@ -71,6 +71,12 @@
 		71D917C3277C6F670016773E /* SimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C1277C6F670016773E /* SimpleWidget.swift */; };
 		71D917C5277C6F910016773E /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C4277C6F910016773E /* ComplexWidget.swift */; };
 		71D917C6277C6F910016773E /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C4277C6F910016773E /* ComplexWidget.swift */; };
+		71D917C8277C95EF0016773E /* DataController-CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C7277C95EF0016773E /* DataController-CloudKit.swift */; };
+		71D917CA277CA0AA0016773E /* SharedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C9277CA0AA0016773E /* SharedProject.swift */; };
+		71D917CC277CA0E40016773E /* SharedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917CB277CA0E40016773E /* SharedItem.swift */; };
+		71D917D0277CA1310016773E /* LoadStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917CF277CA1310016773E /* LoadStates.swift */; };
+		71D917D5277CA21A0016773E /* SharedProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D4277CA21A0016773E /* SharedProjectsView.swift */; };
+		71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D6277CA6B40016773E /* SharedItemsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +176,12 @@
 		71D917BE277C6F440016773E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		71D917C1277C6F670016773E /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
 		71D917C4277C6F910016773E /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
+		71D917C7277C95EF0016773E /* DataController-CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-CloudKit.swift"; sourceTree = "<group>"; };
+		71D917C9277CA0AA0016773E /* SharedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProject.swift; sourceTree = "<group>"; };
+		71D917CB277CA0E40016773E /* SharedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItem.swift; sourceTree = "<group>"; };
+		71D917CF277CA1310016773E /* LoadStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStates.swift; sourceTree = "<group>"; };
+		71D917D4277CA21A0016773E /* SharedProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProjectsView.swift; sourceTree = "<group>"; };
+		71D917D6277CA6B40016773E /* SharedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItemsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +244,8 @@
 				71A570462774BBE5009E7ACA /* Project */,
 				71A570472774BBF2009E7ACA /* Add */,
 				71A570482774BBF7009E7ACA /* Awards */,
-				7172E47C277A1FC9001FD7EC /* SettingsView.swift */,
+				71D917D2277CA1C70016773E /* Cloud */,
+				71D917D3277CA1DC0016773E /* Settings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +305,7 @@
 		71A5704A2774BC5B009E7ACA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				71D917D1277CA1370016773E /* Cloud */,
 				715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */,
 				718952E6276F0D6000EA32DE /* Award.swift */,
 			);
@@ -305,6 +319,7 @@
 				719EA665277B71CE00F17102 /* DataController-Reminders.swift */,
 				719EA667277B737000F17102 /* DataController-Awards.swift */,
 				719EA669277B755600F17102 /* DataController-Settings.swift */,
+				71D917C7277C95EF0016773E /* DataController-CloudKit.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -332,10 +347,10 @@
 		71A63DF5276766EE00EAB2EC = {
 			isa = PBXGroup;
 			children = (
-				719EA671277B82EC00F17102 /* TodoWidgetExtension.entitlements */,
 				71A63E00276766EE00EAB2EC /* MeToDo */,
 				71B31BA12775B9A900DD04DB /* MeToDoTests */,
 				719EA654277B6F4200F17102 /* TodoWidget */,
+				719EA671277B82EC00F17102 /* TodoWidgetExtension.entitlements */,
 				71A63DFF276766EE00EAB2EC /* Products */,
 				710C898B27687E84004FADCD /* Frameworks */,
 			);
@@ -410,6 +425,33 @@
 				71721FEB277886570050F0B2 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		71D917D1277CA1370016773E /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				71D917C9277CA0AA0016773E /* SharedProject.swift */,
+				71D917CB277CA0E40016773E /* SharedItem.swift */,
+				71D917CF277CA1310016773E /* LoadStates.swift */,
+			);
+			path = Cloud;
+			sourceTree = "<group>";
+		};
+		71D917D2277CA1C70016773E /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				71D917D4277CA21A0016773E /* SharedProjectsView.swift */,
+				71D917D6277CA6B40016773E /* SharedItemsView.swift */,
+			);
+			path = Cloud;
+			sourceTree = "<group>";
+		};
+		71D917D3277CA1DC0016773E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7172E47C277A1FC9001FD7EC /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,13 +635,17 @@
 				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
+				71D917C8277C95EF0016773E /* DataController-CloudKit.swift in Sources */,
+				71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
 				71D917C2277C6F670016773E /* SimpleWidget.swift in Sources */,
 				719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */,
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,
+				71D917CA277CA0AA0016773E /* SharedProject.swift in Sources */,
 				719EA673277BBAF600F17102 /* UIApplication-HideKeyboard.swift in Sources */,
 				715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */,
+				71D917D5277CA21A0016773E /* SharedProjectsView.swift in Sources */,
 				719EA666277B71CE00F17102 /* DataController-Reminders.swift in Sources */,
 				7172E47D277A1FC9001FD7EC /* SettingsView.swift in Sources */,
 				719EA668277B737000F17102 /* DataController-Awards.swift in Sources */,
@@ -614,9 +660,11 @@
 				71A63E102767680400EAB2EC /* TabBarView.swift in Sources */,
 				715AEFDE27688821009C63DB /* ProjectView.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,
+				71D917CC277CA0E40016773E /* SharedItem.swift in Sources */,
 				71D917C5277C6F910016773E /* ComplexWidget.swift in Sources */,
 				719EA64A277B006700F17102 /* SceneDelegate.swift in Sources */,
 				71D917BF277C6F440016773E /* DataProvider.swift in Sources */,
+				71D917D0277CA1310016773E /* LoadStates.swift in Sources */,
 				718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */,
 				710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */,
 				718B0CB6276A117D005D496C /* BindingOnChange.swift in Sources */,
