@@ -55,7 +55,8 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Add Data Debug") {
-                        viewModel.addSampleData()
+//                        viewModel.addSampleData()
+                        viewModel.dataController.deleteAll()
                     }
                 }
             }  //: toolbar
