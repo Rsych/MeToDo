@@ -120,9 +120,10 @@ extension Project {
         let parentID = CKRecord.ID(recordName: parentName)
         // Matches to CoreData entities "Project"
         let parent = CKRecord(recordType: "Project", recordID: parentID)
+        let uuid = UIDevice.current.identifierForVendor?.uuidString
         parent["title"] = projectTitle
         parent["detail"] = projectDetail
-        parent["owner"] = "Ryan"
+        parent["owner"] = uuid
         parent["closed"] = closed
 
         // converting current array of CoreData items into CKRecord
