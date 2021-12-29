@@ -122,7 +122,7 @@ extension Project {
         let parent = CKRecord(recordType: "Project", recordID: parentID)
         parent["title"] = projectTitle
         parent["detail"] = projectDetail
-        parent["owner"] = "Ryan"
+        parent["owner"] = "Anonymous"
         parent["closed"] = closed
 
         // converting current array of CoreData items into CKRecord
