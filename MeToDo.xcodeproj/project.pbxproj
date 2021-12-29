@@ -63,6 +63,8 @@
 		71B31BBF27772CEE00DD04DB /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */; };
 		71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BD02777386100DD04DB /* ProjectViewModel.swift */; };
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
+		71D917BC277C5F460016773E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718B0CBD276A258C005D496C /* Colors.xcassets */; };
+		71D917BD277C5F6C0016773E /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -505,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				719EA658277B6F4300F17102 /* Assets.xcassets in Resources */,
+				71D917BC277C5F460016773E /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				719EA662277B712200F17102 /* CoreDataHelper.swift in Sources */,
+				71D917BD277C5F6C0016773E /* Sequence-Sorting.swift in Sources */,
 				719EA663277B712A00F17102 /* DataController.swift in Sources */,
 				719EA661277B710700F17102 /* Main.xcdatamodeld in Sources */,
 				719EA656277B6F4200F17102 /* TodoWidget.swift in Sources */,

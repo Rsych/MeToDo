@@ -26,7 +26,7 @@ struct Provider: TimelineProvider {
 
     func loadItems() -> [Item] {
         let dataController = DataController()
-        let itemRequest = dataController.fetchRequestForTopItems(count: 1)
+        let itemRequest = dataController.fetchRequestForTopItems(count: 5)
         return dataController.result(for: itemRequest)
     }
 }
@@ -41,7 +41,7 @@ struct TodoWidgetEntryView: View {
 
     var body: some View {
         VStack {
-            Text("Up next...")
+            Text("Up next…")
                 .font(.title)
             if let item = entry.item.first {
                 Text(item.itemTitle)
@@ -51,17 +51,31 @@ struct TodoWidgetEntryView: View {
         }
     }
 }
+struct TodoWidgetMultipleEntryView: View {
+    var entry: SimpleEntry
+
+    var body: some View {
+        Text("Hello")
+    }
+}
 
 @main
-struct TodoWidget: Widget {
+struct TodoWidgets: WidgetBundle {
+    var body: some Widget {
+        SimpleTodoWidget()
+    }
+}
+
+struct SimpleTodoWidget: Widget {
     let kind: String = "TodoWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             TodoWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Up next…")
+        .description("Your top priority item.")
+        .supportedFamilies([.systemSmall])
     }
 }
 
