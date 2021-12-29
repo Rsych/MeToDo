@@ -102,7 +102,7 @@ class DataController: ObservableObject {
     /// Saves our Core Data context iff there are changes. This silently ignores
     /// any errors caused by saving, but this should be fine because all our attributes are optional.
     func save() {
-        if container .viewContext.hasChanges {
+        if container.viewContext.hasChanges {
             try? container.viewContext.save()
             WidgetCenter.shared.reloadAllTimelines()
         }

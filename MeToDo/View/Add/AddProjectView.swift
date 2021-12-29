@@ -85,6 +85,7 @@ struct AddProjectView: View {
             project.dueDate = nil
             dataController.removeDueReminder(for: project)
         }
+        dataController.uploadToiCloud(project)
         dataController.save()
     }
 }

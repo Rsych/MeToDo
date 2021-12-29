@@ -71,6 +71,7 @@
 		71D917C3277C6F670016773E /* SimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C1277C6F670016773E /* SimpleWidget.swift */; };
 		71D917C5277C6F910016773E /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C4277C6F910016773E /* ComplexWidget.swift */; };
 		71D917C6277C6F910016773E /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C4277C6F910016773E /* ComplexWidget.swift */; };
+		71D917C8277C95EF0016773E /* DataController-CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C7277C95EF0016773E /* DataController-CloudKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,7 @@
 		71D917BE277C6F440016773E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		71D917C1277C6F670016773E /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
 		71D917C4277C6F910016773E /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
+		71D917C7277C95EF0016773E /* DataController-CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-CloudKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				719EA665277B71CE00F17102 /* DataController-Reminders.swift */,
 				719EA667277B737000F17102 /* DataController-Awards.swift */,
 				719EA669277B755600F17102 /* DataController-Settings.swift */,
+				71D917C7277C95EF0016773E /* DataController-CloudKit.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
+				71D917C8277C95EF0016773E /* DataController-CloudKit.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
 				71D917C2277C6F670016773E /* SimpleWidget.swift in Sources */,
 				719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */,

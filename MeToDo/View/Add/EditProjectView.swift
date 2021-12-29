@@ -92,33 +92,22 @@ struct EditProjectView: View {
 
             .navigationTitle("Edit Project")
             .font(.title2)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    let records = project.prepareCloudRecords()
-                    let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
-                    operation.savePolicy = .allKeys
 
-                    operation.modifyRecordsResultBlock = { result in
-                        switch result {
-                        case .success:
-                            print("Success")
-                        case .failure(let error):
-                            print("Error: \(error.localizedDescription)")
-                        }
-                    }
-                    CKContainer.default().publicCloudDatabase.add(operation)
-                } label: {
-                    Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
-                }
-                }
-            }
-
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                Button {
+//                    dataController.uploadToiCloud(project)
+//                } label: {
+//                    Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+//                }
+//                }
+//            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Dismiss") {
                         //                    self.showModal.toggle()
                         update()
+                        dataController.uploadToiCloud(project)
                         presentationMode.wrappedValue.dismiss()
                     } //: Button
                     .disabled(title.isEmpty)
