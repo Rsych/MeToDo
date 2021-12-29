@@ -63,6 +63,13 @@ struct SharedProjectsView: View {
             projects.append(sharedProject)
             loadState = .success
         }
+
+        operation.queryCompletionBlock = { _, _ in
+            if projects.isEmpty {
+                loadState = .noResult
+            }
+        }
+        CKContainer.default().publicCloudDatabase.add(operation)
     }
 }
 
