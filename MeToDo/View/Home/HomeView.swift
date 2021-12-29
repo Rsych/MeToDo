@@ -71,7 +71,8 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showSettings) {
-                SettingsView()
+//                SettingsView()
+                SharedProjectsView()
             }
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
