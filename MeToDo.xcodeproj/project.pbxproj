@@ -332,10 +332,10 @@
 		71A63DF5276766EE00EAB2EC = {
 			isa = PBXGroup;
 			children = (
-				719EA671277B82EC00F17102 /* TodoWidgetExtension.entitlements */,
 				71A63E00276766EE00EAB2EC /* MeToDo */,
 				71B31BA12775B9A900DD04DB /* MeToDoTests */,
 				719EA654277B6F4200F17102 /* TodoWidget */,
+				719EA671277B82EC00F17102 /* TodoWidgetExtension.entitlements */,
 				71A63DFF276766EE00EAB2EC /* Products */,
 				710C898B27687E84004FADCD /* Frameworks */,
 			);
