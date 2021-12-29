@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var dataController: DataController
+    @State var notificationIsOn = false
     var body: some View {
-        Text("Settings View")
-    }
+        Form {
+            Section {
+                Text("Settings View")
+                    .onAppear {
+                        dataController.checkPushNotification { isOn in
+                            notificationIsOn = isOn
+                            print(notificationIsOn)
+                        }
+                    }
 
-    func showAppSettings() {
-        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+                Toggle(isOn: $notificationIsOn) {
+                    Text(notificationIsOn ? "Notification enabled" : "Enable notification")
+                } .disabled(notificationIsOn ? true : false)
+                    .onTapGesture {
+                        if notificationIsOn {
 
-        if UIApplication.shared.canOpenURL(settingsURL) {
-            UIApplication.shared.open(settingsURL)
-        }
-    }
+                        } else {
+                            dataController.showAppSettings()
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }  //: OnTap
+            }  //: Section
+        }  //: Form
+    }  //: Body
 }
 
 struct SettingsView_Previews: PreviewProvider {

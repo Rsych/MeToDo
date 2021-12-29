@@ -71,8 +71,8 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showSettings) {
-//                SettingsView()
-                SharedProjectsView()
+                SettingsView()
+//                SharedProjectsView()
             }
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
@@ -87,6 +87,7 @@ struct HomeView: View {
             viewModel.selectedItem(with: uniqueIdentifier)
             showSpotModal.toggle()
         }
+
     }
 }  //: view
 
