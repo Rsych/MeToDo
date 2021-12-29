@@ -83,39 +83,20 @@ extension DataController {
     }
 
     func checkPushNotification(checkNotificationStatus isEnable: ((Bool) -> Void)? = nil) {
-
-            if #available(iOS 10.0, *) {
                 UNUserNotificationCenter.current().getNotificationSettings { (settings) in
 
                     switch settings.authorizationStatus {
-                    case .authorized:
 
+                    case .authorized:
                         print("enabled notification setting")
                         isEnable?(true)
                     case .denied:
-
                         print("setting has been disabled")
                         isEnable?(false)
                     default:
-
                         print("something vital went wrong here")
                         isEnable?(false)
                     }
                 }
-            } else {
-
-                let isNotificationEnabled = UIApplication.shared
-                    .currentUserNotificationSettings?.types.contains(UIUserNotificationType.alert)
-                if isNotificationEnabled == true {
-
-                    print("enabled notification setting")
-                    isEnable?(true)
-
-                } else {
-
-                    print("setting has been disabled")
-                    isEnable?(false)
-                }
-            }
         }
 }
