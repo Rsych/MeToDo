@@ -142,6 +142,7 @@ struct EditProjectView: View {
     }
 
     func delete() {
+        dataController.removeFromCloud(project)
         dataController.delete(project)
         self.presentationMode.wrappedValue.dismiss()
     }
