@@ -65,6 +65,12 @@
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
 		71D917BC277C5F460016773E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718B0CBD276A258C005D496C /* Colors.xcassets */; };
 		71D917BD277C5F6C0016773E /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */; };
+		71D917BF277C6F440016773E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917BE277C6F440016773E /* DataProvider.swift */; };
+		71D917C0277C6F440016773E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917BE277C6F440016773E /* DataProvider.swift */; };
+		71D917C2277C6F670016773E /* SimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C1277C6F670016773E /* SimpleWidget.swift */; };
+		71D917C3277C6F670016773E /* SimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C1277C6F670016773E /* SimpleWidget.swift */; };
+		71D917C5277C6F910016773E /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C4277C6F910016773E /* ComplexWidget.swift */; };
+		71D917C6277C6F910016773E /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917C4277C6F910016773E /* ComplexWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +167,9 @@
 		71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		71B31BD02777386100DD04DB /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
+		71D917BE277C6F440016773E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		71D917C1277C6F670016773E /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
+		71D917C4277C6F910016773E /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				719EA655277B6F4200F17102 /* TodoWidget.swift */,
+				71D917C4277C6F910016773E /* ComplexWidget.swift */,
+				71D917C1277C6F670016773E /* SimpleWidget.swift */,
+				71D917BE277C6F440016773E /* DataProvider.swift */,
 				719EA657277B6F4300F17102 /* Assets.xcassets */,
 				719EA659277B6F4300F17102 /* Info.plist */,
 			);
@@ -560,9 +572,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71D917C0277C6F440016773E /* DataProvider.swift in Sources */,
 				719EA662277B712200F17102 /* CoreDataHelper.swift in Sources */,
+				71D917C6277C6F910016773E /* ComplexWidget.swift in Sources */,
 				71D917BD277C5F6C0016773E /* Sequence-Sorting.swift in Sources */,
 				719EA663277B712A00F17102 /* DataController.swift in Sources */,
+				71D917C3277C6F670016773E /* SimpleWidget.swift in Sources */,
 				719EA661277B710700F17102 /* Main.xcdatamodeld in Sources */,
 				719EA656277B6F4200F17102 /* TodoWidget.swift in Sources */,
 			);
@@ -579,6 +594,7 @@
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
+				71D917C2277C6F670016773E /* SimpleWidget.swift in Sources */,
 				719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */,
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,
@@ -598,7 +614,9 @@
 				71A63E102767680400EAB2EC /* TabBarView.swift in Sources */,
 				715AEFDE27688821009C63DB /* ProjectView.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,
+				71D917C5277C6F910016773E /* ComplexWidget.swift in Sources */,
 				719EA64A277B006700F17102 /* SceneDelegate.swift in Sources */,
+				71D917BF277C6F440016773E /* DataProvider.swift in Sources */,
 				718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */,
 				710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */,
 				718B0CB6276A117D005D496C /* BindingOnChange.swift in Sources */,
