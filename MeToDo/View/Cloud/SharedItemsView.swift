@@ -56,6 +56,15 @@ struct SharedItemsView: View {
         operation.desiredKeys = ["title", "detail", "completed"]
         operation.resultsLimit = 50
 
+//        operation.recordMatchedBlock = { recordID, _ in
+//            let id = recordID.recordName
+//            let title = recordID.value(forKey: "title") as? String ?? "No title"
+//            let detail = recordID.value(forKey: "detail") as? String ?? ""
+//            let completed = recordID.value(forKey: "completed") as? Bool ?? false
+//            let sharedItem = SharedItem(id: id, title: title, detail: detail, completed: completed)
+//            items.append(sharedItem)
+//            itemsLoadState = .success
+//        }
         operation.recordFetchedBlock = { record in
             let id = record.recordID.recordName
             let title = record["title"] as? String ?? "No title"
