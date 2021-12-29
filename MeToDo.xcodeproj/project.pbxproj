@@ -76,6 +76,7 @@
 		71D917CC277CA0E40016773E /* SharedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917CB277CA0E40016773E /* SharedItem.swift */; };
 		71D917D0277CA1310016773E /* LoadStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917CF277CA1310016773E /* LoadStates.swift */; };
 		71D917D5277CA21A0016773E /* SharedProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D4277CA21A0016773E /* SharedProjectsView.swift */; };
+		71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D6277CA6B40016773E /* SharedItemsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		71D917CB277CA0E40016773E /* SharedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItem.swift; sourceTree = "<group>"; };
 		71D917CF277CA1310016773E /* LoadStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStates.swift; sourceTree = "<group>"; };
 		71D917D4277CA21A0016773E /* SharedProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProjectsView.swift; sourceTree = "<group>"; };
+		71D917D6277CA6B40016773E /* SharedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItemsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				71D917D4277CA21A0016773E /* SharedProjectsView.swift */,
+				71D917D6277CA6B40016773E /* SharedItemsView.swift */,
 			);
 			path = Cloud;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
 				71D917C8277C95EF0016773E /* DataController-CloudKit.swift in Sources */,
+				71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
 				71D917C2277C6F670016773E /* SimpleWidget.swift in Sources */,
 				719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */,

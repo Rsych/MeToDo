@@ -23,7 +23,7 @@ struct SharedProjectsView: View {
                     Text("No results")
                 case .success:
                     List(projects) { project in
-                        NavigationLink(destination: Color.blue) {
+                        NavigationLink(destination: SharedItemsView(project: project)) {
                             VStack(alignment: .leading) {
                                 Text(project.title)
                                     .font(.headline)
