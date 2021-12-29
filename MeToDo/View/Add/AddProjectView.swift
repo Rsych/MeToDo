@@ -60,6 +60,7 @@ struct AddProjectView: View {
                         save()
                         self.presentationMode.wrappedValue.dismiss()
                     }  //: Dismiss Button
+                    .disabled(title.isEmpty)
                 }
             }  //: Dismiss Toolbar
         }  //: NavVIew
