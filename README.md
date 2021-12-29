@@ -22,7 +22,7 @@ ToDo with SwiftUI.
 * ~~CoreData~~
 * CloudKit
 * ~~Localization~~ partially done, translations needed
-* Widgets
+* ~~Widgets~~
 * Networking features
 * ~~Clean up~~
 * ~~Test~~
