@@ -95,11 +95,11 @@ struct EditProjectView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Dismiss") {
                         //                    self.showModal.toggle()
-
                         update()
                         presentationMode.wrappedValue.dismiss()
                     } //: Button
-                    .foregroundColor(.blue)
+                    .disabled(title.isEmpty)
+                    .foregroundColor(title.isEmpty ? .secondary : .blue)
                 } //: ToolbarItem
             } //: Toolbar
             .font(.body)
