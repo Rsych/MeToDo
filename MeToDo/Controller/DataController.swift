@@ -8,8 +8,7 @@
 import CoreData
 import CoreSpotlight
 import SwiftUI
-import UserNotifications
-import StoreKit
+import WidgetKit
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
@@ -27,6 +26,12 @@ class DataController: ObservableObject {
         // For testing purposes, creates /dev/null which is destroyed when app is finished.
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+        } else {
+            let groupID = "group.net.naolin.MeToDo"
+
+            if let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupID) {
+                container.persistentStoreDescriptions.first?.url = url.appendingPathComponent("Main.sqlite")
+            }
         }
 
         container.loadPersistentStores { _, error in
@@ -95,6 +100,7 @@ class DataController: ObservableObject {
     func save() {
         if container .viewContext.hasChanges {
             try? container.viewContext.save()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 
@@ -108,7 +114,6 @@ class DataController: ObservableObject {
 //        }
 //        container.viewContext.delete(object)
 //    }
-    
 
     func delete(_ object: Item) {
         let id = object.objectID.uriRepresentation().absoluteString
@@ -158,5 +163,27 @@ class DataController: ObservableObject {
 
         }
         return try? container.viewContext.existingObject(with: id) as? Item
+    }
+
+    func fetchRequestForTopItems(count: Int) -> NSFetchRequest<Item> {
+        // Construct a fetch request to show the top 10 priority from incomplete open projects
+        let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()
+
+        let completedPredicate = NSPredicate(format: "completed = false")
+        let openPredicate = NSPredicate(format: "project.closed = false")
+        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
+        itemRequest.predicate = compoundPredicate
+        itemRequest.predicate = NSPredicate(format: "completed = false AND project.closed = false")
+
+        itemRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \Item.priority, ascending: false)
+        ]
+
+        itemRequest.fetchLimit = count
+        return itemRequest
+    }
+    // Fetch for widget
+    func result<T: NSManagedObject>(for fetchRequest: NSFetchRequest<T>) -> [T] {
+        return (try? container.viewContext.fetch(fetchRequest)) ?? []
     }
 }

@@ -11,7 +11,7 @@ struct SettingsView: View {
     var body: some View {
         Text("Settings View")
     }
-    
+
     func showAppSettings() {
         guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
 

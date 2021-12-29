@@ -10,7 +10,6 @@ import SwiftUI
 struct ProjectInfoView: View {
     @Binding var title: String
     @Binding var detail: String
-
     var body: some View {
         Section {
             TextField("Project Name", text: $title)

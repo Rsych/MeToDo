@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeItemListView: View {
     @State private var selectedItem: FetchedResults<Item>.Element?
     let title: LocalizedStringKey
-    let items: ArraySlice<Item>
+    @Binding var items: ArraySlice<Item>
     var body: some View {
         if items.isEmpty {
             EmptyView()
@@ -57,9 +57,3 @@ struct HomeItemListView: View {
         }  //: VStack
     }  //: homeListView
 }
-
-// struct HomeItemListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeItemListView(title: "", items: <#T##FetchedResults<Item>.SubSequence#>)
-//    }
-// }

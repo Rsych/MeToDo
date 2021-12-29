@@ -43,8 +43,8 @@ struct HomeView: View {
                         .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
                     VStack(alignment: .leading) {
-                        HomeItemListView(title: "Up next", items: viewModel.upNext)
-                        HomeItemListView(title: "More to explore", items: viewModel.moreToExplore)
+                        HomeItemListView(title: "Up next", items: $viewModel.upNext)
+                        HomeItemListView(title: "More to explore", items: $viewModel.moreToExplore)
                     }  //: VStack
                     .padding(.horizontal)
                 }  //: VStack
@@ -62,8 +62,10 @@ struct HomeView: View {
             #endif
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Settings") {
+                    Button {
                         showSettings = true
+                    } label: {
+                        Image(systemName: "gear")
                     }
                 }
             }
