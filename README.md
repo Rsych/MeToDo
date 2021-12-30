@@ -30,7 +30,7 @@ ToDo with SwiftUI.
 * ~~Check notification is on~~
 * ~~Quick Action~~
 * App Settings View - Store locally
-* App Icon
+* ~~App Icon~~
 * TestFlight
 * Publish
 
