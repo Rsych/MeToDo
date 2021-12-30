@@ -24,8 +24,8 @@ struct ContentView: View {
                 EmptyView()
                 ProjectView(dataController: dataController, showClosedProjects: true)
                     .tag(ProjectView.closedTag)
-                AwardsView()
-                    .tag(AwardsView.awardsTag)
+                MoreView()
+                    .tag(MoreView.moreTag)
             }  //: TabView
             .onOpenURL(perform: openURL)
             .padding(.bottom, 50)

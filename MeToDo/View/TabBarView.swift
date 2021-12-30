@@ -76,7 +76,7 @@ let tabs = [
     Tab(image: "list.bullet", label: "Open"),
     Tab(image: "plus.square.fill", label: "Add"),
     Tab(image: "checkmark", label: "Finished"),
-    Tab(image: "rosette", label: "Awards")
+    Tab(image: "rosette", label: "More")
 ]
 
 struct RoundedCorner: Shape {
