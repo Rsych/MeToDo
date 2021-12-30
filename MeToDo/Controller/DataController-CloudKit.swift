@@ -19,7 +19,7 @@ extension DataController {
             case .success:
                 print("Success")
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                print("Error: \(error.getCloudKitError())")
             }
         }
         CKContainer.default().publicCloudDatabase.add(operation)
@@ -35,7 +35,7 @@ extension DataController {
             case .success:
                 print("Deleted")
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                print("Error: \(error.getCloudKitError())")
             }
         }
 
