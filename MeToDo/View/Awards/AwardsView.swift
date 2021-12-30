@@ -10,7 +10,6 @@ import SwiftUI
 
 struct AwardsView: View {
     // MARK: - Properties
-    static let awardsTag: Int = 4
 
     @State private var selectedAwards = Award.example
     @State private var showAwardsDetail = false

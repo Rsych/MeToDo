@@ -16,7 +16,6 @@ struct HomeView: View {
 
     @StateObject var viewModel: ViewModel
 
-    @State private var showSettings = false
     @State private var showSpotModal = false
 
     var projectRows: [GridItem] {
@@ -61,19 +60,6 @@ struct HomeView: View {
                 }
             }  //: toolbar
             #endif
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showSettings = true
-                    } label: {
-                        Image(systemName: "gear")
-                    }
-                }
-            }
-            .sheet(isPresented: $showSettings) {
-                SettingsView()
-//                SharedProjectsView()
-            }
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {
