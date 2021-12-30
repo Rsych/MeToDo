@@ -31,19 +31,23 @@ struct SettingsView: View {
                     notificationIsOn = isOn
                     print(notificationIsOn)
                 }
-            }
+            }  //: onAppear
         }  //: Form
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading:
-                        Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
-                            HStack {
-                            Image(systemName: "chevron.backward")
-//                                .foregroundColor(Color(UIColor.darkGray))
-                                    .tint(.primary)
-                            }
-                        })
-        )
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    self.presentationMode.wrappedValue.dismiss()
+                } label: {
+                    HStack {
+                        Image(systemName: "chevron.backward")
+//                            .foregroundColor(Color(UIColor.darkGray))
+                            .tint(.primary)
+                    }  //: HStack
+                }  //: Button
+            }  //: ToolbarItem
+        }  //: Toolbar
     }  //: Body
 }
