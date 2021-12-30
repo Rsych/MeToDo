@@ -20,7 +20,7 @@ ToDo with SwiftUI.
 * ~~Accessibility~~ partially for size
 * ~~DataControl~~
 * ~~CoreData~~
-* CloudKit
+* ~~CloudKit~~
 * ~~Localization~~ partially done, translations needed
 * ~~Widgets~~
 * ~~Clean up~~
@@ -30,6 +30,9 @@ ToDo with SwiftUI.
 * ~~Check notification is on~~
 * ~~Quick Action~~
 * App Settings View - Store locally
+* App Icon
+* TestFlight
+* Publish
 
 
 
