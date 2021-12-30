@@ -10,6 +10,8 @@ import SwiftUI
 struct MoreView: View {
     // MARK: - Properties
     static let moreTag: Int = 4
+    @AppStorage("darkModeEnabled") private var darkModeEnabled = false
+    @AppStorage("systemThemeEnabled") private var systemThemeEnabled = false
 
     // MARK: - Body
     var body: some View {
@@ -19,7 +21,9 @@ struct MoreView: View {
                 .navigationBarTitleDisplayMode(.automatic)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: SettingsView.init) {
+                        NavigationLink {
+                            SettingsView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
+                        } label: {
                             Image(systemName: "gear")
                                 .tint(.primary)
                         }
