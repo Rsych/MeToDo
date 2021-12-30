@@ -14,8 +14,6 @@ struct AddProjectView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
 
-//    @State private var showingNotificationsError = false
-
     @State private var title: String = ""
     @State private var detail: String = ""
     @State private var color: String = Project.colors.randomElement() ?? "Light Blue"
@@ -34,19 +32,9 @@ struct AddProjectView: View {
                 ProjectColorButtonView(color: $color)
 
                 DueDateView(dueOn: $dueOn, dueDate: $dueDate)
+
             }  //: Form
             .resignKeyboardOnDragGesture()
-
-            // There's an error that notification terminates immediately after showing Alert
-            // Fix this later
-//            .alert(isPresented: $showingNotificationsError) {
-//                Alert(
-//                    title: Text("Oops!"),
-//                    message: Text("There was a problem. Please check you have notifications enabled."),
-//                    primaryButton: .default(Text("Check Settings"), action: dataController.showAppSettings),
-//                    secondaryButton: .cancel()
-//                )
-//            }
 
             .navigationTitle("Add Project")
             .toolbar {
@@ -78,12 +66,12 @@ struct AddProjectView: View {
                 if success == false {
                     project.dueDate = nil
                     dueOn = false
-//                    showingNotificationsError = true
                 }
             }
         } else {
             project.dueDate = nil
             dataController.removeDueReminder(for: project)
+
         }
         dataController.uploadToiCloud(project)
         dataController.save()

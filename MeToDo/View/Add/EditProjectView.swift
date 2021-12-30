@@ -59,17 +59,6 @@ struct EditProjectView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                     .foregroundColor(.blue)
-
-                    // There's an error that notification terminates immediately after showing Alert
-                    // Fix this later
-                    //                .alert(isPresented: $showingNotificationsError) {
-                    //                    Alert(
-                    //                        title: Text("Oops!"),
-                    //                        message: Text("There was a problem. Please check you have notifications enabled."),
-                    //                        primaryButton: .default(Text("Check Settings"), action: showAppSettings),
-                    //                        secondaryButton: .cancel()
-                    //                    )
-                    //                }
                     Button("Delete this project") {
                         print("Delete")
                         showingDeleteConfirm.toggle()
