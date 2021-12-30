@@ -45,8 +45,6 @@ struct DueDateView: View {
                 isItOn = isOn
             }
         }
-        // There's an error that notification terminates immediately after showing Alert
-        // Fix this later
         .alert(isPresented: $notificationIsOn) {
             Alert(
                 title: Text("Oops!"),
