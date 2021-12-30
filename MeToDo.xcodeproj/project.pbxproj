@@ -12,6 +12,7 @@
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
 		715AEFDE27688821009C63DB /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDD27688821009C63DB /* ProjectView.swift */; };
 		715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
+		71602A73277E459E0009EFD2 /* Error-CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71602A72277E459E0009EFD2 /* Error-CloudKit.swift */; };
 		7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170D0FD2779B22A00BA0D62 /* DueDateView.swift */; };
 		71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71721FEB277886570050F0B2 /* HomeViewModel.swift */; };
 		7172E47D277A1FC9001FD7EC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172E47C277A1FC9001FD7EC /* SettingsView.swift */; };
@@ -118,6 +119,7 @@
 		710C898C27687E84004FADCD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		715AEFDD27688821009C63DB /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		71602A72277E459E0009EFD2 /* Error-CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error-CloudKit.swift"; sourceTree = "<group>"; };
 		7170D0FD2779B22A00BA0D62 /* DueDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateView.swift; sourceTree = "<group>"; };
 		71721FEB277886570050F0B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7172E47C277A1FC9001FD7EC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				718B0CB5276A117D005D496C /* BindingOnChange.swift */,
 				71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */,
 				719EA672277BBAF600F17102 /* UIApplication-HideKeyboard.swift */,
+				71602A72277E459E0009EFD2 /* Error-CloudKit.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				719EA66C277B77E200F17102 /* ProjectInfoView.swift in Sources */,
+				71602A73277E459E0009EFD2 /* Error-CloudKit.swift in Sources */,
 				71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */,
 				71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */,
 				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
@@ -936,7 +940,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -969,7 +973,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
