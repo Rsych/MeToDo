@@ -31,7 +31,7 @@ struct MeToDoApp: App {
                     NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
                     perform: save
                 )  //: onReceive
-                .onAppear(perform: dataController.appLaunched)
+//                .onAppear(perform: dataController.appLaunched)
                 .onOpenURL { url in
                     print("URL is this \(url)")
                 }

@@ -8,10 +8,25 @@
 import SwiftUI
 
 struct MoreView: View {
+    // MARK: - Properties
     static let moreTag: Int = 4
+
+    // MARK: - Body
     var body: some View {
-        Text("More VIew")
-    }
+        NavigationView {
+            Text("More VIew")
+                .navigationTitle("More")
+                .navigationBarTitleDisplayMode(.automatic)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: SettingsView.init) {
+                            Image(systemName: "gear")
+                                .tint(.primary)
+                        }
+                    }
+                }
+        }  //: NavView
+    }  //: body
 }
 
 struct MoreView_Previews: PreviewProvider {

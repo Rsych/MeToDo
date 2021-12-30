@@ -14,14 +14,6 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section {
-                Text("Settings View")
-                    .onAppear {
-                        dataController.checkPushNotification { isOn in
-                            notificationIsOn = isOn
-                            print(notificationIsOn)
-                        }
-                    }
-
                 Toggle(isOn: $notificationIsOn) {
                     Text(notificationIsOn ? "Notification enabled" : "Enable notification")
                 } .disabled(notificationIsOn ? true : false)
@@ -34,12 +26,24 @@ struct SettingsView: View {
                         }
                     }  //: OnTap
             }  //: Section
+            .onAppear {
+                dataController.checkPushNotification { isOn in
+                    notificationIsOn = isOn
+                    print(notificationIsOn)
+                }
+            }
         }  //: Form
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading:
+                        Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
+                            HStack {
+                            Image(systemName: "chevron.backward")
+//                                .foregroundColor(Color(UIColor.darkGray))
+                                    .tint(.primary)
+                            }
+                        })
+        )
     }  //: Body
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
 }
