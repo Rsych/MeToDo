@@ -51,8 +51,8 @@ struct EditProjectView: View {
                 ProjectColorButtonView(color: $color.onChange(update))
 
 //                DueDateView(dueOn: $dueOn, dueDate: $dueDate)
-                Section(header: Text("Project reminders")) {
-                    Toggle("Show reminders", isOn: $dueOn.animation().onChange(update))
+                Section(header: Text("Reminder")) {
+                    Toggle("Show reminder", isOn: $dueOn.animation().onChange(update))
                         .alert(isPresented: $showingNotificationsError) {
                             Alert(
                                 title: Text("Oops!"),
@@ -73,34 +73,34 @@ struct EditProjectView: View {
                 }
 
                 Section {
-                    Button(project.closed ? "Reopen project" : "Finish this project") {
+                    Button(project.closed ? "Reopen" : "Mark it completed") {
+                        presentationMode.wrappedValue.dismiss()
+
                         project.closed.toggle()
                         update()
-                        //                    showModal.toggle()
-                        presentationMode.wrappedValue.dismiss()
                     }
                     .foregroundColor(.blue)
-                    Button("Delete this project") {
+                    Button("Delete this todo") {
                         print("Delete")
                         showingDeleteConfirm.toggle()
                     }
                     .foregroundColor(.red)
                     .alert(isPresented: $showingDeleteConfirm) {
                         Alert(
-                            title: Text("Delete project?"),
-                            message: Text("Are you sure you want to delete this project? You will lose all the items inside."),
+                            title: Text("Delete todo?"),
+                            message: Text("Are you sure you want to delete this todo? You will lose all the items inside."),
                             primaryButton: .destructive(Text("Delete"), action: delete),
                             secondaryButton: .cancel()
                         )
                     }  //: Delete Alert
                 } footer: {
-                    Text("Closing")
+                    Text("Tasks in completed todo will not appear on home screen nor widgets.")
                 } // section 3
             }  //: Form
             .font(.body)
             .resignKeyboardOnDragGesture()
 
-            .navigationTitle("Edit Project")
+            .navigationTitle("Edit Todo")
             .font(.title2)
 
 //            .toolbar {

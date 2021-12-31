@@ -15,7 +15,7 @@ struct ItemRowListView: View {
     @EnvironmentObject var dataController: DataController
     // MARK: - Body
     var body: some View {
-        HStack {
+        HStack(spacing: 20) {
             priorityIcon()
                 .onTapGesture {
                     item.completed.toggle()

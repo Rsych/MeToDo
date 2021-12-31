@@ -71,7 +71,7 @@ struct ComplexTodoWidget: Widget {
             TodoWidgetMultipleEntryView(entry: entry)
         }
         .configurationDisplayName("Up next…")
-        .description("Your most important items.")
+        .description("Your most important tasks.")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }

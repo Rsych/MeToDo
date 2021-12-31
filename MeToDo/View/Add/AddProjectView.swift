@@ -36,7 +36,7 @@ struct AddProjectView: View {
             }  //: Form
             .resignKeyboardOnDragGesture()
 
-            .navigationTitle("Add Project")
+            .navigationTitle("New Todo")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Dismiss") {

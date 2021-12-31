@@ -34,7 +34,7 @@ struct ProjectColorButtonView: View {
             }  //: LazyVGrid
             .padding(.vertical)
         } header: {
-            Text("Choose project color")
+            Text("Choose color")
         } // section 2
     }
 }

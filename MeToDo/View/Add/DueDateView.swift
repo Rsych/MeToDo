@@ -17,8 +17,8 @@ struct DueDateView: View {
     @State private var showingNotificationsError = false
 
     var body: some View {
-        Section(header: Text("Project reminders")) {
-            Toggle("Show reminders", isOn: $dueOn.animation())
+        Section(header: Text("Reminder")) {
+            Toggle("Show reminder", isOn: $dueOn.animation())
                 .onTapGesture {
                     dataController.checkPushNotification { isOn in
                         showingNotificationsError = !isOn

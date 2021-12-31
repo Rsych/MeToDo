@@ -36,7 +36,7 @@ struct ProjectView: View {
                                 viewModel.addItem(to: project)
                                 }
                             } label: {
-                                Label("Add New item", systemImage: "plus")
+                                Label("Add a task", systemImage: "plus")
                             }
                         }  //: OpenTab
                     } header: {
@@ -53,7 +53,7 @@ struct ProjectView: View {
                 sortOrderToolbar
             } //: Toolbar
             .navigationBarTitleDisplayMode(.inline)
-            .confirmationDialog("Sort items", isPresented: $showingSheet, titleVisibility: .visible) {
+            .confirmationDialog("Sort tasks", isPresented: $showingSheet, titleVisibility: .visible) {
                 Button("Automatic") {
                     viewModel.sortOrder = .automatic
                 }

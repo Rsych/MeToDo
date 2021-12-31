@@ -33,7 +33,7 @@ struct SimpleTodoWidget: Widget {
             TodoWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Up next…")
-        .description("Your top priority item.")
+        .description("Your top priority task.")
         .supportedFamilies([.systemSmall])
     }
 }

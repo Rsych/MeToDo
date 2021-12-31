@@ -23,19 +23,16 @@ struct TabBarView: View {
                                 .offset(y: -4)
                                 .matchedGeometryEffect(id: "currentTab", in: currentTab)
                         }
-                        Image(systemName: tabs[index].image)
-                            .frame(height: 20)
-
-                            // tilt image at select, not useful now
-//                        if tabs[selectedTab].label == "Finished" && tabs[index].label == "Finished" {
-//                            Image(systemName: tabs[index].image)
-//                                .frame(height: 20)
-//                                .rotationEffect(.degrees(25))
-//                        } else {
-//                            Image(systemName: tabs[index].image)
-//                                .frame(height: 20)
-//                                .rotationEffect(.degrees(0))
-//                        } // tilt image
+                            // tilt image at select
+                        if tabs[selectedTab].label == "Finished" && tabs[index].label == "Finished" {
+                            Image(systemName: tabs[index].image)
+                                .frame(height: 20)
+                                .rotationEffect(.degrees(10))
+                        } else {
+                            Image(systemName: tabs[index].image)
+                                .frame(height: 20)
+                                .rotationEffect(.degrees(0))
+                        } // tilt image
 
                         Text(tabs[index].label)
                             .font(.caption2)
@@ -76,7 +73,7 @@ let tabs = [
     Tab(image: "list.bullet", label: "Open"),
     Tab(image: "plus.square.fill", label: "Add"),
     Tab(image: "checkmark", label: "Finished"),
-    Tab(image: "rosette", label: "More")
+    Tab(image: "line.3.horizontal", label: "More")
 ]
 
 struct RoundedCorner: Shape {
