@@ -14,80 +14,106 @@ struct MoreView: View {
     @EnvironmentObject var dataController: DataController
     @State var notificationIsOn = false
 
-    @Binding var darkModeEnabled: Bool
-    @Binding var systemThemeEnabled: Bool
+    //    @Binding var darkModeEnabled: Bool
+    //    @Binding var systemThemeEnabled: Bool
     // For later settings update
-//    @AppStorage("darkModeEnabled") private var darkModeEnabled = false
-//    @AppStorage("systemThemeEnabled") private var systemThemeEnabled = false
+    @AppStorage("darkModeEnabled") private var darkModeEnabled = false
+    @AppStorage("systemThemeEnabled") private var systemThemeEnabled = false
+    @State private var action: Int? = 0
 
     // MARK: - Body
     var body: some View {
-        Form {
-            Section {
-                Toggle(isOn: $notificationIsOn) {
-                    Text(notificationIsOn ? "Notifications enabled" : "Enable notifications")
-                } .disabled(notificationIsOn ? true : false)
-                    .onTapGesture {
-                        if !notificationIsOn {
-                            dataController.showAppSettings()
-                            notificationIsOn = false
+        NavigationView {
+            List {
+                Section {
+                    ZStack {
+                        HStack {
+                            Text("Customization")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
                         }
-                    }  //: OnTap
-            } header: {
-                Text("Notifications")
-            } //: Notifications Section
+                        NavigationLink {
+                            SettingsView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
+                        } label: {
+                            EmptyView()
+                        }
+                        .opacity(0.0)
+                    }
 
-            Section {
-                Toggle(isOn: $darkModeEnabled) {
-                    Text("Dark mode")
-                }  //: Dark mode toggle
-                .onChange(of: darkModeEnabled) { _ in
-                    SystemThemeManager
-                        .shared
-                        .handleTheme(darkMode: darkModeEnabled, system: systemThemeEnabled)
+                    Button {
+                        dataController.showAppSettings()
+                    } label: {
+                        HStack {
+                            Text("App settings")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }  //: HStack
+                    } .tint(.primary)
                 }
-                Toggle(isOn: $systemThemeEnabled) {
-                    Text("Use system settings")
+                .padding()
+                .listRowSeparator(.hidden)
+                Spacer()
+                Section {
+                    Link(destination: URL(string: "https://naver.com")!) {
+                        HStack {
+                            Text("Notice")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }  //: HStack
+                    }
+
+                    Link(destination: URL(string: "https://naver.com")!) {
+                        HStack {
+                            Text("FAQ")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }  //: HStack
+                    }
+
+                    Button(action: dataController.showReview) {
+                        HStack {
+                            Text("Leave a rating")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }  //: HStack
+                    }
+
+                    HStack {
+                        Text("Contact us")
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                    }  //: HStack
+
+                    HStack {
+                        Text("Terms")
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                    }  //: HStack
+
+                    // No need for Privacy now
+                    //                HStack {
+                    //                    Text("Privacy Policy")
+                    //                    Spacer()
+                    //                    Image(systemName: "chevron.forward")
+                    //                }  //: HStack
+                    Rectangle().fill(Color.primary).frame(maxWidth: .infinity, maxHeight: 1, alignment: .leading)
+                } footer: {
+                    Text("Version \(Bundle.main.appVersionShort)")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
                 }
-                .onChange(of: systemThemeEnabled) { _ in
-                    SystemThemeManager
-                        .shared
-                        .handleTheme(darkMode: darkModeEnabled, system: systemThemeEnabled)
-                }
-            } header: {
-                Text("Display")
-            } footer: {
-                Text("System settings will override Dark mode and use the current device theme")
-            }  //: Display theme Section
-        }  //: Form
-        .onAppear {
-            dataController.checkPushNotification { isOn in
-                notificationIsOn = isOn
-                print(notificationIsOn)
-            }
-        }  //: onAppear
-        .navigationTitle("More")
-        .navigationBarTitleDisplayMode(.inline)
-//        NavigationView {
-//            Text("More VIew")
-//                .navigationTitle("More")
-//                .navigationBarTitleDisplayMode(.automatic)
-//                .toolbar {
-//                    ToolbarItem(placement: .navigationBarTrailing) {
-//                        NavigationLink {
-//                            SettingsView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
-//                        } label: {
-//                            Image(systemName: "gear")
-//                                .tint(.primary)
-//                        }
-//                    }
-//                }
-//        }  //: NavView
+                .padding()
+                .listRowSeparator(.hidden)
+            }  //: List
+            .listStyle(.plain)
+            .navigationTitle("More")
+            .navigationBarTitleDisplayMode(.inline)
+        }  //: NavView
     }  //: body
 }
 
 struct MoreView_Previews: PreviewProvider {
     static var previews: some View {
-        MoreView(darkModeEnabled: .constant(false), systemThemeEnabled: .constant(false))
+        MoreView()
     }
 }

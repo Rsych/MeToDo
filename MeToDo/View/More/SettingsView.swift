@@ -20,21 +20,21 @@ struct SettingsView: View {
     // MARK: - Properties
     var body: some View {
         Form {
-            Section {
-                Toggle(isOn: $notificationIsOn) {
-                    Text(notificationIsOn ? "Notifications enabled" : "Enable notifications")
-                } .disabled(notificationIsOn ? true : false)
-                    .onTapGesture {
-                        if notificationIsOn {
-
-                        } else {
-                            dataController.showAppSettings()
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    }  //: OnTap
-            } header: {
-                Text("Notifications")
-            } //: Notifications Section
+//            Section {
+//                Toggle(isOn: $notificationIsOn) {
+//                    Text(notificationIsOn ? "Notifications enabled" : "Enable notifications")
+//                } .disabled(notificationIsOn ? true : false)
+//                    .onTapGesture {
+//                        if notificationIsOn {
+//
+//                        } else {
+//                            dataController.showAppSettings()
+//                            presentationMode.wrappedValue.dismiss()
+//                        }
+//                    }  //: OnTap
+//            } header: {
+//                Text("Notifications")
+//            } //: Notifications Section
 
             Section {
                 Toggle(isOn: $darkModeEnabled) {

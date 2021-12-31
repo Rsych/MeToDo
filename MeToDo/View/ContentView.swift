@@ -26,7 +26,7 @@ struct ContentView: View {
                 EmptyView()
                 ProjectView(dataController: dataController, showClosedProjects: true)
                     .tag(ProjectView.closedTag)
-                MoreView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
+                MoreView()
                     .tag(MoreView.moreTag)
             }  //: TabView
             .onOpenURL(perform: openURL)
