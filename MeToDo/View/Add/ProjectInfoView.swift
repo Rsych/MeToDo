@@ -12,7 +12,7 @@ struct ProjectInfoView: View {
     @Binding var detail: String
     var body: some View {
         Section {
-            TextField("Project Name", text: $title)
+            TextField("Todo Name", text: $title)
             TextField("Description", text: $detail)
         } header: {
             Text("Basic settings")

@@ -37,7 +37,7 @@ struct EditItemView: View {
         NavigationView {
         Form {
             Section {
-                TextField("Item name", text: $title.onChange(update))
+                TextField("Task name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
             } header: {
                 Text("Basic settings")

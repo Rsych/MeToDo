@@ -14,6 +14,7 @@
 		715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
 		71602A73277E459E0009EFD2 /* Error-CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71602A72277E459E0009EFD2 /* Error-CloudKit.swift */; };
 		71602A75277E50AB0009EFD2 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71602A74277E50AB0009EFD2 /* MoreView.swift */; };
+		71602A77277E5FE30009EFD2 /* SystemThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71602A76277E5FE30009EFD2 /* SystemThemeManager.swift */; };
 		7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170D0FD2779B22A00BA0D62 /* DueDateView.swift */; };
 		71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71721FEB277886570050F0B2 /* HomeViewModel.swift */; };
 		7172E47D277A1FC9001FD7EC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172E47C277A1FC9001FD7EC /* SettingsView.swift */; };
@@ -122,6 +123,7 @@
 		715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		71602A72277E459E0009EFD2 /* Error-CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error-CloudKit.swift"; sourceTree = "<group>"; };
 		71602A74277E50AB0009EFD2 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		71602A76277E5FE30009EFD2 /* SystemThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemThemeManager.swift; sourceTree = "<group>"; };
 		7170D0FD2779B22A00BA0D62 /* DueDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateView.swift; sourceTree = "<group>"; };
 		71721FEB277886570050F0B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7172E47C277A1FC9001FD7EC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			children = (
 				71602A74277E50AB0009EFD2 /* MoreView.swift */,
 				7172E47C277A1FC9001FD7EC /* SettingsView.swift */,
+				71602A76277E5FE30009EFD2 /* SystemThemeManager.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */,
 				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
+				71602A77277E5FE30009EFD2 /* SystemThemeManager.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
 				71D917C8277C95EF0016773E /* DataController-CloudKit.swift in Sources */,
 				71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */,
@@ -929,6 +933,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeToDo/Configuration/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -962,6 +967,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeToDo/Configuration/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -12,35 +12,57 @@ struct ItemRowListView: View {
     @ObservedObject var project: Project
     @ObservedObject var item: Item
     @State private var showModal = false
+    @EnvironmentObject var dataController: DataController
     // MARK: - Body
     var body: some View {
-        Button {
-            showModal.toggle()
-        } label: {
-            Label {
+        HStack(spacing: 20) {
+            priorityIcon()
+                .onTapGesture {
+                    item.completed.toggle()
+                    dataController.save()
+                }
+            Button {
+                showModal.toggle()
+            } label: {
                 Text(item.itemTitle)
-            } icon: {
-                priorityIcon()
+            }
+            .sheet(isPresented: $showModal) {
+                EditItemView(item: item)
+            }
+            .onTapGesture {
+                showModal.toggle()
             }
         }
-        .sheet(isPresented: $showModal) {
-            EditItemView(item: item)
-        }
-        .onTapGesture {
-            showModal.toggle()
-        }
+//        Button {
+//            showModal.toggle()
+//        } label: {
+//            Label {
+//                Text(item.itemTitle)
+//            } icon: {
+//                priorityIcon()
+//            }
+//        }
     }
 
+//    func priorityIcon() -> some View {
+//        if item.completed {
+//            return Image(systemName: "checkmark.circle")
+//                .foregroundColor(Color(project.projectColor))
+//        } else if item.priority == 3 {
+//            return Image(systemName: "exclamationmark.triangle")
+//                .foregroundColor(Color(project.projectColor))
+//        } else {
+//            return Image(systemName: "checkmark.circle")
+//                .foregroundColor(.clear)
+//        }
+//    }
     func priorityIcon() -> some View {
         if item.completed {
             return Image(systemName: "checkmark.circle")
                 .foregroundColor(Color(project.projectColor))
-        } else if item.priority == 3 {
-            return Image(systemName: "exclamationmark.triangle")
-                .foregroundColor(Color(project.projectColor))
         } else {
-            return Image(systemName: "checkmark.circle")
-                .foregroundColor(.clear)
+            return Image(systemName: "circle")
+                .foregroundColor(Color(project.projectColor))
         }
     }
 }

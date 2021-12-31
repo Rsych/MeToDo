@@ -11,7 +11,7 @@ import CloudKit
 
 extension Item {
     var itemTitle: String {
-        title ?? NSLocalizedString("New Item", comment: "Create a new item")
+        title ?? NSLocalizedString("New Task", comment: "Create a new task")
     }
     var itemDetail: String {
         detail ?? ""
@@ -28,8 +28,8 @@ extension Item {
         let controller = DataController.preview
         let viewContext = controller.container.viewContext
         let item = Item(context: viewContext)
-        item.title = "Example Item"
-        item.detail = "Example item"
+        item.title = "Example Task"
+        item.detail = "Example Task"
         item.priority = 2
         item.creationDate = Date()
 
@@ -46,7 +46,7 @@ extension Project {
     ]
 
     var projectTitle: String {
-        title ?? NSLocalizedString("New Project", comment: "Create a new project")
+        title ?? NSLocalizedString("New Todo", comment: "Create a new todo")
     }
     var projectDetail: String {
         detail ?? ""
@@ -102,7 +102,7 @@ extension Project {
         let controller = DataController.preview
         let viewContext = controller.container.viewContext
         let project = Project(context: viewContext)
-        project.title = "Example project"
+        project.title = "Example Todo"
         project.detail = "Example"
         project.closed = true
         project.creationDate = Date()
