@@ -11,6 +11,7 @@
 		710C898827687AC3004FADCD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C898727687AC3004FADCD /* DataController.swift */; };
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
 		714D02AC277F6E8500DEF63F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714D02AB277F6E8500DEF63F /* LaunchScreen.storyboard */; };
+		714D02AE277FBA0E00DEF63F /* Color-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D02AD277FBA0E00DEF63F /* Color-Extension.swift */; };
 		715AEFDE27688821009C63DB /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDD27688821009C63DB /* ProjectView.swift */; };
 		715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
 		71602A73277E459E0009EFD2 /* Error-CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71602A72277E459E0009EFD2 /* Error-CloudKit.swift */; };
@@ -121,6 +122,7 @@
 		710C898A27687E74004FADCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		710C898C27687E84004FADCD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		714D02AB277F6E8500DEF63F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		714D02AD277FBA0E00DEF63F /* Color-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extension.swift"; sourceTree = "<group>"; };
 		715AEFDD27688821009C63DB /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		71602A72277E459E0009EFD2 /* Error-CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error-CloudKit.swift"; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */,
 				719EA672277BBAF600F17102 /* UIApplication-HideKeyboard.swift */,
 				71602A72277E459E0009EFD2 /* Error-CloudKit.swift */,
+				714D02AD277FBA0E00DEF63F /* Color-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
 				71D917C2277C6F670016773E /* SimpleWidget.swift in Sources */,
 				719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */,
+				714D02AE277FBA0E00DEF63F /* Color-Extension.swift in Sources */,
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,
 				71D917CA277CA0AA0016773E /* SharedProject.swift in Sources */,
