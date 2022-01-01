@@ -50,9 +50,9 @@ struct HomeView: View {
                     .padding(.horizontal)
                 }  //: VStack
             }  //: ScrollView
-            .background(Color.systemGroupedBackground)
+            .background(Color(uiColor: .systemBackground))
             .navigationTitle("Home")
-//            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
             #if targetEnvironment(simulator)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

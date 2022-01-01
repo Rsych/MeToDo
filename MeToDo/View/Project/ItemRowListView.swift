@@ -13,6 +13,7 @@ struct ItemRowListView: View {
     @ObservedObject var item: Item
     @State private var showModal = false
     @EnvironmentObject var dataController: DataController
+    @Environment(\.colorScheme) var colorScheme
     // MARK: - Body
     var body: some View {
         HStack(spacing: 20) {
@@ -33,15 +34,11 @@ struct ItemRowListView: View {
                 showModal.toggle()
             }
         }
-//        Button {
-//            showModal.toggle()
-//        } label: {
-//            Label {
-//                Text(item.itemTitle)
-//            } icon: {
-//                priorityIcon()
-//            }
-//        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .background(colorScheme == .dark ? .clear : Color.gray.opacity(0.1))
+        .cornerRadius(10)
+
     }
 
 //    func priorityIcon() -> some View {

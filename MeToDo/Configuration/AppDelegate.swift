@@ -17,6 +17,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> UISceneConfiguration {
         let sceneConfiguration = UISceneConfiguration(name: "Default", sessionRole: connectingSceneSession.role)
         sceneConfiguration.delegateClass = SceneDelegate.self
+        UITableView.appearance().backgroundColor = UIColor.systemBackground
+        UITableViewCell.appearance().backgroundColor = UIColor.secondarySystemGroupedBackground
         return sceneConfiguration
     }
 

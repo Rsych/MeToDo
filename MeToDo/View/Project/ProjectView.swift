@@ -25,6 +25,7 @@ struct ProjectView: View {
                     Section {
                         ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
                             ItemRowListView(project: project, item: item)
+//                                .fixedSize(horizontal: false, vertical: true)
                         } //: Project item list loop
                         .onDelete { offsets in
                             viewModel.delete(offsets, project: project)
