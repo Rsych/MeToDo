@@ -21,9 +21,10 @@ struct MoreView: View {
 
     @State private var showSafari = false
     @State private var selectedURL: URL = URL(string: Constants.errorPage)!
-    
+
     @State private var showEmail = false
-    @State private var result: Result<MFMailComposeResult, Error>? = nil
+    @State private var errorEmail = false
+    @State private var result: Result<MFMailComposeResult, Error>?
 
     // MARK: - Body
     var body: some View {
@@ -42,7 +43,7 @@ struct MoreView: View {
                             EmptyView()
                         }
                         .opacity(0.0)
-                    }
+                    }  //: Customization navLink
 
                     Button {
                         dataController.showAppSettings()
@@ -53,10 +54,12 @@ struct MoreView: View {
                             Image(systemName: "chevron.forward")
                         }  //: HStack
                     } .tint(.primary)
-                }
+                }  //: First section Customization
                 .padding()
                 .listRowSeparator(.hidden)
+
                 Spacer()
+
                 Section {
                     Button {
                         selectedURL = URL(string: Constants.twitter)!
@@ -67,20 +70,19 @@ struct MoreView: View {
                             Spacer()
                             Image(systemName: "chevron.forward")
                         }  //: HStack
-                    }
+                    }  //: Notice button
 
                     Button {
                         selectedURL = URL(string: Constants.medium)!
                         showSafari.toggle()
                         print(selectedURL)
-
                     } label: {
                         HStack {
                             Text("FAQ")
                             Spacer()
                             Image(systemName: "chevron.forward")
                         }  //: HStack
-                    }
+                    }  //: FAQ button
 
                     Button {
                         dataController.showReview()
@@ -90,39 +92,43 @@ struct MoreView: View {
                             Spacer()
                             Image(systemName: "chevron.forward")
                         }  //: HStack
-                    }
+                    }  //: Store Rating button
+
                     Button {
-                        self.showEmail.toggle()
-//                        let email = "test@gmail.com"
-//                        let subject = "Feedback"
-//                        let body = "Please provide your feedback here, and we will contact you within the next 24-48 hours."
-//                        guard let url = URL(string:
-//                        """
-//                        "mailto:\(email)?subject=\(subject
-//                        .addingPercentEncoding(withAllowedCharacters:
-//                        .urlPathAllowed) ?? "")&body=\(body
-//                        .addingPercentEncoding(withAllowedCharacters:
-//                        .urlPathAllowed) ?? "")
-//                        """
-//                        )
-//                        else { return }
-//                        UIApplication.shared.open(url)
+                        if MFMailComposeViewController.canSendMail() {
+                            self.showEmail.toggle()
+                        } else {
+                            print("Error")
+                            self.errorEmail.toggle()
+                        }
                     } label: {
                         HStack {
                             Text("Contact us")
                             Spacer()
                             Image(systemName: "chevron.forward")
                         }  //: HStack
-                    }
+                    }  //: Contact us email button
+
                     .sheet(isPresented: $showEmail) {
                         MailView(result: self.$result, newSubject: Constants.subject, newMsgBody: Constants.msgBody)
-                    }
+                    }  //: Show Email composer sheet
 
-                    HStack {
-                        Text("Terms")
-                        Spacer()
-                        Image(systemName: "chevron.forward")
-                    }  //: HStack
+                    .alert(isPresented: $errorEmail) {
+                        Alert(
+                            title: Text("Error"),
+                            message: Text("Can't send email now, check your network connection and try again"),
+                            dismissButton: .default(Text("Ok")))
+                    }  //: Email error Alert
+
+                    Button {
+                        // Terms URL link here
+                    } label: {
+                        HStack {
+                            Text("Terms")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }  //: HStack
+                    }  //: Terms Button
 
                     // No need for Privacy now
                     //                HStack {
@@ -142,8 +148,8 @@ struct MoreView: View {
             .listStyle(.plain)
             .navigationTitle("More")
             .navigationBarTitleDisplayMode(.inline)
-
         }  //: NavView
+
         .safariView(isPresented: $showSafari) {
             SafariView(
                 url: selectedURL,
@@ -152,13 +158,12 @@ struct MoreView: View {
                     barCollapsingEnabled: true
                 )
             )
-            .preferredBarAccentColor(.clear)
-            .preferredControlAccentColor(.accentColor)
-            .dismissButtonStyle(.done)
-        }
+                .preferredBarAccentColor(.clear)
+                .preferredControlAccentColor(.accentColor)
+                .dismissButtonStyle(.done)
+        }  //: Safari Link Open
     }  //: body
 }
-
 
 struct MoreView_Previews: PreviewProvider {
     static var dataController = DataController.preview
