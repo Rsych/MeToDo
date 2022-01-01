@@ -33,6 +33,8 @@ struct ProjectColorButtonView: View {
                 }  //: Color loop
             }  //: LazyVGrid
             .padding(.vertical)
+            .listRowBackground(Color(uiColor: .systemFill))
+            .foregroundColor(Color.primary)
         } header: {
             Text("Choose color")
         } // section 2

@@ -12,11 +12,14 @@ struct ProjectInfoView: View {
     @Binding var detail: String
     var body: some View {
         Section {
-            TextField("What to do?", text: $title)
-            TextField("Description", text: $detail)
+            Group {
+                TextField("What to do?", text: $title)
+                TextField("Description", text: $detail)
+            }
+            .listRowBackground(Color(uiColor: .systemFill))
+            .foregroundColor(Color.primary)
         } header: {
             Text("Basic settings")
         } // section 1
-        
     }
 }
