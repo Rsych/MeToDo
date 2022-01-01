@@ -13,6 +13,7 @@
 		714D02AC277F6E8500DEF63F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714D02AB277F6E8500DEF63F /* LaunchScreen.storyboard */; };
 		714D02AE277FBA0E00DEF63F /* Color-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D02AD277FBA0E00DEF63F /* Color-Extension.swift */; };
 		714D02B0277FC89E00DEF63F /* Bundle-Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D02AF277FC89E00DEF63F /* Bundle-Version.swift */; };
+		714D02B2277FD1D200DEF63F /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D02B1277FD1D200DEF63F /* NavigationBackButton.swift */; };
 		715AEFDE27688821009C63DB /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDD27688821009C63DB /* ProjectView.swift */; };
 		715AEFE027688CE1009C63DB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
 		71602A73277E459E0009EFD2 /* Error-CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71602A72277E459E0009EFD2 /* Error-CloudKit.swift */; };
@@ -125,6 +126,7 @@
 		714D02AB277F6E8500DEF63F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		714D02AD277FBA0E00DEF63F /* Color-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extension.swift"; sourceTree = "<group>"; };
 		714D02AF277FC89E00DEF63F /* Bundle-Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Version.swift"; sourceTree = "<group>"; };
+		714D02B1277FD1D200DEF63F /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 		715AEFDD27688821009C63DB /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		71602A72277E459E0009EFD2 /* Error-CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error-CloudKit.swift"; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				719EA672277BBAF600F17102 /* UIApplication-HideKeyboard.swift */,
 				71602A72277E459E0009EFD2 /* Error-CloudKit.swift */,
 				714D02AD277FBA0E00DEF63F /* Color-Extension.swift */,
+				714D02B1277FD1D200DEF63F /* NavigationBackButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				71A63E04276766EE00EAB2EC /* ContentView.swift in Sources */,
 				71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */,
 				71B31BB427767DBA00DD04DB /* Sequence-Sorting.swift in Sources */,
+				714D02B2277FD1D200DEF63F /* NavigationBackButton.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				71602A77277E5FE30009EFD2 /* SystemThemeManager.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,

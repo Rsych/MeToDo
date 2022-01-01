@@ -20,6 +20,7 @@ extension DataController {
         let scene = allScenes.first
         if let windowScene = scene as? UIWindowScene { SKStoreReviewController.requestReview(in: windowScene)}
     }
+    /// Requests review right away!
     func showReview() {
         let allScenes = UIApplication.shared.connectedScenes
         let scene = allScenes.first

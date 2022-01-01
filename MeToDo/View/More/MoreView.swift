@@ -14,12 +14,8 @@ struct MoreView: View {
     @EnvironmentObject var dataController: DataController
     @State var notificationIsOn = false
 
-    //    @Binding var darkModeEnabled: Bool
-    //    @Binding var systemThemeEnabled: Bool
-    // For later settings update
     @AppStorage("darkModeEnabled") private var darkModeEnabled = false
     @AppStorage("systemThemeEnabled") private var systemThemeEnabled = false
-    @State private var action: Int? = 0
 
     // MARK: - Body
     var body: some View {
