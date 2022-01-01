@@ -50,7 +50,7 @@ struct ProjectView: View {
 //                    .padding(.bottom, 3)
                 }  //: Project loop
             }  //: List
-            .listStyle(InsetListStyle())
+            .listStyle(PlainListStyle())
             .navigationTitle(viewModel.showClosedProjects ? "Finished" : "Open")
             .toolbar {
                 sortOrderToolbar

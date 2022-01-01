@@ -43,6 +43,13 @@ struct SettingsView: View {
                 Text("System settings will override Dark mode and use the current device theme")
             }  //: Display theme Section
         }  //: Form
+        .background(Color(uiColor: .systemBackground))
+                    .listRowBackground(Color.clear)
+
+                    .onAppear(perform: {
+                        UITableView.appearance().backgroundColor = UIColor.clear
+                        UITableViewCell.appearance().backgroundColor = UIColor.clear
+                    })
         .onAppear {
             dataController.checkPushNotification { isOn in
                 notificationIsOn = isOn
