@@ -58,6 +58,8 @@
 		71A63E09276766EF00EAB2EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A63E08276766EF00EAB2EC /* Preview Assets.xcassets */; };
 		71A63E102767680400EAB2EC /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E0F2767680400EAB2EC /* TabBarView.swift */; };
 		71A63E122767728700EAB2EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A63E112767728700EAB2EC /* HomeView.swift */; };
+		71AD486E27807C580003BD64 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD486D27807C580003BD64 /* Constants.swift */; };
+		71AD487127807E360003BD64 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 71AD487027807E360003BD64 /* BetterSafariView */; };
 		71B31BA32775B9A900DD04DB /* MeToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BA22775B9A900DD04DB /* MeToDoTests.swift */; };
 		71B31BAA2775BA9700DD04DB /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BA92775BA9700DD04DB /* AssetTests.swift */; };
 		71B31BAC2775BC7E00DD04DB /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BAB2775BC7E00DD04DB /* ProjectTests.swift */; };
@@ -174,6 +176,7 @@
 		71A63E08276766EF00EAB2EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71A63E0F2767680400EAB2EC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		71A63E112767728700EAB2EC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		71AD486D27807C580003BD64 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71B31BA02775B9A900DD04DB /* MeToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B31BA22775B9A900DD04DB /* MeToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeToDoTests.swift; sourceTree = "<group>"; };
 		71B31BA92775BA9700DD04DB /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */,
+				71AD487127807E360003BD64 /* BetterSafariView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +362,7 @@
 				710C898A27687E74004FADCD /* Info.plist */,
 				719EA647277B005100F17102 /* AppDelegate.swift */,
 				719EA649277B006700F17102 /* SceneDelegate.swift */,
+				71AD486D27807C580003BD64 /* Constants.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -511,6 +516,9 @@
 				719EA65B277B6F4300F17102 /* PBXTargetDependency */,
 			);
 			name = MeToDo;
+			packageProductDependencies = (
+				71AD487027807E360003BD64 /* BetterSafariView */,
+			);
 			productName = MeToDo;
 			productReference = 71A63DFE276766EE00EAB2EC /* MeToDo.app */;
 			productType = "com.apple.product-type.application";
@@ -565,6 +573,9 @@
 				ko,
 			);
 			mainGroup = 71A63DF5276766EE00EAB2EC;
+			packageReferences = (
+				71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
+			);
 			productRefGroup = 71A63DFF276766EE00EAB2EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -674,6 +685,7 @@
 				71D917D5277CA21A0016773E /* SharedProjectsView.swift in Sources */,
 				714D02B0277FC89E00DEF63F /* Bundle-Version.swift in Sources */,
 				71602A75277E50AB0009EFD2 /* MoreView.swift in Sources */,
+				71AD486E27807C580003BD64 /* Constants.swift in Sources */,
 				719EA666277B71CE00F17102 /* DataController-Reminders.swift in Sources */,
 				7172E47D277A1FC9001FD7EC /* SettingsView.swift in Sources */,
 				719EA668277B737000F17102 /* DataController-Awards.swift in Sources */,
@@ -774,7 +786,7 @@
 				INFOPLIST_FILE = TodoWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TodoWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -786,7 +798,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -803,7 +815,7 @@
 				INFOPLIST_FILE = TodoWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TodoWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -815,7 +827,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1083,6 +1095,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stleamist/BetterSafariView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		71AD487027807E360003BD64 /* BetterSafariView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
+			productName = BetterSafariView;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		710C89842768784D004FADCD /* Main.xcdatamodeld */ = {

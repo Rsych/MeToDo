@@ -13,8 +13,10 @@ struct ItemRowListView: View {
     @ObservedObject var item: Item
     @State private var showModal = false
     @EnvironmentObject var dataController: DataController
+    @Environment(\.colorScheme) var colorScheme
     // MARK: - Body
     var body: some View {
+        VStack(alignment: .leading) {
         HStack(spacing: 20) {
             priorityIcon()
                 .onTapGesture {
@@ -32,30 +34,11 @@ struct ItemRowListView: View {
             .onTapGesture {
                 showModal.toggle()
             }
-        }
-//        Button {
-//            showModal.toggle()
-//        } label: {
-//            Label {
-//                Text(item.itemTitle)
-//            } icon: {
-//                priorityIcon()
-//            }
-//        }
+        }  //: HStack
+            Rectangle().fill(Color.secondary).frame(maxWidth: .infinity, maxHeight: 1, alignment: .leading)
+        }  //: Vstack
     }
 
-//    func priorityIcon() -> some View {
-//        if item.completed {
-//            return Image(systemName: "checkmark.circle")
-//                .foregroundColor(Color(project.projectColor))
-//        } else if item.priority == 3 {
-//            return Image(systemName: "exclamationmark.triangle")
-//                .foregroundColor(Color(project.projectColor))
-//        } else {
-//            return Image(systemName: "checkmark.circle")
-//                .foregroundColor(.clear)
-//        }
-//    }
     func priorityIcon() -> some View {
         if item.completed {
             return Image(systemName: "checkmark.circle")

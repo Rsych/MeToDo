@@ -34,6 +34,13 @@ struct AddProjectView: View {
                 DueDateView(dueOn: $dueOn, dueDate: $dueDate)
 
             }  //: Form
+            .background(Color(uiColor: .systemBackground))
+                        .listRowBackground(Color.clear)
+
+                        .onAppear(perform: {
+                            UITableView.appearance().backgroundColor = UIColor.clear
+                            UITableViewCell.appearance().backgroundColor = UIColor.clear
+                        })
             .resignKeyboardOnDragGesture()
 
             .navigationTitle("New Todo")

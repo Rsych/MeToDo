@@ -71,8 +71,11 @@ struct EditProjectView: View {
                         )
                     }
                 }
+                .listRowBackground(Color(uiColor: .systemFill))
+                .foregroundColor(Color.primary)
 
                 Section {
+                    Group {
                     Button(project.closed ? "Reopen" : "Mark it completed") {
                         presentationMode.wrappedValue.dismiss()
 
@@ -85,6 +88,9 @@ struct EditProjectView: View {
                         showingDeleteConfirm.toggle()
                     }
                     .foregroundColor(.red)
+                    }
+                    .listRowBackground(Color(uiColor: .systemFill))
+                    .foregroundColor(Color.primary)
                     .alert(isPresented: $showingDeleteConfirm) {
                         Alert(
                             title: Text("Delete todo?"),
@@ -97,6 +103,13 @@ struct EditProjectView: View {
                     Text("Tasks in completed todo will not appear on home screen nor widgets.")
                 } // section 3
             }  //: Form
+            .background(Color(uiColor: .systemBackground))
+                        .listRowBackground(Color.clear)
+
+                        .onAppear(perform: {
+                            UITableView.appearance().backgroundColor = UIColor.clear
+                            UITableViewCell.appearance().backgroundColor = UIColor.clear
+                        })
             .font(.body)
             .resignKeyboardOnDragGesture()
 

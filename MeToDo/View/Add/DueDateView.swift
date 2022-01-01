@@ -36,6 +36,8 @@ struct DueDateView: View {
                 DatePicker("Reminder time", selection: $dueDate, in: Date()..., displayedComponents: .date)
             }
         }
+        .listRowBackground(Color(uiColor: .systemFill))
+        .foregroundColor(Color.primary)
 
     }
 }

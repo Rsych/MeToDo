@@ -13,29 +13,25 @@ struct ProjectHeaderView: View {
 
     @State private var selectedProject: FetchedResults<Project>.Element?
 
-//    @State private var showModal = false
     // MARK: - Body
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(project.projectTitle)
-                    .fontWeight(.bold)
+        Button {
+            selectedProject = project
+        } label: {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(project.projectTitle)
+                        .fontWeight(.bold)
 
-                ProgressView(value: project.completionAmount)
-                    .tint(Color(project.projectColor))
-            }
-            Spacer()
-
-                Image(systemName: "pencil")
-                .onTapGesture {
-//                    showModal.toggle()
-                    self.selectedProject = project
+                    ProgressView(value: project.completionAmount)
+                        .tint(Color(project.projectColor))
                 }
-        }  //: HStack
+                Spacer()
+
+                    Image(systemName: "pencil")
+            }  //: HStack
+        }
         .padding(.bottom, 10)
-//        .sheet(isPresented: $showModal) {
-//            EditProjectView(project: project)
-//        }
         .sheet(item: $selectedProject) {
             EditProjectView(project: $0)
         }

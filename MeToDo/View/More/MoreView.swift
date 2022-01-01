@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BetterSafariView
 
 struct MoreView: View {
     // MARK: - Properties
@@ -16,6 +17,9 @@ struct MoreView: View {
 
     @AppStorage("darkModeEnabled") private var darkModeEnabled = false
     @AppStorage("systemThemeEnabled") private var systemThemeEnabled = false
+
+    @State private var showSafari = false
+    @State private var selectedURL: URL = URL(string: Constants.errorPage)!
 
     // MARK: - Body
     var body: some View {
@@ -50,7 +54,10 @@ struct MoreView: View {
                 .listRowSeparator(.hidden)
                 Spacer()
                 Section {
-                    Link(destination: URL(string: "https://naver.com")!) {
+                    Button {
+                        selectedURL = URL(string: Constants.twitter)!
+                        showSafari.toggle()
+                    } label: {
                         HStack {
                             Text("Notice")
                             Spacer()
@@ -58,7 +65,12 @@ struct MoreView: View {
                         }  //: HStack
                     }
 
-                    Link(destination: URL(string: "https://naver.com")!) {
+                    Button {
+                        selectedURL = URL(string: Constants.medium)!
+                        showSafari.toggle()
+                        print(selectedURL)
+
+                    } label: {
                         HStack {
                             Text("FAQ")
                             Spacer()
@@ -66,7 +78,9 @@ struct MoreView: View {
                         }  //: HStack
                     }
 
-                    Button(action: dataController.showReview) {
+                    Button {
+                        dataController.showReview()
+                    } label: {
                         HStack {
                             Text("Leave a rating")
                             Spacer()
@@ -104,11 +118,26 @@ struct MoreView: View {
             .listStyle(.plain)
             .navigationTitle("More")
             .navigationBarTitleDisplayMode(.inline)
+
         }  //: NavView
+        .safariView(isPresented: $showSafari) {
+            SafariView(
+                url: selectedURL,
+                configuration: SafariView.Configuration(
+                    entersReaderIfAvailable: false,
+                    barCollapsingEnabled: true
+                )
+            )
+            .preferredBarAccentColor(.clear)
+            .preferredControlAccentColor(.accentColor)
+            .dismissButtonStyle(.done)
+        }
     }  //: body
+
 }
 
 struct MoreView_Previews: PreviewProvider {
+    static var dataController = DataController.preview
     static var previews: some View {
         MoreView()
     }

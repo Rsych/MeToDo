@@ -50,18 +50,18 @@ struct HomeView: View {
                     .padding(.horizontal)
                 }  //: VStack
             }  //: ScrollView
-            .background(Color.systemGroupedBackground)
+            .background(Color(uiColor: .systemBackground))
             .navigationTitle("Home")
-//            .navigationBarTitleDisplayMode(.inline)
-            #if targetEnvironment(simulator)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Add Data Debug") {
-                        viewModel.addSampleData()
-                    }
-                }
-            }  //: toolbar
-            #endif
+            .navigationBarTitleDisplayMode(.inline)
+//            #if targetEnvironment(simulator)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button("Add Data Debug") {
+//                        viewModel.addSampleData()
+//                    }
+//                }
+//            }  //: toolbar
+//            #endif
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {
