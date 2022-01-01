@@ -7,6 +7,7 @@
 
 import SwiftUI
 import BetterSafariView
+import MessageUI
 
 struct MoreView: View {
     // MARK: - Properties
@@ -20,6 +21,9 @@ struct MoreView: View {
 
     @State private var showSafari = false
     @State private var selectedURL: URL = URL(string: Constants.errorPage)!
+    
+    @State private var showEmail = false
+    @State private var result: Result<MFMailComposeResult, Error>? = nil
 
     // MARK: - Body
     var body: some View {
@@ -87,12 +91,32 @@ struct MoreView: View {
                             Image(systemName: "chevron.forward")
                         }  //: HStack
                     }
-
-                    HStack {
-                        Text("Contact us")
-                        Spacer()
-                        Image(systemName: "chevron.forward")
-                    }  //: HStack
+                    Button {
+                        self.showEmail.toggle()
+//                        let email = "test@gmail.com"
+//                        let subject = "Feedback"
+//                        let body = "Please provide your feedback here, and we will contact you within the next 24-48 hours."
+//                        guard let url = URL(string:
+//                        """
+//                        "mailto:\(email)?subject=\(subject
+//                        .addingPercentEncoding(withAllowedCharacters:
+//                        .urlPathAllowed) ?? "")&body=\(body
+//                        .addingPercentEncoding(withAllowedCharacters:
+//                        .urlPathAllowed) ?? "")
+//                        """
+//                        )
+//                        else { return }
+//                        UIApplication.shared.open(url)
+                    } label: {
+                        HStack {
+                            Text("Contact us")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }  //: HStack
+                    }
+                    .sheet(isPresented: $showEmail) {
+                        MailView(result: self.$result, newSubject: Constants.subject, newMsgBody: Constants.msgBody)
+                    }
 
                     HStack {
                         Text("Terms")
@@ -133,8 +157,8 @@ struct MoreView: View {
             .dismissButtonStyle(.done)
         }
     }  //: body
-
 }
+
 
 struct MoreView_Previews: PreviewProvider {
     static var dataController = DataController.preview
