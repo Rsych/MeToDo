@@ -136,12 +136,14 @@ struct MoreView: View {
                     //                    Spacer()
                     //                    Image(systemName: "chevron.forward")
                     //                }  //: HStack
+
                     Rectangle().fill(Color.primary).frame(maxWidth: .infinity, maxHeight: 1, alignment: .leading)
+
                 } footer: {
                     Text("Version \(Bundle.main.appVersionShort)")
                         .font(.footnote)
                         .foregroundColor(.secondary)
-                }
+                }  //: Second section
                 .padding()
                 .listRowSeparator(.hidden)
             }  //: List

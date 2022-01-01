@@ -49,15 +49,17 @@ struct AddProjectView: View {
                     Button("Dismiss") {
                         self.presentationMode.wrappedValue.dismiss()
                     }
+                    .foregroundColor(.primary)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         save()
                         self.presentationMode.wrappedValue.dismiss()
                     }  //: Dismiss Button
+                    .foregroundColor(title.isEmpty ? .gray : .primary)
                     .disabled(title.isEmpty)
                 }
-            }  //: Dismiss Toolbar
+            }  //: Dismiss Toolbar  
         }  //: NavVIew
     }  //: body
     func save() {

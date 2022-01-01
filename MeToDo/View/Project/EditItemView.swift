@@ -75,8 +75,9 @@ struct EditItemView: View {
                             Button("Dismiss") {
                                 presentationMode.wrappedValue.dismiss()
                             } //: Button
-                        } //: ToolbarItem
+                        } //: ToolbarItem   
                     } //: Toolbar
+                    .tint(.primary)
         }  //: NavView
 
         .onDisappear(perform: save)

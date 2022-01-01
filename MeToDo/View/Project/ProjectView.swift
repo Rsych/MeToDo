@@ -76,6 +76,7 @@ struct ProjectView: View {
                 showingSheet.toggle()
             } label: {
                 Label("Sort", systemImage: "arrow.up.arrow.down")
+                    .tint(.primary)
             }
         } //: ToolbarItem
     }  //: sortToolbar
