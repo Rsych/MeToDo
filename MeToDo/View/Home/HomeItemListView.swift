@@ -38,7 +38,7 @@ struct HomeItemListView: View {
                         }  //: ButtonView
                     }  //: HStack
                     .padding()
-                    .background(.thickMaterial)
+                    .background(.ultraThickMaterial)
                     .cornerRadius(10)
                     .shadow(color: .primary.opacity(0.2), radius: 2)
                     .sheet(item: $selectedItem) {

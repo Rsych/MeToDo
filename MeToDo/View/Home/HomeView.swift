@@ -46,9 +46,11 @@ struct HomeView: View {
                         HomeItemListView(title: "Up next", items: $viewModel.upNext)
                         HomeItemListView(title: "More to explore", items: $viewModel.moreToExplore)
                     }  //: VStack
+                    .padding(.bottom, 50)
                     .padding(.horizontal)
                 }  //: VStack
             }  //: ScrollView
+            .background(Color.systemGroupedBackground)
             .navigationTitle("Home")
 //            .navigationBarTitleDisplayMode(.inline)
             #if targetEnvironment(simulator)
