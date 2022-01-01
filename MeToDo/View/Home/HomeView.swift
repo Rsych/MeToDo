@@ -53,15 +53,15 @@ struct HomeView: View {
             .background(Color(uiColor: .systemBackground))
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
-            #if targetEnvironment(simulator)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Add Data Debug") {
-                        viewModel.addSampleData()
-                    }
-                }
-            }  //: toolbar
-            #endif
+//            #if targetEnvironment(simulator)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button("Add Data Debug") {
+//                        viewModel.addSampleData()
+//                    }
+//                }
+//            }  //: toolbar
+//            #endif
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {

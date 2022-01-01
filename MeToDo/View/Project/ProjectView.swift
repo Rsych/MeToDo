@@ -45,10 +45,12 @@ struct ProjectView: View {
                             .foregroundColor(.primary)
                             .font(.title2)
                     }  //: Section
-                    .padding(.bottom, 3)
+                    .padding([.top, .bottom], 5)
+                    .listRowSeparator(.hidden)
+//                    .padding(.bottom, 3)
                 }  //: Project loop
             }  //: List
-            .listStyle(SidebarListStyle())
+            .listStyle(PlainListStyle())
             .navigationTitle(viewModel.showClosedProjects ? "Finished" : "Open")
             .toolbar {
                 sortOrderToolbar

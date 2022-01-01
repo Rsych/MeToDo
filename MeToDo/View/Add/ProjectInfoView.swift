@@ -17,5 +17,6 @@ struct ProjectInfoView: View {
         } header: {
             Text("Basic settings")
         } // section 1
+        
     }
 }

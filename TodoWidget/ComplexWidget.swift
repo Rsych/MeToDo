@@ -57,7 +57,7 @@ struct TodoWidgetMultipleEntryView: View {
                     }  //: VStack
                     Spacer()
                 }  //: HStack
-            }
+            }  //: Loop
         }  //: VStack
         .padding(20)
     }
