@@ -55,7 +55,8 @@ struct TabBarView: View {
                     }
                     .foregroundColor(selectedTab == index ? .orange : .secondary)
                 }  //: GeoReader
-                .frame(height: 88, alignment: .bottom)
+//                .frame(height: 88, alignment: .bottom)
+                .frame(height: UIScreen.main.bounds.height/10, alignment: .bottom)
             }  //: Tabs Loop
         }  //: HStack
         .background(.thickMaterial)
