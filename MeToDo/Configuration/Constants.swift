@@ -22,7 +22,7 @@ enum Constants {
     static let appEULA = "https://www.app-privacy-policy.com/live.php?token=TqYU0mZvliLWGHDnT4T2XZE3CyXuTLhX"
 
     /* Send Email properties */
-    static let adminEmail = ["naolin@naolin.net"]
+    static let adminEmail = ["metodo@naolin.net"]
     static let subject = "[iOS] subject here"
     static let msgBody =
 """
