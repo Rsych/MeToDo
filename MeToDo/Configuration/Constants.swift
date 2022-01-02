@@ -18,6 +18,8 @@ enum Constants {
     static let appWebsite = "https://rsych.github.io/MeToDo-web/"
     static let appFAQs = "https://woozy-archduke-bfe.notion.site/MeToDo-FAQs-665e5563643d4b1597b8abdf030a22c6"
     static let appTNC = "https://www.app-privacy-policy.com/live.php?token=ZuaSMtVr9EJOVRFsQbT3dIx4tMyHhcZe"
+    static let appPrivacy = "https://www.app-privacy-policy.com/live.php?token=Y7UQg9oQzgj7Fn3BdnszPaVysRucAiZq"
+    static let appEULA = "https://www.app-privacy-policy.com/live.php?token=TqYU0mZvliLWGHDnT4T2XZE3CyXuTLhX"
 
     /* Send Email properties */
     static let adminEmail = ["naolin@naolin.net"]
