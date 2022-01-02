@@ -20,7 +20,7 @@ struct MoreView: View {
     @AppStorage("systemThemeEnabled") private var systemThemeEnabled = false
 
     @State private var showSafari = false
-    @State private var selectedURL: URL = URL(string: Constants.errorPage)!
+    @State private var selectedURL: URL = URL(string: Constants.appNotice)!
 
     @State private var showEmail = false
     @State private var errorEmail = false
@@ -62,7 +62,7 @@ struct MoreView: View {
 
                 Section {
                     Button {
-                        selectedURL = URL(string: Constants.twitter)!
+                        selectedURL = URL(string: Constants.appNotice)!
                         showSafari.toggle()
                     } label: {
                         HStack {
@@ -73,7 +73,7 @@ struct MoreView: View {
                     }  //: Notice button
 
                     Button {
-                        selectedURL = URL(string: Constants.medium)!
+                        selectedURL = URL(string: Constants.appFAQs)!
                         showSafari.toggle()
                         print(selectedURL)
                     } label: {
@@ -121,7 +121,9 @@ struct MoreView: View {
                     }  //: Email error Alert
 
                     Button {
-                        // Terms URL link here
+                        selectedURL = URL(string: Constants.appTNC)!
+                        showSafari.toggle()
+                        print(selectedURL)
                     } label: {
                         HStack {
                             Text("Terms")
