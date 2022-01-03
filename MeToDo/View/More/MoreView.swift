@@ -131,7 +131,7 @@ struct MoreView: View {
                             Image(systemName: "chevron.forward")
                         }  //: HStack
                     }  //: Terms Button
-                    
+
                     Button {
                         selectedURL = URL(string: Constants.appPrivacy)!
                         showSafari.toggle()
