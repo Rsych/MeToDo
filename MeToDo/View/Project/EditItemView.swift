@@ -36,8 +36,9 @@ struct EditItemView: View {
     var body: some View {
         NavigationView {
         Form {
+            Group {
             Section {
-                TextField("Item name", text: $title.onChange(update))
+                TextField("Task name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
             } header: {
                 Text("Basic settings")
@@ -57,15 +58,26 @@ struct EditItemView: View {
             Section {
                 Toggle("Mark Completed", isOn: $completed.onChange(update))
             }
+            }
+            .listRowBackground(Color(uiColor: .systemFill))
+            .foregroundColor(Color.primary)
         }  //: form
+        .background(Color(uiColor: .systemBackground))
+//                    .listRowBackground(Color.clear)
+
+                    .onAppear(perform: {
+                        UITableView.appearance().backgroundColor = UIColor.clear
+                        UITableViewCell.appearance().backgroundColor = UIColor.clear
+                    })
         .navigationTitle("\(title) in \(projectTitle)")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button("Dismiss") {
                                 presentationMode.wrappedValue.dismiss()
                             } //: Button
-                        } //: ToolbarItem
+                        } //: ToolbarItem   
                     } //: Toolbar
+                    .tint(.primary)
         }  //: NavView
 
         .onDisappear(perform: save)

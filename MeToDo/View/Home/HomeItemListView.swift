@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct HomeItemListView: View {
+    // MARK: - Properties
     @State private var selectedItem: FetchedResults<Item>.Element?
+    @EnvironmentObject var dataController: DataController
     let title: LocalizedStringKey
     @Binding var items: ArraySlice<Item>
+    // MARK: - Body
     var body: some View {
         if items.isEmpty {
             EmptyView()
@@ -21,18 +24,21 @@ struct HomeItemListView: View {
 
             ForEach(items) { item in
                     HStack(spacing: 20) {
+                        Circle()
+                            .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
+                            .frame(width: 44, height: 44)
+                            .onTapGesture {
+                                item.completed.toggle()
+                                dataController.save()
+                            }
                         Button {
                             self.selectedItem = item
                         } label: {
-                            Circle()
-                                .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
-                                .frame(width: 44, height: 44)
-
                             homeList(item)
                         }  //: ButtonView
                     }  //: HStack
                     .padding()
-                    .background(.thickMaterial)
+                    .background(.ultraThickMaterial)
                     .cornerRadius(10)
                     .shadow(color: .primary.opacity(0.2), radius: 2)
                     .sheet(item: $selectedItem) {

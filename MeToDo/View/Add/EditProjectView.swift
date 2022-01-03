@@ -25,6 +25,7 @@ struct EditProjectView: View {
 
     @State private var dueOn: Bool
     @State private var dueDate: Date
+    @State private var showingNotificationsError = false
 
     init(project: Project) {
         self.project = project
@@ -49,37 +50,70 @@ struct EditProjectView: View {
 
                 ProjectColorButtonView(color: $color.onChange(update))
 
-                DueDateView(dueOn: $dueOn, dueDate: $dueDate)
+//                DueDateView(dueOn: $dueOn, dueDate: $dueDate)
+                Section(header: Text("Reminder")) {
+                    Toggle("Show reminder", isOn: $dueOn.animation().onChange(update))
+                        .alert(isPresented: $showingNotificationsError) {
+                            Alert(
+                                title: Text("Oops!"),
+                                message: Text("There was a problem. Please check you have notifications enabled."),
+                                primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                                secondaryButton: .cancel()
+                            )
+                        }
+
+                    if dueOn {
+                        DatePicker(
+                            "Reminder time",
+                            selection: $dueDate.onChange(update),
+                            in: Date()...,
+                            displayedComponents: .date
+                        )
+                    }
+                }
+                .listRowBackground(Color(uiColor: .systemFill))
+                .foregroundColor(Color.primary)
 
                 Section {
-                    Button(project.closed ? "Reopen project" : "Finish this project") {
+                    Group {
+                    Button(project.closed ? "Reopen" : "Mark it completed") {
+                        presentationMode.wrappedValue.dismiss()
+
                         project.closed.toggle()
                         update()
-                        //                    showModal.toggle()
-                        presentationMode.wrappedValue.dismiss()
                     }
                     .foregroundColor(.blue)
-                    Button("Delete this project") {
+                    Button("Delete this todo") {
                         print("Delete")
                         showingDeleteConfirm.toggle()
                     }
                     .foregroundColor(.red)
+                    }
+                    .listRowBackground(Color(uiColor: .systemFill))
+                    .foregroundColor(Color.primary)
                     .alert(isPresented: $showingDeleteConfirm) {
                         Alert(
-                            title: Text("Delete project?"),
-                            message: Text("Are you sure you want to delete this project? You will lose all the items inside."),
+                            title: Text("Delete todo?"),
+                            message: Text("Are you sure you want to delete this todo? You will lose all the items inside."),
                             primaryButton: .destructive(Text("Delete"), action: delete),
                             secondaryButton: .cancel()
                         )
                     }  //: Delete Alert
                 } footer: {
-                    Text("Closing")
+                    Text("Tasks in completed todo will not appear on home screen nor widgets.")
                 } // section 3
             }  //: Form
+            .background(Color(uiColor: .systemBackground))
+                        .listRowBackground(Color.clear)
+
+                        .onAppear(perform: {
+                            UITableView.appearance().backgroundColor = UIColor.clear
+                            UITableViewCell.appearance().backgroundColor = UIColor.clear
+                        })
             .font(.body)
             .resignKeyboardOnDragGesture()
 
-            .navigationTitle("Edit Project")
+            .navigationTitle("Edit Todo")
             .font(.title2)
 
 //            .toolbar {
@@ -116,11 +150,12 @@ struct EditProjectView: View {
         project.creationDate = Date()
         if dueOn {
             project.dueDate = dueDate
+
             dataController.addDueDateReminder(for: project) { success in
                 if success == false {
                     project.dueDate = nil
                     dueOn = false
-                    //                    showingNotificationsError.toggle()
+                    showingNotificationsError = true
                 }
             }
         } else {
@@ -131,9 +166,19 @@ struct EditProjectView: View {
     }
 
     func delete() {
+        dataController.removeDueReminder(for: project)
         dataController.removeFromCloud(project)
         dataController.delete(project)
         self.presentationMode.wrappedValue.dismiss()
+    }
+    func showAppSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
+        }
     }
 
     //    func colorButton(for item: String) -> some View {

@@ -16,7 +16,6 @@ struct HomeView: View {
 
     @StateObject var viewModel: ViewModel
 
-    @State private var showSettings = false
     @State private var showSpotModal = false
 
     var projectRows: [GridItem] {
@@ -47,33 +46,22 @@ struct HomeView: View {
                         HomeItemListView(title: "Up next", items: $viewModel.upNext)
                         HomeItemListView(title: "More to explore", items: $viewModel.moreToExplore)
                     }  //: VStack
+                    .padding(.bottom, 50)
                     .padding(.horizontal)
                 }  //: VStack
             }  //: ScrollView
+            .background(Color(uiColor: .systemBackground))
             .navigationTitle("Home")
-//            .navigationBarTitleDisplayMode(.inline)
-            #if targetEnvironment(simulator)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Add Data Debug") {
-                        viewModel.addSampleData()
-                    }
-                }
-            }  //: toolbar
-            #endif
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showSettings = true
-                    } label: {
-                        Image(systemName: "gear")
-                    }
-                }
-            }
-            .sheet(isPresented: $showSettings) {
-                SettingsView()
-//                SharedProjectsView()
-            }
+            .navigationBarTitleDisplayMode(.inline)
+//            #if targetEnvironment(simulator)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button("Add Data Debug") {
+//                        viewModel.addSampleData()
+//                    }
+//                }
+//            }  //: toolbar
+//            #endif
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {

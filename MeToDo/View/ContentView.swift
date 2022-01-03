@@ -11,6 +11,8 @@ import CoreSpotlight
 struct ContentView: View {
     // MARK: - Properties
     @SceneStorage("selectedTab") var currentTab: Int = 0
+    @AppStorage("darkModeEnabled") private var darkModeEnabled = false
+    @AppStorage("systemThemeEnabled") private var systemThemeEnabled = true
     @EnvironmentObject var dataController: DataController
     @State var shouldShowModel = false
 
@@ -24,8 +26,8 @@ struct ContentView: View {
                 EmptyView()
                 ProjectView(dataController: dataController, showClosedProjects: true)
                     .tag(ProjectView.closedTag)
-                AwardsView()
-                    .tag(AwardsView.awardsTag)
+                MoreView()
+                    .tag(MoreView.moreTag)
             }  //: TabView
             .onOpenURL(perform: openURL)
             .padding(.bottom, 50)

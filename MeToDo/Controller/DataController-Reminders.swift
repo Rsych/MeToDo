@@ -78,7 +78,6 @@ extension DataController {
     func delete(_ object: Project) {
         let id = object.objectID.uriRepresentation().absoluteString
         CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [id])
-        removeDueReminder(for: object)
         container.viewContext.delete(object)
     }
 

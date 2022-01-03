@@ -14,45 +14,30 @@ struct DueDateView: View {
 
     @State var notificationIsOn = false
     @State var isItOn = false
+    @State private var showingNotificationsError = false
 
     var body: some View {
-
-        Section {
-            if isItOn {
-                Toggle("Add due date", isOn: $dueOn.animation())
-                if dueOn {
-                    DatePicker("Pick a date", selection: $dueDate, in: Date()..., displayedComponents: .date)
+        Section(header: Text("Reminder")) {
+            Toggle("Show reminder", isOn: $dueOn.animation())
+                .onTapGesture {
+                    dataController.checkPushNotification { isOn in
+                        showingNotificationsError = !isOn
+                    }
                 }
-            } else {
-                Button {
-                    self.notificationIsOn.toggle()
-                } label: {
-                    Toggle("Add due date", isOn: $dueOn.animation())
+                .alert(isPresented: $showingNotificationsError) {
+                    Alert(
+                        title: Text("Oops!"),
+                        message: Text("There was a problem. Please check you have notifications enabled."),
+                        primaryButton: .default(Text("Check Settings"), action: dataController.showAppSettings),
+                        secondaryButton: .cancel()
+                    )
                 }
-                .foregroundColor(isItOn ? .primary : .red)
-            }
-        } header: {
-            Text("Due date")
-        }
-        .onAppear(perform: {
-            dataController.checkPushNotification { isOn in
-                isItOn = isOn
-            }
-        })
-        .onTapGesture {
-            dataController.checkPushNotification { isOn in
-                notificationIsOn = !isOn
-                isItOn = isOn
+            if dueOn {
+                DatePicker("Reminder time", selection: $dueDate, in: Date()..., displayedComponents: .date)
             }
         }
-        .alert(isPresented: $notificationIsOn) {
-            Alert(
-                title: Text("Oops!"),
-                message: Text("There was a problem. Please check you have notifications enabled."),
-                primaryButton: .default(Text("Check Settings"), action: dataController.showAppSettings),
-                secondaryButton: .cancel()
-            )
-        }
+        .listRowBackground(Color(uiColor: .systemFill))
+        .foregroundColor(Color.primary)
 
     }
 }

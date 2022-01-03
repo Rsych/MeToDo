@@ -34,23 +34,32 @@ struct AddProjectView: View {
                 DueDateView(dueOn: $dueOn, dueDate: $dueDate)
 
             }  //: Form
+            .background(Color(uiColor: .systemBackground))
+                        .listRowBackground(Color.clear)
+
+                        .onAppear(perform: {
+                            UITableView.appearance().backgroundColor = UIColor.clear
+                            UITableViewCell.appearance().backgroundColor = UIColor.clear
+                        })
             .resignKeyboardOnDragGesture()
 
-            .navigationTitle("Add Project")
+            .navigationTitle("New Todo")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Dismiss") {
                         self.presentationMode.wrappedValue.dismiss()
                     }
+                    .foregroundColor(.primary)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         save()
                         self.presentationMode.wrappedValue.dismiss()
                     }  //: Dismiss Button
+                    .foregroundColor(title.isEmpty ? .gray : .primary)
                     .disabled(title.isEmpty)
                 }
-            }  //: Dismiss Toolbar
+            }  //: Dismiss Toolbar  
         }  //: NavVIew
     }  //: body
     func save() {

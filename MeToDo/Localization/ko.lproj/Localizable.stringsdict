@@ -15,9 +15,9 @@
 			<key>zero</key>
 			<string>Empty</string>
 			<key>one</key>
-			<string>1 item</string>
+			<string>1 task</string>
 			<key>other</key>
-			<string>%lld items</string>
+			<string>%lld tasks</string>
 		</dict>
 	</dict>
 </dict>
