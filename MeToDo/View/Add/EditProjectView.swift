@@ -166,6 +166,7 @@ struct EditProjectView: View {
     }
 
     func delete() {
+        dataController.removeDueReminder(for: project)
         dataController.removeFromCloud(project)
         dataController.delete(project)
         self.presentationMode.wrappedValue.dismiss()
