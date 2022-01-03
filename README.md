@@ -29,9 +29,9 @@ ToDo with SwiftUI.
 * ~~Local notification~~
 * ~~Check notification is on~~
 * ~~Quick Action~~
-* App Settings View - Store locally
+* ~~App Settings View - Store locally~~
 * ~~App Icon~~
-* TestFlight
+* ~~App Screen for AppStore~~
 * Publish
 
 
