@@ -121,7 +121,9 @@ struct MoreView: View {
                     }  //: Email error Alert
 
                     Button {
-                        // Terms URL link here
+                        selectedURL = URL(string: Constants.appTNC)!
+                        showSafari.toggle()
+                        print(selectedURL)
                     } label: {
                         HStack {
                             Text("Terms")
@@ -129,13 +131,18 @@ struct MoreView: View {
                             Image(systemName: "chevron.forward")
                         }  //: HStack
                     }  //: Terms Button
-
-                    // No need for Privacy now
-                    //                HStack {
-                    //                    Text("Privacy Policy")
-                    //                    Spacer()
-                    //                    Image(systemName: "chevron.forward")
-                    //                }  //: HStack
+                    
+                    Button {
+                        selectedURL = URL(string: Constants.appPrivacy)!
+                        showSafari.toggle()
+                        print(selectedURL)
+                    } label: {
+                        HStack {
+                            Text("Privacy Policy")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }  //: HStack
+                    }  //: Privacy Button
 
                     Rectangle().fill(Color.primary).frame(maxWidth: .infinity, maxHeight: 1, alignment: .leading)
 
