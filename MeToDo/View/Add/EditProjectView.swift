@@ -64,7 +64,7 @@ struct EditProjectView: View {
 
                     if dueOn {
                         DatePicker(
-                            "Reminder time",
+                            LocalizedStringKey("Reminder time"),
                             selection: $dueDate.onChange(update),
                             in: Date()...,
                             displayedComponents: .date

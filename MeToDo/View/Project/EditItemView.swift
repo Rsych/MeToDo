@@ -21,6 +21,7 @@ struct EditItemView: View {
     @State private var priority: Int
     @State private var completed: Bool
     @State private var projectTitle: String
+    @State private var projectColor: String
 
     init(item: Item) {
         self.item = item
@@ -30,6 +31,7 @@ struct EditItemView: View {
         _priority = State(wrappedValue: Int(item.priority))
         _completed = State(wrappedValue: item.completed)
         _projectTitle = State(wrappedValue: item.project!.projectTitle)
+        _projectColor = State(wrappedValue: item.project?.projectColor ?? "Orange")
     }
 
     // MARK: - Body
@@ -69,8 +71,12 @@ struct EditItemView: View {
                         UITableView.appearance().backgroundColor = UIColor.clear
                         UITableViewCell.appearance().backgroundColor = UIColor.clear
                     })
-        .navigationTitle("\(title) in \(projectTitle)")
+        .navigationTitle(title)
                     .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Text(projectTitle)
+                                .foregroundColor(Color(projectColor))
+                        }
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button("Dismiss") {
                                 presentationMode.wrappedValue.dismiss()

@@ -33,7 +33,12 @@ struct DueDateView: View {
                     )
                 }
             if dueOn {
-                DatePicker("Reminder time", selection: $dueDate, in: Date()..., displayedComponents: .date)
+                DatePicker(
+                    LocalizedStringKey("Reminder time"),
+                    selection: $dueDate,
+                    in: Date()...,
+                    displayedComponents: .date
+                )
             }
         }
         .listRowBackground(Color(uiColor: .systemFill))
