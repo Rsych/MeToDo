@@ -32,7 +32,8 @@ ToDo with SwiftUI.
 * ~~App Settings View - Store locally~~
 * ~~App Icon~~
 * ~~App Screen for AppStore~~
-* Publish
+* ~~Publish~~
+* https://apps.apple.com/app/me-todo-simple-to-do-list/id1603096711
 
 
 
