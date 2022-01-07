@@ -7,5 +7,9 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
+	<key>buildCount</key>
+	<string>2</string>
+	<key>buildDay</key>
+	<string>20220107</string>
 </dict>
 </plist>

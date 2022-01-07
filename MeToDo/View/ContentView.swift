@@ -30,7 +30,7 @@ struct ContentView: View {
                     .tag(MoreView.moreTag)
             }  //: TabView
             .onOpenURL(perform: openURL)
-            .padding(.bottom, 50)
+//            .padding(.bottom, 50) // commented with using .safeAreaInset
             .onChange(of: currentTab, perform: { _ in
                 if currentTab == 2 {
                     shouldShowModel = true
@@ -46,7 +46,10 @@ struct ContentView: View {
                 // with tab bar shown, it leaves tiny marks on background
                 UITabBar.appearance().isHidden = true
             })
-            .overlay(TabBarView(selectedTab: $currentTab), alignment: .bottom)
+            .safeAreaInset(edge: .bottom, content: {
+                TabBarView(selectedTab: $currentTab)
+            })
+//            .overlay(TabBarView(selectedTab: $currentTab), alignment: .bottom)
             .ignoresSafeArea()
             .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
     }  //: body
