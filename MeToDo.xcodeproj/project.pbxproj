@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7104E856278B554500765963 /* AppLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7104E855278B554500765963 /* AppLockViewModel.swift */; };
+		7104E858278B557800765963 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7104E857278B557800765963 /* LockedView.swift */; };
 		710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 710C89842768784D004FADCD /* Main.xcdatamodeld */; };
 		710C898827687AC3004FADCD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C898727687AC3004FADCD /* DataController.swift */; };
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
@@ -121,6 +123,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7104E855278B554500765963 /* AppLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockViewModel.swift; sourceTree = "<group>"; };
+		7104E857278B557800765963 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
 		710C89852768784D004FADCD /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		710C898727687AC3004FADCD /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		710C898927687E6D004FADCD /* MeToDo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeToDo.entitlements; sourceTree = "<group>"; };
@@ -232,6 +236,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7104E854278B552A00765963 /* AppLock */ = {
+			isa = PBXGroup;
+			children = (
+				7104E855278B554500765963 /* AppLockViewModel.swift */,
+				7104E857278B557800765963 /* LockedView.swift */,
+			);
+			path = AppLock;
+			sourceTree = "<group>";
+		};
 		710C898B27687E84004FADCD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +271,7 @@
 		71A570442774BB91009E7ACA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7104E854278B552A00765963 /* AppLock */,
 				71A63E03276766EE00EAB2EC /* ContentView.swift */,
 				71A63E0F2767680400EAB2EC /* TabBarView.swift */,
 				71A570452774BBA0009E7ACA /* Home */,
@@ -394,9 +408,9 @@
 		71A63E00276766EE00EAB2EC /* MeToDo */ = {
 			isa = PBXGroup;
 			children = (
+				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
 				710C898927687E6D004FADCD /* MeToDo.entitlements */,
 				71A5704D2774C456009E7ACA /* Configuration */,
-				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
 				71A5704A2774BC5B009E7ACA /* Model */,
 				71A570442774BB91009E7ACA /* View */,
 				71B31BCF2777384600DD04DB /* ViewModel */,
@@ -674,6 +688,7 @@
 				714D02B2277FD1D200DEF63F /* NavigationBackButton.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				71602A77277E5FE30009EFD2 /* SystemThemeManager.swift in Sources */,
+				7104E858278B557800765963 /* LockedView.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
 				71D917C8277C95EF0016773E /* DataController-CloudKit.swift in Sources */,
 				71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */,
@@ -696,6 +711,7 @@
 				71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */,
 				718952E7276F0D6000EA32DE /* Award.swift in Sources */,
 				718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */,
+				7104E856278B554500765963 /* AppLockViewModel.swift in Sources */,
 				719EA648277B005100F17102 /* AppDelegate.swift in Sources */,
 				71A570432774B697009E7ACA /* ProjectSummaryView.swift in Sources */,
 				718B0CC0276A274B005D496C /* EditProjectView.swift in Sources */,

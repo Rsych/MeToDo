@@ -18,9 +18,13 @@ struct SettingsView: View {
     @Binding var systemThemeEnabled: Bool
     
     @Environment(\.colorScheme) var colorScheme
+    
+    // Biometric lock
+    @EnvironmentObject var appLockVM: AppLockViewModel
 
     // MARK: - Properties
     var body: some View {
+//        NavigationView {
         Form {
             Section {
                 Toggle(isOn: $darkModeEnabled) {
@@ -44,7 +48,20 @@ struct SettingsView: View {
             } footer: {
                 Text("System settings will override Dark mode and use the current device theme")
             }  //: Display theme Section
+            
+            Section {
+                Toggle(isOn: $appLockVM.isAppLockEnabled, label: {
+                    Text("App Lock")
+                })
+                    .onChange(of: appLockVM.isAppLockEnabled, perform: { value in
+                        appLockVM.appLockStateChange(appLockState: value)
+                    })
+            }
         }  //: Form
+
+//        }
+
+        // MARK: - ETC
         .background(Color(uiColor: .systemBackground))
                     .listRowBackground(Color.clear)
 
