@@ -36,7 +36,7 @@ struct ContentView: View {
                 }  //: TabView
                 // omg so easy fix...
                 // NavBar missing fix
-                .padding(.top, 1)
+                .padding(.top)
                 .navigationViewStyle(StackNavigationViewStyle())
                 .onAppear(perform: {
                     // with tab bar shown, it leaves tiny marks on background
