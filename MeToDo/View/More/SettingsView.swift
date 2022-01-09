@@ -51,12 +51,16 @@ struct SettingsView: View {
             
             Section {
                 Toggle(isOn: $appLockVM.isAppLockEnabled, label: {
-                    Text("App Lock")
-                })
+                    Text("Face ID / Passcode")
+                } )
                     .onChange(of: appLockVM.isAppLockEnabled, perform: { value in
                         appLockVM.appLockStateChange(appLockState: value)
 //                        self.presentationMode.wrappedValue.dismiss()
                     })
+            } header: {
+                Text("Security")
+            } footer: {
+                Text("Lock MeToDo when app goes into background, or closed. Unlock with Biometric authentication or enter your passcode.")
             }
         }  //: Form
         
@@ -87,14 +91,13 @@ struct SettingsView: View {
                 }
             }
         }  //: onAppear
-//        .navigationBarBackButtonHidden(true)
-//        .navigationTitle("Settings")
-//        .toolbar(content: {
-//            ToolbarItem(placement: .navigation) {
-//                Text("Settings")
-//                    .font(.title)
-//            }
-//        })
-//        .navigationBackButton(color: UIColor.label)
+        .navigationBarBackButtonHidden(true)
+        .toolbar(content: {
+            ToolbarItem(placement: .navigation) {
+                Text("Settings")
+                    .font(.title)
+            }
+        })
+        .navigationBackButton(color: UIColor.label)
     }  //: Body
 }

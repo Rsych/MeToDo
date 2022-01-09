@@ -12,10 +12,10 @@ struct LockedView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: 10) {
-                Text("잠금 해제")
+                Text("Unlock MeToDo with Face ID / Passcode")
                     .font(.title)
                     .fontWeight(.bold)
-                Text("생체정보가 일치하면 잠금이 해제됩니다.")
+                Text("You will need to use Face ID / Passcode to unlock the meToDo.")
                 Spacer()
                 Button {
                     appLockVM.appLockValidation()
@@ -23,6 +23,8 @@ struct LockedView: View {
                     Image(systemName: "faceid")
                         .font(.system(size: 88, weight: .regular))
                 }
+                .foregroundColor(.primary)
+                Spacer()
                 Spacer()
             }
             // App coming from background
