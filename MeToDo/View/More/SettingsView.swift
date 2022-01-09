@@ -16,6 +16,8 @@ struct SettingsView: View {
 
     @Binding var darkModeEnabled: Bool
     @Binding var systemThemeEnabled: Bool
+    
+    @Environment(\.colorScheme) var colorScheme
 
     // MARK: - Properties
     var body: some View {
@@ -54,6 +56,9 @@ struct SettingsView: View {
             dataController.checkPushNotification { isOn in
                 notificationIsOn = isOn
                 print(notificationIsOn)
+                if colorScheme == .dark {
+                    darkModeEnabled = true
+                }
             }
         }  //: onAppear
         .navigationTitle("Settings")
