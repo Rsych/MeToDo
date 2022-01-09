@@ -20,38 +20,39 @@ struct ContentView: View {
     
     // MARK: - Body
     var body: some View {
-//        NavigationView {
-            ZStack {
-                if !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked {
-                    TabView(selection: $currentTab) {
-                        HomeView(dataController: dataController)
-                            .tag(HomeView.homeTag)
-                        ProjectView(dataController: dataController, showClosedProjects: false)
-                            .tag(ProjectView.openTag)
-                        EmptyView()
-                        ProjectView(dataController: dataController, showClosedProjects: true)
-                            .tag(ProjectView.closedTag)
-                        MoreView()
-                            .tag(MoreView.moreTag)
-                    }  //: TabView
-                    .navigationViewStyle(StackNavigationViewStyle())
-                    .onAppear(perform: {
-                        // with tab bar shown, it leaves tiny marks on background
-                        UITabBar.appearance().isHidden = true
-                        
-                    })
-                    .padding(.bottom, 50)
-            //                    .safeAreaInset(edge: .bottom, content: {
-            //                        TabBarView(selectedTab: $currentTab)
-            //                    })
-                                .overlay(TabBarView(selectedTab: $currentTab), alignment: .bottom)
-                    .ignoresSafeArea()
-                } else {
-                    LockedView()
-                }
-            } //: ZStack
-
- 
+        ZStack() {
+            if !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked {
+                TabView(selection: $currentTab) {
+                    HomeView(dataController: dataController)
+                        .tag(HomeView.homeTag)
+                    ProjectView(dataController: dataController, showClosedProjects: false)
+                        .tag(ProjectView.openTag)
+                    EmptyView()
+                    ProjectView(dataController: dataController, showClosedProjects: true)
+                        .tag(ProjectView.closedTag)
+                    MoreView()
+                        .tag(MoreView.moreTag)
+                    
+                }  //: TabView
+                // omg so easy fix...
+                // NavBar missing fix
+                .padding(.top, 1)
+                .navigationViewStyle(StackNavigationViewStyle())
+                .onAppear(perform: {
+                    // with tab bar shown, it leaves tiny marks on background
+                    UITabBar.appearance().isHidden = true
+                })
+                .safeAreaInset(edge: .bottom, content: {
+                    TabBarView(selectedTab: $currentTab)
+                })
+                //                .padding(.bottom, 50)
+                //                .overlay(TabBarView(selectedTab: $currentTab), alignment: .bottom)
+                .ignoresSafeArea(edges: .bottom)
+            } else {
+                LockedView()
+            }
+        } //: ZStack
+        
         .onAppear {
             // if 'isAppLockEnabled' value true, then immediately do the app lock validation
             if appLockVM.isAppLockEnabled {
@@ -59,7 +60,7 @@ struct ContentView: View {
             }
         }
         .onOpenURL(perform: openURL)
-//                    .padding(.bottom, 50) // commented with using .safeAreaInset
+        //                    .padding(.bottom, 50) // commented with using .safeAreaInset
         .onChange(of: currentTab, perform: { _ in
             if currentTab == 2 {
                 shouldShowModel = true

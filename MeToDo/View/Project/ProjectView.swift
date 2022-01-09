@@ -52,6 +52,7 @@ struct ProjectView: View {
             }  //: List
             .padding(.bottom, 50)
             .listStyle(PlainListStyle())
+//            .listStyle(SidebarListStyle())
             .navigationTitle(viewModel.showClosedProjects ? "Finished" : "Open")
             .toolbar {
                 sortOrderToolbar
