@@ -51,23 +51,31 @@ struct HomeView: View {
                 }  //: VStack
             }  //: ScrollView
             .background(Color(uiColor: .systemBackground))
-            .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.inline)
-//            #if targetEnvironment(simulator)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                    Button("Add Data Debug") {
-//                        viewModel.addSampleData()
-//                    }
+//            .toolbar(content: {
+//                ToolbarItem(placement: .navigation) {
+//                    Text("Home")
+//                        .font(.title)
 //                }
-//            }  //: toolbar
-//            #endif
+//            })
+            .navigationBarHidden(false)
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.automatic)
+            #if targetEnvironment(simulator)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Add Data Debug") {
+                        viewModel.addSampleData()
+                    }
+                }
+            }  //: toolbar
+            #endif
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {
                 EditItemView(item: viewModel.selectedItem ?? Item.example)
             }
         }  //: NavView
+//        .navigationBarHidden(true)
     }  //: body
     func loadSpotlightItem(_ userActivity: NSUserActivity) {
         if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as?

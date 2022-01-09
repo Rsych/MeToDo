@@ -55,11 +55,20 @@ struct SettingsView: View {
                 })
                     .onChange(of: appLockVM.isAppLockEnabled, perform: { value in
                         appLockVM.appLockStateChange(appLockState: value)
+//                        self.presentationMode.wrappedValue.dismiss()
                     })
             }
         }  //: Form
-
-//        }
+        
+//        .toolbar(content: {
+//            ToolbarItem(placement: .navigation) {
+//                Text("Settings")
+//                    .font(.title)
+//            }
+//        })
+//        .navigationBackButton(color: UIColor.label)
+        
+//        } //: NavView
 
         // MARK: - ETC
         .background(Color(uiColor: .systemBackground))
@@ -78,7 +87,14 @@ struct SettingsView: View {
                 }
             }
         }  //: onAppear
-        .navigationTitle("Settings")
-        .navigationBackButton(color: UIColor.label)
+//        .navigationBarBackButtonHidden(true)
+//        .navigationTitle("Settings")
+//        .toolbar(content: {
+//            ToolbarItem(placement: .navigation) {
+//                Text("Settings")
+//                    .font(.title)
+//            }
+//        })
+//        .navigationBackButton(color: UIColor.label)
     }  //: Body
 }

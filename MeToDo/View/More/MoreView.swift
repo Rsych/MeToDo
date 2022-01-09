@@ -21,16 +21,13 @@ struct MoreView: View {
     @AppStorage("systemThemeEnabled") private var systemThemeEnabled = false
 
     @State private var showSafari = false
-//    @State private var selectedURL: URL = URL(string: Constants.errorPage)!
+
     @State var selectedURL = Constants.appNotice
 
     @State private var showEmail = false
     @State private var errorEmail = false
     @State private var result: Result<MFMailComposeResult, Error>?
-    
-//    init() {
-//        _selectedURL = URL(string: Constants.appNotice)
-//    }
+
 
     // MARK: - Body
     var body: some View {
@@ -43,6 +40,7 @@ struct MoreView: View {
                             Spacer()
                             Image(systemName: "chevron.forward")
                         }
+                        
                         NavigationLink {
                             SettingsView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
                         } label: {
@@ -50,7 +48,7 @@ struct MoreView: View {
                         }
                         .opacity(0.0)
                     }  //: Customization navLink
-
+                    
                     Button {
                         dataController.showAppSettings()
                     } label: {
@@ -68,7 +66,6 @@ struct MoreView: View {
 
                 Section {
                     Button {
-//                        selectedURL = URL(string: Constants.twitter)!
                         selectedURL = Constants.appNotice
                         showSafari.toggle()
                     } label: {
@@ -80,7 +77,6 @@ struct MoreView: View {
                     }  //: Notice button
 
                     Button {
-//                        selectedURL = URL(string: Constants.medium)!
                         selectedURL = Constants.appFAQs
                         showSafari.toggle()
                         print(selectedURL)
@@ -129,7 +125,6 @@ struct MoreView: View {
                     }  //: Email error Alert
 
                     Button {
-//                        selectedURL = URL(string: Constants.appTNC)!
                         selectedURL = Constants.appTNC
                         showSafari.toggle()
                         print(selectedURL)
@@ -142,7 +137,6 @@ struct MoreView: View {
                     }  //: Terms Button
 
                     Button {
-//                        selectedURL = URL(string: Constants.appPrivacy)!
                         selectedURL = Constants.appPrivacy
                         showSafari.toggle()
                         print(selectedURL)
@@ -166,7 +160,7 @@ struct MoreView: View {
             }  //: List
             .listStyle(.plain)
             .navigationTitle("More")
-            .navigationBarTitleDisplayMode(.inline)
+
         }  //: NavView
 //        .sheet(isPresented: $showSafari) {
 //            SafariView(url: URL(string: selectedURL)!)

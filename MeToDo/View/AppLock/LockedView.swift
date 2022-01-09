@@ -30,7 +30,7 @@ struct LockedView: View {
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 appLockVM.appLockValidation()
             }
-        }
+        }  //: NavView
     }
 }
 
