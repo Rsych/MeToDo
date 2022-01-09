@@ -28,7 +28,7 @@ struct TodoWidgetMultipleEntryView: View {
             }
         default:
             if sizeCategory < .extraLarge {
-                itemCount = 3
+                itemCount = 2
             } else {
                 itemCount = 2
             }
@@ -52,6 +52,11 @@ struct TodoWidgetMultipleEntryView: View {
 
                         if let projectTitle = item.project?.projectTitle {
                             Text(projectTitle)
+                                .foregroundColor(.secondary)
+                        }
+                        if let projectDue = item.project?.projectDue {
+                            Text("Due: \(projectDue)")
+                                .font(.footnote)
                                 .foregroundColor(.secondary)
                         }
                     }  //: VStack
