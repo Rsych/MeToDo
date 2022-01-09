@@ -51,8 +51,15 @@ struct HomeView: View {
                 }  //: VStack
             }  //: ScrollView
             .background(Color(uiColor: .systemBackground))
+//            .toolbar(content: {
+//                ToolbarItem(placement: .navigation) {
+//                    Text("Home")
+//                        .font(.title)
+//                }
+//            })
+            .navigationBarHidden(false)
             .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.automatic)
 //            #if targetEnvironment(simulator)
 //            .toolbar {
 //                ToolbarItem(placement: .navigationBarLeading) {
@@ -68,6 +75,7 @@ struct HomeView: View {
                 EditItemView(item: viewModel.selectedItem ?? Item.example)
             }
         }  //: NavView
+//        .navigationBarHidden(true)
     }  //: body
     func loadSpotlightItem(_ userActivity: NSUserActivity) {
         if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as?

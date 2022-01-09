@@ -8,6 +8,7 @@
 import SwiftUI
 import BetterSafariView
 import MessageUI
+//import SafariServices
 
 struct MoreView: View {
     // MARK: - Properties
@@ -20,11 +21,13 @@ struct MoreView: View {
     @AppStorage("systemThemeEnabled") private var systemThemeEnabled = false
 
     @State private var showSafari = false
-    @State private var selectedURL: URL = URL(string: Constants.errorPage)!
+
+    @State var selectedURL = Constants.appNotice
 
     @State private var showEmail = false
     @State private var errorEmail = false
     @State private var result: Result<MFMailComposeResult, Error>?
+
 
     // MARK: - Body
     var body: some View {
@@ -37,14 +40,30 @@ struct MoreView: View {
                             Spacer()
                             Image(systemName: "chevron.forward")
                         }
+                        
                         NavigationLink {
-                            SettingsView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
+                            CustomizationView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
                         } label: {
                             EmptyView()
                         }
                         .opacity(0.0)
-                    }  //: Customization navLink
-
+                    }  //: Customization ZStack
+                    
+                    ZStack {
+                        HStack {
+                            Text("Face ID / Passcode")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }
+                        
+                        NavigationLink {
+                            SecurityView()
+                        } label: {
+                            EmptyView()
+                        }
+                        .opacity(0.0)
+                    }  //: Customization ZStack
+                    
                     Button {
                         dataController.showAppSettings()
                     } label: {
@@ -62,7 +81,7 @@ struct MoreView: View {
 
                 Section {
                     Button {
-                        selectedURL = URL(string: Constants.twitter)!
+                        selectedURL = Constants.appNotice
                         showSafari.toggle()
                     } label: {
                         HStack {
@@ -73,7 +92,7 @@ struct MoreView: View {
                     }  //: Notice button
 
                     Button {
-                        selectedURL = URL(string: Constants.medium)!
+                        selectedURL = Constants.appFAQs
                         showSafari.toggle()
                         print(selectedURL)
                     } label: {
@@ -121,7 +140,7 @@ struct MoreView: View {
                     }  //: Email error Alert
 
                     Button {
-                        selectedURL = URL(string: Constants.appTNC)!
+                        selectedURL = Constants.appTNC
                         showSafari.toggle()
                         print(selectedURL)
                     } label: {
@@ -133,7 +152,7 @@ struct MoreView: View {
                     }  //: Terms Button
 
                     Button {
-                        selectedURL = URL(string: Constants.appPrivacy)!
+                        selectedURL = Constants.appPrivacy
                         showSafari.toggle()
                         print(selectedURL)
                     } label: {
@@ -156,12 +175,14 @@ struct MoreView: View {
             }  //: List
             .listStyle(.plain)
             .navigationTitle("More")
-            .navigationBarTitleDisplayMode(.inline)
-        }  //: NavView
 
+        }  //: NavView
+//        .sheet(isPresented: $showSafari) {
+//            SafariView(url: URL(string: selectedURL)!)
+//        }
         .safariView(isPresented: $showSafari) {
             SafariView(
-                url: selectedURL,
+                url: URL(string: selectedURL)!,
                 configuration: SafariView.Configuration(
                     entersReaderIfAvailable: false,
                     barCollapsingEnabled: true
@@ -180,3 +201,17 @@ struct MoreView_Previews: PreviewProvider {
         MoreView()
     }
 }
+
+//struct SafariView: UIViewControllerRepresentable {
+//
+//    let url: URL
+//
+//    func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
+//        return SFSafariViewController(url: url)
+//    }
+//
+//    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
+//
+//    }
+//
+//}

@@ -52,11 +52,12 @@ struct ProjectView: View {
             }  //: List
             .padding(.bottom, 50)
             .listStyle(PlainListStyle())
+//            .listStyle(SidebarListStyle())
             .navigationTitle(viewModel.showClosedProjects ? "Finished" : "Open")
             .toolbar {
                 sortOrderToolbar
             } //: Toolbar
-            .navigationBarTitleDisplayMode(.inline)
+//            .navigationBarTitleDisplayMode(.inline)
             .confirmationDialog("Sort tasks", isPresented: $showingSheet, titleVisibility: .visible) {
                 Button("Automatic") {
                     viewModel.sortOrder = .automatic
@@ -72,7 +73,7 @@ struct ProjectView: View {
     }  //: Body
 
     var sortOrderToolbar: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarLeading) {
+        ToolbarItem(placement: .navigationBarTrailing) {
             Button {
                 showingSheet.toggle()
             } label: {

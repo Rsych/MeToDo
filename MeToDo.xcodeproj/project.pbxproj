@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7104E856278B554500765963 /* AppLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7104E855278B554500765963 /* AppLockViewModel.swift */; };
+		7104E858278B557800765963 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7104E857278B557800765963 /* LockedView.swift */; };
+		7104E85A278B81D000765963 /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7104E859278B81D000765963 /* SecurityView.swift */; };
 		710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 710C89842768784D004FADCD /* Main.xcdatamodeld */; };
 		710C898827687AC3004FADCD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C898727687AC3004FADCD /* DataController.swift */; };
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
@@ -21,7 +24,7 @@
 		71602A77277E5FE30009EFD2 /* SystemThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71602A76277E5FE30009EFD2 /* SystemThemeManager.swift */; };
 		7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170D0FD2779B22A00BA0D62 /* DueDateView.swift */; };
 		71721FEC277886570050F0B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71721FEB277886570050F0B2 /* HomeViewModel.swift */; };
-		7172E47D277A1FC9001FD7EC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172E47C277A1FC9001FD7EC /* SettingsView.swift */; };
+		7172E47D277A1FC9001FD7EC /* CustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172E47C277A1FC9001FD7EC /* CustomizationView.swift */; };
 		718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */; };
 		718952E7276F0D6000EA32DE /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E6276F0D6000EA32DE /* Award.swift */; };
 		718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718952E8276F0FA700EA32DE /* AwardsView.swift */; };
@@ -121,6 +124,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7104E855278B554500765963 /* AppLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockViewModel.swift; sourceTree = "<group>"; };
+		7104E857278B557800765963 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
+		7104E859278B81D000765963 /* SecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
 		710C89852768784D004FADCD /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		710C898727687AC3004FADCD /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		710C898927687E6D004FADCD /* MeToDo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeToDo.entitlements; sourceTree = "<group>"; };
@@ -137,7 +143,7 @@
 		71602A76277E5FE30009EFD2 /* SystemThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemThemeManager.swift; sourceTree = "<group>"; };
 		7170D0FD2779B22A00BA0D62 /* DueDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateView.swift; sourceTree = "<group>"; };
 		71721FEB277886570050F0B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		7172E47C277A1FC9001FD7EC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7172E47C277A1FC9001FD7EC /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
 		718952E0276F0CAB00EA32DE /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		718952E6276F0D6000EA32DE /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		718952E8276F0FA700EA32DE /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
@@ -232,6 +238,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7104E854278B552A00765963 /* AppLock */ = {
+			isa = PBXGroup;
+			children = (
+				7104E855278B554500765963 /* AppLockViewModel.swift */,
+				7104E857278B557800765963 /* LockedView.swift */,
+			);
+			path = AppLock;
+			sourceTree = "<group>";
+		};
 		710C898B27687E84004FADCD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +273,7 @@
 		71A570442774BB91009E7ACA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7104E854278B552A00765963 /* AppLock */,
 				71A63E03276766EE00EAB2EC /* ContentView.swift */,
 				71A63E0F2767680400EAB2EC /* TabBarView.swift */,
 				71A570452774BBA0009E7ACA /* Home */,
@@ -394,9 +410,9 @@
 		71A63E00276766EE00EAB2EC /* MeToDo */ = {
 			isa = PBXGroup;
 			children = (
+				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
 				710C898927687E6D004FADCD /* MeToDo.entitlements */,
 				71A5704D2774C456009E7ACA /* Configuration */,
-				71A63E01276766EE00EAB2EC /* MeToDoApp.swift */,
 				71A5704A2774BC5B009E7ACA /* Model */,
 				71A570442774BB91009E7ACA /* View */,
 				71B31BCF2777384600DD04DB /* ViewModel */,
@@ -476,9 +492,10 @@
 			isa = PBXGroup;
 			children = (
 				71602A74277E50AB0009EFD2 /* MoreView.swift */,
-				7172E47C277A1FC9001FD7EC /* SettingsView.swift */,
+				7172E47C277A1FC9001FD7EC /* CustomizationView.swift */,
 				71602A76277E5FE30009EFD2 /* SystemThemeManager.swift */,
 				71AD48722780975B0003BD64 /* MailView.swift */,
+				7104E859278B81D000765963 /* SecurityView.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -493,6 +510,7 @@
 				719EA64B277B6F4200F17102 /* Sources */,
 				719EA64C277B6F4200F17102 /* Frameworks */,
 				719EA64D277B6F4200F17102 /* Resources */,
+				71565B00278838CB00254EF6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -510,7 +528,6 @@
 				71A63DFA276766EE00EAB2EC /* Sources */,
 				71A63DFB276766EE00EAB2EC /* Frameworks */,
 				71A63DFC276766EE00EAB2EC /* Resources */,
-				718B0CC3276CCEBD005D496C /* ShellScript */,
 				719EA65D277B6F4300F17102 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -626,7 +643,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		718B0CC3276CCEBD005D496C /* ShellScript */ = {
+		71565B00278838CB00254EF6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -641,7 +658,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -674,12 +691,14 @@
 				714D02B2277FD1D200DEF63F /* NavigationBackButton.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
 				71602A77277E5FE30009EFD2 /* SystemThemeManager.swift in Sources */,
+				7104E858278B557800765963 /* LockedView.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
 				71D917C8277C95EF0016773E /* DataController-CloudKit.swift in Sources */,
 				71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */,
 				71A570412774B57D009E7ACA /* HomeItemListView.swift in Sources */,
 				71D917C2277C6F670016773E /* SimpleWidget.swift in Sources */,
 				719EA66A277B755600F17102 /* DataController-Settings.swift in Sources */,
+				7104E85A278B81D000765963 /* SecurityView.swift in Sources */,
 				714D02AE277FBA0E00DEF63F /* Color-Extension.swift in Sources */,
 				718952E1276F0CAB00EA32DE /* Bundle-Decodable.swift in Sources */,
 				710C898827687AC3004FADCD /* DataController.swift in Sources */,
@@ -691,11 +710,12 @@
 				71602A75277E50AB0009EFD2 /* MoreView.swift in Sources */,
 				71AD486E27807C580003BD64 /* Constants.swift in Sources */,
 				719EA666277B71CE00F17102 /* DataController-Reminders.swift in Sources */,
-				7172E47D277A1FC9001FD7EC /* SettingsView.swift in Sources */,
+				7172E47D277A1FC9001FD7EC /* CustomizationView.swift in Sources */,
 				719EA668277B737000F17102 /* DataController-Awards.swift in Sources */,
 				71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */,
 				718952E7276F0D6000EA32DE /* Award.swift in Sources */,
 				718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */,
+				7104E856278B554500765963 /* AppLockViewModel.swift in Sources */,
 				719EA648277B005100F17102 /* AppDelegate.swift in Sources */,
 				71A570432774B697009E7ACA /* ProjectSummaryView.swift in Sources */,
 				718B0CC0276A274B005D496C /* EditProjectView.swift in Sources */,
@@ -784,7 +804,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -813,7 +833,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -870,6 +890,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -888,12 +909,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -932,6 +955,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -944,12 +968,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -961,13 +987,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 20220109.1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeToDo/Configuration/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need Touch Id or Face ID permission for app lock.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -979,12 +1006,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
 		};
@@ -996,13 +1024,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 20220109.1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeToDo/Configuration/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need Touch Id or Face ID permission for app lock.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1014,12 +1043,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
 		};
@@ -1028,7 +1058,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -1047,7 +1077,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;

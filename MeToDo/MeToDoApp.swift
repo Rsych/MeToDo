@@ -12,6 +12,10 @@ struct MeToDoApp: App {
 
     @StateObject var dataController: DataController
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    @StateObject var appLockVM = AppLockViewModel()
+    @Environment(\.scenePhase) var scenePhase
+    @State var blurRadius: CGFloat = 0
 
     init() {
         let dataController = DataController()
@@ -22,6 +26,20 @@ struct MeToDoApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environmentObject(appLockVM)
+                .blur(radius: blurRadius)
+                .onChange(of: scenePhase, perform: { value in
+                    switch value {
+                    case .active :
+                        blurRadius = 0
+                    case .background:
+                        appLockVM.isAppUnLocked = false
+                    case .inactive:
+                        blurRadius = 5
+                    @unknown default:
+                        print("unknown")
+                    }
+                })
                 .environmentObject(dataController)
             // Automatically save when we detect that we are
             // no longer the foreground app. Use this rather than

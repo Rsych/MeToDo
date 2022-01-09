@@ -10,7 +10,7 @@ import UIKit
 
 let uuid = UIDevice.current.identifierForVendor?.uuidString
 
-enum Constants {
+struct Constants {
     static let errorPage = "https://naolin.net/error"
     static let twitter = "https://twitter.com/Naolin_dev"
     static let medium = "https://medium.com/@naolin"
@@ -40,4 +40,6 @@ App Name: \(Bundle.main.appName)
 App Version: \(Bundle.main.appVersionLong)
 Identifier: \(uuid?.description ?? "")
 """
+    
+    private init() {}
 }
