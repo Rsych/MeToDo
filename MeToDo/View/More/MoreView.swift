@@ -42,12 +42,27 @@ struct MoreView: View {
                         }
                         
                         NavigationLink {
-                            SettingsView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
+                            CustomizationView(darkModeEnabled: $darkModeEnabled, systemThemeEnabled: $systemThemeEnabled)
                         } label: {
                             EmptyView()
                         }
                         .opacity(0.0)
-                    }  //: Customization navLink
+                    }  //: Customization ZStack
+                    
+                    ZStack {
+                        HStack {
+                            Text("Face ID / Passcode")
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }
+                        
+                        NavigationLink {
+                            SecurityView()
+                        } label: {
+                            EmptyView()
+                        }
+                        .opacity(0.0)
+                    }  //: Customization ZStack
                     
                     Button {
                         dataController.showAppSettings()
