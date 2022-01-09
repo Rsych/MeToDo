@@ -60,15 +60,15 @@ struct HomeView: View {
             .navigationBarHidden(false)
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.automatic)
-            #if targetEnvironment(simulator)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Add Data Debug") {
-                        viewModel.addSampleData()
-                    }
-                }
-            }  //: toolbar
-            #endif
+//            #if targetEnvironment(simulator)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button("Add Data Debug") {
+//                        viewModel.addSampleData()
+//                    }
+//                }
+//            }  //: toolbar
+//            #endif
 
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {
