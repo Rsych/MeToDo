@@ -40,28 +40,30 @@ struct TodoWidgetMultipleEntryView: View {
     var body: some View {
         VStack(spacing: 5) {
             ForEach(items) { item in
-                HStack {
-                    Color(item.project?.color ?? "Light Blue")
-                        .frame(width: 5)
-                        .clipShape(Capsule())
+                Link(destination: URL(string: item.objectID.uriRepresentation().absoluteString)!) {
+                    HStack {
+                        Color(item.project?.color ?? "Light Blue")
+                            .frame(width: 5)
+                            .clipShape(Capsule())
 
-                    VStack(alignment: .leading) {
-                        Text(item.itemTitle)
-                            .font(.headline)
-                            .layoutPriority(1)
+                        VStack(alignment: .leading) {
+                            Text(item.itemTitle)
+                                .font(.headline)
+                                .layoutPriority(1)
 
-                        if let projectTitle = item.project?.projectTitle {
-                            Text(projectTitle)
-                                .foregroundColor(.secondary)
-                        }
-                        if let projectDue = item.project?.projectDue {
-                            Text("Due: \(projectDue)")
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                        }
-                    }  //: VStack
-                    Spacer()
-                }  //: HStack
+                            if let projectTitle = item.project?.projectTitle {
+                                Text(projectTitle)
+                                    .foregroundColor(.secondary)
+                            }
+                            if let projectDue = item.project?.projectDue {
+                                Text("Due: \(projectDue)")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                            }
+                        }  //: VStack
+                        Spacer()
+                    }  //: HStack
+                } //: Link
             }  //: Loop
         }  //: VStack
         .padding(20)

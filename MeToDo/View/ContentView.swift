@@ -18,6 +18,8 @@ struct ContentView: View {
     
     @EnvironmentObject private var appLockVM: AppLockViewModel
     
+    @State private var selectedItem: FetchedResults<Item>.Element?
+    
     // MARK: - Body
     var body: some View {
         ZStack() {
@@ -74,6 +76,9 @@ struct ContentView: View {
         })
         
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
+        .sheet(item: $selectedItem) { item in
+            EditItemView(item: item)
+        }
     }  //: body
     
     func moveToHome(_ input: Any) {
@@ -81,8 +86,12 @@ struct ContentView: View {
     }
     
     func openURL(_ url: URL) {
-        shouldShowModel = true
+//        shouldShowModel = true
+        print("url is \(url)")
+        self.selectedItem = dataController.urlItem(with: url)
     }
+
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

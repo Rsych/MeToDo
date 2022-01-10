@@ -198,4 +198,13 @@ class DataController: ObservableObject {
     func result<T: NSManagedObject>(for fetchRequest: NSFetchRequest<T>) -> [T] {
         return (try? container.viewContext.fetch(fetchRequest)) ?? []
     }
+    
+    func urlItem(with uniqueIdentifier: URL) -> Item? {
+
+        guard let uniqueIdentifier = container.persistentStoreCoordinator.managedObjectID(forURIRepresentation: uniqueIdentifier) else {
+            return nil
+        }
+
+        return try? container.viewContext.existingObject(with: uniqueIdentifier) as? Item
+    }
 }
