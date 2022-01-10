@@ -20,6 +20,8 @@ struct ContentView: View {
     
     @State private var selectedItem: FetchedResults<Item>.Element?
     
+    @State var blurRadius: CGFloat = 0
+    
     // MARK: - Body
     var body: some View {
         ZStack() {
@@ -61,7 +63,9 @@ struct ContentView: View {
                 appLockVM.appLockValidation()
             }
         }
+        
         .onOpenURL(perform: openURL)
+
         //                    .padding(.bottom, 50) // commented with using .safeAreaInset
         .onChange(of: currentTab, perform: { _ in
             if currentTab == 2 {
@@ -73,11 +77,14 @@ struct ContentView: View {
             currentTab = 0
         }, content: {
             AddProjectView()
+                .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 5)
+
         })
         
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
         .sheet(item: $selectedItem) { item in
             EditItemView(item: item)
+                .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 5)
         }
     }  //: body
     
@@ -86,11 +93,15 @@ struct ContentView: View {
     }
     
     func openURL(_ url: URL) {
-//        shouldShowModel = true
         print("url is \(url)")
-        self.selectedItem = dataController.urlItem(with: url)
-    }
+        if url == URL(string: "metodo://newTodo") {
+            shouldShowModel = true
 
+        } else {
+                self.selectedItem = dataController.urlItem(with: url)
+            }
+    }
+    
     
 }
 
