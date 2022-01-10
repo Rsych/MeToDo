@@ -54,6 +54,11 @@ extension Project {
     var projectColor: String {
         color ?? "Orange"
     }
+    var projectDue: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter.string(from: dueDate ?? Date())
+    }
 
     var projectItems: [Item] {
         items?.allObjects as? [Item] ?? []

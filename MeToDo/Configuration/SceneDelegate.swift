@@ -36,4 +36,8 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
             openURL(url)
         }
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        print(URLContexts)
+    }
 }
