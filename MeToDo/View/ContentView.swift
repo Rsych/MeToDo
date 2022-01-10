@@ -34,7 +34,6 @@ struct ContentView: View {
                         .tag(ProjectView.closedTag)
                     MoreView()
                         .tag(MoreView.moreTag)
-                    
                 }  //: TabView
                 // omg so easy fix...
                 // NavBar missing fix
@@ -73,12 +72,13 @@ struct ContentView: View {
             currentTab = 0
         }, content: {
             AddProjectView()
-        })
-        
+                .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 10)}
+        ) //: QuickAction
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
         .sheet(item: $selectedItem) { item in
             EditItemView(item: item)
-        }
+                .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 10)
+        } //: WidgetLink
     }  //: body
     
     func moveToHome(_ input: Any) {
@@ -86,12 +86,15 @@ struct ContentView: View {
     }
     
     func openURL(_ url: URL) {
-//        shouldShowModel = true
         print("url is \(url)")
-        self.selectedItem = dataController.urlItem(with: url)
+        // If QuickAction
+        if url == URL(string: "metodo://newTodo") {
+            shouldShowModel = true
+        } else {
+            // If WidgetURL
+            self.selectedItem = dataController.urlItem(with: url)
+        }
     }
-
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
