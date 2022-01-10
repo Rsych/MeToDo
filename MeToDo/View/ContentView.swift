@@ -72,13 +72,12 @@ struct ContentView: View {
             currentTab = 0
         }, content: {
             AddProjectView()
-                .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 5)
-            
-        }) //: QuickAction
+                .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 10)}
+        ) //: QuickAction
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
         .sheet(item: $selectedItem) { item in
             EditItemView(item: item)
-                .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 5)
+                .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 10)
         } //: WidgetLink
     }  //: body
     
