@@ -65,6 +65,7 @@ struct TodoWidgetMultipleEntryView: View {
                     }  //: HStack
                 } //: Link
             }  //: Loop
+            .widgetURL(URL(string: item.objectID.uriRepresentation().absoluteString)!)
         }  //: VStack
         .padding(20)
     }
