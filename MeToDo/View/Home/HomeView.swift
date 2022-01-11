@@ -13,33 +13,36 @@ import CloudKit
 struct HomeView: View {
     // MARK: - Properties
     static let homeTag: Int = 0
-
+    
     @StateObject var viewModel: ViewModel
-
+    @EnvironmentObject var dataController: DataController
+    
     @State private var showSpotModal = false
-
+    
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
     }
-
+    
     init(dataController: DataController) {
         let viewModel = ViewModel(dataController: dataController)
         _viewModel = StateObject(wrappedValue: viewModel)
-
+        
     }
-
+    
     // MARK: - Body
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
+                    WeekCalendarView(calendar: Calendar(identifier: .gregorian), dataController: dataController)
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
                             ForEach(viewModel.projects) { project in
                                 ProjectSummaryView(project: project)
                             }  //: project Loop
                         }  //: LazyHGrid
-                        .padding([.top, .horizontal])
+//                        .padding([.top, .horizontal])
+                        .padding(.horizontal)
                         .fixedSize(horizontal: false, vertical: true)
                     }  //: ScrollView
                     VStack(alignment: .leading) {
@@ -51,31 +54,31 @@ struct HomeView: View {
                 }  //: VStack
             }  //: ScrollView
             .background(Color(uiColor: .systemBackground))
-//            .toolbar(content: {
-//                ToolbarItem(placement: .navigation) {
-//                    Text("Home")
-//                        .font(.title)
-//                }
-//            })
-            .navigationBarHidden(false)
-            .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.automatic)
-//            #if targetEnvironment(simulator)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                    Button("Add Data Debug") {
-//                        viewModel.addSampleData()
-//                    }
-//                }
-//            }  //: toolbar
-//            #endif
-
+            //            .toolbar(content: {
+            //                ToolbarItem(placement: .navigation) {
+            //                    Text("Home")
+            //                        .font(.title)
+            //                }
+            //            })
+            .navigationBarHidden(true)
+            //            .navigationTitle("Home")
+            //            .navigationBarTitleDisplayMode(.automatic)
+            //            #if targetEnvironment(simulator)
+            //            .toolbar {
+            //                ToolbarItem(placement: .navigationBarLeading) {
+            //                    Button("Add Data Debug") {
+            //                        viewModel.addSampleData()
+            //                    }
+            //                }
+            //            }  //: toolbar
+            //            #endif
+            
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {
                 EditItemView(item: viewModel.selectedItem ?? Item.example)
             }
         }  //: NavView
-//        .navigationBarHidden(true)
+        //        .navigationBarHidden(true)
     }  //: body
     func loadSpotlightItem(_ userActivity: NSUserActivity) {
         if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as?
@@ -83,7 +86,7 @@ struct HomeView: View {
             viewModel.selectedItem(with: uniqueIdentifier)
             showSpotModal.toggle()
         }
-
+        
     }
 }  //: view
 
