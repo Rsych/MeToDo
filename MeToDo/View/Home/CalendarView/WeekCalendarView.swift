@@ -40,7 +40,7 @@ struct WeekCalendarView: View {
                     Button {
                         selectedDate = date
 //                        print(fetchDateProject(selectedDate: selectedDate))
-                        fetchDateProject(selectedDate: selectedDate)
+                        print(fetchDateProject(selectedDate: selectedDate).description)
                         print("Selected Project is \(selectedProjects)")
                     } label: {
                         Text("00")
@@ -128,11 +128,17 @@ struct WeekCalendarView: View {
                 }
                     
             )
-            ForEach(selectedProjects) {
-                Text($0.title ?? "")
-                    .font(.caption)
+            withAnimation {
+                ForEach(selectedProjects) {
+                    Text($0.title ?? "")
+                        .font(.caption)
+                        .foregroundColor(Color($0.projectColor))
+                }
             }
         } //: VStack
+        .onAppear(perform: {
+            print(fetchDateProject(selectedDate: Date(timeIntervalSinceNow: -86400)))
+        })
         .padding(.horizontal)
     }
     func fetchDateProject(selectedDate :Date) -> [Project] {
