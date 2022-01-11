@@ -21,7 +21,7 @@ ToDo with SwiftUI.
 * ~~DataControl~~
 * ~~CoreData~~
 * ~~CloudKit~~
-* ~~Localization~~ partially done, translations needed
+* ~~Localization~~ en, ko
 * ~~Widgets~~
 * ~~Clean up~~
 * ~~Test~~
