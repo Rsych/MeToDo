@@ -39,7 +39,6 @@ struct WeekCalendarView: View {
                 content: { date in
                     Button {
                         selectedDate = date
-//                        print(fetchDateProject(selectedDate: selectedDate))
                         print(fetchDateProject(selectedDate: selectedDate).description)
                         print("Selected Project is \(selectedProjects)")
                     } label: {
@@ -60,26 +59,6 @@ struct WeekCalendarView: View {
                                 .opacity(calendar.isDate(date, inSameDayAs: selectedDate) ? 1 : 0)
                             )
                     }
-                    
-
-//                    Button(action: { selectedDate = date }) {
-//                        Text("00")
-//                            .font(.caption)
-//                            .padding(.horizontal)
-//                            .foregroundColor(.clear)
-//                            .overlay(
-//                                Text(dayFormatter.string(from: date))
-//                                    .foregroundColor(
-//                                        calendar.isDate(date, inSameDayAs: selectedDate)
-//                                        ? Color.primary : calendar.isDateInToday(date) ? .blue : .gray
-//                                    )
-//                            )
-//                            .overlay(
-//                            Circle()
-//                                .foregroundColor(.gray.opacity(0.38))
-//                                .opacity(calendar.isDate(date, inSameDayAs: selectedDate) ? 1 : 0)
-//                            )
-//                    }
                 }, header: { date in
                     Text("00")
 //                        .font(.system(size: 13))
@@ -103,6 +82,7 @@ struct WeekCalendarView: View {
                         withAnimation {
                             guard let newDate = calendar.date(byAdding: .weekOfMonth, value: -1, to: selectedDate) else { return }
                             selectedDate = newDate
+                            fetchDateProject(selectedDate: selectedDate)
                         }
                     } label: {
                         Label(
@@ -116,6 +96,7 @@ struct WeekCalendarView: View {
                         withAnimation {
                             guard let newDate = calendar.date(byAdding: .weekOfMonth, value: 1, to: selectedDate) else { return }
                             selectedDate = newDate
+                            fetchDateProject(selectedDate: selectedDate)
                         }
                     } label: {
                         Label(
