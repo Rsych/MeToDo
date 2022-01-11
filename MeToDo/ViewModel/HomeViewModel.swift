@@ -10,7 +10,7 @@ import CoreData
 
 extension HomeView {
     class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
-        private let projectsController: NSFetchedResultsController<Project>
+        private var projectsController: NSFetchedResultsController<Project>
         private let itemsController: NSFetchedResultsController<Item>
 
         @Published var projects = [Project]()
@@ -21,6 +21,8 @@ extension HomeView {
 
         @Published var upNext = ArraySlice<Item>()
         @Published var moreToExplore = ArraySlice<Item>()
+        
+        @Published var selectedDateProject = [Project]()
 
         init(dataController: DataController) {
             self.dataController = dataController
@@ -74,6 +76,7 @@ extension HomeView {
                 // Updates HomeList
                 upNext = items.prefix(3)
                 moreToExplore = items.dropFirst(3)
+                
             } catch {
                 print("Failed to fetch")
             }
@@ -95,6 +98,32 @@ extension HomeView {
 
         func selectedItem(with identifier: String) {
             selectedItem = dataController.item(with: identifier)
+        }
+        
+        func selectedDateProj(selectedDate: Date) {
+            print(selectedDate)
+           let dateProjRequest = dataController.fetchSelectedDateProject(date: selectedDate)
+            print("dateProjRequest is \(dateProjRequest.description)")
+            projectsController = NSFetchedResultsController(
+                fetchRequest: dateProjRequest,
+                managedObjectContext: dataController.container.viewContext,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+            print(("projectcontroller is \(projectsController.description)"))
+            selectedDateProject = projectsController.fetchedObjects ?? []
+            print(selectedDateProject.description)
+        }
+    }
+    
+    func fetchDateProject(selectedDate :Date) -> [Project] {
+        let fetchRequest : NSFetchRequest<Project> = Project.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", selectedDate as NSDate, selectedDate + 86400 as NSDate)
+        do {
+            return try dataController.container.viewContext.fetch(fetchRequest)
+        } catch {
+            print(error)
+            return []
         }
     }
 }
