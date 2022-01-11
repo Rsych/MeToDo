@@ -33,8 +33,9 @@ ToDo with SwiftUI.
 * ~~App Icon~~
 * ~~App Screen for AppStore~~
 * ~~Publish~~
+* ~~CalendarView add~~
+* Todo marker on Calendar 
 * https://apps.apple.com/app/me-todo-simple-to-do-list/id1603096711
-
 
 
 ## Trying it yourself.
