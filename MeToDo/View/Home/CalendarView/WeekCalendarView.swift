@@ -82,11 +82,11 @@ struct WeekCalendarView: View {
                         withAnimation {
                             guard let newDate = calendar.date(byAdding: .weekOfMonth, value: -1, to: selectedDate) else { return }
                             selectedDate = newDate
-                            fetchDateProject(selectedDate: selectedDate)
+                            print(fetchDateProject(selectedDate: selectedDate).description)
                         }
                     } label: {
                         Label(
-                            title: { Text("Previous")},
+                            title: { Text("Previous") },
                             icon: { Image(systemName: "chevron.left") }
                         )
                             .labelStyle(.iconOnly)
@@ -96,7 +96,7 @@ struct WeekCalendarView: View {
                         withAnimation {
                             guard let newDate = calendar.date(byAdding: .weekOfMonth, value: 1, to: selectedDate) else { return }
                             selectedDate = newDate
-                            fetchDateProject(selectedDate: selectedDate)
+                            print(fetchDateProject(selectedDate: selectedDate).description)
                         }
                     } label: {
                         Label(
@@ -111,6 +111,7 @@ struct WeekCalendarView: View {
             )
             withAnimation {
                 ForEach(selectedProjects) {
+                    NavigationLink($0.projectTitle, destination: EditProjectView(project: $0))
                     Text($0.title ?? "")
                         .font(.caption)
                         .foregroundColor(Color($0.projectColor))
