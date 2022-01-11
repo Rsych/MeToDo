@@ -209,39 +209,5 @@ class DataController: ObservableObject {
         return try? container.viewContext.existingObject(with: uniqueIdentifier) as? Item
     }
     
-    func fetchSelectedDateProject(date: Date) -> NSFetchRequest<Project> {
-        print(date)
-        let projectRequest: NSFetchRequest<Project> = Project.fetchRequest()
-        print("request is \(projectRequest.description)")
-        let datePredicate = NSPredicate(format: "%K >= %@", #keyPath(Project.dueDate), date as NSDate)
-        print("datePredicate is \(datePredicate.description)")
-        projectRequest.predicate = datePredicate
-        print("request after date is \(projectRequest.description)")
-        projectRequest.sortDescriptors = [
-            NSSortDescriptor(keyPath: \Project.title, ascending: true)
-        ]
-        print("Final request is \(projectRequest.description)")
-        print(projectRequest)
-        return projectRequest
-    }
 }
 
-class DateHelper{
-    internal class func startOfDay(day: NSDate) -> NSDate {
-        let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
-        let unitFlags: NSCalendar.Unit = [.minute, .hour, .day, .month, .year]
-        var todayComponents = gregorian!.components(unitFlags, from: day as Date)
-        todayComponents.hour = 0
-        todayComponents.minute = 0
-        return (gregorian?.date(from: todayComponents))! as NSDate
-    }
-
-    internal class func endOfDay(day: NSDate) -> NSDate {
-        let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
-        let unitFlags: NSCalendar.Unit = [.minute, .hour, .day, .month, .year]
-        var todayComponents = gregorian!.components(unitFlags, from: day as Date)
-        todayComponents.hour = 23
-        todayComponents.minute = 59
-        return (gregorian?.date(from: todayComponents))! as NSDate
-    }
-}

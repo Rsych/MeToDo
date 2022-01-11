@@ -100,30 +100,6 @@ extension HomeView {
             selectedItem = dataController.item(with: identifier)
         }
         
-        func selectedDateProj(selectedDate: Date) {
-            print(selectedDate)
-           let dateProjRequest = dataController.fetchSelectedDateProject(date: selectedDate)
-            print("dateProjRequest is \(dateProjRequest.description)")
-            projectsController = NSFetchedResultsController(
-                fetchRequest: dateProjRequest,
-                managedObjectContext: dataController.container.viewContext,
-                sectionNameKeyPath: nil,
-                cacheName: nil
-            )
-            print(("projectcontroller is \(projectsController.description)"))
-            selectedDateProject = projectsController.fetchedObjects ?? []
-            print(selectedDateProject.description)
-        }
-    }
-    
-    func fetchDateProject(selectedDate :Date) -> [Project] {
-        let fetchRequest : NSFetchRequest<Project> = Project.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", selectedDate as NSDate, selectedDate + 86400 as NSDate)
-        do {
-            return try dataController.container.viewContext.fetch(fetchRequest)
-        } catch {
-            print(error)
-            return []
-        }
+       
     }
 }
