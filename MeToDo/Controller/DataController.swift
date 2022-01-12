@@ -9,6 +9,7 @@ import CoreData
 import CoreSpotlight
 import SwiftUI
 import WidgetKit
+import UIKit
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
@@ -207,4 +208,6 @@ class DataController: ObservableObject {
 
         return try? container.viewContext.existingObject(with: uniqueIdentifier) as? Item
     }
+    
 }
+
