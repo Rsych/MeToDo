@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct WeekCalendarView: View {
-
+    
     @EnvironmentObject var dataController: DataController
     private let calendar: Calendar
     private let monthDayFormatter: DateFormatter
@@ -20,15 +20,15 @@ struct WeekCalendarView: View {
     private static var now = Date()
     @State private var selectedProjects = [Project]()
     
+    var projectRows: [GridItem] {
+        [GridItem(.fixed(100))]
+    }
+    
     init(calendar: Calendar, dataController: DataController) {
         self.calendar = calendar
         self.monthDayFormatter = DateFormatter(dateFormat: "MM/dd", calendar: calendar)
         self.dayFormatter = DateFormatter(dateFormat: "d", calendar: calendar)
         self.weekDayFormatter = DateFormatter(dateFormat: "EEEEE", calendar: calendar)
-        
-//        let viewModel = HomeView.ViewModel(dataController: dataController)
-//        _viewModel = StateObject(wrappedValue: viewModel)
-        
     }
     
     var body: some View {
@@ -40,6 +40,7 @@ struct WeekCalendarView: View {
                     Button {
                         selectedDate = date
                         print(fetchDateProject(selectedDate: selectedDate).description)
+                        print("Selected Date is \(selectedDate)")
                         print("Selected Project is \(selectedProjects)")
                     } label: {
                         Text("00")
@@ -54,14 +55,13 @@ struct WeekCalendarView: View {
                                     )
                             )
                             .overlay(
-                            Circle()
-                                .foregroundColor(.gray.opacity(0.38))
-                                .opacity(calendar.isDate(date, inSameDayAs: selectedDate) ? 1 : 0)
+                                Circle()
+                                    .foregroundColor(.gray.opacity(0.38))
+                                    .opacity(calendar.isDate(date, inSameDayAs: selectedDate) ? 1 : 0)
                             )
                     }
                 }, header: { date in
                     Text("00")
-//                        .font(.system(size: 13))
                         .font(.caption)
                         .padding(.horizontal)
                         .foregroundColor(.clear)
@@ -107,16 +107,18 @@ struct WeekCalendarView: View {
                             .padding(.horizontal)
                     }.foregroundColor(.primary)
                 }
-                    
+                
             )
-            withAnimation {
-                ForEach(selectedProjects) {
-                    NavigationLink($0.projectTitle, destination: EditProjectView(project: $0))
-                    Text($0.title ?? "")
-                        .font(.caption)
-                        .foregroundColor(Color($0.projectColor))
-                }
-            }
+            ScrollView(.horizontal, showsIndicators: false) {
+                if !selectedProjects.isEmpty {
+                    LazyHGrid(rows: projectRows) {
+                        ForEach(selectedProjects) { project in
+                            ProjectSummaryView(project: project)
+                        } //: Loop
+                    } //: LazyHGrid
+                    
+                } //: If project is not empty
+            } //: ScrollView
         } //: VStack
         .onAppear(perform: {
             print(fetchDateProject(selectedDate: Date(timeIntervalSinceNow: -86400)))
@@ -176,10 +178,10 @@ struct CalendarWeekListView<Day: View, Header: View, Title: View, WeekSwitcher: 
                 self.title(month)
                 self.weekSwitcher(month)
             }
-            HStack(spacing: 30) {
+            HStack(spacing: 25) {
                 ForEach(days.prefix(daysInWeek), id: \.self, content: header)
             }
-            HStack(spacing: 30) {
+            HStack(spacing: 25) {
                 ForEach(days, id: \.self) { date in
                     content(date)
                 }
@@ -212,7 +214,7 @@ private extension Calendar {
                 stop = true
                 return
             }
-
+            
             dates.append(date)
         }
         
