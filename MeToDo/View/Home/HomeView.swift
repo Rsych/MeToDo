@@ -35,16 +35,17 @@ struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     WeekCalendarView(calendar: Calendar(identifier: .gregorian), dataController: dataController)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: projectRows) {
-                            ForEach(viewModel.projects) { project in
-                                ProjectSummaryView(project: project)
-                            }  //: project Loop
-                        }  //: LazyHGrid
-//                        .padding([.top, .horizontal])
-                        .padding(.horizontal)
-                        .fixedSize(horizontal: false, vertical: true)
-                    }  //: ScrollView
+                     // Now using Calendar Scroll view
+//                    ScrollView(.horizontal, showsIndicators: false) {
+//                        LazyHGrid(rows: projectRows) {
+//                            ForEach(viewModel.projects) { project in
+//                                ProjectSummaryView(project: project)
+//                            }  //: project Loop
+//                        }  //: LazyHGrid
+////                        .padding([.top, .horizontal])
+//                        .padding(.horizontal)
+//                        .fixedSize(horizontal: false, vertical: true)
+//                    }  //: ScrollView
                     VStack(alignment: .leading) {
                         HomeItemListView(title: "Up next", items: $viewModel.upNext)
                         HomeItemListView(title: "More to explore", items: $viewModel.moreToExplore)
