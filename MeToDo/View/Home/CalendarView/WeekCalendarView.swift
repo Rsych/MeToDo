@@ -39,7 +39,7 @@ struct WeekCalendarView: View {
                 content: { date in
                     Button {
                         selectedDate = date
-                        print(fetchDateProject(selectedDate: selectedDate).description)
+                        fetchDateProject(selectedDate: selectedDate)
                         print("Selected Date is \(selectedDate)")
                         print("Selected Project is \(selectedProjects)")
                     } label: {
@@ -82,7 +82,7 @@ struct WeekCalendarView: View {
                         withAnimation {
                             guard let newDate = calendar.date(byAdding: .weekOfMonth, value: -1, to: selectedDate) else { return }
                             selectedDate = newDate
-                            print(fetchDateProject(selectedDate: selectedDate).description)
+                            fetchDateProject(selectedDate: selectedDate)
                         }
                     } label: {
                         Label(
@@ -116,16 +116,15 @@ struct WeekCalendarView: View {
                             ProjectSummaryView(project: project)
                         } //: Loop
                     } //: LazyHGrid
-                    
                 } //: If project is not empty
             } //: ScrollView
         } //: VStack
         .onAppear(perform: {
-            print(fetchDateProject(selectedDate: Date(timeIntervalSinceNow: -86400)))
+            fetchDateProject(selectedDate: Date(timeIntervalSinceNow: -86400))
         })
         .padding(.horizontal)
     }
-    func fetchDateProject(selectedDate :Date) -> [Project] {
+    @discardableResult func fetchDateProject(selectedDate :Date) -> [Project] {
         let fetchRequest : NSFetchRequest<Project> = Project.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "dueDate >= %@ AND dueDate < %@", selectedDate as NSDate, selectedDate + 86400 as NSDate)
         do {
