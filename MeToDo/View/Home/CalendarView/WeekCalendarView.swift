@@ -28,7 +28,7 @@ struct WeekCalendarView: View {
         self.calendar = calendar
         self.monthDayFormatter = DateFormatter(dateFormat: "MM/dd", calendar: calendar)
         self.dayFormatter = DateFormatter(dateFormat: "d", calendar: calendar)
-        self.weekDayFormatter = DateFormatter(dateFormat: "EEEEE", calendar: calendar)
+        self.weekDayFormatter = DateFormatter(dateFormat: "EEE", calendar: calendar)
     }
     
     var body: some View {
