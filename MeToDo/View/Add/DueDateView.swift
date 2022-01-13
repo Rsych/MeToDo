@@ -39,6 +39,7 @@ struct DueDateView: View {
                     in: Date()...,
                     displayedComponents: .date
                 )
+                    .datePickerStyle(.graphical)
             }
         }
         .listRowBackground(Color(uiColor: .systemFill))
