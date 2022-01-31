@@ -93,6 +93,20 @@ struct WeekCalendarView: View {
                             .padding(.horizontal)
                     }.foregroundColor(.primary)
                     Button {
+                        let today = calendar.startOfDay(for: Date())
+                        selectedDate = today
+                        fetchDateProject(selectedDate: selectedDate)
+                        print("Today is \(selectedDate)")
+                    } label: {
+                        ZStack {
+                            Text("Today")
+                                .font(.caption)
+                                .clipShape(RoundedRectangle(cornerRadius: 10),style: FillStyle(eoFill: true, antialiased: true))
+                            .foregroundColor(.primary)
+                        }
+                    }
+
+                    Button {
                         withAnimation {
                             guard let newDate = calendar.date(byAdding: .weekOfMonth, value: 1, to: selectedDate) else { return }
                             selectedDate = newDate
@@ -119,6 +133,35 @@ struct WeekCalendarView: View {
                 } //: If project is not empty
             } //: ScrollView
         } //: VStack
+        .gesture(DragGesture(minimumDistance: 20, coordinateSpace: .global)
+                    .onEnded { value in
+            let horizontalAmount = value.translation.width as CGFloat
+            let verticalAmount = value.translation.height as CGFloat
+            if abs(horizontalAmount) > abs(verticalAmount) {
+                print(horizontalAmount < 0 ? "left swipe" : "right swipe")
+                if horizontalAmount < 0 {
+                    withAnimation(.spring()) {
+                        // swipe left
+                        withAnimation {
+                            guard let newDate = calendar.date(byAdding: .weekOfMonth, value: -1, to: selectedDate) else { return }
+                            selectedDate = newDate
+                            fetchDateProject(selectedDate: selectedDate)
+                        }
+                    }
+                } else {
+                    withAnimation(.spring()) {
+                        // swipe right
+                        withAnimation {
+                            guard let newDate = calendar.date(byAdding: .weekOfMonth, value: 1, to: selectedDate) else { return }
+                            selectedDate = newDate
+                            print(fetchDateProject(selectedDate: selectedDate).description)
+                        }
+                    }
+                }
+            } else {
+                print(verticalAmount < 0 ? "up swipe" : "down swipe")
+            }
+        }) //: swipe left & right with animation
         .onAppear(perform: {
             fetchDateProject(selectedDate: Date(timeIntervalSinceNow: -86400))
         })
@@ -140,6 +183,7 @@ struct WeekCalendarView: View {
 struct WeekCalendarView_Previews: PreviewProvider {
     static var previews: some View {
         WeekCalendarView(calendar: Calendar(identifier: .gregorian), dataController: DataController.preview)
+            .environmentObject(DataController())
     }
 }
 

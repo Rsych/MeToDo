@@ -29,6 +29,7 @@ struct MeToDoApp: App {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(appLockVM)
+                .environmentObject(dataController)
                 .blur(radius: blurRadius)
                 .onChange(of: scenePhase, perform: { value in
                     switch value {
@@ -42,7 +43,7 @@ struct MeToDoApp: App {
                         print("unknown")
                     }
                 })
-                .environmentObject(dataController)
+                
             // Automatically save when we detect that we are
             // no longer the foreground app. Use this rather than
             // scene phase so we can port to macOS, where scene
