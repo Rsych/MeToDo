@@ -22,42 +22,15 @@ struct ProjectView: View {
         NavigationView {
             List {
                 ForEach(viewModel.projects) { project in
-                    Section {
-                        ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
-                            ItemRowListView(project: project, item: item)
-//                                .fixedSize(horizontal: false, vertical: true)
-                        } //: Project item list loop
-                        .onDelete { offsets in
-                            viewModel.delete(offsets, project: project)
-                        }  //: Delete Item
-
-                        if viewModel.showClosedProjects ==  false {
-                            Button {
-                                withAnimation {
-                                viewModel.addItem(to: project)
-                                }
-                            } label: {
-                                Label("Add a task", systemImage: "plus")
-                            }
-                        }  //: OpenTab
-                    } header: {
-                        ProjectHeaderView(project: project)
-                            .foregroundColor(.primary)
-                            .font(.title2)
-                    }  //: Section
-                    .padding([.top, .bottom], 5)
-                    .listRowSeparator(.hidden)
-//                    .padding(.bottom, 3)
+                    sections(project: project)
                 }  //: Project loop
             }  //: List
             .padding(.bottom, 50)
             .listStyle(PlainListStyle())
-//            .listStyle(SidebarListStyle())
             .navigationTitle(viewModel.showClosedProjects ? "Finished" : "Open")
             .toolbar {
                 sortOrderToolbar
             } //: Toolbar
-//            .navigationBarTitleDisplayMode(.inline)
             .confirmationDialog("Sort tasks", isPresented: $showingSheet, titleVisibility: .visible) {
                 Button("Automatic") {
                     viewModel.sortOrder = .automatic
@@ -68,9 +41,10 @@ struct ProjectView: View {
                 Button("Title") {
                     viewModel.sortOrder = .title
                 }
-            }
+            } //: ConfirmationDialog
         }  //: NavView
     }  //: Body
+    
 
     var sortOrderToolbar: some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
@@ -94,5 +68,35 @@ struct ProjectView_Previews: PreviewProvider {
     static var previews: some View {
         ProjectView(dataController: DataController.preview, showClosedProjects: false)
         ProjectView(dataController: DataController.preview, showClosedProjects: true)
+    }
+}
+
+
+extension ProjectView {
+    @ViewBuilder func sections(project: Project) -> some View {
+        Section {
+            ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
+                ItemRowListView(project: project, item: item)
+            } //: Project item list loop
+            .onDelete { offsets in
+                viewModel.delete(offsets, project: project)
+            }  //: Delete Item
+
+            if viewModel.showClosedProjects ==  false {
+                Button {
+                    withAnimation {
+                    viewModel.addItem(to: project)
+                    }
+                } label: {
+                    Label("Add a task", systemImage: "plus")
+                } //: Button
+            }  //: OpenTab
+        } header: {
+            ProjectHeaderView(project: project)
+                .foregroundColor(.primary)
+                .font(.title2)
+        }  //: Section
+        .padding([.top, .bottom], 5)
+        .listRowSeparator(.hidden)
     }
 }

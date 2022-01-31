@@ -47,62 +47,11 @@ struct EditProjectView: View {
         NavigationView {
             Form {
                 ProjectInfoView(title: $title.onChange(update), detail: $detail.onChange(update))
-
                 ProjectColorButtonView(color: $color.onChange(update))
-
-//                DueDateView(dueOn: $dueOn, dueDate: $dueDate)
-                Section(header: Text("Reminder")) {
-                    Toggle("Show reminder", isOn: $dueOn.animation().onChange(update))
-                        .alert(isPresented: $showingNotificationsError) {
-                            Alert(
-                                title: Text("Oops!"),
-                                message: Text("There was a problem. Please check you have notifications enabled."),
-                                primaryButton: .default(Text("Check Settings"), action: showAppSettings),
-                                secondaryButton: .cancel()
-                            )
-                        }
-
-                    if dueOn {
-                        DatePicker(
-                            LocalizedStringKey("Reminder time"),
-                            selection: $dueDate.onChange(update),
-                            in: Date()...,
-                            displayedComponents: .date
-                        )
-//                            .datePickerStyle(.graphical)
-                    }
-                }
-                .listRowBackground(Color(uiColor: .systemFill))
-                .foregroundColor(Color.primary)
-
-                Section {
-                    Group {
-                    Button(project.closed ? "Reopen" : "Mark it completed") {
-                        presentationMode.wrappedValue.dismiss()
-
-                        project.closed.toggle()
-                        update()
-                    }
-                    .foregroundColor(.blue)
-                    Button("Delete this todo") {
-                        print("Delete")
-                        showingDeleteConfirm.toggle()
-                    }
-                    .foregroundColor(.red)
-                    }
-                    .listRowBackground(Color(uiColor: .systemFill))
-                    .foregroundColor(Color.primary)
-                    .alert(isPresented: $showingDeleteConfirm) {
-                        Alert(
-                            title: Text("Delete todo?"),
-                            message: Text("Are you sure you want to delete this todo? You will lose all the items inside."),
-                            primaryButton: .destructive(Text("Delete"), action: delete),
-                            secondaryButton: .cancel()
-                        )
-                    }  //: Delete Alert
-                } footer: {
-                    Text("Tasks in completed todo will not appear on home screen nor widgets.")
-                } // section 3
+                
+                remindSection
+                completeOrDeleteSection
+                
             }  //: Form
             .background(Color(uiColor: .systemBackground))
                         .listRowBackground(Color.clear)
@@ -117,15 +66,6 @@ struct EditProjectView: View {
             .navigationTitle("Edit Todo")
             .font(.title2)
 
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                Button {
-//                    dataController.uploadToiCloud(project)
-//                } label: {
-//                    Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
-//                }
-//                }
-//            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Dismiss") {
@@ -182,20 +122,63 @@ struct EditProjectView: View {
         }
     }
 
-    //    func colorButton(for item: String) -> some View {
-    //        ZStack {
-    //            Color(item)
-    //                .aspectRatio(1, contentMode: .fit)
-    //                .cornerRadius(6)
-    //            if item == color {
-    //                Image(systemName: "checkmark.circle")
-    //                    .foregroundColor(.white)
-    //                    .font(.largeTitle)
-    //            }
-    //        }  //: ZStack
-    //        .onTapGesture {
-    //            color = item
-    //            update()
-    //        }
-    //    }
+}
+extension EditProjectView {
+    
+    private var remindSection: some View {
+        Section(header: Text("Reminder")) {
+            Toggle("Show reminder", isOn: $dueOn.animation().onChange(update))
+                .alert(isPresented: $showingNotificationsError) {
+                    Alert(
+                        title: Text("Oops!"),
+                        message: Text("There was a problem. Please check you have notifications enabled."),
+                        primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                        secondaryButton: .cancel()
+                    )
+                }
+
+            if dueOn {
+                DatePicker(
+                    LocalizedStringKey("Reminder time"),
+                    selection: $dueDate.onChange(update),
+                    in: Date()...,
+                    displayedComponents: .date
+                )
+//                            .datePickerStyle(.graphical)
+            }
+        }
+        .listRowBackground(Color(uiColor: .systemFill))
+        .foregroundColor(Color.primary)
+    }
+    
+    private var completeOrDeleteSection: some View {
+        Section {
+            Group {
+            Button(project.closed ? "Reopen" : "Mark it completed") {
+                presentationMode.wrappedValue.dismiss()
+
+                project.closed.toggle()
+                update()
+            }
+            .foregroundColor(.blue)
+            Button("Delete this todo") {
+                print("Delete")
+                showingDeleteConfirm.toggle()
+            }
+            .foregroundColor(.red)
+            }
+            .listRowBackground(Color(uiColor: .systemFill))
+            .foregroundColor(Color.primary)
+            .alert(isPresented: $showingDeleteConfirm) {
+                Alert(
+                    title: Text("Delete todo?"),
+                    message: Text("Are you sure you want to delete this todo? You will lose all the items inside."),
+                    primaryButton: .destructive(Text("Delete"), action: delete),
+                    secondaryButton: .cancel()
+                )
+            }  //: Delete Alert
+        } footer: {
+            Text("Tasks in completed todo will not appear on home screen nor widgets.")
+        } // section 3
+    }
 }

@@ -35,17 +35,6 @@ struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     WeekCalendarView(calendar: Calendar(identifier: .gregorian), dataController: dataController)
-                     // Now using Calendar Scroll view
-//                    ScrollView(.horizontal, showsIndicators: false) {
-//                        LazyHGrid(rows: projectRows) {
-//                            ForEach(viewModel.projects) { project in
-//                                ProjectSummaryView(project: project)
-//                            }  //: project Loop
-//                        }  //: LazyHGrid
-////                        .padding([.top, .horizontal])
-//                        .padding(.horizontal)
-//                        .fixedSize(horizontal: false, vertical: true)
-//                    }  //: ScrollView
                     VStack(alignment: .leading) {
                         HomeItemListView(title: "Up next", items: $viewModel.upNext)
                         HomeItemListView(title: "More to explore", items: $viewModel.moreToExplore)
@@ -55,31 +44,12 @@ struct HomeView: View {
                 }  //: VStack
             }  //: ScrollView
             .background(Color(uiColor: .systemBackground))
-            //            .toolbar(content: {
-            //                ToolbarItem(placement: .navigation) {
-            //                    Text("Home")
-            //                        .font(.title)
-            //                }
-            //            })
             .navigationBarHidden(true)
-            //            .navigationTitle("Home")
-            //            .navigationBarTitleDisplayMode(.automatic)
-            //            #if targetEnvironment(simulator)
-            //            .toolbar {
-            //                ToolbarItem(placement: .navigationBarLeading) {
-            //                    Button("Add Data Debug") {
-            //                        viewModel.addSampleData()
-            //                    }
-            //                }
-            //            }  //: toolbar
-            //            #endif
-            
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
             .sheet(isPresented: $showSpotModal) {
                 EditItemView(item: viewModel.selectedItem ?? Item.example)
             }
         }  //: NavView
-        //        .navigationBarHidden(true)
     }  //: body
     func loadSpotlightItem(_ userActivity: NSUserActivity) {
         if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as?
