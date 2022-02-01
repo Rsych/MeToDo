@@ -123,6 +123,14 @@ struct EditProjectView: View {
     }
 
 }
+
+struct EditProjectView_Preview: PreviewProvider {
+    static var previews: some View {
+        EditProjectView(project: Project.example)
+            .environmentObject(DataController())
+    }
+}
+
 extension EditProjectView {
     
     private var remindSection: some View {

@@ -38,8 +38,8 @@ struct ProjectSummaryView: View {
     }
 }
 
-// struct ProjectSummaryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProjectSummaryView()
-//    }
-// }
+ struct ProjectSummaryView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProjectSummaryView(project: Project.example)
+    }
+ }
