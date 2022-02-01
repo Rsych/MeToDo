@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DueDateView: View {
+    // MARK: - Properties
+    
     @EnvironmentObject var dataController: DataController
     @Binding var dueOn: Bool
     @Binding var dueDate: Date
@@ -15,7 +17,8 @@ struct DueDateView: View {
     @State var notificationIsOn = false
     @State var isItOn = false
     @State private var showingNotificationsError = false
-
+    
+// MARK: - Body
     var body: some View {
         Section(header: Text("Reminder")) {
             Toggle("Show reminder", isOn: $dueOn.animation())
@@ -44,6 +47,12 @@ struct DueDateView: View {
         }
         .listRowBackground(Color(uiColor: .systemFill))
         .foregroundColor(Color.primary)
+    }
+}
 
+struct DueDateView_Preview: PreviewProvider {
+    static var previews: some View {
+        DueDateView(dueOn: .constant(true), dueDate: .constant(Date()))
+            .environmentObject(DataController())
     }
 }

@@ -6,6 +6,7 @@
 //
 // swiftlint:disable line_length
 
+// For later IAP implementation
 import SwiftUI
 
 struct AwardsView: View {
@@ -55,5 +56,6 @@ struct AwardsView: View {
 struct AwardsView_Previews: PreviewProvider {
     static var previews: some View {
         AwardsView()
+            .environmentObject(DataController())
     }
 }

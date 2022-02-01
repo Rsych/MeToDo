@@ -17,19 +17,7 @@ struct ProjectColorButtonView: View {
         Section {
             LazyVGrid(columns: colorColumns) {
                 ForEach(Project.colors, id: \.self) { item in
-                    ZStack {
-                        Color(item)
-                            .aspectRatio(1, contentMode: .fit)
-                            .cornerRadius(6)
-                        if item == color {
-                            Image(systemName: "checkmark.circle")
-                                .foregroundColor(.white)
-                                .font(.largeTitle)
-                        }
-                    }  //: ZStack
-                    .onTapGesture {
-                        color = item
-                    }
+                    colorLoop(item: item)
                 }  //: Color loop
             }  //: LazyVGrid
             .padding(.vertical)
@@ -44,5 +32,23 @@ struct ProjectColorButtonView: View {
 struct ProjectColorButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ProjectColorButtonView(color: .constant("Orange"))
+    }
+}
+
+extension ProjectColorButtonView {
+    private func colorLoop(item: String) -> some View {
+        ZStack {
+            Color(item)
+                .aspectRatio(1, contentMode: .fit)
+                .cornerRadius(6)
+            if item == color {
+                Image(systemName: "checkmark.circle")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+            }
+        }  //: ZStack
+        .onTapGesture {
+            color = item
+        }
     }
 }
