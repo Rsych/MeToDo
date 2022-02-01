@@ -37,12 +37,6 @@ struct SecurityView: View {
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         })
         .navigationBarBackButtonHidden(true)
-        .toolbar(content: {
-            ToolbarItem(placement: .navigation) {
-                Text("More")
-                    .font(.title)
-            }
-        })
-        .navigationBackButton(color: UIColor.label)
+        .navigationBackButton(color: UIColor.label, text: "More")
     } //: body
 }

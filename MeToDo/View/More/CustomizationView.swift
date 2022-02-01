@@ -19,9 +19,6 @@ struct CustomizationView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    // Biometric lock
-    @EnvironmentObject var appLockVM: AppLockViewModel
-    
     // MARK: - Properties
     var body: some View {
         //        NavigationView {
@@ -69,12 +66,13 @@ struct CustomizationView: View {
             }
         }  //: onAppear
         .navigationBarBackButtonHidden(true)
-        .toolbar(content: {
-            ToolbarItem(placement: .navigation) {
-                Text("More")
-                    .font(.title)
-            }
-        })
-        .navigationBackButton(color: UIColor.label)
+        .navigationBackButton(color: UIColor.label, text: "More")
     }  //: Body
+}
+
+struct CustomizationView_Preview: PreviewProvider {
+    static var previews: some View {
+        CustomizationView(darkModeEnabled: .constant(true), systemThemeEnabled: .constant(false))
+            .environmentObject(DataController())
+    }
 }
