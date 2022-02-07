@@ -63,6 +63,7 @@ struct MoreView: View {
                 .listRowSeparator(.hidden)
             }  //: List
             .listStyle(.plain)
+            .padding(.bottom, 44)
             .navigationTitle("More")
             
         }  //: NavView
