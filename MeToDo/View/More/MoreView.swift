@@ -22,7 +22,7 @@ struct MoreView: View {
     
     @State private var showSafari = false
     
-    @State var selectedURL = Constants.appNotice
+    @State private var selectedURL = Constants.appNotice
     
     @State private var showEmail = false
     @State private var errorEmail = false
