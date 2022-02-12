@@ -32,16 +32,18 @@ struct HomeView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
+            VStack {
+                WeekCalendarView(calendar: Calendar(identifier: .gregorian), dataController: dataController)
+                    .frame(maxHeight: UIScreen.main.bounds.height / 7)
             ScrollView {
                 VStack(alignment: .leading) {
-                    WeekCalendarView(calendar: Calendar(identifier: .gregorian), dataController: dataController)
                     VStack(alignment: .leading) {
                         HomeItemListView(title: "Up next", items: $viewModel.upNext)
                         HomeItemListView(title: "More to explore", items: $viewModel.moreToExplore)
-                    }  //: VStack
+                    } //: VStack
                     .padding(.bottom, 50)
                     .padding(.horizontal)
-                }  //: VStack
+                } //: VStack
             }  //: ScrollView
             .background(Color(uiColor: .systemBackground))
             .navigationBarHidden(true)
@@ -49,6 +51,7 @@ struct HomeView: View {
             .sheet(isPresented: $showSpotModal) {
                 EditItemView(item: viewModel.selectedItem ?? Item.example)
             }
+            } //: VStack
         }  //: NavView
     }  //: body
     func loadSpotlightItem(_ userActivity: NSUserActivity) {
@@ -57,7 +60,6 @@ struct HomeView: View {
             viewModel.selectedItem(with: uniqueIdentifier)
             showSpotModal.toggle()
         }
-        
     }
 }  //: view
 
