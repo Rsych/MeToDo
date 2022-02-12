@@ -24,13 +24,20 @@ struct HomeItemListView: View {
 
             ForEach(items) { item in
                     HStack(spacing: 20) {
+                        ZStack {
                         Circle()
                             .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
                             .frame(width: 44, height: 44)
-                            .onTapGesture {
+                            Circle()
+                                .fill(.ultraThinMaterial)
+                                .frame(width: 44, height: 44)
+                        }
+                        .onTapGesture {
+                            withAnimation {
                                 item.completed.toggle()
                                 dataController.save()
                             }
+                        }
                         Button {
                             self.selectedItem = item
                         } label: {
