@@ -56,7 +56,7 @@ struct WeekCalendarView: View {
                             )
                             .overlay(
                                 Circle()
-                                    .foregroundColor(.gray.opacity(0.38))
+                                    .foregroundColor(.gray.opacity(0.4))
                                     .opacity(calendar.isDate(date, inSameDayAs: selectedDate) ? 1 : 0)
                             )
                     }

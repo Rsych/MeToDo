@@ -20,8 +20,11 @@ struct HomeView: View {
     @State private var showSpotModal = false
     
     var projectRows: [GridItem] {
-        [GridItem(.fixed(100))]
+        [GridItem(.adaptive(minimum: 0, maximum: 100))]
     }
+//    var projectRows: [GridItem] {
+//        [GridItem(.fixed(100))]
+//    }
     
     init(dataController: DataController) {
         let viewModel = ViewModel(dataController: dataController)
@@ -34,7 +37,7 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 WeekCalendarView(calendar: Calendar(identifier: .gregorian), dataController: dataController)
-                    .frame(maxHeight: UIScreen.main.bounds.height / 7)
+                    .frame(maxHeight: UIScreen.main.bounds.height / 6)
             ScrollView {
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading) {
@@ -67,5 +70,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(dataController: .preview)
             .environmentObject(DataController())
+            .preferredColorScheme(.dark)
     }
 }

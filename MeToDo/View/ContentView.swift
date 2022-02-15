@@ -49,6 +49,7 @@ struct ContentView: View {
                 //                .padding(.bottom, 50)
                 //                .overlay(TabBarView(selectedTab: $currentTab), alignment: .bottom)
                 .ignoresSafeArea(edges: .bottom)
+                
             } else {
                 LockedView()
             }
