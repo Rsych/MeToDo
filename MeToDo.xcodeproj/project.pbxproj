@@ -92,6 +92,7 @@
 		71D917D5277CA21A0016773E /* SharedProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D4277CA21A0016773E /* SharedProjectsView.swift */; };
 		71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D6277CA6B40016773E /* SharedItemsView.swift */; };
 		71F8122027D50A5300C0D709 /* DynamicHeightTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */; };
+		71F8122B27D5316000C0D709 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 71F8122A27D5316000C0D709 /* PartialSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F8122B27D5316000C0D709 /* PartialSheet in Frameworks */,
 				710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */,
 				71AD487127807E360003BD64 /* BetterSafariView in Frameworks */,
 			);
@@ -552,6 +554,7 @@
 			name = MeToDo;
 			packageProductDependencies = (
 				71AD487027807E360003BD64 /* BetterSafariView */,
+				71F8122A27D5316000C0D709 /* PartialSheet */,
 			);
 			productName = MeToDo;
 			productReference = 71A63DFE276766EE00EAB2EC /* MeToDo.app */;
@@ -609,6 +612,7 @@
 			mainGroup = 71A63DF5276766EE00EAB2EC;
 			packageReferences = (
 				71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
+				71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 71A63DFF276766EE00EAB2EC /* Products */;
 			projectDirPath = "";
@@ -1157,6 +1161,14 @@
 				kind = branch;
 			};
 		};
+		71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1164,6 +1176,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
 			productName = BetterSafariView;
+		};
+		71F8122A27D5316000C0D709 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 

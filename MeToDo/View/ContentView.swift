@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreSpotlight
+import PartialSheet
 
 struct ContentView: View {
     // MARK: - Properties
@@ -14,11 +15,14 @@ struct ContentView: View {
     @AppStorage("darkModeEnabled") private var darkModeEnabled = false
     @AppStorage("systemThemeEnabled") private var systemThemeEnabled = true
     @EnvironmentObject var dataController: DataController
-    @State var shouldShowModel = false
+    @State var addProjModal = false
     
     @EnvironmentObject private var appLockVM: AppLockViewModel
     
     @State private var selectedItem: FetchedResults<Item>.Element?
+    
+    @State var widgetModal = false
+    @State private var widgetItem: Item? = nil
     
     // MARK: - Body
     var body: some View {
@@ -39,6 +43,7 @@ struct ContentView: View {
                 // NavBar missing fix
                 .padding(.top)
                 .navigationViewStyle(StackNavigationViewStyle())
+                .attachPartialSheetToRoot()
                 .onAppear(perform: {
                     // with tab bar shown, it leaves tiny marks on background
                     UITabBar.appearance().isHidden = true
@@ -65,11 +70,11 @@ struct ContentView: View {
         //                    .padding(.bottom, 50) // commented with using .safeAreaInset
         .onChange(of: currentTab, perform: { _ in
             if currentTab == 2 {
-                shouldShowModel = true
+                addProjModal = true
                 currentTab = 0
             }
         })  //: AddProjectSheet
-        .sheet(isPresented: $shouldShowModel, onDismiss: {
+        .sheet(isPresented: $addProjModal, onDismiss: {
             currentTab = 0
         }, content: {
             AddProjectView()
@@ -90,10 +95,11 @@ struct ContentView: View {
         print("url is \(url)")
         // If QuickAction
         if url == URL(string: "metodo://newTodo") {
-            shouldShowModel = true
+            addProjModal = true
         } else {
             // If WidgetURL
             self.selectedItem = dataController.urlItem(with: url)
+            
         }
     }
 }

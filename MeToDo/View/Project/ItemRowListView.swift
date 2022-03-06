@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 struct ItemRowListView: View {
     // MARK: - Properties
@@ -28,9 +29,12 @@ struct ItemRowListView: View {
             } label: {
                 Text(item.itemTitle)
             }
-            .sheet(isPresented: $showModal) {
+//            .sheet(isPresented: $showModal) {
+//                EditItemView(item: item)
+//            }
+            .partialSheet(isPresented: $showModal, type: .dynamic, content: {
                 EditItemView(item: item)
-            }
+            })
             .onTapGesture {
                 showModal.toggle()
             }

@@ -13,6 +13,9 @@ struct HomeItemListView: View {
     @EnvironmentObject var dataController: DataController
     let title: LocalizedStringKey
     @Binding var items: ArraySlice<Item>
+    
+    @State private var showModal = false
+    @State private var modalSelectedItem: Item? = nil
     // MARK: - Body
     var body: some View {
         if items.isEmpty {
@@ -21,39 +24,49 @@ struct HomeItemListView: View {
             Text(title)
                 .font(.headline)
                 .foregroundColor(.secondary)
-
+            
             ForEach(items) { item in
-                    HStack(spacing: 20) {
-                        ZStack {
+                HStack(spacing: 20) {
+                    ZStack {
                         Circle()
                             .stroke(Color(item.project?.projectColor ?? "Orange"), lineWidth: 3)
                             .frame(width: 44, height: 44)
-                            Circle()
-                                .fill(.ultraThinMaterial)
-                                .frame(width: 44, height: 44)
-                        }
-                        .onTapGesture {
-                            withAnimation {
-                                item.completed.toggle()
-                                dataController.save()
-                            }
-                        }
-                        Button {
-                            self.selectedItem = item
-                        } label: {
-                            homeList(item)
-                        }  //: ButtonView
-                    }  //: HStack
-                    .padding()
-                    .background(.ultraThickMaterial)
-                    .cornerRadius(10)
-                    .shadow(color: .primary.opacity(0.2), radius: 2)
-                    .sheet(item: $selectedItem) {
-                        EditItemView(item: $0)
+                        Circle()
+                            .fill(.ultraThinMaterial)
+                            .frame(width: 44, height: 44)
                     }
+                    .onTapGesture {
+                        withAnimation {
+                            item.completed.toggle()
+                            dataController.save()
+                        }
+                    }
+                    Button {
+                        itemSelected(item: item)
+                        self.selectedItem = item
+                    } label: {
+                        homeList(item)
+                    }  //: ButtonView
+                }  //: HStack
+                .padding()
+                .background(.ultraThickMaterial)
+                .cornerRadius(10)
+                .shadow(color: .primary.opacity(0.2), radius: 2)
+                //                    .sheet(item: $selectedItem) {
+                //                        EditItemView(item: $0)
+                //                    }
+                .partialSheet(isPresented: $showModal) {
+                    if modalSelectedItem != nil {
+                        EditItemView(item: modalSelectedItem!)
+                    }
+                }
             }
         }
     }  //: body
+    func itemSelected(item: Item) {
+        self.showModal = true
+        self.modalSelectedItem = item
+    }
     func homeList(_ item: Item) -> some View {
         VStack(alignment: .leading) {
             Text(item.itemTitle)

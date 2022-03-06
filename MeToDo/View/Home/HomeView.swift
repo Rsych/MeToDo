@@ -9,6 +9,7 @@ import SwiftUI
 import CoreSpotlight
 import CoreData
 import CloudKit
+import PartialSheet
 
 struct HomeView: View {
     // MARK: - Properties
@@ -51,9 +52,12 @@ struct HomeView: View {
             .background(Color(uiColor: .systemBackground))
             .navigationBarHidden(true)
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
-            .sheet(isPresented: $showSpotModal) {
+            .partialSheet(isPresented: $showSpotModal, content: {
                 EditItemView(item: viewModel.selectedItem ?? Item.example)
-            }
+            })
+//            .sheet(isPresented: $showSpotModal) {
+//                EditItemView(item: viewModel.selectedItem ?? Item.example)
+//            }
             } //: VStack
         }  //: NavView
     }  //: body

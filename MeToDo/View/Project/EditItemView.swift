@@ -111,7 +111,7 @@ struct EditItemView: View {
             } //: Toolbar
             .tint(.primary)
         }  //: NavView
-        
+        .frame(height: UIScreen.main.bounds.height / 2)
         .onDisappear(perform: save)
     }  //: body
     
