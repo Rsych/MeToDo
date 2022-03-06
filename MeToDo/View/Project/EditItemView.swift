@@ -46,7 +46,7 @@ struct EditItemView: View {
         _detail = State(wrappedValue: item.itemDetail)
         _priority = State(wrappedValue: Int(item.priority))
         _completed = State(wrappedValue: item.completed)
-        _projectTitle = State(wrappedValue: item.project!.projectTitle)
+        _projectTitle = State(wrappedValue: item.project?.projectTitle ?? "")
         _projectColor = State(wrappedValue: item.project?.projectColor ?? "Orange")
     }
     

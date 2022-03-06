@@ -92,6 +92,7 @@
 		71D917D5277CA21A0016773E /* SharedProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D4277CA21A0016773E /* SharedProjectsView.swift */; };
 		71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D6277CA6B40016773E /* SharedItemsView.swift */; };
 		71F8122027D50A5300C0D709 /* DynamicHeightTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */; };
+		71F8122527D51A5100C0D709 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8122427D51A5100C0D709 /* CustomSheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		71D917D4277CA21A0016773E /* SharedProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProjectsView.swift; sourceTree = "<group>"; };
 		71D917D6277CA6B40016773E /* SharedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItemsView.swift; sourceTree = "<group>"; };
 		71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTextField.swift; sourceTree = "<group>"; };
+		71F8122427D51A5100C0D709 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 				714D02AD277FBA0E00DEF63F /* Color-Extension.swift */,
 				714D02B1277FD1D200DEF63F /* NavigationBackButton.swift */,
 				71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */,
+				71F8122427D51A5100C0D709 /* CustomSheetView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				71F8122027D50A5300C0D709 /* DynamicHeightTextField.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,
 				71D917CC277CA0E40016773E /* SharedItem.swift in Sources */,
+				71F8122527D51A5100C0D709 /* CustomSheetView.swift in Sources */,
 				71D917C5277C6F910016773E /* ComplexWidget.swift in Sources */,
 				719EA64A277B006700F17102 /* SceneDelegate.swift in Sources */,
 				71D917BF277C6F440016773E /* DataProvider.swift in Sources */,

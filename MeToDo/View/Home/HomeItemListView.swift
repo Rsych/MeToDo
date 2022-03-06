@@ -13,6 +13,8 @@ struct HomeItemListView: View {
     @EnvironmentObject var dataController: DataController
     let title: LocalizedStringKey
     @Binding var items: ArraySlice<Item>
+    
+    @State private var showModal = false
     // MARK: - Body
     var body: some View {
         if items.isEmpty {
@@ -40,6 +42,7 @@ struct HomeItemListView: View {
                         }
                         Button {
                             self.selectedItem = item
+                            self.showModal.toggle()
                         } label: {
                             homeList(item)
                         }  //: ButtonView
@@ -48,6 +51,7 @@ struct HomeItemListView: View {
                     .background(.ultraThickMaterial)
                     .cornerRadius(10)
                     .shadow(color: .primary.opacity(0.2), radius: 2)
+                    
                     .sheet(item: $selectedItem) {
                         EditItemView(item: $0)
                     }

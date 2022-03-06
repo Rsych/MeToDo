@@ -51,9 +51,17 @@ struct HomeView: View {
             .background(Color(uiColor: .systemBackground))
             .navigationBarHidden(true)
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
-            .sheet(isPresented: $showSpotModal) {
-                EditItemView(item: viewModel.selectedItem ?? Item.example)
-            }
+            .adaptiveSheet(isPresented: $showSpotModal, detents: [.medium()], smallestUndimmedDetentIdentifier: .large, prefersScrollingExpandsWhenScrolledToEdge: true, prefersEdgeAttachedInCompactHeight: true, content: {
+                Rectangle()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.clear)
+                    .border(.black, width: 3)
+                    .overlay(EditItemView(item: viewModel.selectedItem ?? Item.example))
+                    .environmentObject(dataController)
+            })
+//            .sheet(isPresented: $showSpotModal) {
+//                EditItemView(item: viewModel.selectedItem ?? Item.example)
+//            }
             } //: VStack
         }  //: NavView
     }  //: body

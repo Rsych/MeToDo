@@ -28,9 +28,17 @@ struct ItemRowListView: View {
             } label: {
                 Text(item.itemTitle)
             }
-            .sheet(isPresented: $showModal) {
-                EditItemView(item: item)
-            }
+            .adaptiveSheet(isPresented: $showModal, detents: [.medium()], smallestUndimmedDetentIdentifier: .large, prefersScrollingExpandsWhenScrolledToEdge: true, prefersEdgeAttachedInCompactHeight: true, content: {
+                Rectangle()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.clear)
+                    .border(.black, width: 3)
+                    .overlay(EditItemView(item: item))
+                    .environmentObject(dataController)
+            })
+//            .sheet(isPresented: $showModal) {
+//                EditItemView(item: item)
+//            }
             .onTapGesture {
                 showModal.toggle()
             }
