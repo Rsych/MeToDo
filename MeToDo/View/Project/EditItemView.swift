@@ -23,23 +23,25 @@ struct EditItemView: View {
     @State private var projectTitle: String
     @State private var projectColor: String
     
-    @State private var textHeight: CGFloat = 0
-    var textFieldHeight: CGFloat {
-            let minHeight: CGFloat = 30
-            let maxHeight: CGFloat = 70
-            
-            if textHeight < minHeight {
-                return minHeight
-            }
-            
-            if textHeight > maxHeight {
-                return maxHeight
-            }
-            
-            return textHeight
-        }
+    var fullScreenModal: Bool
     
-    init(item: Item) {
+//    @State private var textHeight: CGFloat = 0
+//    var textFieldHeight: CGFloat {
+//            let minHeight: CGFloat = 30
+//            let maxHeight: CGFloat = 70
+//
+//            if textHeight < minHeight {
+//                return minHeight
+//            }
+//
+//            if textHeight > maxHeight {
+//                return maxHeight
+//            }
+//
+//            return textHeight
+//        }
+    
+    init(item: Item, fullScreenModal: Bool = false) {
         self.item = item
         //        self.project = project
         _title = State(wrappedValue: item.itemTitle)
@@ -48,6 +50,7 @@ struct EditItemView: View {
         _completed = State(wrappedValue: item.completed)
         _projectTitle = State(wrappedValue: item.project!.projectTitle)
         _projectColor = State(wrappedValue: item.project?.projectColor ?? "Orange")
+        self.fullScreenModal = fullScreenModal
     }
     
     // MARK: - Body
@@ -58,16 +61,18 @@ struct EditItemView: View {
                     Section {
                         TextField("Task name", text: $title.onChange(update)).modifier(ClearButton(text: $title))
                         
-//                        TextField("Description", text: $detail.onChange(update)).modifier(ClearButton(text: $detail))
-                        ZStack(alignment: .topLeading) {
-                            if detail.isEmpty {
-                                Text("Description")
-                                    .foregroundColor(Color(uiColor: .placeholderText))
-                                    .padding(4)
-                            }
-                            DynamicHeightTextField(text: $detail.onChange(update), height: $textHeight).modifier(ClearButton(text: $detail))
-                        }
-                        .frame(height: textFieldHeight)
+                        TextField("Description", text: $detail.onChange(update)).modifier(ClearButton(text: $detail))
+                        
+                        // DynamicTextField needs?
+//                        ZStack(alignment: .topLeading) {
+//                            if detail.isEmpty {
+//                                Text("Description")
+//                                    .foregroundColor(Color(uiColor: .placeholderText))
+//                                    .padding(4)
+//                            }
+//                            DynamicHeightTextField(text: $detail.onChange(update), height: $textHeight).modifier(ClearButton(text: $detail))
+//                        }
+//                        .frame(height: textFieldHeight)
                     } header: {
                         Text("Basic settings")
                     }  //: section 1
@@ -111,7 +116,7 @@ struct EditItemView: View {
             } //: Toolbar
             .tint(.primary)
         }  //: NavView
-        .frame(height: UIScreen.main.bounds.height / 2)
+        .frame(height: fullScreenModal ? UIScreen.main.bounds.height : UIScreen.main.bounds.height / 1.5)
         .onDisappear(perform: save)
     }  //: body
     

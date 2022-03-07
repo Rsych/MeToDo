@@ -81,8 +81,8 @@ struct ContentView: View {
                 .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 10)}
         ) //: QuickAction
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
-        .sheet(item: $selectedItem) { item in
-            EditItemView(item: item)
+        .fullScreenCover(item: $selectedItem) { item in
+            EditItemView(item: item, fullScreenModal: true)
                 .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 10)
         } //: WidgetLink
     }  //: body
