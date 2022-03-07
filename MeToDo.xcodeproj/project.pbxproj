@@ -824,7 +824,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203072;
+				CURRENT_PROJECT_VERSION = 2203082;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -836,7 +836,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -853,7 +853,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203072;
+				CURRENT_PROJECT_VERSION = 2203082;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -865,7 +865,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1007,7 +1007,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203072;
+				CURRENT_PROJECT_VERSION = 2203082;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1026,7 +1026,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1044,7 +1044,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203072;
+				CURRENT_PROJECT_VERSION = 2203082;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1063,7 +1063,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.0;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
