@@ -24,6 +24,8 @@ struct EditItemView: View {
     @State private var projectColor: String
     
     var fullScreenModal: Bool
+    @Environment(\.showingSheet) var showingSheet
+
     
 //    @State private var textHeight: CGFloat = 0
 //    var textFieldHeight: CGFloat {
@@ -111,6 +113,7 @@ struct EditItemView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Dismiss") {
                         presentationMode.wrappedValue.dismiss()
+                        self.showingSheet?.wrappedValue = false
                     } //: Button
                 } //: ToolbarItem
             } //: Toolbar
@@ -165,3 +168,5 @@ struct ClearButton: ViewModifier
         }
     }
 }
+
+

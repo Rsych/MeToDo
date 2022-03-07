@@ -15,6 +15,8 @@ struct ItemRowListView: View {
     @State private var showModal = false
     @EnvironmentObject var dataController: DataController
     @Environment(\.colorScheme) var colorScheme
+    
+    
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
@@ -34,6 +36,7 @@ struct ItemRowListView: View {
 //            }
             .partialSheet(isPresented: $showModal, type: .dynamic, content: {
                 EditItemView(item: item)
+                    .environment(\.showingSheet, self.$showModal)
             })
             .onTapGesture {
                 showModal.toggle()

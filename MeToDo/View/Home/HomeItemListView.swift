@@ -58,6 +58,7 @@ struct HomeItemListView: View {
                 .partialSheet(isPresented: $showModal) {
                     if modalSelectedItem != nil {
                         EditItemView(item: modalSelectedItem!)
+                            .environment(\.showingSheet, $showModal)
                     }
                 }
             }

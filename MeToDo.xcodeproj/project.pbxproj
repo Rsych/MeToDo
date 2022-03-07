@@ -93,6 +93,7 @@
 		71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D6277CA6B40016773E /* SharedItemsView.swift */; };
 		71F8122027D50A5300C0D709 /* DynamicHeightTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */; };
 		71F8122B27D5316000C0D709 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 71F8122A27D5316000C0D709 /* PartialSheet */; };
+		71F8122D27D6306100C0D709 /* DismissSheetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8122C27D6306100C0D709 /* DismissSheetKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +213,7 @@
 		71D917D4277CA21A0016773E /* SharedProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProjectsView.swift; sourceTree = "<group>"; };
 		71D917D6277CA6B40016773E /* SharedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItemsView.swift; sourceTree = "<group>"; };
 		71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTextField.swift; sourceTree = "<group>"; };
+		71F8122C27D6306100C0D709 /* DismissSheetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSheetKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +356,7 @@
 				714D02AD277FBA0E00DEF63F /* Color-Extension.swift */,
 				714D02B1277FD1D200DEF63F /* NavigationBackButton.swift */,
 				71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */,
+				71F8122C27D6306100C0D709 /* DismissSheetKey.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				719EA668277B737000F17102 /* DataController-Awards.swift in Sources */,
 				71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */,
 				718952E7276F0D6000EA32DE /* Award.swift in Sources */,
+				71F8122D27D6306100C0D709 /* DismissSheetKey.swift in Sources */,
 				718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */,
 				7104E856278B554500765963 /* AppLockViewModel.swift in Sources */,
 				719EA648277B005100F17102 /* AppDelegate.swift in Sources */,
@@ -824,7 +828,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203082;
+				CURRENT_PROJECT_VERSION = 2203085;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -836,7 +840,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -853,7 +857,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203082;
+				CURRENT_PROJECT_VERSION = 2203085;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -865,7 +869,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1007,7 +1011,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203082;
+				CURRENT_PROJECT_VERSION = 2203085;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1026,7 +1030,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1044,7 +1048,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203082;
+				CURRENT_PROJECT_VERSION = 2203085;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1063,7 +1067,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
