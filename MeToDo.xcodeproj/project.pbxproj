@@ -14,6 +14,7 @@
 		710C898827687AC3004FADCD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C898727687AC3004FADCD /* DataController.swift */; };
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
 		711C1CC4278DBD8300D30DE2 /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C1CC3278DBD8300D30DE2 /* WeekCalendarView.swift */; };
+		7122CD5727E1CEB2007F1668 /* UINavigationController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CD5627E1CEB2007F1668 /* UINavigationController-Extension.swift */; };
 		714D02AC277F6E8500DEF63F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714D02AB277F6E8500DEF63F /* LaunchScreen.storyboard */; };
 		714D02AE277FBA0E00DEF63F /* Color-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D02AD277FBA0E00DEF63F /* Color-Extension.swift */; };
 		714D02B0277FC89E00DEF63F /* Bundle-Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D02AF277FC89E00DEF63F /* Bundle-Version.swift */; };
@@ -137,6 +138,7 @@
 		710C898A27687E74004FADCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		710C898C27687E84004FADCD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		711C1CC3278DBD8300D30DE2 /* WeekCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
+		7122CD5627E1CEB2007F1668 /* UINavigationController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController-Extension.swift"; sourceTree = "<group>"; };
 		714D02AB277F6E8500DEF63F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		714D02AD277FBA0E00DEF63F /* Color-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extension.swift"; sourceTree = "<group>"; };
 		714D02AF277FC89E00DEF63F /* Bundle-Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Version.swift"; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				714D02B1277FD1D200DEF63F /* NavigationBackButton.swift */,
 				71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */,
 				71F8122C27D6306100C0D709 /* DismissSheetKey.swift */,
+				7122CD5627E1CEB2007F1668 /* UINavigationController-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				71602A75277E50AB0009EFD2 /* MoreView.swift in Sources */,
 				71AD486E27807C580003BD64 /* Constants.swift in Sources */,
 				719EA666277B71CE00F17102 /* DataController-Reminders.swift in Sources */,
+				7122CD5727E1CEB2007F1668 /* UINavigationController-Extension.swift in Sources */,
 				7172E47D277A1FC9001FD7EC /* CustomizationView.swift in Sources */,
 				719EA668277B737000F17102 /* DataController-Awards.swift in Sources */,
 				71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */,
@@ -828,7 +832,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203085;
+				CURRENT_PROJECT_VERSION = 2203161;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -840,7 +844,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.4.1;
+				MARKETING_VERSION = 2.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -857,7 +861,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203085;
+				CURRENT_PROJECT_VERSION = 2203161;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -869,7 +873,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.4.1;
+				MARKETING_VERSION = 2.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1011,7 +1015,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203085;
+				CURRENT_PROJECT_VERSION = 2203161;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1030,7 +1034,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.4.1;
+				MARKETING_VERSION = 2.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1048,7 +1052,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2203085;
+				CURRENT_PROJECT_VERSION = 2203161;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1067,7 +1071,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.4.1;
+				MARKETING_VERSION = 2.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
