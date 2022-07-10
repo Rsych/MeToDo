@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct EditItemView: View {
     // MARK: - Properties
@@ -32,6 +33,9 @@ struct EditItemView: View {
         _completed = State(wrappedValue: item.completed)
         _projectTitle = State(wrappedValue: item.project?.projectTitle ?? "")
         _projectColor = State(wrappedValue: item.project?.projectColor ?? "Orange")
+
+        UISegmentedControl.appearance().backgroundColor = .clear
+        UISegmentedControl.appearance().selectedSegmentTintColor = .systemFill
     }
 
     // MARK: - Body
@@ -44,26 +48,28 @@ struct EditItemView: View {
                         TextField("Description", text: $detail.onChange(update))
                     } header: {
                         Text("Basic settings")
+                            .foregroundColor(Color(uiColor: .systemGray))
                             .listRowBackground(Color.clear)
                     }  //: section 1
-
+                    .listRowBackground(Color(uiColor: .systemFill))
                     Section {
                         Picker("priority", selection: $priority.onChange(update)) {
                             Text("Low").tag(1)
                             Text("Medium").tag(2)
                             Text("High").tag(3)
                         }
+                        .listRowBackground(Color(uiColor: .systemFill))
                         .pickerStyle(SegmentedPickerStyle())
+                        
                     } header: {
                         Text("Priority")
-                            .listRowBackground(Color.clear)
+                            .foregroundColor(Color(uiColor: .systemGray))
                     }  //: Priority picker section
-
                     Section {
                         Toggle("Mark Completed", isOn: $completed.onChange(update))
                     }
+                    .listRowBackground(Color(uiColor: .systemFill))
                 }
-                .listRowBackground(Color(uiColor: .systemFill))
                 .foregroundColor(Color.primary)
             }  //: form
             .background(Color(uiColor: .systemBackground))

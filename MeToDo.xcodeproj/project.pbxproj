@@ -93,7 +93,6 @@
 		71D917D5277CA21A0016773E /* SharedProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D4277CA21A0016773E /* SharedProjectsView.swift */; };
 		71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D6277CA6B40016773E /* SharedItemsView.swift */; };
 		71F8122027D50A5300C0D709 /* DynamicHeightTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */; };
-		71F8122B27D5316000C0D709 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 71F8122A27D5316000C0D709 /* PartialSheet */; };
 		71F8122D27D6306100C0D709 /* DismissSheetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8122C27D6306100C0D709 /* DismissSheetKey.swift */; };
 /* End PBXBuildFile section */
 
@@ -232,7 +231,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71F8122B27D5316000C0D709 /* PartialSheet in Frameworks */,
 				710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */,
 				71AD487127807E360003BD64 /* BetterSafariView in Frameworks */,
 			);
@@ -560,7 +558,6 @@
 			name = MeToDo;
 			packageProductDependencies = (
 				71AD487027807E360003BD64 /* BetterSafariView */,
-				71F8122A27D5316000C0D709 /* PartialSheet */,
 			);
 			productName = MeToDo;
 			productReference = 71A63DFE276766EE00EAB2EC /* MeToDo.app */;
@@ -1184,11 +1181,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
 			productName = BetterSafariView;
-		};
-		71F8122A27D5316000C0D709 /* PartialSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */;
-			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 
