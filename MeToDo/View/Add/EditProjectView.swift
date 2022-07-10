@@ -54,12 +54,12 @@ struct EditProjectView: View {
                 
             }  //: Form
             .background(Color(uiColor: .systemBackground))
-                        .listRowBackground(Color.clear)
+            .listRowBackground(Color.clear)
 
-                        .onAppear(perform: {
-                            UITableView.appearance().backgroundColor = UIColor.clear
-                            UITableViewCell.appearance().backgroundColor = UIColor.clear
-                        })
+            .onAppear(perform: {
+                UITableView.appearance().backgroundColor = UIColor.clear
+                UITableViewCell.appearance().backgroundColor = UIColor.clear
+            })
             .font(.body)
             .resignKeyboardOnDragGesture()
 
@@ -134,8 +134,10 @@ struct EditProjectView_Preview: PreviewProvider {
 extension EditProjectView {
     
     private var remindSection: some View {
-        Section(header: Text("Reminder")) {
+        Section {
             Toggle("Show reminder", isOn: $dueOn.animation().onChange(update))
+                .listRowBackground(Color(uiColor: .systemFill))
+                .foregroundColor(Color.primary)
                 .alert(isPresented: $showingNotificationsError) {
                     Alert(
                         title: Text("Oops!"),
@@ -152,28 +154,31 @@ extension EditProjectView {
                     in: Date()...,
                     displayedComponents: .date
                 )
-//                            .datePickerStyle(.graphical)
+                .listRowBackground(Color(uiColor: .systemFill))
+                //                            .datePickerStyle(.graphical)
             }
+        } header: {
+            Text("Reminder")
+                .listRowBackground(Color.clear)
         }
-        .listRowBackground(Color(uiColor: .systemFill))
-        .foregroundColor(Color.primary)
+
     }
     
     private var completeOrDeleteSection: some View {
         Section {
             Group {
-            Button(project.closed ? "Reopen" : "Mark it completed") {
-                presentationMode.wrappedValue.dismiss()
+                Button(project.closed ? "Reopen" : "Mark it completed") {
+                    presentationMode.wrappedValue.dismiss()
 
-                project.closed.toggle()
-                update()
-            }
-            .foregroundColor(.blue)
-            Button("Delete this todo") {
-                print("Delete")
-                showingDeleteConfirm.toggle()
-            }
-            .foregroundColor(.red)
+                    project.closed.toggle()
+                    update()
+                }
+                .foregroundColor(.blue)
+                Button("Delete this todo") {
+                    print("Delete")
+                    showingDeleteConfirm.toggle()
+                }
+                .foregroundColor(.red)
             }
             .listRowBackground(Color(uiColor: .systemFill))
             .foregroundColor(Color.primary)
