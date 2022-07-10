@@ -615,7 +615,6 @@
 			mainGroup = 71A63DF5276766EE00EAB2EC;
 			packageReferences = (
 				71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
-				71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 71A63DFF276766EE00EAB2EC /* Products */;
 			projectDirPath = "";
@@ -1163,14 +1162,6 @@
 			repositoryURL = "https://github.com/stleamist/BetterSafariView.git";
 			requirement = {
 				branch = main;
-				kind = branch;
-			};
-		};
-		71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
-			requirement = {
-				branch = master;
 				kind = branch;
 			};
 		};
