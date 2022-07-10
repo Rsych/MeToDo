@@ -14,6 +14,7 @@
 		710C898827687AC3004FADCD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C898727687AC3004FADCD /* DataController.swift */; };
 		710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C898C27687E84004FADCD /* CloudKit.framework */; };
 		711C1CC4278DBD8300D30DE2 /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C1CC3278DBD8300D30DE2 /* WeekCalendarView.swift */; };
+		7122CD5727E1CEB2007F1668 /* UINavigationController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CD5627E1CEB2007F1668 /* UINavigationController-Extension.swift */; };
 		714D02AC277F6E8500DEF63F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714D02AB277F6E8500DEF63F /* LaunchScreen.storyboard */; };
 		714D02AE277FBA0E00DEF63F /* Color-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D02AD277FBA0E00DEF63F /* Color-Extension.swift */; };
 		714D02B0277FC89E00DEF63F /* Bundle-Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D02AF277FC89E00DEF63F /* Bundle-Version.swift */; };
@@ -91,6 +92,9 @@
 		71D917D0277CA1310016773E /* LoadStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917CF277CA1310016773E /* LoadStates.swift */; };
 		71D917D5277CA21A0016773E /* SharedProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D4277CA21A0016773E /* SharedProjectsView.swift */; };
 		71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D6277CA6B40016773E /* SharedItemsView.swift */; };
+		71F8122027D50A5300C0D709 /* DynamicHeightTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */; };
+		71F8122B27D5316000C0D709 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 71F8122A27D5316000C0D709 /* PartialSheet */; };
+		71F8122D27D6306100C0D709 /* DismissSheetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8122C27D6306100C0D709 /* DismissSheetKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +138,7 @@
 		710C898A27687E74004FADCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		710C898C27687E84004FADCD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		711C1CC3278DBD8300D30DE2 /* WeekCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
+		7122CD5627E1CEB2007F1668 /* UINavigationController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController-Extension.swift"; sourceTree = "<group>"; };
 		714D02AB277F6E8500DEF63F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		714D02AD277FBA0E00DEF63F /* Color-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extension.swift"; sourceTree = "<group>"; };
 		714D02AF277FC89E00DEF63F /* Bundle-Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Version.swift"; sourceTree = "<group>"; };
@@ -209,6 +214,8 @@
 		71D917CF277CA1310016773E /* LoadStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStates.swift; sourceTree = "<group>"; };
 		71D917D4277CA21A0016773E /* SharedProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProjectsView.swift; sourceTree = "<group>"; };
 		71D917D6277CA6B40016773E /* SharedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItemsView.swift; sourceTree = "<group>"; };
+		71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTextField.swift; sourceTree = "<group>"; };
+		71F8122C27D6306100C0D709 /* DismissSheetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSheetKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F8122B27D5316000C0D709 /* PartialSheet in Frameworks */,
 				710C898D27687E84004FADCD /* CloudKit.framework in Frameworks */,
 				71AD487127807E360003BD64 /* BetterSafariView in Frameworks */,
 			);
@@ -349,6 +357,9 @@
 				71602A72277E459E0009EFD2 /* Error-CloudKit.swift */,
 				714D02AD277FBA0E00DEF63F /* Color-Extension.swift */,
 				714D02B1277FD1D200DEF63F /* NavigationBackButton.swift */,
+				71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */,
+				71F8122C27D6306100C0D709 /* DismissSheetKey.swift */,
+				7122CD5627E1CEB2007F1668 /* UINavigationController-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -549,6 +560,7 @@
 			name = MeToDo;
 			packageProductDependencies = (
 				71AD487027807E360003BD64 /* BetterSafariView */,
+				71F8122A27D5316000C0D709 /* PartialSheet */,
 			);
 			productName = MeToDo;
 			productReference = 71A63DFE276766EE00EAB2EC /* MeToDo.app */;
@@ -606,6 +618,7 @@
 			mainGroup = 71A63DF5276766EE00EAB2EC;
 			packageReferences = (
 				71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
+				71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 71A63DFF276766EE00EAB2EC /* Products */;
 			projectDirPath = "";
@@ -722,10 +735,12 @@
 				71602A75277E50AB0009EFD2 /* MoreView.swift in Sources */,
 				71AD486E27807C580003BD64 /* Constants.swift in Sources */,
 				719EA666277B71CE00F17102 /* DataController-Reminders.swift in Sources */,
+				7122CD5727E1CEB2007F1668 /* UINavigationController-Extension.swift in Sources */,
 				7172E47D277A1FC9001FD7EC /* CustomizationView.swift in Sources */,
 				719EA668277B737000F17102 /* DataController-Awards.swift in Sources */,
 				71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */,
 				718952E7276F0D6000EA32DE /* Award.swift in Sources */,
+				71F8122D27D6306100C0D709 /* DismissSheetKey.swift in Sources */,
 				718952E9276F0FA700EA32DE /* AwardsView.swift in Sources */,
 				7104E856278B554500765963 /* AppLockViewModel.swift in Sources */,
 				719EA648277B005100F17102 /* AppDelegate.swift in Sources */,
@@ -735,6 +750,7 @@
 				718B0CB4276A1038005D496C /* ItemRowListView.swift in Sources */,
 				71A63E102767680400EAB2EC /* TabBarView.swift in Sources */,
 				715AEFDE27688821009C63DB /* ProjectView.swift in Sources */,
+				71F8122027D50A5300C0D709 /* DynamicHeightTextField.swift in Sources */,
 				71A63E02276766EE00EAB2EC /* MeToDoApp.swift in Sources */,
 				71D917CC277CA0E40016773E /* SharedItem.swift in Sources */,
 				71D917C5277C6F910016773E /* ComplexWidget.swift in Sources */,
@@ -816,7 +832,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2202123;
+				CURRENT_PROJECT_VERSION = 2203161;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -828,7 +844,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -845,7 +861,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TodoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2202123;
+				CURRENT_PROJECT_VERSION = 2203161;
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoWidget/Info.plist;
@@ -857,7 +873,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo.TodoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -999,7 +1015,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2202123;
+				CURRENT_PROJECT_VERSION = 2203161;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1018,7 +1034,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1036,7 +1052,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2202123;
+				CURRENT_PROJECT_VERSION = 2203161;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1055,7 +1071,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1153,6 +1169,14 @@
 				kind = branch;
 			};
 		};
+		71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1160,6 +1184,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 71AD486F27807E360003BD64 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
 			productName = BetterSafariView;
+		};
+		71F8122A27D5316000C0D709 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71F8122927D5316000C0D709 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 

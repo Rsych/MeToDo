@@ -22,9 +22,9 @@ struct HomeView: View {
     var projectRows: [GridItem] {
         [GridItem(.adaptive(minimum: 0, maximum: 100))]
     }
-//    var projectRows: [GridItem] {
-//        [GridItem(.fixed(100))]
-//    }
+    //    var projectRows: [GridItem] {
+    //        [GridItem(.fixed(100))]
+    //    }
     
     init(dataController: DataController) {
         let viewModel = ViewModel(dataController: dataController)
@@ -38,22 +38,22 @@ struct HomeView: View {
             VStack {
                 WeekCalendarView(calendar: Calendar(identifier: .gregorian), dataController: dataController)
                     .frame(maxHeight: UIScreen.main.bounds.height / 6)
-            ScrollView {
-                VStack(alignment: .leading) {
+                ScrollView {
                     VStack(alignment: .leading) {
-                        HomeItemListView(title: "Up next", items: $viewModel.upNext)
-                        HomeItemListView(title: "More to explore", items: $viewModel.moreToExplore)
+                        VStack(alignment: .leading) {
+                            HomeItemListView(title: "Up next", items: $viewModel.upNext)
+                            HomeItemListView(title: "More to explore", items: $viewModel.moreToExplore)
+                        } //: VStack
+                        .padding(.bottom, 50)
+                        .padding(.horizontal)
                     } //: VStack
-                    .padding(.bottom, 50)
-                    .padding(.horizontal)
-                } //: VStack
-            }  //: ScrollView
-            .background(Color(uiColor: .systemBackground))
-            .navigationBarHidden(true)
-            .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
-            .sheet(isPresented: $showSpotModal) {
-                EditItemView(item: viewModel.selectedItem ?? Item.example)
-            }
+                }  //: ScrollView
+                .background(Color(uiColor: .systemBackground))
+                .navigationBarHidden(true)
+                .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
+                .fullScreenCover(isPresented: $showSpotModal) {
+                    EditItemView(item: viewModel.selectedItem ?? Item.example)
+                }
             } //: VStack
         }  //: NavView
     }  //: body
