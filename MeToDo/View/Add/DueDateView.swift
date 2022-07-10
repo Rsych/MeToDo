@@ -20,8 +20,10 @@ struct DueDateView: View {
     
 // MARK: - Body
     var body: some View {
-        Section(header: Text("Reminder")) {
+        Section {
             Toggle("Show reminder", isOn: $dueOn.animation())
+                .listRowBackground(Color(uiColor: .systemFill))
+                .foregroundColor(Color.primary)
                 .onTapGesture {
                     dataController.checkPushNotification { isOn in
                         showingNotificationsError = !isOn
@@ -42,11 +44,13 @@ struct DueDateView: View {
                     in: Date()...,
                     displayedComponents: .date
                 )
-                    .datePickerStyle(.graphical)
+                .listRowBackground(Color(uiColor: .systemFill))
+//                    .datePickerStyle(.graphical)
             }
+        } header: {
+            Text("Reminder")
         }
-        .listRowBackground(Color(uiColor: .systemFill))
-        .foregroundColor(Color.primary)
+
     }
 }
 

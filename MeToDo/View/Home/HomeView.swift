@@ -9,7 +9,6 @@ import SwiftUI
 import CoreSpotlight
 import CoreData
 import CloudKit
-import PartialSheet
 
 struct HomeView: View {
     // MARK: - Properties
@@ -53,7 +52,7 @@ struct HomeView: View {
                 .navigationBarHidden(true)
                 .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
                 .fullScreenCover(isPresented: $showSpotModal) {
-                    EditItemView(item: viewModel.selectedItem ?? Item.example, fullScreenModal: true)
+                    EditItemView(item: viewModel.selectedItem ?? Item.example)
                 }
             } //: VStack
         }  //: NavView

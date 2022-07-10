@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CoreSpotlight
-import PartialSheet
 
 struct ContentView: View {
     // MARK: - Properties
@@ -15,14 +14,11 @@ struct ContentView: View {
     @AppStorage("darkModeEnabled") private var darkModeEnabled = false
     @AppStorage("systemThemeEnabled") private var systemThemeEnabled = true
     @EnvironmentObject var dataController: DataController
-    @State var addProjModal = false
+    @State var shouldShowModel = false
     
     @EnvironmentObject private var appLockVM: AppLockViewModel
     
     @State private var selectedItem: FetchedResults<Item>.Element?
-    
-    @State var widgetModal = false
-    @State private var widgetItem: Item? = nil
     
     // MARK: - Body
     var body: some View {
@@ -43,7 +39,6 @@ struct ContentView: View {
                 // NavBar missing fix
                 .padding(.top)
                 .navigationViewStyle(StackNavigationViewStyle())
-                .attachPartialSheetToRoot()
                 .onAppear(perform: {
                     // with tab bar shown, it leaves tiny marks on background
                     UITabBar.appearance().isHidden = true
@@ -70,19 +65,19 @@ struct ContentView: View {
         //                    .padding(.bottom, 50) // commented with using .safeAreaInset
         .onChange(of: currentTab, perform: { _ in
             if currentTab == 2 {
-                addProjModal = true
+                shouldShowModel = true
                 currentTab = 0
             }
         })  //: AddProjectSheet
-        .sheet(isPresented: $addProjModal, onDismiss: {
+        .sheet(isPresented: $shouldShowModel, onDismiss: {
             currentTab = 0
         }, content: {
             AddProjectView()
                 .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 10)}
         ) //: QuickAction
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
-        .fullScreenCover(item: $selectedItem) { item in
-            EditItemView(item: item, fullScreenModal: true)
+        .sheet(item: $selectedItem) { item in
+            EditItemView(item: item)
                 .blur(radius: !appLockVM.isAppLockEnabled || appLockVM.isAppUnLocked ? 0 : 10)
         } //: WidgetLink
     }  //: body
@@ -95,11 +90,10 @@ struct ContentView: View {
         print("url is \(url)")
         // If QuickAction
         if url == URL(string: "metodo://newTodo") {
-            addProjModal = true
+            shouldShowModel = true
         } else {
             // If WidgetURL
             self.selectedItem = dataController.urlItem(with: url)
-            
         }
     }
 }

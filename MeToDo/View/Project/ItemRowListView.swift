@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PartialSheet
 
 struct ItemRowListView: View {
     // MARK: - Properties
@@ -15,8 +14,6 @@ struct ItemRowListView: View {
     @State private var showModal = false
     @EnvironmentObject var dataController: DataController
     @Environment(\.colorScheme) var colorScheme
-    
-    
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
@@ -31,13 +28,9 @@ struct ItemRowListView: View {
             } label: {
                 Text(item.itemTitle)
             }
-//            .sheet(isPresented: $showModal) {
-//                EditItemView(item: item)
-//            }
-            .partialSheet(isPresented: $showModal, type: .dynamic, content: {
+            .sheet(isPresented: $showModal) {
                 EditItemView(item: item)
-                    .environment(\.showingSheet, self.$showModal)
-            })
+            }
             .onTapGesture {
                 showModal.toggle()
             }
