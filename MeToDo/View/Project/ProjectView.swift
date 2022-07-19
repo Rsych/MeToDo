@@ -15,6 +15,10 @@ struct ProjectView: View {
     @State private var showModal = false
     @State private var showingSheet = false
 
+    @State private var itemTitle = ""
+    @State private var itemDetail = ""
+    @State private var itemPriority = 2
+    @State private var showAddItem = false
     @StateObject var viewModel: ViewModel
 
     // MARK: - Body
@@ -60,6 +64,7 @@ struct ProjectView: View {
         let viewModel = ViewModel(dataController: dataController, showClosedProjects: showClosedProjects)
         _viewModel = StateObject(wrappedValue: viewModel)
     }
+    
 } //: contentView
 
 struct ProjectView_Previews: PreviewProvider {
@@ -85,11 +90,24 @@ extension ProjectView {
             if viewModel.showClosedProjects ==  false {
                 Button {
                     withAnimation {
-                    viewModel.addItem(to: project)
+                        showAddItem.toggle()
                     }
                 } label: {
                     Label("Add a task", systemImage: "plus")
                 } //: Button
+                .textFieldAlert(
+                    isPresented: $showAddItem,
+                    title: "Add a task".localized,
+                    itemTitle: "",
+                    itemTitlePlaceHolder: "Task name".localized,
+                    itemDetail: "",
+                    itemDetailPlaceHolder: "Description".localized,
+                    action: {
+                        itemTitle = $0?[0] ?? ""
+                        itemDetail = $0?[1] ?? ""
+                        viewModel.addItem(to: project, title: itemTitle, detail: itemDetail)
+                    }
+                )
             }  //: OpenTab
         } header: {
             ProjectHeaderView(project: project)
