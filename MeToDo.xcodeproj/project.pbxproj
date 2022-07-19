@@ -78,6 +78,7 @@
 		71B31BBF27772CEE00DD04DB /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */; };
 		71B31BD12777386100DD04DB /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BD02777386100DD04DB /* ProjectViewModel.swift */; };
 		71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B709B8276A0B1F009E8ABD /* EditItemView.swift */; };
+		71D7ABFA2887593A0046FF1C /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D7ABF92887593A0046FF1C /* String+Localized.swift */; };
 		71D917BC277C5F460016773E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718B0CBD276A258C005D496C /* Colors.xcassets */; };
 		71D917BD277C5F6C0016773E /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B31BB327767DBA00DD04DB /* Sequence-Sorting.swift */; };
 		71D917BF277C6F440016773E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917BE277C6F440016773E /* DataProvider.swift */; };
@@ -204,6 +205,7 @@
 		71B31BBE27772CEE00DD04DB /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		71B31BD02777386100DD04DB /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		71B709B8276A0B1F009E8ABD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
+		71D7ABF92887593A0046FF1C /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		71D917BE277C6F440016773E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		71D917C1277C6F670016773E /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
 		71D917C4277C6F910016773E /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */,
 				71F8122C27D6306100C0D709 /* DismissSheetKey.swift */,
 				7122CD5627E1CEB2007F1668 /* UINavigationController-Extension.swift */,
+				71D7ABF92887593A0046FF1C /* String+Localized.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				718B0CC2276C7E05005D496C /* AddProjectView.swift in Sources */,
 				710C89862768784D004FADCD /* Main.xcdatamodeld in Sources */,
 				718B0CB6276A117D005D496C /* BindingOnChange.swift in Sources */,
+				71D7ABFA2887593A0046FF1C /* String+Localized.swift in Sources */,
 				719EA66E277B7A9F00F17102 /* ProjectColorButtonView.swift in Sources */,
 				71B709B9276A0B1F009E8ABD /* EditItemView.swift in Sources */,
 			);
