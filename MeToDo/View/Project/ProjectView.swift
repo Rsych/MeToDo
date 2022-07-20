@@ -61,6 +61,7 @@ struct ProjectView: View {
     func clearTextFields() {
         itemTitle.removeAll()
         itemDetail.removeAll()
+        itemPriority = 2
     }
     
     var sortOrderToolbar: some ToolbarContent {
@@ -122,10 +123,26 @@ extension ProjectView {
     // MARK: - Add Item
     @ViewBuilder func addItemAlert(project: Project, message: String) -> some View {
         VStack {
+            Spacer()
             Text(message)
             Spacer()
-            TextField("Task name".localized, text: $itemTitle)
-            TextField("Description".localized, text: $itemDetail)
+            Group {
+                TextField("Task name".localized, text: $itemTitle)
+                TextField("Description".localized, text: $itemDetail)
+            }
+            .padding(10)
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color.darkGray))
+            
+            .padding([.leading, .trailing])
+            Spacer()
+            Picker("Priority".localized, selection: $itemPriority) {
+                Text("Low").tag(1)
+                Text("Medium").tag(2)
+                Text("High").tag(3)
+            }
+            .padding([.leading, .trailing])
+            .pickerStyle(.segmented)
+            Spacer()
             Divider()
             HStack {
                 Button {
@@ -137,7 +154,7 @@ extension ProjectView {
                 .frame(width: UIScreen.main.bounds.width/2 - 30, height: 44)
                 .foregroundColor(.white)
                 Button {
-                    viewModel.addItem(to: project, title: itemTitle, detail: itemDetail)
+                    viewModel.addItem(to: project, title: itemTitle, detail: itemDetail, priority: itemPriority)
                     showAddItem.toggle()
                     clearTextFields()
                 } label: {
@@ -146,8 +163,9 @@ extension ProjectView {
                 .frame(width: UIScreen.main.bounds.width/2 - 30, height: 44)
                 .foregroundColor(itemTitle.isEmpty ? .gray : .white)
             }
+            .padding(.bottom, 4)
         }
-        .frame(width: UIScreen.main.bounds.width - 50, height: 200)
+        .frame(width: UIScreen.main.bounds.width - 50, height: 240)
         .background(Color.midnight.opacity(0.5))
         .cornerRadius(12)
         .clipped()

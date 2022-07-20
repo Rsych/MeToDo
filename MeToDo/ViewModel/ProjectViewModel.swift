@@ -56,13 +56,13 @@ extension ProjectView {
 //                item.completed = false
 //                dataController.save()
 //        }  //: addItem
-        func addItem(to project: Project, title: String, detail: String) {
+        func addItem(to project: Project, title: String, detail: String, priority: Int = 2) {
                 let item = Item(context: dataController.container.viewContext)
                 item.title = title
                 item.detail = detail
                 item.project = project
                 item.creationDate = Date()
-                item.priority = 2
+                item.priority = Int16(priority)
                 item.completed = false
                 dataController.save()
         }  //: addItem
