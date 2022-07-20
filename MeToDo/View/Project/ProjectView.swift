@@ -23,18 +23,20 @@ struct ProjectView: View {
 
     // MARK: - Body
     var body: some View {
+        ZStack {
         NavigationView {
-            List {
-                ForEach(viewModel.projects) { project in
-                    sections(project: project)
-                }  //: Project loop
-            }  //: List
-            .padding(.bottom, 50)
-            .listStyle(PlainListStyle())
-            .navigationTitle(viewModel.showClosedProjects ? "Finished" : "Open")
-            .toolbar {
-                sortOrderToolbar
-            } //: Toolbar
+                List {
+                    ForEach(viewModel.projects) { project in
+                        sections(project: project)
+                    }  //: Project loop
+                }  //: List
+                .padding(.bottom, 50)
+                .listStyle(PlainListStyle())
+                .navigationTitle(viewModel.showClosedProjects ? "Finished" : "Open")
+                .toolbar {
+                    sortOrderToolbar
+                } //: Toolbar
+            }
             .confirmationDialog("Sort tasks", isPresented: $showingSheet, titleVisibility: .visible) {
                 Button("Automatic") {
                     viewModel.sortOrder = .automatic
@@ -46,7 +48,12 @@ struct ProjectView: View {
                     viewModel.sortOrder = .title
                 }
             } //: ConfirmationDialog
-        }  //: NavView
+            .disabled(showAddItem)
+            .blur(radius: showAddItem ? 30 : 0)
+            if showAddItem {
+                AddItemAlertView(showAddItem: $showAddItem, message: "Add item")
+            }
+        }  //: ZStack
     }  //: Body
     
 
@@ -95,19 +102,19 @@ extension ProjectView {
                 } label: {
                     Label("Add a task", systemImage: "plus")
                 } //: Button
-                .textFieldAlert(
-                    isPresented: $showAddItem,
-                    title: "Add a task".localized,
-                    itemTitle: "",
-                    itemTitlePlaceHolder: "Task name".localized,
-                    itemDetail: "",
-                    itemDetailPlaceHolder: "Description".localized,
-                    action: {
-                        itemTitle = $0?[0] ?? ""
-                        itemDetail = $0?[1] ?? ""
-                        viewModel.addItem(to: project, title: itemTitle, detail: itemDetail)
-                    }
-                )
+//                .textFieldAlert(
+//                    isPresented: $showAddItem,
+//                    title: "Add a task".localized,
+//                    itemTitle: "",
+//                    itemTitlePlaceHolder: "Task name".localized,
+//                    itemDetail: "",
+//                    itemDetailPlaceHolder: "Description".localized,
+//                    action: {
+//                        itemTitle = $0?[0] ?? ""
+//                        itemDetail = $0?[1] ?? ""
+//                        viewModel.addItem(to: project, title: itemTitle, detail: itemDetail)
+//                    }
+//                )
             }  //: OpenTab
         } header: {
             ProjectHeaderView(project: project)

@@ -10,6 +10,7 @@ import BetterSafariView
 import MessageUI
 //import SafariServices
 
+@MainActor
 struct MoreView: View {
     // MARK: - Properties
     static let moreTag: Int = 4
@@ -22,7 +23,8 @@ struct MoreView: View {
     
     @State private var showSafari = false
     
-    @State private var selectedURL = Constants.appNotice
+    @State private var selectedURL: String?
+//    var selectedURL: String?
     
     @State private var showEmail = false
     @State private var errorEmail = false
@@ -72,7 +74,7 @@ struct MoreView: View {
         //        }
         .safariView(isPresented: $showSafari) {
             SafariView(
-                url: URL(string: selectedURL)!,
+                url: URL(string: selectedURL ?? "")!,
                 configuration: SafariView.Configuration(
                     entersReaderIfAvailable: false,
                     barCollapsingEnabled: true
@@ -154,7 +156,7 @@ extension MoreView {
     // MARK: - AppInfo, SafariView
     private var openNotice: some View {
         Button {
-            selectedURL = Constants.appNotice
+            selectedURL = Constants.Net.appNotice
             showSafari.toggle()
         } label: {
             HStack {
@@ -166,9 +168,12 @@ extension MoreView {
     }
     private var openFAQ: some View {
         Button {
-            selectedURL = Constants.appFAQs
-            showSafari.toggle()
-            print(selectedURL)
+            DispatchQueue.main.async {
+                
+                selectedURL = Constants.Net.appFAQs
+                showSafari.toggle()
+                print(selectedURL)
+            }
         } label: {
             HStack {
                 Text("FAQ")
@@ -205,7 +210,7 @@ extension MoreView {
         }  //: Contact us email button
         
         .sheet(isPresented: $showEmail) {
-            MailView(result: self.$result, newSubject: Constants.subject, newMsgBody: Constants.msgBody)
+            MailView(result: self.$result, newSubject: Constants.Net.subject, newMsgBody: Constants.Net.msgBody)
         }  //: Show Email composer sheet
         
         .alert(isPresented: $errorEmail) {
@@ -217,7 +222,7 @@ extension MoreView {
     }
     private var termsAndConditions: some View {
         Button {
-            selectedURL = Constants.appTNC
+            selectedURL = Constants.Net.appTNC
             showSafari.toggle()
             print(selectedURL)
         } label: {
@@ -230,9 +235,12 @@ extension MoreView {
     }
     private var privacyPolicy: some View {
         Button {
-            selectedURL = Constants.appPrivacy
-            showSafari.toggle()
-            print(selectedURL)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                selectedURL = Constants.Net.appPrivacy
+                showSafari.toggle()
+                print(selectedURL)
+            }
+            
         } label: {
             HStack {
                 Text("Privacy Policy")
