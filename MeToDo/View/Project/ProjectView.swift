@@ -19,6 +19,7 @@ struct ProjectView: View {
     @State private var itemDetail = ""
     @State private var itemPriority = 2
     @State private var showAddItem = false
+    @State private var currentProject: Project = .example
     @StateObject var viewModel: ViewModel
 
     // MARK: - Body
@@ -51,12 +52,16 @@ struct ProjectView: View {
             .disabled(showAddItem)
             .blur(radius: showAddItem ? 30 : 0)
             if showAddItem {
-                AddItemAlertView(showAddItem: $showAddItem, message: "Add item")
+                addItemAlert(project: currentProject, message: "Add a task".localized)
             }
         }  //: ZStack
     }  //: Body
     
-
+    func clearTextFields() {
+        itemTitle.removeAll()
+        itemDetail.removeAll()
+    }
+    
     var sortOrderToolbar: some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             Button {
@@ -85,6 +90,7 @@ struct ProjectView_Previews: PreviewProvider {
 
 
 extension ProjectView {
+    // MARK: - Item Row Section
     @ViewBuilder func sections(project: Project) -> some View {
         Section {
             ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
@@ -97,24 +103,12 @@ extension ProjectView {
             if viewModel.showClosedProjects ==  false {
                 Button {
                     withAnimation {
+                        currentProject = project
                         showAddItem.toggle()
                     }
                 } label: {
                     Label("Add a task", systemImage: "plus")
                 } //: Button
-//                .textFieldAlert(
-//                    isPresented: $showAddItem,
-//                    title: "Add a task".localized,
-//                    itemTitle: "",
-//                    itemTitlePlaceHolder: "Task name".localized,
-//                    itemDetail: "",
-//                    itemDetailPlaceHolder: "Description".localized,
-//                    action: {
-//                        itemTitle = $0?[0] ?? ""
-//                        itemDetail = $0?[1] ?? ""
-//                        viewModel.addItem(to: project, title: itemTitle, detail: itemDetail)
-//                    }
-//                )
             }  //: OpenTab
         } header: {
             ProjectHeaderView(project: project)
@@ -123,5 +117,38 @@ extension ProjectView {
         }  //: Section
         .padding([.top, .bottom], 5)
         .listRowSeparator(.hidden)
+    }
+    // MARK: - Add Item
+    @ViewBuilder func addItemAlert(project: Project, message: String) -> some View {
+        VStack {
+            Text(message)
+            Spacer()
+            TextField("Task name".localized, text: $itemTitle)
+            TextField("Description".localized, text: $itemDetail)
+            Divider()
+            HStack {
+                Button {
+                    showAddItem.toggle()
+                    clearTextFields()
+                } label: {
+                    Text("Close".localized)
+                }
+                .frame(width: UIScreen.main.bounds.width/2 - 30, height: 44)
+                .foregroundColor(.white)
+                Button {
+                    viewModel.addItem(to: project, title: itemTitle, detail: itemDetail)
+                    showAddItem.toggle()
+                    clearTextFields()
+                } label: {
+                    Text("Ok".localized)
+                }.disabled(itemTitle.isEmpty)
+                .frame(width: UIScreen.main.bounds.width/2 - 30, height: 44)
+                .foregroundColor(itemTitle.isEmpty ? .gray : .white)
+            }
+        }
+        .frame(width: UIScreen.main.bounds.width - 50, height: 200)
+        .background(Color.midnight.opacity(0.5))
+        .cornerRadius(12)
+        .clipped()
     }
 }
