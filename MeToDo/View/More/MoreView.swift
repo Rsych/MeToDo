@@ -8,7 +8,6 @@
 import SwiftUI
 import BetterSafariView
 import MessageUI
-//import SafariServices
 
 @MainActor
 struct MoreView: View {
@@ -24,7 +23,6 @@ struct MoreView: View {
     @State private var showSafari = false
     
     @State private var selectedURL: String?
-//    var selectedURL: String?
     
     @State private var showEmail = false
     @State private var errorEmail = false
@@ -67,23 +65,12 @@ struct MoreView: View {
             .listStyle(.plain)
             .padding(.bottom, 44)
             .navigationTitle("More")
-            
         }  //: NavView
-        //        .sheet(isPresented: $showSafari) {
-        //            SafariView(url: URL(string: selectedURL)!)
-        //        }
-        .safariView(isPresented: $showSafari) {
-            SafariView(
-                url: URL(string: selectedURL ?? "")!,
-                configuration: SafariView.Configuration(
-                    entersReaderIfAvailable: false,
-                    barCollapsingEnabled: true
-                )
-            )
-                .preferredBarAccentColor(.clear)
-                .preferredControlAccentColor(.accentColor)
-                .dismissButtonStyle(.done)
-        }  //: Safari Link Open
+        .sheet(isPresented: $showSafari) {
+            if let selectedURL = selectedURL {
+                SafariView(url: URL(string: selectedURL)!)
+            }
+        }
     }  //: body
 }
 
@@ -172,7 +159,7 @@ extension MoreView {
                 
                 selectedURL = Constants.Net.appFAQs
                 showSafari.toggle()
-                print(selectedURL)
+                debugPrint(selectedURL)
             }
         } label: {
             HStack {
@@ -224,7 +211,7 @@ extension MoreView {
         Button {
             selectedURL = Constants.Net.appTNC
             showSafari.toggle()
-            print(selectedURL)
+            debugPrint(selectedURL)
         } label: {
             HStack {
                 Text("Terms")
@@ -238,7 +225,7 @@ extension MoreView {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 selectedURL = Constants.Net.appPrivacy
                 showSafari.toggle()
-                print(selectedURL)
+                debugPrint(selectedURL)
             }
             
         } label: {

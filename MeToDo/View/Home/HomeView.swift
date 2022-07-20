@@ -56,6 +56,7 @@ struct HomeView: View {
                 }
             } //: VStack
         }  //: NavView
+        .navigationBarHidden(true)
     }  //: body
     func loadSpotlightItem(_ userActivity: NSUserActivity) {
         if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as?

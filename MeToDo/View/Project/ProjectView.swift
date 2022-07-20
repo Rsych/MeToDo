@@ -38,6 +38,7 @@ struct ProjectView: View {
                     sortOrderToolbar
                 } //: Toolbar
             }
+        .navigationBarHidden(true)
             .confirmationDialog("Sort tasks", isPresented: $showingSheet, titleVisibility: .visible) {
                 Button("Automatic") {
                     viewModel.sortOrder = .automatic
@@ -115,7 +116,7 @@ extension ProjectView {
                 .foregroundColor(.primary)
                 .font(.title2)
         }  //: Section
-        .padding([.top, .bottom], 5)
+//        .padding([.top, .bottom], 5)
         .listRowSeparator(.hidden)
     }
     // MARK: - Add Item
