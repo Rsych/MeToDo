@@ -97,6 +97,7 @@
 		71D917D7277CA6B40016773E /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D917D6277CA6B40016773E /* SharedItemsView.swift */; };
 		71F8122027D50A5300C0D709 /* DynamicHeightTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */; };
 		71F8122D27D6306100C0D709 /* DismissSheetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8122C27D6306100C0D709 /* DismissSheetKey.swift */; };
+		DB51B4552888981D005961F3 /* AddItemAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB51B4542888981D005961F3 /* AddItemAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +222,7 @@
 		71D917D6277CA6B40016773E /* SharedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItemsView.swift; sourceTree = "<group>"; };
 		71F8121F27D50A5300C0D709 /* DynamicHeightTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTextField.swift; sourceTree = "<group>"; };
 		71F8122C27D6306100C0D709 /* DismissSheetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSheetKey.swift; sourceTree = "<group>"; };
+		DB51B4542888981D005961F3 /* AddItemAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				715AEFDD27688821009C63DB /* ProjectView.swift */,
+				DB51B4542888981D005961F3 /* AddItemAlertView.swift */,
 				718B0CBB276A21A8005D496C /* ProjectHeaderView.swift */,
 				718B0CB3276A1038005D496C /* ItemRowListView.swift */,
 				71B709B8276A0B1F009E8ABD /* EditItemView.swift */,
@@ -719,6 +722,7 @@
 				71AD48732780975B0003BD64 /* MailView.swift in Sources */,
 				714D02B2277FD1D200DEF63F /* NavigationBackButton.swift in Sources */,
 				718B0CBC276A21A8005D496C /* ProjectHeaderView.swift in Sources */,
+				DB51B4552888981D005961F3 /* AddItemAlertView.swift in Sources */,
 				71602A77277E5FE30009EFD2 /* SystemThemeManager.swift in Sources */,
 				7104E858278B557800765963 /* LockedView.swift in Sources */,
 				7170D0FE2779B22A00BA0D62 /* DueDateView.swift in Sources */,
