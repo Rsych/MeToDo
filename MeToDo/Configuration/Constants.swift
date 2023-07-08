@@ -20,7 +20,7 @@ struct Constants {
     static let appTNC = "https://www.app-privacy-policy.com/live.php?token=ZuaSMtVr9EJOVRFsQbT3dIx4tMyHhcZe"
     static let appPrivacy = "https://www.app-privacy-policy.com/live.php?token=Y7UQg9oQzgj7Fn3BdnszPaVysRucAiZq"
     static let appEULA = "https://www.app-privacy-policy.com/live.php?token=TqYU0mZvliLWGHDnT4T2XZE3CyXuTLhX"
-
+    
     /* Send Email properties */
     static let adminEmail = ["metodooapp@gmail.com"]
     static let subject = "[iOS] subject here"
@@ -40,6 +40,4 @@ App Name: \(Bundle.main.appName)
 App Version: \(Bundle.main.appVersionLong)
 Identifier: \(uuid?.description ?? "")
 """
-    }
-    //    private init() {}
 }

@@ -218,7 +218,7 @@ extension MoreView {
         }  //: Contact us email button
         
         .sheet(isPresented: $showEmail) {
-            MailView(result: self.$result, newSubject: Constants.Net.subject, newMsgBody: Constants.Net.msgBody)
+            MailView(result: self.$result, newSubject: Constants.subject, newMsgBody: Constants.msgBody)
         }  //: Show Email composer sheet
         
         .alert(isPresented: $errorEmail) {
