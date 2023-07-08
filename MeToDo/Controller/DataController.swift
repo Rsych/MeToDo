@@ -208,6 +208,29 @@ class DataController: ObservableObject {
 
         return try? container.viewContext.existingObject(with: uniqueIdentifier) as? Item
     }
-    
+    // MARK: - Delete iCloud data
+    private func deleteAllData<T: NSManagedObject>(_ entity: T.Type) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: entity))
+
+        // This is a critical line, it tells Core Data to return all objects of the entity type as faults
+        fetchRequest.includesPropertyValues = false
+
+        do {
+            let items = try container.viewContext.fetch(fetchRequest) as! [NSManagedObject]
+
+            for item in items {
+                container.viewContext.delete(item)
+            }
+
+            save()
+        } catch {
+            debugPrint("Failed to delete data: \(error)")
+        }
+    }
+
+    func deleteAllDataFromICloud() {
+        deleteAllData(Item.self)
+        deleteAllData(Project.self)
+    }
 }
 

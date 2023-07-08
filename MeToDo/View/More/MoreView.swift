@@ -27,6 +27,7 @@ struct MoreView: View {
     @State private var showEmail = false
     @State private var errorEmail = false
     @State private var result: Result<MFMailComposeResult, Error>?
+    @State private var showDeleteAlert = false
     
     
     // MARK: - Body
@@ -37,6 +38,7 @@ struct MoreView: View {
                     customizationSection
                     security
                     appSettings
+                    deleteAll
                 }  //: First section Customization
                 .padding()
                 .listRowSeparator(.hidden)
@@ -72,6 +74,12 @@ struct MoreView: View {
             }
         }
     }  //: body
+    private func openLink(_ url: String) {
+        selectedURL = url
+        DispatchQueue.main.async {
+            self.showSafari = true
+        }
+    }
 }
 
 struct MoreView_Previews: PreviewProvider {
@@ -140,11 +148,29 @@ extension MoreView {
             }  //: HStack
         } .tint(.primary)
     }
+    private var deleteAll: some View {
+        Button {
+            showDeleteAlert.toggle()
+        } label: {
+            HStack {
+                Text("Delete All")
+                Spacer()
+                Image(systemName: "chevron.forward")
+            }  //: HStack
+        } .tint(.primary)
+            .alert("Delete All", isPresented: $showDeleteAlert) {
+                Button("Delete All", role: .destructive) {
+                    dataController.deleteAllDataFromICloud()
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("This will delete all data and it is not reversible!")
+            }
+    }
     // MARK: - AppInfo, SafariView
     private var openNotice: some View {
         Button {
-            selectedURL = Constants.Net.appNotice
-            showSafari.toggle()
+            openLink(Constants.appNotice)
         } label: {
             HStack {
                 Text("Notice")
@@ -155,12 +181,7 @@ extension MoreView {
     }
     private var openFAQ: some View {
         Button {
-            DispatchQueue.main.async {
-                
-                selectedURL = Constants.Net.appFAQs
-                showSafari.toggle()
-                debugPrint(selectedURL)
-            }
+            openLink(Constants.appFAQs)
         } label: {
             HStack {
                 Text("FAQ")
@@ -209,9 +230,7 @@ extension MoreView {
     }
     private var termsAndConditions: some View {
         Button {
-            selectedURL = Constants.Net.appTNC
-            showSafari.toggle()
-            debugPrint(selectedURL)
+            openLink(Constants.appTNC)
         } label: {
             HStack {
                 Text("Terms")
@@ -222,12 +241,7 @@ extension MoreView {
     }
     private var privacyPolicy: some View {
         Button {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                selectedURL = Constants.Net.appPrivacy
-                showSafari.toggle()
-                debugPrint(selectedURL)
-            }
-            
+            openLink(Constants.appPrivacy)
         } label: {
             HStack {
                 Text("Privacy Policy")
