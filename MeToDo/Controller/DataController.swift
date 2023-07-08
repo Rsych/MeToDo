@@ -78,26 +78,26 @@ class DataController: ObservableObject {
     /// Creates example projects and items to make manual testing easier.
     /// - Throws: An NSError sent from calling save() on the NSManagedObjectContext.
     func createSampleData() throws {
-        let viewContext = container.viewContext
-
-        for projectCounter in 1...5 {
-            let project = Project(context: viewContext)
-            project.title = "Project \(projectCounter)"
-            project.items = []
-            project.creationDate = Date()
-            project.closed = Bool.random()
-            project.color = Project.colors.randomElement()
-
-            for itemCounter in 1...5 {
-                let item = Item(context: viewContext)
-                item.title = "Item \(itemCounter)"
-                item.creationDate = Date()
-                item.completed = Bool.random()
-                item.priority = Int16.random(in: 1...3)
-                item.project = project
-            }
-        }
-        try viewContext.save()
+//        let viewContext = container.viewContext
+//
+//        for projectCounter in 1...5 {
+//            let project = Project(context: viewContext)
+//            project.title = "Project \(projectCounter)"
+//            project.items = []
+//            project.creationDate = Date()
+//            project.closed = Bool.random()
+//            project.color = Project.colors.randomElement()
+//
+//            for itemCounter in 1...5 {
+//                let item = Item(context: viewContext)
+//                item.title = "Item \(itemCounter)"
+//                item.creationDate = Date()
+//                item.completed = Bool.random()
+//                item.priority = Int16.random(in: 1...3)
+//                item.project = project
+//            }
+//        }
+//        try viewContext.save()
     }
 
     /// Saves our Core Data context iff there are changes. This silently ignores
