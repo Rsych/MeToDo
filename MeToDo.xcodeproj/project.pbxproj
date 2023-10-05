@@ -42,7 +42,7 @@
 		719EA653277B6F4200F17102 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719EA652277B6F4200F17102 /* SwiftUI.framework */; };
 		719EA656277B6F4200F17102 /* TodoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA655277B6F4200F17102 /* TodoWidget.swift */; };
 		719EA658277B6F4300F17102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 719EA657277B6F4300F17102 /* Assets.xcassets */; };
-		719EA65C277B6F4300F17102 /* TodoWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 719EA64F277B6F4200F17102 /* TodoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		719EA65C277B6F4300F17102 /* TodoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 719EA64F277B6F4200F17102 /* TodoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		719EA661277B710700F17102 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 710C89842768784D004FADCD /* Main.xcdatamodeld */; };
 		719EA662277B712200F17102 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715AEFDF27688CE1009C63DB /* CoreDataHelper.swift */; };
 		719EA663277B712A00F17102 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C898727687AC3004FADCD /* DataController.swift */; };
@@ -118,15 +118,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		719EA65D277B6F4300F17102 /* Embed App Extensions */ = {
+		719EA65D277B6F4300F17102 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				719EA65C277B6F4300F17102 /* TodoWidgetExtension.appex in Embed App Extensions */,
+				719EA65C277B6F4300F17102 /* TodoWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -560,7 +560,7 @@
 				71A63DFA276766EE00EAB2EC /* Sources */,
 				71A63DFB276766EE00EAB2EC /* Frameworks */,
 				71A63DFC276766EE00EAB2EC /* Resources */,
-				719EA65D277B6F4300F17102 /* Embed App Extensions */,
+				719EA65D277B6F4300F17102 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -601,7 +601,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					719EA64E277B6F4200F17102 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -934,6 +934,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -999,6 +1000,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1027,7 +1029,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23070802;
+				CURRENT_PROJECT_VERSION = 2023100501;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1045,7 +1047,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.8.1;
+				MARKETING_VERSION = 2.8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1063,7 +1065,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MeToDo/MeToDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23070802;
+				CURRENT_PROJECT_VERSION = 2023100501;
 				DEVELOPMENT_ASSET_PATHS = "\"MeToDo/Preview Content\"";
 				DEVELOPMENT_TEAM = G6V85GALCN;
 				ENABLE_PREVIEWS = YES;
@@ -1081,7 +1083,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.8.1;
+				MARKETING_VERSION = 2.8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.naolin.MeToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

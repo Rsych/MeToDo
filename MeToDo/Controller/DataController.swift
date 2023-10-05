@@ -42,6 +42,7 @@ class DataController: ObservableObject {
 
             // Automatically merge changes from iCloud
             self.container.viewContext.automaticallyMergesChangesFromParent = true
+            self.container.viewContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
 
             #if DEBUG
             if CommandLine.arguments.contains("enable-testing") {
